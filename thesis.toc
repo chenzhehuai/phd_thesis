@@ -111,98 +111,112 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}基于GPU并行计算的搜索速度优化}{55}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}维特比算法并行化框架}{55}{section.4.1}
+\contentsline {section}{\numberline {4.1}引言}{55}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}并行的令牌传递算法}{55}{section.4.2}
+\contentsline {section}{\numberline {4.2}维特比算法并行化框架}{56}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}图搜索的动态负载均衡算法}{55}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.1}系统框架}{56}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}并行的词图处理算法}{55}{section.4.4}
+\contentsline {section}{\numberline {4.3}并行的令牌传递算法}{57}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}实验结果}{55}{section.4.5}
+\contentsline {section}{\numberline {4.4}图搜索的动态负载均衡算法}{58}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}本章小结}{55}{section.4.6}
+\contentsline {section}{\numberline {4.5}并行的词图处理算法}{59}{section.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第五章\hspace {.3em}}基于标签同步解码的搜索空间优化}{57}{chapter.5}
+\contentsline {subsection}{\numberline {4.5.1}精确的词图生成算法}{59}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}引言}{57}{section.5.1}
+\contentsline {subsection}{\numberline {4.5.2}词图剪枝}{60}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}基于连接时序模型的标签同步解码}{59}{section.5.2}
+\contentsline {section}{\numberline {4.6}实验结果}{60}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}语音识别解码算法研究现状分析}{59}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {4.6.1}实验配置}{60}{subsection.4.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1.1}序列标注与序列模型}{59}{subsubsection.5.2.1.1}
+\contentsline {subsection}{\numberline {4.6.2}性能和速度}{62}{subsection.4.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1.2}帧同步解码算法}{61}{subsubsection.5.2.1.2}
+\contentsline {subsection}{\numberline {4.6.3}分析}{62}{subsection.4.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理}{62}{subsection.5.2.2}
+\contentsline {section}{\numberline {4.7}本章小结}{64}{section.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.1}标签同步解码}{62}{subsubsection.5.2.2.1}
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}基于标签同步解码的搜索空间优化}{67}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.2}标签同步解码算法实现}{63}{subsubsection.5.2.2.2}
+\contentsline {section}{\numberline {5.1}引言}{67}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}基于无词图鉴别性训练模型的标签同步解码}{64}{section.5.3}
+\contentsline {section}{\numberline {5.2}基于连接时序模型的标签同步解码}{69}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.0.1}标签同步解码}{64}{subsubsection.5.3.0.1}
+\contentsline {subsection}{\numberline {5.2.1}语音识别解码算法研究现状分析}{69}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.0.2}标签同步解码算法实现}{66}{subsubsection.5.3.0.2}
+\contentsline {subsubsection}{\numberline {5.2.1.1}序列标注与序列模型}{69}{subsubsection.5.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}基于标签同步解码的端到端语音识别}{67}{section.5.4}
+\contentsline {subsubsection}{\numberline {5.2.1.2}帧同步解码算法}{71}{subsubsection.5.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}训练和解码框架}{68}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理}{72}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}模块化}{69}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}标签同步解码}{72}{subsubsection.5.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.3}标签同步解码}{70}{subsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.2.2.2}标签同步解码算法实现}{73}{subsubsection.5.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.4}联合训练}{70}{subsection.5.4.4}
+\contentsline {section}{\numberline {5.3}基于无词图鉴别性训练模型的标签同步解码}{74}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}实验结果}{70}{section.5.5}
+\contentsline {subsubsection}{\numberline {5.3.0.1}标签同步解码}{74}{subsubsection.5.3.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}DSM实验}{71}{subsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.3.0.2}标签同步解码算法实现}{76}{subsubsection.5.3.0.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}GSM实验}{74}{subsection.5.5.2}
+\contentsline {section}{\numberline {5.4}基于标签同步解码的端到端语音识别}{77}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.3}标签同步解码在模块化训练中的应用}{77}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.4.1}训练和解码框架}{78}{subsection.5.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.6}本章小结}{79}{section.5.6}
+\contentsline {subsection}{\numberline {5.4.2}模块化}{79}{subsection.5.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第六章\hspace {.3em}}基于标签同步解码的统一解码框架}{81}{chapter.6}
+\contentsline {subsection}{\numberline {5.4.3}标签同步解码}{80}{subsection.5.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}基于标签同步解码的置信度框架}{81}{section.6.1}
+\contentsline {subsection}{\numberline {5.4.4}联合训练}{80}{subsection.5.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}基于标签同步解码的多识别任务统一框架}{81}{section.6.2}
+\contentsline {section}{\numberline {5.5}实验结果}{80}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}实验结果}{81}{section.6.3}
+\contentsline {subsection}{\numberline {5.5.1}DSM实验}{81}{subsection.5.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}本章小结}{81}{section.6.4}
+\contentsline {subsection}{\numberline {5.5.2}GSM实验}{84}{subsection.5.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第七章\hspace {.3em}}关键词检测的序列建模和标签同步解码}{83}{chapter.7}
+\contentsline {subsection}{\numberline {5.5.3}标签同步解码在模块化训练中的应用}{87}{subsection.5.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}基于深度学习的关键词检测及其置信度}{83}{section.7.1}
+\contentsline {section}{\numberline {5.6}本章小结}{89}{section.5.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}关键词检测的序列鉴别性训练}{83}{section.7.2}
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}基于标签同步解码的统一解码框架}{91}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}关键词检测的标签同步解码}{83}{section.7.3}
+\contentsline {section}{\numberline {6.1}基于标签同步解码的置信度框架}{91}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}实验结果}{83}{section.7.4}
+\contentsline {section}{\numberline {6.2}基于标签同步解码的多识别任务统一框架}{91}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.5}本章小结}{83}{section.7.5}
+\contentsline {section}{\numberline {6.3}实验结果}{91}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第八章\hspace {.3em}}全文总结}{85}{chapter.8}
+\contentsline {section}{\numberline {6.4}本章小结}{91}{section.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.1}基于GPU并行计算的搜索速度优化}{85}{section.8.1}
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}关键词检测的序列建模和标签同步解码}{93}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.2}基于标签同步解码的搜索空间优化}{85}{section.8.2}
+\contentsline {section}{\numberline {7.1}基于深度学习的关键词检测及其置信度}{93}{section.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.3}基于标签同步解码的统一解码框架}{85}{section.8.3}
+\contentsline {section}{\numberline {7.2}关键词检测的序列鉴别性训练}{93}{section.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.4}关键词检测的序列建模和标签同步解码}{85}{section.8.4}
+\contentsline {section}{\numberline {7.3}关键词检测的标签同步解码}{93}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.5}后续工作展望}{85}{section.8.5}
+\contentsline {section}{\numberline {7.4}实验结果}{93}{section.7.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{参考文献}{87}{appendix*.7}
+\contentsline {section}{\numberline {7.5}本章小结}{93}{section.7.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{攻读学位期间发表的学术论文}{99}{appendix*.8}
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}全文总结}{95}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{101}{appendix*.9}
+\contentsline {section}{\numberline {8.1}基于GPU并行计算的搜索速度优化}{95}{section.8.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.2}基于标签同步解码的搜索空间优化}{95}{section.8.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.3}基于标签同步解码的统一解码框架}{95}{section.8.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.4}关键词检测的序列建模和标签同步解码}{95}{section.8.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.5}后续工作展望}{95}{section.8.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{参考文献}{97}{appendix*.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{攻读学位期间发表的学术论文}{111}{appendix*.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{113}{appendix*.9}

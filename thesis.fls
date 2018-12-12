@@ -309,6 +309,8 @@ INPUT tex/gpuwfst.aux
 INPUT tex/gpuwfst.aux
 INPUT tex/psd.aux
 INPUT tex/psd.aux
+INPUT tex/unified.aux
+INPUT tex/unified.aux
 INPUT tex/summary.aux
 INPUT tex/summary.aux
 INPUT tex/pub.aux
@@ -468,6 +470,10 @@ INPUT figure/tr-curve.pdf
 OUTPUT tex/gpuwfst.aux
 INPUT tex/gpuwfst.tex
 INPUT tex/gpuwfst.tex
+INPUT figure/gpu_framework.pdf
+INPUT figure/load-balance.pdf
+INPUT figure/gpu_analysis.pdf
+INPUT figure/gpu_profile.pdf
 OUTPUT tex/psd.aux
 INPUT tex/psd.tex
 INPUT tex/psd.tex
@@ -476,6 +482,9 @@ INPUT figure/psd_mod_framework.pdf
 INPUT figure/speed-robust.pdf
 INPUT figure/prune-wer-at-dsm.pdf
 INPUT figure/prune-wer-at-gsm.pdf
+OUTPUT tex/unified.aux
+INPUT tex/unified.tex
+INPUT tex/unified.tex
 OUTPUT tex/summary.aux
 INPUT tex/summary.tex
 INPUT tex/summary.tex
@@ -502,6 +511,8 @@ INPUT tex/gpuwfst.aux
 INPUT tex/gpuwfst.aux
 INPUT tex/psd.aux
 INPUT tex/psd.aux
+INPUT tex/unified.aux
+INPUT tex/unified.aux
 INPUT tex/summary.aux
 INPUT tex/summary.aux
 INPUT tex/pub.aux

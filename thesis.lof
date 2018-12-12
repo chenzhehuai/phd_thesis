@@ -46,17 +46,25 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4--1}{\ignorespaces \it 并行维特比束剪枝算法以及精确词图处理系统的框架}}{56}{figure.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4--2}{\ignorespaces \it 一个针对动态负载均衡的例子。这里的虚线框表示一个 CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其他线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}}{59}{figure.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4--3}{\ignorespaces \it 语言模型大小，帧率，GPU架构的比较}}{64}{figure.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4--4}{\ignorespaces {\it 针对解码器的时间占比分析} }}{65}{figure.4.4}
+\defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--1}{\ignorespaces \it HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。 }}{64}{figure.5.1}
+\contentsline {figure}{\numberline {5--1}{\ignorespaces \it HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。 }}{74}{figure.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--2}{\ignorespaces \it 模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}}{68}{figure.5.2}
+\contentsline {figure}{\numberline {5--2}{\ignorespaces \it 模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}}{78}{figure.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--3}{\ignorespaces {\it LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势。（为清晰起见，这里仅绘制swb子集，calhm子集具有类似变化趋势。）}}}{72}{figure.5.3}
+\contentsline {figure}{\numberline {5--3}{\ignorespaces {\it LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势。（为清晰起见，这里仅绘制swb子集，calhm子集具有类似变化趋势。）}}}{82}{figure.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--4}{\ignorespaces {\it 对于swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势。calhm子集结果类似 }}}{74}{figure.5.4}
+\contentsline {figure}{\numberline {5--4}{\ignorespaces {\it 对于swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势。calhm子集结果类似 }}}{84}{figure.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--5}{\ignorespaces {\it LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势 }}}{76}{figure.5.5}
+\contentsline {figure}{\numberline {5--5}{\ignorespaces {\it LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势 }}}{86}{figure.5.5}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
