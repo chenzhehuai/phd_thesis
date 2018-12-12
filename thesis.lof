@@ -1,0 +1,69 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1--1}{\ignorespaces 语音识别词错误率变迁图(截止2009年)}}{3}{figure.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1--2}{\ignorespaces 语音识别框架}}{4}{figure.1.2}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2--1}{\ignorespaces 隐马尔可夫模型}}{11}{figure.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2--2}{\ignorespaces 单高斯三音素的状态聚类}}{18}{figure.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2--3}{\ignorespaces 通用解码器架构}}{25}{figure.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2--4}{\ignorespaces N-Best候选序列和词图}}{29}{figure.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2--5}{\ignorespaces 词图的用途举例}}{29}{figure.2.5}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--1}{\ignorespaces 深度神经网络}}{32}{figure.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--2}{\ignorespaces 激活函数}}{33}{figure.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--3}{\ignorespaces 卷积操作和池化操作}}{34}{figure.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--4}{\ignorespaces 受限玻尔兹曼机}}{40}{figure.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--5}{\ignorespaces DNN-HMM混合系统}}{42}{figure.3.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--6}{\ignorespaces 端到端系统举例}}{44}{figure.3.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--7}{\ignorespaces 传统系统与端到端系统比较}}{46}{figure.3.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--8}{\ignorespaces \it PIT-ASR 联合训练与模块化初始化和逐步联合训练的比较。 点划线框表示可以学习的模型参数。点线框表示可以学习的并且是共享的模型参数。 }}{49}{figure.3.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--9}{\ignorespaces \it 模型系统训练框架。 \cite {yu2017recognizing}中提出的结构由虚线框部分表示，其用于推理出每个说话人的语音信息。该结构被模块化（三个实线框）并作逐一增量的预训练。针对自身的迁移学习和多输出序列鉴别性训练在模块初始化后的神经网络上进行。}}{50}{figure.3.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--10}{\ignorespaces \it 基于迁移学习的逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享的模型参数。}}{50}{figure.3.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3--11}{\ignorespaces \it 原始联合训练和所提出的方法在验证集上的学习曲线比较。在图中，联合训练，逐步联合训练，基于迁移学习的逐步联合训练被分别表示为Joint Model, Pro. Joint Model 和 Pro. Joint Model + Transf. 图中每个epoch包含24小时训练数据。 }}{51}{figure.3.11}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5--1}{\ignorespaces \it HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。 }}{64}{figure.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5--2}{\ignorespaces \it 模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}}{68}{figure.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5--3}{\ignorespaces {\it LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势。（为清晰起见，这里仅绘制swb子集，calhm子集具有类似变化趋势。）}}}{72}{figure.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5--4}{\ignorespaces {\it 对于swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势。calhm子集结果类似 }}}{74}{figure.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5--5}{\ignorespaces {\it LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势 }}}{76}{figure.5.5}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\addvspace {10.0pt}

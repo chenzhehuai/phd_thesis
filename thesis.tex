@@ -1,0 +1,156 @@
+%# -*- coding: utf-8-unix -*-
+%%==================================================
+%% thesis.tex
+%%==================================================
+
+% 双面打印
+\documentclass[doctor, nofonts, openright, twoside, cs4size, submit]{sjtuthesis}
+% \documentclass[bachelor, nofonts, openany, oneside, cs4size, submit]{sjtuthesis} 
+% \documentclass[master, nofonts, review]{sjtuthesis} 
+% \documentclass[%
+%   bachelor|master|doctor,	% 必选项
+%   adobefonts|winfonts,  	% 只测试了adobefonts，请使用adobefonts
+%   oneside|twoside,		% 单面打印，双面打印(奇偶页交换页边距，默认)
+%   openany|openright, 		% 可以在奇数或者偶数页开新章|只在奇数页开新章(默认)
+%   cs4size|c5size, 		% 正文字号：小四、五号(默认)
+%   review,	 		% 盲审论文，隐去作者姓名、学号、导师姓名、致谢、发表论文和参与的项目
+%   submit			% 定稿提交的论文，插入签名扫描版的原创性声明、授权声明 
+% ]
+
+
+%% font settings
+\usepackage{thesisfonts_external}
+
+% 逐个导入参考文献数据库
+\addbibresource{bib/thesis.bib}
+
+%%%%%%%%%%%%%%%%%%%% my packages %%%%%%%%%%%%%%%%%%%%
+% \addbibresource{bib/chap2.bib}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage{amsmath}
+%\usepackage{url}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{epstopdf}
+\usepackage{array}
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand\Mark[1]{\textsuperscript#1}
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+\def\vec#1{\ensuremath{\bm{{#1}}}}
+\def\mat#1{\vec{#1}}
+\newcommand{\ue}{\mathrm{e}}
+\usepackage{float}
+\hyphenpenalty=5000
+
+
+\begin{document}
+
+%% 无编号内容：中英文论文封面、授权页
+\include{tex/id}
+\maketitle
+
+\makeenglishtitle
+
+\makeatletter
+\ifsjtu@submit\relax
+	\includepdf{pdf/original.pdf}
+	aaaaa
+	\cleardoublepage
+	\includepdf{pdf/authorization.pdf}
+	\cleardoublepage
+\else
+	\makeDeclareOriginal
+	\makeDeclareAuthorization
+\fi
+\makeatother
+
+
+\frontmatter 	% 使用罗马数字对前言编号
+
+%% 摘要
+\pagestyle{main}
+\include{tex/abstract}
+
+%% 目录、插图目录、表格目录
+\tableofcontents
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename} %将插图目录加入全文目录
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}  %将表格目录加入全文目录
+% \listofalgorithms
+% \addcontentsline{toc}{chapter}{代码索引}  %将表格目录加入全文目录
+
+\include{tex/symbol} % 主要符号、缩略词对照表
+
+\mainmatter	% 使用阿拉伯数字对正文编号
+
+%% 正文内容
+\pagestyle{main}
+\include{tex/intro0}
+\include{tex/intro}
+\include{tex/intro2}
+\include{tex/gpuwfst}
+\include{tex/psd}
+
+
+
+\chapter{基于标签同步解码的统一解码框架}
+\label{chap:unify}
+\section{基于标签同步解码的置信度框架}
+\label{chap:unify-confidence}
+\section{基于标签同步解码的多识别任务统一框架}
+\label{chap:unify-framework}
+\section{实验结果}
+\label{chap:unify-exp}
+\section{本章小结}
+\label{chap:unify-sum}
+
+\chapter{关键词检测的序列建模和标签同步解码}
+\label{chap:kws}
+\section{基于深度学习的关键词检测及其置信度}
+\label{chap:kws-intro}
+\section{关键词检测的序列鉴别性训练}
+\label{chap:kws-dt}
+\section{关键词检测的标签同步解码}
+\label{chap:kws-lsd}
+\section{实验结果}
+\label{chap:kws-exp}
+\section{本章小结}
+\label{chap:kws-sum}
+\include{tex/summary}
+
+\appendix	% 使用英文字母对附录编号，重新定义附录中的公式、图图表编号样式
+\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}	
+\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
+\renewcommand\thetable{\Alph{chapter}--\arabic{table}}
+\renewcommand\thealgorithm{\Alph{chapter}--\arabic{algorithm}}
+
+%% 附录内容，本科学位论文可以用翻译的文献替代。
+%\include{tex/app_a}
+
+\backmatter	% 文后无编号部分 
+
+%% 参考资料
+\printbibliography[heading=bibintoc]
+
+\include{tex/pub}	  %% 发表论文
+%% 致谢、发表论文、申请专利、参与项目、简历
+%% 用于盲审的论文需隐去致谢、发表论文、申请专利、参与的项目
+\makeatletter
+\ifsjtu@review\relax\else
+  \include{tex/ack} 	  %% 致谢
+  %\include{tex/patents}	  %% 申请专利
+  %\include{tex/projects}  %% 参与的项目
+% \include{tex/resume}	  %% 各人简历
+\fi
+\makeatother
+
+\end{document}
