@@ -68,7 +68,27 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--1}{\ignorespaces {\it LSD CTC Lattice的例子}}}{94}{figure.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--2}{\ignorespaces {\it FSD HMM 和 LSD CTC所产生的词图比较}}}{95}{figure.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--3}{\ignorespaces {\it 架构比较。对于原始的搜索空间，其可以是关键词检测，基于上下文的语音识别和大词汇连续语音识别。 }}}{99}{figure.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--4}{\ignorespaces {\it OPER v.s. 词图密度在 FSD 和 PSD 中的比较}}}{101}{figure.6.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--5}{\ignorespaces {\it 词图密度 v.s. 相对 OWER下降比例}}}{101}{figure.6.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--6}{\ignorespaces {\it LSD和FSD的词边界稳定性}}}{102}{figure.6.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6--7}{\ignorespaces {\it 词图密度 v.s. 混淆网络深度 }}}{103}{figure.6.7}
+\defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--1}{\ignorespaces \it 基于 $\tt filler$ 解码的搜索空间结构图}}{116}{figure.7.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--2}{\ignorespaces \it 所提出的MED方法的框架。这里使用音素CTC作为例子}}{117}{figure.7.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--3}{\ignorespaces \it 非固定关键词的关键词检测的ROC 曲线比较}}{123}{figure.7.3}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 

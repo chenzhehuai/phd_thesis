@@ -36,7 +36,31 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--1}{\ignorespaces {\it WER 比较}}}{99}{table.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--2}{\ignorespaces {\it 针对音素声学置信度的比较}}}{103}{table.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--3}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{104}{table.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--4}{\ignorespaces {\it KWS 任务}}}{104}{table.6.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--5}{\ignorespaces {\it 基于上下文的语音识别}}}{105}{table.6.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {6--6}{\ignorespaces {\it LVCSR 任务}}}{105}{table.6.6}
+\defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--1}{\ignorespaces {\it 基于HMM的序列鉴别性训练的模型框架}}}{120}{table.7.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--2}{\ignorespaces {\it 基于HMM的鉴别性训练的准则比较}}}{120}{table.7.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--3}{\ignorespaces {\it 音素CTC在是否包含 $\tt wb$ 时的模型性能}}}{121}{table.7.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--4}{\ignorespaces {\it 序列鉴别性训练系统的后处理}}}{121}{table.7.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--5}{\ignorespaces {\it 非固定关键词的关键词检测中的性能和速度比较}}}{122}{table.7.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--6}{\ignorespaces {\it 固定关键词的KWS系统的性能和速度比较}}}{124}{table.7.6}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 

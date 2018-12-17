@@ -375,7 +375,7 @@ P(\mathbf{x}|l)
 
 
 
-本文将图1（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局bank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图1（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
+本文将图\ref{fig:hmm-topo}（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局bank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
 
 本文在维特比搜索中除了使用传统的束剪枝算法\cite{forney1973viterbi}和直方图剪枝算法\cite{steinbiss1994improvements}（自适应束剪枝\cite{van1996adaptive}）之外，提出了另外两种剪枝方法。 在LSD中，blank帧占总帧数的百分比与加速比成正比，而blank帧通过公式进行判定。作为束剪枝算法的变体，这里提出了基于blank帧阈值T的剪枝算法，称为blank剪枝。当阈值T固定时，推理分布的尖峰属性决定了加速比，而尖峰属性显示了神经网络输出分布的置信度。在神经网络的模型训练阶段，本文又提出了基于假设剪枝的熵剪枝算法。 在文献\cite{pereyra2017regularizing}中，作者通过惩罚确定的输出分布来防止过拟合和提高神经网络的泛化能力。受这项工作的启发， 我们在LSD框架中对输出分布的熵进行了控制，作为候选序列的剪枝方法。具体来说，在模型训练中将输出分布的熵添加到负对数似然$\mathcal{L}(\theta)$中，公式如下所示:
   
