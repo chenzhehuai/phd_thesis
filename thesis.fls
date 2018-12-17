@@ -319,6 +319,8 @@ INPUT tex/pub.aux
 INPUT tex/pub.aux
 INPUT tex/ack.aux
 INPUT tex/ack.aux
+INPUT tex/patents.aux
+INPUT tex/patents.aux
 OUTPUT thesis.aux
 OUTPUT thesis.bcf
 INPUT thesis.bbl
@@ -426,10 +428,6 @@ INPUT tex/intro0.tex
 INPUT tex/intro0.tex
 INPUT figure/WER.png
 INPUT figure/asr.png
-OUTPUT tex/intro.aux
-INPUT tex/intro.tex
-INPUT tex/intro.tex
-INPUT figure/hmm.pdf
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
@@ -451,6 +449,10 @@ INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm5.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy9.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy5.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+OUTPUT tex/intro.aux
+INPUT tex/intro.tex
+INPUT tex/intro.tex
+INPUT figure/hmm.pdf
 INPUT figure/state.png
 INPUT figure/dec_arch.png
 INPUT figure/lattice.png
@@ -531,6 +533,9 @@ INPUT tex/pub.tex
 OUTPUT tex/ack.aux
 INPUT tex/ack.tex
 INPUT tex/ack.tex
+OUTPUT tex/patents.aux
+INPUT tex/patents.tex
+INPUT tex/patents.tex
 INPUT thesis.aux
 INPUT tex/id.aux
 INPUT tex/id.aux
@@ -558,6 +563,8 @@ INPUT tex/pub.aux
 INPUT tex/pub.aux
 INPUT tex/ack.aux
 INPUT tex/ack.aux
+INPUT tex/patents.aux
+INPUT tex/patents.aux
 INPUT ./thesis.out
 INPUT thesis.run.xml
 OUTPUT thesis.run.xml
