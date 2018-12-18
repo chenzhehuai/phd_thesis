@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  17 DEC 2018 17:21
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  18 DEC 2018 09:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2054,7 +2054,7 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 ) (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/i
 ntro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/gpuwfst.aux) (./tex/psd.
 aux) (./tex/unified.aux) (./tex/kws.aux) (./tex/summary.aux) (./tex/pub.aux) (.
-/tex/ack.aux) (./tex/patents.aux))
+/tex/patents.aux) (./tex/ack.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -2790,22 +2790,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 21--22
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 23--24
 \TU/texgyretermes(0)/m/n/12.045 Distillation for Sequence Model, 19th Annual Co
 nference of International Speech
  []
 
 ) [154]
-\openout2 = `tex/ack.aux'.
+\openout2 = `tex/patents.aux'.
 
-(./tex/ack.tex) [155
+(./tex/patents.tex) [155
 
 
 
 ]
-\openout2 = `tex/patents.aux'.
+\openout2 = `tex/ack.aux'.
 
-(./tex/patents.tex [156
+(./tex/ack.tex [156
 
 
 
@@ -2816,11 +2821,11 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/int
 ro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/gpuwfst.aux) (./tex/psd.au
 x) (./tex/unified.aux) (./tex/kws.aux) (./tex/summary.aux) (./tex/pub.aux) (./t
-ex/ack.aux) (./tex/patents.aux))
+ex/patents.aux) (./tex/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 798DBBCE6DF47280B23A51794904D5C8.
+(rerunfilecheck)             Checksum: 3762646858E1E23140BF8CFA706ED86D.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2831,12 +2836,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37647 strings out of 492970
- 769665 string characters out of 6137298
- 1289288 words of memory out of 5000000
- 40957 multiletter control sequences out of 15000+600000
+ 37637 strings out of 492970
+ 768898 string characters out of 6137298
+ 1289053 words of memory out of 5000000
+ 40947 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,20n,80p,10440b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (181 pages, 2681224 bytes).
+Output written on thesis.xdv (181 pages, 2681400 bytes).
