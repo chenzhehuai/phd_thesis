@@ -1839,6 +1839,36 @@
       \field{userf}{en}
       \field{year}{2011}
     \endentry
+    \entry{hermansky1990perceptual}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8517d7449d5b4dc0036b6cdf958c4418}{%
+           family={Hermansky},
+           familyi={H\bibinitperiod},
+           given={Hynek},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ASA}%
+      }
+      \strng{namehash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \strng{fullhash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \strng{bibnamehash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \strng{authorbibnamehash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \strng{authornamehash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \strng{authorfullhash}{8517d7449d5b4dc0036b6cdf958c4418}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{the Journal of the Acoustical Society of America}
+      \field{number}{4}
+      \field{title}{Perceptual linear predictive {(PLP)} analysis of speech}
+      \field{userf}{en}
+      \field{volume}{87}
+      \field{year}{1990}
+      \field{pages}{1738\bibrangedash 1752}
+      \range{pages}{15}
+    \endentry
     \entry{davis1980comparison}{article}{}
       \name{author}{2}{}{%
         {{hash=29e2a3f64de2c8c77f2e67d098e629ba}{%
@@ -1858,8 +1888,8 @@
       \strng{authorbibnamehash}{2a03ddd75c0ce905d326433c93a40b52}
       \strng{authornamehash}{2a03ddd75c0ce905d326433c93a40b52}
       \strng{authorfullhash}{2a03ddd75c0ce905d326433c93a40b52}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
@@ -1869,36 +1899,6 @@
       \field{year}{1980}
       \field{pages}{357\bibrangedash 366}
       \range{pages}{10}
-    \endentry
-    \entry{hermansky1990perceptual}{article}{}
-      \name{author}{1}{}{%
-        {{hash=8517d7449d5b4dc0036b6cdf958c4418}{%
-           family={Hermansky},
-           familyi={H\bibinitperiod},
-           given={Hynek},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {ASA}%
-      }
-      \strng{namehash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \strng{fullhash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \strng{bibnamehash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \strng{authorbibnamehash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \strng{authornamehash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \strng{authorfullhash}{8517d7449d5b4dc0036b6cdf958c4418}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{the Journal of the Acoustical Society of America}
-      \field{number}{4}
-      \field{title}{Perceptual linear predictive {(PLP)} analysis of speech}
-      \field{userf}{en}
-      \field{volume}{87}
-      \field{year}{1990}
-      \field{pages}{1738\bibrangedash 1752}
-      \range{pages}{15}
     \endentry
     \entry{seide2011feature}{inproceedings}{}
       \name{author}{4}{}{%
