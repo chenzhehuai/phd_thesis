@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  18 DEC 2018 22:14
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  19 DEC 2018 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2424,10 +2424,16 @@ cript=latn;language=DFLT;mapping=tex-text;!
 [17] [18] [19]
 File: figure/state.png Graphic file (type bmp)
 <figure/state.png>
-[20] [21] [22] [23] [24] [25]
+[20] [21] [22]
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+[23] [24] [25]
 File: figure/dec_arch.png Graphic file (type bmp)
 <figure/dec_arch.png>
-[26] [27] [28] [29]
+[26]
+Underfull \vbox (badness 1072) has occurred while \output is active []
+
+[27] [28] [29]
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 File: figure/lattice.png Graphic file (type bmp)
@@ -2435,18 +2441,18 @@ File: figure/lattice.png Graphic file (type bmp)
 [30]
 File: figure/lattice_usage.png Graphic file (type bmp)
 <figure/lattice_usage.png>
-) [31]
+) [31] [32]
 \openout2 = `tex/intro2.aux'.
 
-(./tex/intro2.tex [32
+(./tex/intro2.tex
+第三章
+File: figure/dnn.png Graphic file (type bmp)
+<figure/dnn.png>
+[33
 
 
 
 ]
-第三章
-File: figure/dnn.png Graphic file (type bmp)
-<figure/dnn.png>
-[33]
 File: figure/activation.png Graphic file (type bmp)
 <figure/activation.png>
 [34] [35]
@@ -2455,10 +2461,7 @@ File: figure/cnn.png Graphic file (type bmp)
 [36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[37] [38] [39] [40]
-Underfull \vbox (badness 2073) has occurred while \output is active []
-
-[41]
+[37] [38] [39] [40] [41]
 File: figure/RBM.png Graphic file (type bmp)
 <figure/RBM.png>
 [42] [43]
@@ -2756,14 +2759,14 @@ Underfull \hbox (badness 1005) in paragraph at lines 118--118
 
 
 
-] [134] [135] [136] [137] [138] [139] [140] [141]
+] [134] [135] [136] [137] [138] [139] [140] [141] [142]
 Overfull \hbox (42.24709pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 Word Models for English Conversational Speech 
 Recognition\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1703.07754\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[142] [143] [144]
+[143] [144]
 Overfull \hbox (52.74632pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 recognition using deep RNN models and WFST-bas
 ed decoding\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
@@ -2829,7 +2832,7 @@ ex/patents.aux) (./tex/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5FBDA57361DDE4DE0525BB102164627B.
+(rerunfilecheck)             Checksum: E3EE4CF67ACD718EEE878CFEAA8E740E.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2840,12 +2843,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37637 strings out of 492970
- 768898 string characters out of 6137298
- 1289034 words of memory out of 5000000
- 40947 multiletter control sequences out of 15000+600000
+ 37650 strings out of 492970
+ 769931 string characters out of 6137298
+ 1289603 words of memory out of 5000000
+ 40960 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,20n,80p,10440b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (181 pages, 2670568 bytes).
+Output written on thesis.xdv (181 pages, 2676252 bytes).

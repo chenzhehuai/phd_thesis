@@ -43,7 +43,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.4}解码及搜索}{22}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}大词汇连续语音识别中解码搜索技术}{23}{section.2.2}
+\contentsline {section}{\numberline {2.2}大词汇连续语音信号的识别中解码搜索技术}{24}{section.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}解码器的技术流派}{24}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
@@ -51,13 +51,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.2.1}解码器框架}{26}{subsubsection.2.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.2}网络生成}{26}{subsubsection.2.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.2}网络生成}{27}{subsubsection.2.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.3}分数计算}{28}{subsubsection.2.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.2.3}分数计算}{29}{subsubsection.2.2.2.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.2.4}维特比搜索}{29}{subsubsection.2.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.5}剪枝}{29}{subsubsection.2.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.2.5}剪枝}{30}{subsubsection.2.2.2.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.2.2.6}路径管理和词图}{30}{subsubsection.2.2.2.6}
 \defcounter {refsection}{0}\relax 

@@ -3323,6 +3323,39 @@
       \field{pages}{1735\bibrangedash 1780}
       \range{pages}{46}
     \endentry
+    \entry{yu2010roles}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Dong},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2f5fbdc5c3cf91f62a64663cd72397b3}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c54ba7c146c933da55b6f2fbbbe3cf06}{%
+           family={Dahl},
+           familyi={D\bibinitperiod},
+           given={George\bibnamedelima E},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{10f2bfff94f119727456252465df421a}
+      \strng{fullhash}{10f2bfff94f119727456252465df421a}
+      \strng{bibnamehash}{10f2bfff94f119727456252465df421a}
+      \strng{authorbibnamehash}{10f2bfff94f119727456252465df421a}
+      \strng{authornamehash}{10f2bfff94f119727456252465df421a}
+      \strng{authorfullhash}{10f2bfff94f119727456252465df421a}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. Neural Information Processing Systems {(NIPS)}}
+      \field{title}{Roles of pre-training and fine-tuning in context-dependent {DBN-HMM}s for real-world speech recognition}
+      \field{userf}{en}
+      \field{year}{2010}
+    \endentry
     \entry{bottou1998online}{article}{}
       \name{author}{1}{}{%
         {{hash=4437d12f87aa10b0c95e9e587862f7ab}{%
@@ -3340,8 +3373,8 @@
       \strng{authorbibnamehash}{4437d12f87aa10b0c95e9e587862f7ab}
       \strng{authornamehash}{4437d12f87aa10b0c95e9e587862f7ab}
       \strng{authorfullhash}{4437d12f87aa10b0c95e9e587862f7ab}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{On-line learning in neural networks}
@@ -3566,8 +3599,8 @@
       \strng{authorbibnamehash}{9c582664a6695d77f8ef5499f83187e9}
       \strng{authornamehash}{9c582664a6695d77f8ef5499f83187e9}
       \strng{authorfullhash}{601190685fa4de914350a0d3d4e52d77}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Speech Communication}
@@ -3578,39 +3611,6 @@
       \field{year}{2002}
       \field{pages}{27\bibrangedash 45}
       \range{pages}{19}
-    \endentry
-    \entry{yu2010roles}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Dong},
-           giveni={D\bibinitperiod}}}%
-        {{hash=2f5fbdc5c3cf91f62a64663cd72397b3}{%
-           family={Deng},
-           familyi={D\bibinitperiod},
-           given={Li},
-           giveni={L\bibinitperiod}}}%
-        {{hash=c54ba7c146c933da55b6f2fbbbe3cf06}{%
-           family={Dahl},
-           familyi={D\bibinitperiod},
-           given={George\bibnamedelima E},
-           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-      }
-      \strng{namehash}{10f2bfff94f119727456252465df421a}
-      \strng{fullhash}{10f2bfff94f119727456252465df421a}
-      \strng{bibnamehash}{10f2bfff94f119727456252465df421a}
-      \strng{authorbibnamehash}{10f2bfff94f119727456252465df421a}
-      \strng{authornamehash}{10f2bfff94f119727456252465df421a}
-      \strng{authorfullhash}{10f2bfff94f119727456252465df421a}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Neural Information Processing Systems {(NIPS)}}
-      \field{title}{Roles of pre-training and fine-tuning in context-dependent {DBN-HMM}s for real-world speech recognition}
-      \field{userf}{en}
-      \field{year}{2010}
     \endentry
     \entry{povey2016purely}{article}{}
       \name{author}{8}{}{%
@@ -3661,8 +3661,8 @@
       \strng{authorbibnamehash}{2311c5edc6525f5cc245733812543e26}
       \strng{authornamehash}{2311c5edc6525f5cc245733812543e26}
       \strng{authorfullhash}{7cea4e3b987620b8fe3422e354f0b265}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Interspeech 2016}
@@ -3717,8 +3717,8 @@
       \strng{authorbibnamehash}{111b5e423af631be0282d3b95b3b2e48}
       \strng{authornamehash}{111b5e423af631be0282d3b95b3b2e48}
       \strng{authorfullhash}{259e8b54d147e54b3d46e62cdc6a2899}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
@@ -3762,8 +3762,8 @@
       \strng{authorbibnamehash}{52c652b4d779c29b106b4e621d88a8e3}
       \strng{authornamehash}{52c652b4d779c29b106b4e621d88a8e3}
       \strng{authorfullhash}{85579d659af01bfed04736114624f34d}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 23rd international conference on Machine learning}
@@ -4028,8 +4028,8 @@
       \strng{authorbibnamehash}{7a0500af8c1612f731c033f1400334f2}
       \strng{authornamehash}{7a0500af8c1612f731c033f1400334f2}
       \strng{authorfullhash}{7a0500af8c1612f731c033f1400334f2}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Computational auditory scene analysis: Principles, algorithms, and applications}
@@ -4063,8 +4063,8 @@
       \strng{authorbibnamehash}{a4a31d934deb019925b82f4f0511517b}
       \strng{authornamehash}{a4a31d934deb019925b82f4f0511517b}
       \strng{authorfullhash}{a4a31d934deb019925b82f4f0511517b}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computer Speech \& Language}
@@ -4113,8 +4113,8 @@
       \strng{authorbibnamehash}{db08a22bf21a44c49487d9817cef0275}
       \strng{authornamehash}{db08a22bf21a44c49487d9817cef0275}
       \strng{authorfullhash}{bf7b225cd8349a2d0f2442b77cb7f704}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Signal Processing (ICSP), 2014 12th International Conference on}
@@ -4156,8 +4156,8 @@
       \strng{authorbibnamehash}{d0abe1df167cab8377bf4c7398c4910a}
       \strng{authornamehash}{d0abe1df167cab8377bf4c7398c4910a}
       \strng{authorfullhash}{c7d95f4278ff9d70929c77c319201c9a}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
@@ -4193,8 +4193,8 @@
       \strng{authorbibnamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
       \strng{authornamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
       \strng{authorfullhash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{CoRR}
@@ -4527,8 +4527,8 @@
       \strng{authorbibnamehash}{bf7276597e98b808fa22d2799bfca6fd}
       \strng{authornamehash}{bf7276597e98b808fa22d2799bfca6fd}
       \strng{authorfullhash}{bf7276597e98b808fa22d2799bfca6fd}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Eighth International Conference on Spoken Language Processing}
@@ -4560,8 +4560,8 @@
       \strng{authorbibnamehash}{5d05ffbcfa4f16d26a3e0c81a2c345ce}
       \strng{authornamehash}{5d05ffbcfa4f16d26a3e0c81a2c345ce}
       \strng{authorfullhash}{5d05ffbcfa4f16d26a3e0c81a2c345ce}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Interspeech}
@@ -4596,8 +4596,8 @@
       \strng{authorbibnamehash}{59107602b9be4a685948204fb86e7835}
       \strng{authornamehash}{59107602b9be4a685948204fb86e7835}
       \strng{authorfullhash}{59107602b9be4a685948204fb86e7835}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{International Conference on Text, Speech and Dialogue}
@@ -4634,8 +4634,8 @@
       \strng{authorbibnamehash}{18e467fb4c8220602516bde0a079a92e}
       \strng{authornamehash}{18e467fb4c8220602516bde0a079a92e}
       \strng{authorfullhash}{18e467fb4c8220602516bde0a079a92e}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computer Speech \& Language}
@@ -4699,8 +4699,8 @@
       \strng{authorbibnamehash}{3e27ba6cee2c93b29cd1088913003817}
       \strng{authornamehash}{3e27ba6cee2c93b29cd1088913003817}
       \strng{authorfullhash}{9966ee3601533ac8cc5eb2998d9f1265}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Signal Processing Magazine}
@@ -7685,8 +7685,8 @@
       \strng{authorbibnamehash}{5072996fdda575810e32c15e47d67ed8}
       \strng{authornamehash}{5072996fdda575810e32c15e47d67ed8}
       \strng{authorfullhash}{5072996fdda575810e32c15e47d67ed8}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Speech Communication}
@@ -7723,8 +7723,8 @@
       \strng{authorbibnamehash}{475c21ecfb7f72bd012bfb0a2895d098}
       \strng{authornamehash}{475c21ecfb7f72bd012bfb0a2895d098}
       \strng{authorfullhash}{f3ed8e174ce0721f73ba9df79448c834}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Interspeech 2016}
