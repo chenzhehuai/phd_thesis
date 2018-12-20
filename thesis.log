@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  19 DEC 2018 18:07
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  20 DEC 2018 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2484,7 +2484,7 @@ File: figure/joint-tr.pdf Graphic file (type pdf)
 File: figure/tr-curve.pdf Graphic file (type pdf)
 <use figure/tr-curve.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1968) has occurred while \output is active []
 
 [52] [53]) [54] [55]
 \openout2 = `tex/gpuwfst.aux'.
@@ -2773,14 +2773,14 @@ ed decoding\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045
 arXiv preprint arXiv:1507.08240\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[145]
+[145] [146]
 Overfull \hbox (1.1576pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 English and Mandarin Text Entry on Mobile Devi
 ces\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 arXiv pr
 eprint arXiv:1608.07323\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[146] [147] [148] [149] [150] [151]
+[147] [148] [149] [150] [151]
 \openout2 = `tex/pub.aux'.
 
 (./tex/pub.tex [152
@@ -2843,12 +2843,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37650 strings out of 492970
- 769931 string characters out of 6137298
- 1289603 words of memory out of 5000000
- 40960 multiletter control sequences out of 15000+600000
+ 37653 strings out of 492970
+ 770093 string characters out of 6137298
+ 1291332 words of memory out of 5000000
+ 40963 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,20n,80p,10440b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (181 pages, 2676252 bytes).
+Output written on thesis.xdv (181 pages, 2681268 bytes).

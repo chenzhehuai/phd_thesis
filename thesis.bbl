@@ -4209,6 +4209,71 @@
       \verb http://arxiv.org/abs/1704.01985v3
       \endverb
     \endentry
+    \entry{chen2018progressive}{article}{}
+      \name{author}{8}{}{%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
+           family={Droppo},
+           familyi={D\bibinitperiod},
+           given={Jasha},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinyu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Wayne},
+           giveni={W\bibinitperiod}}}%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
+           family={Droppo},
+           familyi={D\bibinitperiod},
+           given={Jasha},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinyu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Wayne},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press}%
+      }
+      \strng{namehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{fullhash}{0205c8114ef365e628f2968e1c9b2fa3}
+      \strng{bibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authorbibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authornamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authorfullhash}{0205c8114ef365e628f2968e1c9b2fa3}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
+      \field{number}{1}
+      \field{title}{Progressive joint modeling in unsupervised single-channel overlapped speech recognition}
+      \field{userf}{en}
+      \field{volume}{26}
+      \field{year}{2018}
+      \field{pages}{184\bibrangedash 196}
+      \range{pages}{13}
+    \endentry
     \entry{xue2014singular}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=b05a15250c64840734f77dcbe7f6ac97}{%
@@ -4456,8 +4521,8 @@
       \strng{authorbibnamehash}{625643ac8da2a5228dfc36a6aeb47950}
       \strng{authornamehash}{625643ac8da2a5228dfc36a6aeb47950}
       \strng{authorfullhash}{c8ec45f03372ee923ea9552a03ed38f1}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1703.07754}
@@ -4494,8 +4559,8 @@
       \strng{authorbibnamehash}{b276d9d70de4e7f0e1f17c05e79e9f50}
       \strng{authornamehash}{b276d9d70de4e7f0e1f17c05e79e9f50}
       \strng{authorfullhash}{080919ca48d3744cbe719ba57dd930af}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{ICASSP}
@@ -7646,8 +7711,8 @@
       \strng{authorbibnamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
       \strng{authornamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
       \strng{authorfullhash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Interspeech 2006}

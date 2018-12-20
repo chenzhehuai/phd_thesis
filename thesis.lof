@@ -36,11 +36,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3--7}{\ignorespaces 传统系统与端到端系统比较}}{48}{figure.3.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3--8}{\ignorespaces \it PIT-ASR 联合训练与模块化初始化和逐步联合训练比较。 点划线框表示可以学习的模型参数。点线框表示可以学习的并且是共享模型参数。 }}{51}{figure.3.8}
+\contentsline {figure}{\numberline {3--8}{\ignorespaces \it PIT-ASR 联合训练与模块化初始化和逐步联合训练比较。 点划线框表示可以学习的模型参数。点线框表示可以学习的并且是共享的模型参数。 }}{51}{figure.3.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3--9}{\ignorespaces \it 模型系统训练框架。 \cite {yu2017recognizing}中提出的结构由虚线框部分表示，其用于推理出每个说话人的语音信号的信息。该结构被模块化（三个实线框）并作逐一增量预训练。针对自身的迁移学习和多输出序列鉴别性训练在模块初始化后神经网络上进行。}}{52}{figure.3.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3--10}{\ignorespaces \it 基于迁移学习逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享模型参数。}}{52}{figure.3.10}
+\contentsline {figure}{\numberline {3--10}{\ignorespaces \it 基于迁移学习逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享的模型参数。}}{52}{figure.3.10}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3--11}{\ignorespaces \it 原始联合训练和所提出的方法在验证集上学习曲线比较。在图中，联合训练，逐步联合训练，基于迁移学习逐步联合训练被分别表示为Joint Model, Pro. Joint Model 和 Pro. Joint Model + Transf. 图中每个epoch包含24小时训练数据。 }}{53}{figure.3.11}
 \defcounter {refsection}{0}\relax 
