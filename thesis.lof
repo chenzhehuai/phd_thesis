@@ -74,7 +74,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6--3}{\ignorespaces {\it 架构比较。对于原始的搜索空间，其可以是关键词检测，基于上下文的语音识别和大词汇连续语音识别。 }}}{101}{figure.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--4}{\ignorespaces {\it OPER v.s. 词图密度在 FSD 和 PSD 中的比较}}}{103}{figure.6.4}
+\contentsline {figure}{\numberline {6--4}{\ignorespaces {\it OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}}{103}{figure.6.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6--5}{\ignorespaces {\it 词图密度 v.s. 相对 OWER下降比例}}}{103}{figure.6.5}
 \defcounter {refsection}{0}\relax 

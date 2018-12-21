@@ -9,7 +9,7 @@
 
 
 连接时序分类模型 (CTC) 是一种目前比较主流的LVCSR模型。但是由于 $\tt blank$ 的引入，使得基于 CTC的词语级别的置信度 (CM) 并不能够被直接得到，特别是最主流的针对传统基于音素似然度归一化或者基于词图后验概率的混淆网络等方法。
-在前文中我们提出了标签同步解码（LSD）的推理框架。它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 CTC音素词图。在这项工作中，两种置信度生成算法在标签同步解码算法的基础上被提出。
+在前文中我们提出了标签同步解码（LSD）的推理框架，它的主要作用是针对CTC或HMM模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 CTC 音素词图。在这项工作中，两种置信度生成算法在标签同步解码算法的基础上被提出。
 更细致的研究显示这种基于CTC的音素词图是得到更好性能的关键所在。
 在英文Switchboard 上的大词汇连续语音识别任务显示这里提出的LSD CTC 词图置信度算法可以显著改善原先传统的基于逐帧解码算法的CTC置信度或者 HMM模型的置信度。
 
@@ -17,16 +17,16 @@
 \label{sec:intro}
 
 % TODO: ref http://hci.stanford.edu/research/speech/
-当前自动语音识别 (ASR) 以及取得了非常显著的成功，特别是在最近十年时间。但是当语音识别系统由实验室产品转向真正的应用时，即使是最好的语音识别系统，仍然会不可避免地产生一些识别中的错误 \cite{ruan2016speech}，也就是说ASR系统的输出总会包含或多或少的一些各种各样的错误。
+当前自动语音识别 (ASR) 取得了非常显著的成功，特别是在最近十年时间。但是当语音识别系统由实验室产品转向真正的应用时，即使是最好的语音识别系统，仍然会不可避免地产生一些识别中的错误 \cite{ruan2016speech}，也就是说ASR系统的输出总会包含或多或少的一些各种各样的错误。
 因此，在真实的应用场景中，人们一般需要ASR系统能够自动评估自身的可靠性和发生错误的概率，而这些都由系统自身得出。
 
 在语音识别中，置信度（CM）就是提出来进行这种类型的可靠度评估的\cite{jiang2005confidence}。这类模型可以被分为如下几种类别：
 
 \begin{itemize}
     \item {\em 基于预测特征的置信度}.
-    基于ASR识别过程的特征被称为预测特征，如果它的概率分布在识别正确和识别错误时会产生显著的不同。
-    CM可以由他们之中的一个或两个来组成，比如对归一化后的声学分数 \cite{hu2013new}, 时长 \cite{ma2011fusing}, 局部交叉熵 \cite{falavigna2002acoustic}。
-    但是，这些预测特征并不完美地表示解码的过程 \cite{jiang2005confidence}. 所以一些分类器模型也可以考虑被加入到这些预测特征上，比如 CRF \cite{seigel2013confidence}, 深度学习 \cite{yu2011calibration}, 等等。但是这些模型仍然不够完美。首先各个特征预测之间并不完全独立，其次它需要额外的训练阶段，并假设训练数据与测试数据完全匹配。
+    基于ASR识别过程的特征被称为预测特征，而它的概率分布在识别正确和识别错误时会产生显著的不同。
+    CM可以由它们之中的一个或两个来组成，比如对归一化后的声学分数 \cite{hu2013new}, 时长 \cite{ma2011fusing}, 局部交叉熵 \cite{falavigna2002acoustic}。
+    但是，这些预测特征并不完美地表示解码的过程 \cite{jiang2005confidence}. 所以一些分类器模型也可以考虑被加入到这些预测特征上，比如 CRF \cite{seigel2013confidence}, 深度学习 \cite{yu2011calibration}, 等等。但是这些模型仍然不够完美。首先各个特征预测之间并不完全独立，其次它需要额外的训练阶段，并假设训练数据与测试数据匹配。
     %feature and model method weakness:
     %need further training stage; hard to formulate; depend on scenario of training data, assuming scenario of test and training data is the same
 
@@ -36,7 +36,7 @@
 
 \end{itemize}
 
-%review CTC & PSD & its potential in CM
+%review CTC & LSD & its potential in CM
 CTC\cite{graves2006connectionist} 被提出来并作为目前主流的新模型\cite{fernandez2008phoneme}\cite{sainath2015acoustic}\cite{amodei2015deep}\cite{sak2015fast}.
 同时，上下文无关的单音素CTC也显示出非常有竞争力的性能，在相比传统上下文相关的聚类混合深度学习HMM模型\cite{sak2015fast}\cite{miao2015eesen}\cite{miao2016ctc}\cite{mcgraw2016personalized}的情况下。
 然而，由于引入了$\tt blank$, CM的计算亟待研究。如本文的实验部分所示，如果只是将 $\tt blank$ 标签当做一个特殊的音素并使用传统的CM方法，将会引入较差的性能。
@@ -45,7 +45,7 @@ CTC\cite{graves2006connectionist} 被提出来并作为目前主流的新模型\
 在英文Switchboard 上的大词汇连续语音识别任务显示这里提出的LSD CTC 词图置信度算法可以显著改善原先传统的基于逐帧解码算法的CTC置信度或者 HMM模型的置信度。
 
 
-\subsection{Confidence Measures from PSD CTC Lattice}
+\subsection{Confidence Measures from LSD CTC Lattice}
 \label{sec:pp-conf-measure}
 
 
@@ -57,7 +57,7 @@ CTC\cite{graves2006connectionist} 被提出来并作为目前主流的新模型\
 下面我们将集中讨论基于这些 CTC音素词图如何得到较好的置信度。
 
 这里CTC音素后验概率可以依据词语进行区分，属于同一个词的后验概率可以用于一起对一个特定词在词图中出现的后验概率进行建模。
-在PSD框架中，词级别的 CM $\mathcal{C}(w)$ 可以被定义为对数域的后验概率，针对其相应的最优路径。
+在LSD框架中，词级别的 CM $\mathcal{C}(w)$ 可以被定义为对数域的后验概率，针对其相应的最优路径。
 % introduction of phonemic confidence
 
 
@@ -120,11 +120,11 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 由HMM和CTC得到的推理结果在图~\ref{fig:lat-exp}(a)中进行显示，其得到的音素词图，词级词图，分别在HMM和CTC系统中展示于图~\ref{fig:lat-exp}(b$\sim$e)中。我们可以观察到，CTC基于LSD得到的音素词图和词级词图比相应的HMM词图更加紧致，这是源于$\mathcal{B}$函数的建模结果。另一方面，HMM的词图需要额外的启发式方法来进行多对一的映射，以去除词图冗余性，比如需要做词图裁剪 \cite{siniscalchi2013bottom}, 而这些都不如 $\mathcal{B}$ 函数的效果那么强。
 另一方面，当CTC模型被使用于传统的 {\em 逐帧同步解码} (FSD) 框架时, 音素和词级词图可以由同样方法进行产生\cite{povey2012generating}，类似于处理 HMM-DNN 词图的方式对 $\tt blank$ 标签进行等同于音素的处理。但是由于逐帧搜索和词图此案件所带来的搜索误差，以及词图边界的混淆性，所得到的CN将会具有更差的质量。我们将会在后续的实验章节中进行详细比较。
 
-%FSD Lattice v.s. PSD Lattice
+%FSD Lattice v.s. LSD Lattice
 %
 %snt example fig:
 %ref word v.s. phn dnn align v.s. phn dnn decode v.s. phn CTC align v.s. phn CTC decode
-%v.s. FSD lattice v.s. PSD lattice v.s. CN
+%v.s. FSD lattice v.s. LSD lattice v.s. CN
 %in a single figure
 
 %analysis on latter indicators in experiment part
@@ -248,7 +248,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
 \subsection{实验配置}
 
-%In this section,  phone lattices from FSD and PSD were firstly compared, and their effects on CM were analyzed. Then experiments were held on proposed two types of CMs.
+%In this section,  phone lattices from FSD and LSD were firstly compared, and their effects on CM were analyzed. Then experiments were held on proposed two types of CMs.
 
 %\subsection{Experimental Setup}
 %\subsubsection{Setups and Evaluation Metrics}
@@ -276,7 +276,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
             CD-state & DNN-HMM &FSD&  16.7\\
             \hline
             \multirow{2}{*}{CI-phone}&\multirow{2}{*}{LSTM-CTC} &FSD&  18.7\\
-            & &PSD&  18.8\\
+            & &LSD&  18.8\\
             \hline
           \end{tabular}
         }
@@ -315,12 +315,12 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
         \centering
         \includegraphics[width=\linewidth]{figure/OPER-latden.png}
 
-        \caption{{\it OPER v.s. 词图密度在 FSD 和 PSD 中的比较}}
+        \caption{{\it OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}
         \label{fig:OPER-latden}
       \end{figure}
 
 图~\ref{fig:OPER-latden}表示了 OPER 和词图密度在不同解码配置结果中的对比，这包括由FSD和LSD生成的音素词图。
-%Phone lattice generated from PSD is called PSD CTC lattice as in Section~\ref{sec:psd-ctc-lat} . Phone lattice generated from FSD is as the traditional method \cite{povey2012generating}.
+%Phone lattice generated from LSD is called LSD CTC lattice as in Section~\ref{sec:psd-ctc-lat} . Phone lattice generated from FSD is as the traditional method \cite{povey2012generating}.
 在相似OPER情况下，LSD词图的大小比FSD词图小超过10倍，在同一个CTC模型下。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
 总结起来，在相同大小下，LSD CTC包含更多的音素声学信息。由于接下来的重点是比较FSD和LSD，因此我们仅罗列该部分结果。
 
@@ -363,8 +363,8 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 
 
 %\begin{itemize}
-%    \item num of neighbors in each CN cluster(after arc clustering) from same size of lattice (in FSD \& PSD)
-%    \item OWER v.s. CN size (compare FSD \& PSD)
+%    \item num of neighbors in each CN cluster(after arc clustering) from same size of lattice (in FSD \& LSD)
+%    \item OWER v.s. CN size (compare FSD \& LSD)
 %\end{itemize}
 
 
@@ -397,7 +397,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
             \hline
             \multirow{4}{*}{LSTM-CTC}&FSD&   baseline & 0.058\\
             \cline{2-4}
-            &\multirow{3}{*}{PSD} &  $\tt PN1\oplus PN3$ & 0.105 \\
+            &\multirow{3}{*}{LSD} &  $\tt PN1\oplus PN3$ & 0.105 \\
             &  & $\tt PN2\oplus PN3$ & 0.135 \\
             & &  $\tt PN2\oplus PN3\oplus PC$ & 0.141 \\
             \hline
@@ -408,7 +408,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 结果显示，\cite{hu2013new}提出的音素声学置信度并不能被推广到词级。这是由于词边界的不确定性使得声学分数计算的时候存在重叠, 因此表现出了更差的结果。当该方法被使用在CTC模型时，词边界重叠问题得到了缓解，但是对于 {$\tt blank$} 概率的分配仍然存在混淆，比如对任意一个 {$\tt blank$} 是应该分配给前一个音素还是后一个音素存在不确定性。
 
 在 LSD框架里，词边界和 {$\tt blank$} 分配问题都能够被解决，使得我们可以得到质量更好的置信度。同时当声学置信度和基于{\em phone-conf} 的置信度进行融合时，往往能取得最好的结果。因此在后续实验中，我们使用 $\tt PN2\oplus PN3\oplus PC$ 作为所提出的最优置信度。
-%This is another superiority of PSD phonemic acoustic confidence because of effective usage of  information from {$\tt blank$} span.
+%This is another superiority of LSD phonemic acoustic confidence because of effective usage of  information from {$\tt blank$} span.
 
 
 \subsubsection{基于LSD的混淆网络的置信度}
@@ -433,7 +433,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
             \hline
             \multirow{3}{*}{LSTM-CTC}&FSD&  \tt CN & 0.019\\
             \cline{2-4}
-            &\multirow{2}{*}{PSD} &  \tt CN & 0.224 \\
+            &\multirow{2}{*}{LSD} &  \tt CN & 0.224 \\
             &  & \tt AC+CN & 0.230 \\
             \hline
           \end{tabular}
@@ -474,7 +474,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
  在第一部分关键词检测任务中， 我们使用了398 个家居领域的关键词和相应的17332句测试集，这包括11789 个正例和 5543 个负例。表~\ref{tab:exp-kws-cm} 显示了不同方法之间的差别。
 
 %RECALL: similar
-%confidence v.s.: OK! google(bottum-up phonemic match method) & PSD lattice confidence & PSD acoustic confidence
+%confidence v.s.: OK! google(bottum-up phonemic match method) & LSD lattice confidence & LSD acoustic confidence
 
     \begin{table}[th]
 
@@ -518,7 +518,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
  %dianhua
  %EER & FScore
  %RECALL: similar
-    %confidence v.s.: PSD lattice confidence & PSD acoustic confidence
+    %confidence v.s.: LSD lattice confidence & LSD acoustic confidence
 
     \begin{table}[th]
 
@@ -564,7 +564,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
     %Table~\ref{tab:exp-lvcsr-cm} shows the result.
 
 %RECALL: similar
-    %confidence v.s.: PSD lattice confidence & PSD acoustic confidence
+    %confidence v.s.: LSD lattice confidence & LSD acoustic confidence
 
     \begin{table}[th]
 

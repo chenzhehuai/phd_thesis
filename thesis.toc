@@ -187,7 +187,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.1}引文}{93}{subsection.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}Confidence Measures from PSD CTC Lattice}{94}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.2}Confidence Measures from LSD CTC Lattice}{94}{subsection.6.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.2.1}Phone Synchronous Phonemic Acoustic Confidence}{94}{subsubsection.6.1.2.1}
 \defcounter {refsection}{0}\relax 
