@@ -187,9 +187,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.1}引文}{93}{subsection.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}Confidence Measures from LSD CTC Lattice}{94}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.2}LSD CTC词图中的置信度}{94}{subsection.6.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.2.1}Phone Synchronous Phonemic Acoustic Confidence}{94}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.1}标签同步的音素声学置信度}{94}{subsubsection.6.1.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.1.2.2}基于混淆网络和CTC标签同步解码词图的置信度}{95}{subsubsection.6.1.2.2}
 \defcounter {refsection}{0}\relax 

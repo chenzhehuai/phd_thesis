@@ -17,20 +17,20 @@
 \label{sec:intro}
 
 % TODO: ref http://hci.stanford.edu/research/speech/
-当前自动语音识别 (ASR) 取得了非常显著的成功，特别是在最近十年时间。但是当语音识别系统由实验室产品转向真正的应用时，即使是最好的语音识别系统，仍然会不可避免地产生一些识别中的错误 \cite{ruan2016speech}，也就是说ASR系统的输出总会包含或多或少的一些各种各样的错误。
+在最近十年时间，自动语音识别 (ASR) 取得了非常显著的成功。但是当语音识别系统由实验室产品转向真正的应用时，即使是最好的语音识别系统，仍然会不可避免地产生一些识别中的错误 \cite{ruan2016speech}，也就是说ASR系统的输出总会包含或多或少的一些各种各样的错误。
 因此，在真实的应用场景中，人们一般需要ASR系统能够自动评估自身的可靠性和发生错误的概率，而这些都由系统自身得出。
 
 在语音识别中，置信度（CM）就是提出来进行这种类型的可靠度评估的\cite{jiang2005confidence}。这类模型可以被分为如下几种类别：
 
 \begin{itemize}
-    \item {\em 基于预测特征的置信度}.
-    基于ASR识别过程的特征被称为预测特征，而它的概率分布在识别正确和识别错误时会产生显著的不同。
+    \item {\em 基于用于建模的特征的置信度}.
+    基于ASR识别过程的特征被称为用于建模的特征，而它的概率分布在识别正确和识别错误时会产生显著的不同。
     CM可以由它们之中的一个或两个来组成，比如对归一化后的声学分数 \cite{hu2013new}, 时长 \cite{ma2011fusing}, 局部交叉熵 \cite{falavigna2002acoustic}。
-    但是，这些预测特征并不完美地表示解码的过程 \cite{jiang2005confidence}. 所以一些分类器模型也可以考虑被加入到这些预测特征上，比如 CRF \cite{seigel2013confidence}, 深度学习 \cite{yu2011calibration}, 等等。但是这些模型仍然不够完美。首先各个特征预测之间并不完全独立，其次它需要额外的训练阶段，并假设训练数据与测试数据匹配。
+    但是，这些用于建模的特征并不完美地表示解码的过程 \cite{jiang2005confidence}. 所以一些分类器模型也可以考虑被加入到这些用于建模的特征上，比如 CRF \cite{seigel2013confidence}, 深度学习 \cite{yu2011calibration}, 等等。但是这些模型仍然不够完美。首先各个用于建模的特征之间并不完全独立，其次它需要额外的训练阶段，并假设训练数据与测试数据匹配。
     %feature and model method weakness:
     %need further training stage; hard to formulate; depend on scenario of training data, assuming scenario of test and training data is the same
 
-    \item {\em 基于置信度的CM}.
+    \item {\em 基于后验概率的置信度}.
     另一种方法将ASR过程建模为 {\em 最大后验概率} (MAP) 的决策过程。给定整个句子后的ASR输出的后验概率可以用来表示CM。许多方法研究了如何对归一化项进行建模，比如 filler 模型 \cite{young1994detecting}, 词图\cite{wessel2001confidence} 和混淆网络 \cite{evermann2000large}。然而，ASR解码器通常设计用于寻找最优的首选路径，这使得它所得到的词图并不完美，同时会导致CM的建模并未较好地归一化 \cite{yu2006maximum}.
     %filler/lattice/cn
 
@@ -39,17 +39,17 @@
 %review CTC & LSD & its potential in CM
 CTC\cite{graves2006connectionist} 被提出来并作为目前主流的新模型\cite{fernandez2008phoneme}\cite{sainath2015acoustic}\cite{amodei2015deep}\cite{sak2015fast}.
 同时，上下文无关的单音素CTC也显示出非常有竞争力的性能，在相比传统上下文相关的聚类混合深度学习HMM模型\cite{sak2015fast}\cite{miao2015eesen}\cite{miao2016ctc}\cite{mcgraw2016personalized}的情况下。
-然而，由于引入了$\tt blank$, CM的计算亟待研究。如本文的实验部分所示，如果只是将 $\tt blank$ 标签当做一个特殊的音素并使用传统的CM方法，将会引入较差的性能。
+然而，由于引入了$\tt blank$, CM的计算亟待研究。如本文的实验部分所示，如果只是将 $\tt blank$ 标签当做一个特殊的音素并使用传统的CM方法，将会引入较大的性能下降。
 在前文中我们提出了标签同步解码（LSD）的推理框架。它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 CTC音素词图。在这项工作中，两种置信度生成算法在标签同步解码算法的基础上被提出。
 更细致的研究显示这种基于CTC的音素词图是得到更好性能的关键所在。
 在英文Switchboard 上的大词汇连续语音识别任务显示这里提出的LSD CTC 词图置信度算法可以显著改善原先传统的基于逐帧解码算法的CTC置信度或者 HMM模型的置信度。
 
 
-\subsection{Confidence Measures from LSD CTC Lattice}
+\subsection{LSD CTC词图中的置信度}
 \label{sec:pp-conf-measure}
 
 
-\subsubsection{Phone Synchronous Phonemic Acoustic Confidence}
+\subsubsection{标签同步的音素声学置信度}
 \label{sec:psd-ac-conf}
 
 %as local confidence
@@ -74,16 +74,16 @@ CTC\cite{graves2006connectionist} 被提出来并作为目前主流的新模型\
 $\mathbf{l}_{w}$ 表示词语  $w$对应的音素序列。
 $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\tt blank$ CTC 标签序列).
 由于LSD CTC中的词边间比较确定, $\mathbf{j}_w$ 可以被定义为 $w$ 词所最佳对应的音素序列索引。
-我们提出的基于标签同步解码的声学分数可以作为单独的置信度，也可以与其他预测特征结合，作为置信度模型的输入 \cite{yu2011calibration}。 
-具体来说，$\mathcal{B}$函数的建模在CTC中并不完美，使得这里会出现同一个音素有多帧的音素后验概率输出。所以，我们需要在它上面进一步进行归一化。 其中一种方法是进行算数平均，被称为 {\em peak-mean}。但是，由于多个概率输出尖峰，更好的一种方法是忽略不完美的部分并保留最大的结果，所以从中挑选最大的后验概率作为其置信度，被称为 {\em peak-max}。除此之外，不同词语具有不同的长度，因此我们需要针对长度作一次平均。为了使性能更好，我们这里对音素序列的长度也进行了归一化 称为{\em phone-mean}。
+我们提出的基于标签同步解码的声学分数可以作为单独的置信度，也可以与其他用于建模的特征结合，作为置信度模型的输入 \cite{yu2011calibration}。 
+具体来说，$\mathcal{B}$函数的建模在CTC中并不完美，使得这里会出现同一个音素有多帧的音素后验概率输出。所以，我们需要在它上面进一步进行归一化。 其中一种方法是进行算数平均，被称为 {\em peak-mean}。但是，由于有多个概率输出尖峰，更好的一种方法是忽略不完美的部分并保留最大的结果，所以从中挑选最大的后验概率作为其置信度，被称为 {\em peak-max}。除此之外，不同词语具有不同的长度，因此我们需要针对长度作一次平均。为了使性能更好，我们这里对音素序列的长度也进行了归一化 称为{\em phone-mean}。
 
 % introducing (no blk) confidence
-另一类比较现实的问题是， {$\tt blank$} 的区段和音素区段有所重合，这虽然并不常见。因此这里需要对非$\tt blank$的概率同样进行一些建模。音素置信度 (称为 {\em phone-conf }) 可以被定义为某帧上输出音素标签的概率。
+另一类比较现实的问题是， {$\tt blank$} 的区段和音素区段有所重合。因此这里需要对非$\tt blank$的概率同样进行一些建模。音素置信度 (称为 {\em phone-conf }) 可以被定义为某帧上输出音素标签的概率。
 %, in proposed CM (\ref{eq:psd-ac-conf1})
 % \begin{equation}\label{eq:nblk-conf}
 %    P( \tt phone^{t} |\mathbf{x}) = 1-y^{t}_{\tt{blank}}
 %     \end{equation}
-所以以上这些针对不同模块的设计总结如下 (\ref{eq:psd-ac-conf2})，
+以上这些针对不同模块的设计总结如下 (\ref{eq:psd-ac-conf2})，
 
      \begin{equation}\label{eq:psd-ac-conf2}
         \mathcal{C}(w)
@@ -105,7 +105,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 \subsubsection{基于混淆网络和CTC标签同步解码词图的置信度}
 \label{sec:psd-cn-conf}
 
-类似于 \cite{evermann2000large}中的做法，这里对生成混淆网络主要有两步: a) 从音素级别的标签同步CTC音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中,  pivot clustering 算法被提出，其使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于CTC词图非常紧致，,  CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
+类似于 \cite{evermann2000large}中的做法，这里生成混淆网络主要有两步: a) 从音素级别的标签同步CTC音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中提出的 pivot clustering 算法使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于CTC词图非常紧致，因此  CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
 
 
 
@@ -116,8 +116,8 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
         \label{fig:ctc-lat-exp}
       \end{figure}
 
-图~\ref{fig:lat-exp} 中是一个真实的例子 (句子为 "OH YEAH") 表示了LSD CTC 产生的CN的高效性，以及其余HMM-DNN产生的词图之间的比较。
-由HMM和CTC得到的推理结果在图~\ref{fig:lat-exp}(a)中进行显示，其得到的音素词图，词级词图，分别在HMM和CTC系统中展示于图~\ref{fig:lat-exp}(b$\sim$e)中。我们可以观察到，CTC基于LSD得到的音素词图和词级词图比相应的HMM词图更加紧致，这是源于$\mathcal{B}$函数的建模结果。另一方面，HMM的词图需要额外的启发式方法来进行多对一的映射，以去除词图冗余性，比如需要做词图裁剪 \cite{siniscalchi2013bottom}, 而这些都不如 $\mathcal{B}$ 函数的效果那么强。
+图~\ref{fig:lat-exp} 中是一个真实的例子 (句子为 "OH YEAH") 表示了LSD CTC 产生的CN的高效性，以及与HMM-DNN产生的词图之间的比较。
+由HMM和CTC得到的推理结果在图~\ref{fig:lat-exp}(a)中进行显示，其得到的音素词图，词级词图，分别在HMM和CTC系统中展示于图~\ref{fig:lat-exp}(b$\sim$e)中。我们可以观察到，CTC基于LSD得到的音素词图和词级词图比相应的HMM词图更加紧致，这是源于$\mathcal{B}$函数的建模结果。另一方面，HMM的词图需要额外的启发式方法来进行多对一的映射，以便去除词图冗余性。这里的做法是进行词图裁剪 \cite{siniscalchi2013bottom}, 而它不如 $\mathcal{B}$ 函数的效果那么强。
 另一方面，当CTC模型被使用于传统的 {\em 逐帧同步解码} (FSD) 框架时, 音素和词级词图可以由同样方法进行产生\cite{povey2012generating}，类似于处理 HMM-DNN 词图的方式对 $\tt blank$ 标签进行等同于音素的处理。但是由于逐帧搜索和词图此案件所带来的搜索误差，以及词图边界的混淆性，所得到的CN将会具有更差的质量。我们将会在后续的实验章节中进行详细比较。
 
 %FSD Lattice v.s. LSD Lattice
@@ -144,7 +144,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
     {\em Keyword-filler}方法~\cite{young1994detecting} 和 {\em utterance verification}~\cite{rose1995training} 方法都可以视为这方面的尝试。比如，在关键词检测中，一些研究提出使用上下文无关的(CI) 语言学单元，称为 $\tt filler$ 来对所有非关键词部分进行建模，而这种建模往往是不完美的。
     在基于上下文的语音识别中，这种框架更加受制于较弱的上下文建模能力，而这将影响 $\tt filler$ 的识别效果。
     %More elaborated $\tt filler$~\cite{el1997accurate}, e.g., CD $\tt filler$, is proposed to improve the recognition but brings about further computational burden without significant improvement.
-    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程。 给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其他任务中结论不尽相同。
+    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其他任务中结论不尽相同。
 
     最近在鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受次启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
     而针对这样做在低功耗设备上带来的挑战，我们采用基于CTC的标签同步解码\cite{Chen+2016} 来进行处理，由此带来了很大的效率改善。
@@ -158,13 +158,13 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
   \subsubsection{关键词检测}
     \label{Sec:kws-task}
 
-    	关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要烟酒店在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，将Filler加入声学建模中。
+    	关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要研究在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，或将Filler加入声学建模中。
 
   \subsubsection{基于上下文的语音识别}
   \label{Sec:task-task}
 
-  针对语音助手等应用，目前对于基于上下文的语音识别的需求越来越强。在这些场景中，语法~\cite{woodland1994large} 基于类的语言模型~\cite{ward1996class} 都是比较主流方法~\cite{vasserman2016contextual}。
-  这种任务的错误识别包括：i) 错误将领域外的句子识别为领域内的结果 ii) 正确识别出了领域，但是上下文短语的部分识别错误。为了给出合理的结果，置信度用于对识别结果进行判别。对于领域内识别，语音模式和上下文信息识别可以被看做是一个完整的搜索空间，因此识别基于LVCSR的后验概率的置信度时合理的。但是对于领域外的句子，上面提到的置信度并没有进行建模。因此这样的置信度目前还没有比较合理的方案进行解决。
+  针对语音助手等应用，目前对于基于上下文的语音识别的需求越来越强。在这些场景中，语法~\cite{woodland1994large} 或基于类的语言模型~\cite{ward1996class} 都是比较主流方法~\cite{vasserman2016contextual}。
+  这种任务的错误识别包括：i) 错误将领域外的句子识别为领域内的结果 ii) 正确识别出了领域，但是上下文短语的部分识别错误。为了给出合理的结果，置信度用于对识别结果进行判别。对于领域内识别，语音模式和上下文信息识别可以被看做是一个完整的搜索空间，这时使用LVCSR的后验概率的置信度是合理的。但是对于领域外的句子，上面提到的置信度并没有对其搜索空间进行建模。因此这样的置信度目前还没有比较合理的方案进行解决。
 
   \subsubsection{大词汇连续语音识别}
   \label{Sec:lvcsr-task}
@@ -226,20 +226,19 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
  \end{equation}
  
  附属归一化搜索空间的解码结果是对观察概率的一个很好估计。由于声学模型的单元通常是音素，这样的置信度框架在大多数语音识别应用中都是合适的。与传统词图方法相比较，这里提出的方法相比其他的ASR搜索空间更加稳定鲁棒，我们将在实验中证实这一点。除此之外，这套方法不需要再额外引入一系列非关键词的模型建模单元，比如基于 $\tt filler$ 或者语句验证这类估计框架。
- 所以， 置信度归一化建模可以是相对原始搜索空间和声学模型而独立的。
+ 所以， 置信度归一化建模可以是相对原始搜索空间和声学模型而独立的部分。
 
  \begin{figure}[tb]
         \centering
         \includegraphics[width=0.7\linewidth]{figure/graph_example.png}
-        \caption{{\it 架构比较。对于原始的搜索空间，其可以是关键词检测，基于上下文的语音识别和大词汇连续语音识别。 }}
+        \caption{{\it 架构比较。这里原始的搜索空间包括，关键词检测，基于上下文的语音识别，和大词汇连续语音识别。 }}
         \label{fig:graph-example}
 \end{figure}
 
  \subsubsection{基于CTC的标签同步解码}
  \label{Sec:psd-ctc}
 
-上面讨论的方法具有一定的计算昂贵性，特别是针对低功耗应用比如关键词检测。基于CTC的标签同步解码 \cite{Chen+2016} 可以考虑被采用，以加速这样的应用。由于这类方法可以跳过blank的区段，使得结果中具有更少的混淆，在公式 (\ref{eq:cm-obser})中. 这类方法也被前面的章节证明，解码只占全部计算量的一小部分 \cite{Chen+2016}\cite{zhc00-chen-tasl2017} 。在实验中我们将验证相关结论。
-
+上面讨论的方法具有一定的计算昂贵性，特别是针对低功耗应用比如关键词检测。基于CTC的标签同步解码 \cite{Chen+2016} 可以考虑被采用，以加速这样的应用。由于这类方法可以跳过blank的区段，使得结果中具有更少的混淆，这体现在公式 (\ref{eq:cm-obser})中。这类方法也被前面的章节证明，解码只占全部计算量的一小部分 \cite{Chen+2016}\cite{zhc00-chen-tasl2017} 。在实验中我们将验证相关结论。
 
 
 \section{实验结果}
@@ -254,9 +253,9 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 %\subsubsection{Setups and Evaluation Metrics}
 
 %%%%%%%%%%%% CM %%%%%%%%%%%%%
-我们的置信度实验主要在300小时Switchboard上进行。而针对多种任务的融合框架则在下面介绍。
+我们的置信度实验主要在300小时Switchboard上进行。而针对多种任务的融合框架则在后面介绍。
 我们训练得到了上下文相关的状态级别HMM (CD-state-HMM) 和上下文无关的音素级别CTC (CI-phone-CTC) 。 训练的配置与解码配置和上文相似  \cite{zhc00-chen-tasl2017}。
-所以的模型都使用大约 2-2.5M 参数，以便进行公平比较。
+所有的模型都使用大约 2-2.5M 参数，以便进行公平比较。
 在测试中， 我们使用NIST Hub5e00 测试集的switchboard子集 (1831 句子) 。对CTC模型，我们测试FSD和LSD两种方法。
 表~\ref{tab:asr-baseline} 给出了不同模型和解码框架下的基础性能，其与前文保持一致。
 
@@ -289,12 +288,12 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
 在测试针对各种ASR应用的通用融合框架时，我们在三种应用上分别进行试验：关键词检测，基于上下文的语音识别和大词汇连续语音识别。一个5000小时中文数据训练的CTC模型被用于测试，其配置与 \cite{Chen+2016}中相同。
 
-在关键词检测中，词级别的置信度质量使用无唤醒和未唤醒错误来衡量。在基于上下文的语音识别中，使用句子级别的置信度来区分上文中介绍的领域内错误和领域外错误。
- {\em 等错误率} (EER) 用来度量上面两张测试下的错误率，该指标反映了无唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
- {\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017} 用来作为词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。未来保证ASR准确率没有受到该框架的影响，我们还度量了前两个测试中的句子的召回率，以及 在大词汇连续语音识别中的 {\em 字错误率} (CER) 。 
+在关键词检测中，词级别的置信度质量使用误唤醒和未唤醒错误来衡量。在基于上下文的语音识别中，使用句子级别的置信度来区分上文中介绍的领域内错误和领域外错误。
+ {\em 等错误率} (EER) 用来度量上面两张测试下的错误率，该指标反映了误唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
+ {\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017} 用来作为词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。为了保证ASR准确率没有受到该框架的影响，我们还度量了前两个测试中的句子的召回率，以及 在大词汇连续语音识别中的 {\em 字错误率} (CER) 。 
  为了度量框架的效率，我们给出了解码搜索时间占总体计算时间的比例，表示为 {\em portion of time except acoustic model} (PEA)。因为实验总是在相同的声学模型上进行，越低的PEA表示计算过程越少消耗在解码框架上，这包括搜索空间解码，词图生成，后处理等。因此越低的PEA效果越好。
 
- 在基线置信度方法中包含针对特征预测的置信度，表示为 $\tt AC $ 和 $ \tt CN $。 我们提出的方法分别在实验中进行了比较，他们是$\tt AX1 $, $\tt AX2 $ 和 $\tt AX3 $ 。 
+ 在基线置信度方法中包含针对用于建模的特征的置信度，表示为 $\tt AC $ 和 $ \tt CN $。 我们提出的方法分别在实验中进行了比较，他们是$\tt AX1 $, $\tt AX2 $ 和 $\tt AX3 $ 。 
  附属归一化搜索空间 $\tt AX2 $是由一个三元音素级语言模型而得到的，它包含了{\em 145K} 组词历史。 $\tt AX3 $ 是由词级别搜索网络 $L$ 与一个由所有发音自环组成的网络$G$合成得到的,  $L \circ G$. $\tt filler$ 方法没有被包括在评估中，因为它理论上和 $\tt AX1$相同。
 
 \subsection{基于FSD和LSD的混淆网络比较}
@@ -321,7 +320,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 
 图~\ref{fig:OPER-latden}表示了 OPER 和词图密度在不同解码配置结果中的对比，这包括由FSD和LSD生成的音素词图。
 %Phone lattice generated from LSD is called LSD CTC lattice as in Section~\ref{sec:psd-ctc-lat} . Phone lattice generated from FSD is as the traditional method \cite{povey2012generating}.
-在相似OPER情况下，LSD词图的大小比FSD词图小超过10倍，在同一个CTC模型下。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
+在相似OPER情况下，对同一个CTC模型，LSD词图的大小比FSD词图小超过10倍。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
 总结起来，在相同大小下，LSD CTC包含更多的音素声学信息。由于接下来的重点是比较FSD和LSD，因此我们仅罗列该部分结果。
 
 
@@ -331,14 +330,14 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 %However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).
 
 为了构建混淆网络，需要先生成词级词图。 图~\ref{fig:OWER-latden} 表示了词级词图质量在FSD和LSD中的对比。
-我们使用OWER进行比较。在图中纵轴，我们画出了 $1-\frac{OWER}{WER}$ 的值作为OWER相对下降值，以体现词图对最终质量的改善。从图中可以看出，在相同词图密度情况下，LSD系统总是得到更好的OWER。
+我们使用OWER进行比较。在图中纵轴，我们画出了 $1-\frac{OWER}{WER}$ 的值作为OWER相对下降值，以体现词图对最终质量改善的上限。从图中可以看出，在相同词图密度情况下，LSD系统总是得到更好的OWER。
       \begin{figure}[tbhp!]
         \centering
         \includegraphics[width=\linewidth]{figure/OWER-latden.png}
         \caption{{\it 词图密度 v.s. 相对 OWER下降比例}}
         \label{fig:OWER-latden}
       \end{figure}
-一旦词级词图被构建好，相似时间边界的词边将会被合并在一起，通过混淆网络的生成中的基于pivot的词聚类方法。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近pivot边界距离（NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。
+一旦词级词图被构建好，通过混淆网络的生成中的基于pivot的词聚类方法，相似时间边界的词边将会被合并在一起。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近pivot边界距离（NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。
 
 %before CN cluster
       \begin{figure}[tbhp!]
@@ -347,7 +346,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
         \caption{{\it LSD和FSD的词边界稳定性}}
         \label{fig:bound-stable}
       \end{figure}
-图~\ref{fig:bound-stable} 显示了LSD和FSD的NPBD。从图中可以看出LSD的词图的NPBD要明显小。换句话说，它的词边界更加问题，由此可以得到更紧致的混淆网络。
+图~\ref{fig:bound-stable} 显示了LSD和FSD的NPBD。从图中可以看出LSD的词图的NPBD要明显小。换句话说，它的词边界更加稳定，由此可以得到更紧致的混淆网络。
 
 %\subsubsection{Conversion Efficiency from Word Lattice to Confusion Network}
 最后我们讨论了从词图到混淆网络的转换。图~\ref{fig:latden-cndepth} 显示了词图密度与混淆网络的深度之间的关系 \cite{hakkani2006beyond}。结果显示，即使在相似词图密度下，LSD的混淆网络往往包含更高的混淆网络深度，因此将得到更好的归一化项建模以及置信度建模方案。 
@@ -462,7 +461,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 %CTC model encodes the many-to-one function of $\mathcal{B}$ and results in peaky phonemic inference results.
 %However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).
 
-当LSD音素声学置信度 ($\tt PN2\oplus PN3\oplus PC$ 在表~\ref{tab:psd-conf}) 和基于CN的置信度相结合时 (表示为 {\tt AC+CN}), 性能得到了进一步改善。结果显示这两种置信度具有互补作用。我们认为第一组关注于局部而第二种则注重整个句子的评估。
+当LSD音素声学置信度 ($\tt PN2\oplus PN3\oplus PC$ 在表~\ref{tab:psd-conf}) 和基于CN的置信度相结合时 (表示为 {\tt AC+CN}), 性能得到了进一步改善。结果显示这两种置信度具有互补作用。我们认为第一种关注于局部而第二种则注重整个句子的评估。
 
 %%%%%%%%%%%%%% unified %%%%%%%%%%%%%%%%
 
@@ -510,7 +509,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理分布中�
 
  结果显示 $ \tt AC $ 效果比 $ \tt CN $好。原因是KWS中对搜索空间归一化项的建模非常薄弱，使得该部分估计不准。 本文所提出的附属归一化搜索空间可以减轻这样的问题，表中显示出了很大的改善。
 
-除此之外，召回率显示本文提出的方法轻微影响了模型的准确度。考虑到在误唤醒方法显著的改善，这样的损失是可以接受的。
+除此之外，召回率显示本文提出的方法轻微影响了模型的准确度。考虑到在误唤醒方面显著的改善，这样的损失是可以接受的。
 
 在效率方面，$ \tt CN $ 计算大约比 $ \tt AC $占据时间增加 10\% 。这方面来源于词图和混淆网络生成。虽然PEA比$ \tt AC $ 和 $ \tt CN $方法大, 但是总的时间仍然很小。这里的原因是由于使用了上文的LSD技术使得解码整体速度大幅加快\cite{Chen+2016}。
 
