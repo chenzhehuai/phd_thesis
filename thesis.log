@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  30 DEC 2018 12:01
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  2 JAN 2019 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2694,16 +2694,19 @@ File: figure/latden-cndepth.png Graphic file (type bmp)
 ]
 Underfull \vbox (badness 3179) has occurred while \output is active []
 
-[110] [111] [112] [113] [114] [115] [116]
+[110] [111] [112] [113] [114] [115]
+Underfull \vbox (badness 1365) has occurred while \output is active []
+
+[116]
 File: figure/filler-graph.png Graphic file (type bmp)
 <figure/filler-graph.png>
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 376.
+(Font)              size <10.95> substituted on input line 375.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 376.
+(Font)              size <10.95> substituted on input line 375.
 
 [117]
 Underfull \vbox (badness 1521) has occurred while \output is active []
@@ -2712,22 +2715,22 @@ Underfull \vbox (badness 1521) has occurred while \output is active []
 File: figure/kws-framework.eps Graphic file (type eps)
 <figure/kws-framework.eps>
 [119] [120] [121] [122] [123]
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 685--685
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 684--684
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 685--685
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 684--684
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 685--685
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 684--684
 []|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 685--685
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 684--684
 []|\TU/texgyretermes(0)/m/n/12.045 0.8M|  
  []
 
@@ -2847,4 +2850,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  59i,20n,80p,10440b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (181 pages, 2681216 bytes).
+Output written on thesis.xdv (181 pages, 2680320 bytes).

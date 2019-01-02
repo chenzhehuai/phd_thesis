@@ -26,11 +26,10 @@ ii) 监督的基于文本的方法，这部分可以被进一步分类为  基�
 QbyE 主要用于低资源音频检索, 本文不针对这个方向。 
 在 语料库检索中, 基于LVCSR方法通常能得到更好的性能，相比声学KWS。但是基于LVCSR方法也有如下一些缺点: 需要训练一个非常通用的大词汇连续语音识别系统，因此需要大量语料；同时在测试阶段也需要非常大的词表进行覆盖。这样的缺点限制了它在一些应用，比如唤醒词识别，中的应用。除此之外，基于LVCSR的方法忽略了KWS任务本身的一些特性，改进这类方法主要跟改进大词汇连续语音识别声学建模相关。所以本章节主要研究声学KWS。
 
-在声学关键词检测中，模型通常是进行逐帧分类的。目前研究趋势包括两方面：应用一个较强的逐帧分类器，比如深度学习模型，使最终系统带来性能提升~\cite{chen2014small,sainath2015convolutional}。 其次，语音识别本身是一个序列分类问题，传统的GMM-HMM系统在实验序列级准则，序列鉴别性训练时，往往能带来显著性能提升，比如discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, minimum classification error (MCE)~\cite{sandness2000keyword} 和 performance-related discriminative training~\cite{keshet2009discriminative}。
-在上述的鉴别性训练中，对完整的搜索空间的建模是成功的关键，也就是对识别可能性的建模。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
+在声学关键词检测中，模型通常是进行逐帧分类的。目前研究趋势包括两方面：应用一个较强的逐帧分类器，比如深度学习模型，使最终系统带来性能提升~\cite{chen2014small,sainath2015convolutional}。 其次，语音识别本身是一个序列分类问题，传统的GMM-HMM系统在使用序列级准则，序列鉴别性训练时，往往能带来显著性能提升，比如discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, minimum classification error (MCE)~\cite{sandness2000keyword} 和 performance-related discriminative training~\cite{keshet2009discriminative}。
+在上述的鉴别性训练中，对对识别可能性的建模，即完整的搜索空间的建模是成功的关键。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
 对领域外的搜素空间建模并不容易直接得到的问题限制了序列鉴别性训练在关键词检测中的广泛应用。
-特别是对
-特别是在非固定关键词的关键词检测, 所以可能的竞争可能性通常无法被穷举，同时这种可能性的产生过程非常耗时，在使用LVCSR框架进行的时候~\cite{povey2005discriminative}. 
+特别是在非固定关键词的关键词检测, 所以可能的竞争可能性通常无法被穷举，同时这种可能性的产生过程在使用LVCSR框架进行的时候~\cite{povey2005discriminative}非常耗时。 
 %combination of both hasn't been carefully 
 
 %Neural networks (NNs) for speech recognition are typically trained to classify individual frames based on a cross-entropy criterion (section 2.1).
@@ -69,7 +68,7 @@ iii) 基于 LSD框架提出了高效的后处理方法，以便对音素混淆�
 P(w|{\bf o}_{ut})= y_{ut}(w)
 \end{split}
 \end{equation}
-而前面讨论的后处理放则要被应用于逐帧的后验概率$y_{ut}(w)$上面。
+而前面讨论的后处理方法要被应用于逐帧的后验概率$y_{ut}(w)$上面。
 
 %CE formula
 这里通常可以使用负对数后验概率来作为交叉熵的目标函数。
@@ -195,7 +194,7 @@ p(\mathbf{O}_u)=\sum_\mathbf{W} p(\mathbf{O}_u,\mathbf{W})= \sum_\mathbf{W} P(\m
 
 基于深度学习的LVCSR和基于LVCSR的KWS都可以被序列鉴别性准则所改进~\cite{vesely2013sequence,meng2016non}. 
 %the key is use LATTICE 
-这里的序列竞争可能路径 $\mathbf{W}$ 在 (\ref{equ:po-prob})中可以由于语言模型一起进行联合解码而得到。解码得到的词图作为一种搜索空间的紧致表示，可以用于计算公式(\ref{equ:po-prob})中的边缘概率 $p(\mathbf{O}_u)$ 。
+这里的序列竞争可能路径 $\mathbf{W}$ 在 (\ref{equ:po-prob})中可以从，与语言模型一起进行联合解码，而得到。解码得到的词图作为一种搜索空间的紧致表示，可以用于计算公式(\ref{equ:po-prob})中的边缘概率 $p(\mathbf{O}_u)$ 。
 
   
 %traditional GMM-HMM based systems achieve significantly better performance when trained using sequence discriminative criteria like WB-MVE~\cite{sukkar1996utterance},  discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, MCE~\cite{sandness2000keyword} and performance-related discriminative training~\cite{keshet2009discriminative}.
@@ -271,11 +270,11 @@ i) 我们使用音素而不是tri-phone作为建模单元。
 % to improve model inference efficiency. 
 首先是在测试阶段，效率将会得到改善；其次是这样会使得后文将讨论的 $\tt filler$ 构建显著简化。
 ii) HMM的拓扑结构如图~\ref{fig:hmm-topo}(d-e)所示进行了修改,
-本文将图\ref{fig:hmm-topo}（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局bank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
+本文将图\ref{fig:hmm-topo}（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
 在实验部分我们将详细比较这些拓扑结构~\ref{Sec:exp-model-arch}。
 
 %similarlly b-mmi
-为了对模型的鉴别性做进一步改善，一系列其他的序列鉴别性训练准则也在KWS的框架下进行了研究。 First, the likelihoods of competing hypothesis sequences that contain more errors are boosted
+为了对模型的鉴别性做进一步改善，一系列其他的序列鉴别性训练准则也在KWS的框架下进行了研究。 
 首先，我们对序列中出现错误的部分进行了增强~\cite{povey2008boosted}，称为增强的$\tt{ LF\text{-}MMI}$, $\tt{ LF\text{-}bMMI}$。
 \begin{equation}
 \label{equ:kws-bmmi}
@@ -394,7 +393,7 @@ $\tt filler$解码方法用于建模前面我们所讨论的领域外的搜索�
 
 %word boundary modelling
 另一个方向是针对音素级模型，我们进行修改的动机是：
-i) 任何因素序列，也包括非关键部分，都可以由音素模型来进行建模。
+i) 任何音素序列，也包括非关键部分，都可以由音素模型来进行建模。
 ii) 使得声学模型容易做到与关键词无关，应用于非固定关键词的关键词检测任务。
 %
 除此之外，我们在词语边界处引入了 $\tt wb$ 单元~\cite{zhuang-is2016}。 在 音素 CTC 中 $\tt wb$ 和 $\tt blank$ 被分别作为词和音素的边界进行建模。区分这样的边界区段不仅可以改善泛化能力，而且也对后面将介绍的后处理有帮助。
@@ -419,7 +418,7 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 \subsection{后处理}
 \label{Sec:post-process-ctc}
 
-我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里针对音素混淆的引入基于CTC词图和MED算法~\cite{7736093}. 
+我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于CTC词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
 
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
 图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。再一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
@@ -470,10 +469,10 @@ CTC模型的配置详见 \cite{7736093}。我们使用单向 每层384节点的�
 %The LSTM network was initiated using cross-entropy criterion and then trained using CTC criterion.
 %For performance comparison, conventional {\em keyword-filler} DNN-HMM was also trained as baselines. DNN has an 11-frame context window with 5 extended frames on the left and right. %Both HMM systems have 1689 clustered triphone states. 
 所有声学模型都使用 Kaldi进行训练~\cite{povey2011kaldi}.
- {\em 等错误率} (EER) 用来度量上面两张测试下的错误率，该指标反映了无唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
+ {\em 等错误率} (EER) 用来度量上面两种测试下的错误率，该指标反映了无唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
 我们也绘出了receiver operating characteristic (ROC) 曲线，以总结实验结果。
-在基于$\tt filler$ 的解码中, 表示为 {\em{kw-filler}}, EER是由扫描修改filler权重而得到的。
-后验概率平滑，表示为 {\em{smooth}}， 和 CTC MED后处理方法, 表示为 {\em{MED}}, 都是通过\cite{7736093}中提出的阈值固定方法得到的。
+在基于$\tt filler$ 的解码中, 表示为 {\em{kw-filler}}, 而EER是由扫描修改filler权重而得到的。
+后验概率平滑，表示为 {\em{smooth}}， 和 CTC MED后处理方法, 表示为 {\em{MED}}, 都是通过\cite{7736093}中提出的固定阈值方法得到的。
 \begin{equation}
 \label{equ:eer-thres}
 \begin{split}
@@ -794,7 +793,7 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
 
 在第三行中，我们所提出的LF-bMMI系统显著改善了CE系统，取得了一致更优的EER和FAF。但是，所得到的系统仍然差于基线系统。为了解决针对关键词区段识别性能差的问题，我们使用了NU-LF-bMMI 方法，在第四行中。结果显示NU-LF-bMMI 系统得到了相对第一行基线中显著更好的结果。我们认为这包括两方面原因：第一，非一致地训练关键词相关的音素序列，理论上等同于对关键词的每个词单元专门进行训练，所以其建模能力类似； 第二，由于音素系统通过所提出的NU-LF-bMMI增强了关键词之间与关键词和非关键词之间的鉴别能力，因此它能够取得更优的性能。关于效率，虽然该系统的模型推理速度较快，但由于引入kw-filler的搜索部分，因此导致两倍的速度减慢。使用标签同步解码算法对系统进行加速是未来一个值得研究的问题。
 
-最终，CTC系统也参与了比较。在第五行中的系统类似于\cite{fernandez2007application}。虽然它在文献\cite{fernandez2007application}中取得了较好的性能, 但在本部分测试中仍然差于词级别的CE系统。我们相信这是因为我们使用的训练和测试集相比该文献具有更大的挑战。我们针对这一系统如前文所述，添加了 $\tt filler$ 建模单元，以改善关键词与非关键词之间的鉴别性；同时我们增加了基于 MED的后处理算法，以便引入音素混淆性的先验知识。我们所提出的系统在第六航中取得了显著更好的结果。但是这个系统仍然没有超过传统的CE系统。
+最终，CTC系统也参与了比较。在第五行中的系统类似于\cite{fernandez2007application}。虽然它在文献\cite{fernandez2007application}中取得了较好的性能, 但在本部分测试中仍然差于词级别的CE系统。我们相信这是因为我们使用的训练和测试集相比该文献具有更大的挑战。我们针对这一系统如前文所述，添加了 $\tt filler$ 建模单元，以改善关键词与非关键词之间的鉴别性；同时我们增加了基于 MED的后处理算法，以便引入音素混淆性的先验知识。我们所提出的系统在第六行中取得了显著更好的结果。但是这个系统仍然没有超过传统的CE系统。
 %This may be because the baseline in fixed vocabulary KWS is highly tuned while the CTC-MED approach treats all phones equally during training. It is worth noting that due to the same reason, the LF-bMMI approach does not outperform the baseline neither. 
 我们认为进一步的改善应该包括两方面：对CTC模型的噪声鲁棒性的研究；使用更好的深度学习模型来改善模型性能。
 %in keyword specific corpus 
