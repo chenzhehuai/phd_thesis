@@ -2,7 +2,7 @@
 \chapter{基于GPU并行计算的搜索速度优化}
 \label{chap:gpu}
 
-本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理。该框架可以显著加速现有推理算法，特别是在基于深度序列学习的一系列模型上进行了验证。
+本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理搜索。该框架可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
 
 我们将维特比算法中的令牌合并操作实现为一个GPU并行计算中的原子操作，以便减少维特比束剪枝算法中的同步开销；我们提出了动态负载均衡的方式以更高效地进行并行计算，提高其多线程之间的利用率；我们重新设计了基于GPU并行计算的精确的词图生成和剪枝算法，以便充分利用GPU的性能特点。
 
@@ -22,7 +22,7 @@
 和向前预测~\cite{soltau2009dynamic,nolden2012search}是针对解码部分主要的加速方式。
 %in WFST framework, pruning , lookahead ... in e2e framework...
 
-基于GPU的并行计算是另一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理阶段，以加速运算。
+基于GPU的并行计算是另一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
 但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。
 ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。 %Detailed comparisons are in
 %Section~\ref{sec:relate}. 
@@ -295,7 +295,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 
 我们对1-best 结果和词图质量都进行了比较。为了公平起见，我们保持两种解码器得出相同的词图密度 ({\em{lat.den.}}, 其使用arcs/frame进行度量)~\cite{woodland19951994}。
 在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}。Normalized cross entropy (NCE)~\cite{siu1999evaluation}被用于评估词图得出的置信度的质量。这里我们训练了决策树以将这些词图后验概率转换为我们最终需要的置信度~\cite{chen2017confidence,chen2017unified}.
-实时率 (RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)
+实时率 (RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理搜索所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)
 一块 Tesla V100 默认地用于GPU解码，后续我们还会比较其他GPU架构下的性能。
 
 

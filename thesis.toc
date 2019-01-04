@@ -15,7 +15,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.2}语音识别架构}{3}{subsection.1.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}自动语音识别的推理问题}{5}{section.1.2}
+\contentsline {section}{\numberline {1.2}自动语音识别的推理搜索问题}{5}{section.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.3}论文主要内容、创新点及组织结构}{6}{section.1.3}
 \defcounter {refsection}{0}\relax 
@@ -161,7 +161,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.2.1.2}帧同步解码算法}{79}{subsubsection.5.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理}{80}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理搜索}{80}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.2.2.1}标签同步解码}{80}{subsubsection.5.2.2.1}
 \defcounter {refsection}{0}\relax 
