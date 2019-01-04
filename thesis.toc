@@ -17,290 +17,302 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}自动语音识别的推理问题}{5}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}论文主要内容、创新点及组织结构}{7}{section.1.3}
+\contentsline {section}{\numberline {1.3}论文主要内容、创新点及组织结构}{6}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第二章\hspace {.3em}}自动语音识别}{11}{chapter.2}
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}自动语音识别及深度序列模型}{9}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}自动语音识别框架}{11}{section.2.1}
+\contentsline {section}{\numberline {2.1}自动语音识别框架}{9}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}特征提取}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}特征提取}{9}{subsection.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}声学模型}{13}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.2}声学模型}{11}{subsection.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.1}隐马尔可夫模型 (HMM)}{13}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {2.1.2.1}隐马尔可夫模型 (HMM)}{11}{subsubsection.2.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.2}混合高斯模型 (GMM)}{14}{subsubsection.2.1.2.2}
+\contentsline {subsubsection}{\numberline {2.1.2.2}混合高斯模型 (GMM)}{13}{subsubsection.2.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.3}HMM的似然计算}{15}{subsubsection.2.1.2.3}
+\contentsline {subsubsection}{\numberline {2.1.2.3}HMM的似然计算}{13}{subsubsection.2.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.4}最大似然估计}{16}{subsubsection.2.1.2.4}
+\contentsline {subsubsection}{\numberline {2.1.2.4}最大似然估计}{15}{subsubsection.2.1.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.5}序列鉴别性训练}{18}{subsubsection.2.1.2.5}
+\contentsline {subsubsection}{\numberline {2.1.2.5}序列鉴别性训练}{16}{subsubsection.2.1.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.6}声学单元和参数绑定}{19}{subsubsection.2.1.2.6}
+\contentsline {subsubsection}{\numberline {2.1.2.6}声学单元和参数绑定}{17}{subsubsection.2.1.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.3}语言模型}{21}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.3}语言模型}{19}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.4}解码及搜索}{22}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.4}解码及搜索}{21}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}大词汇连续语音信号的识别中解码搜索技术}{24}{section.2.2}
+\contentsline {section}{\numberline {2.2}深度神经网络在语音识别中的应用}{22}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}解码器的技术流派}{24}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}深度学习与神经网络}{22}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}结构和主要模块}{26}{subsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1.1}深度神经网络}{22}{subsubsection.2.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.1}解码器框架}{26}{subsubsection.2.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.2}卷积神经网络}{24}{subsubsection.2.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.2}网络生成}{27}{subsubsection.2.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1.3}循环神经网络}{26}{subsubsection.2.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.3}分数计算}{29}{subsubsection.2.2.2.3}
+\contentsline {subsection}{\numberline {2.2.2}神经网络训练}{27}{subsection.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.4}维特比搜索}{29}{subsubsection.2.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.2.1}训练准则}{27}{subsubsection.2.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.5}剪枝}{30}{subsubsection.2.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.2.2}反向传播算法}{28}{subsubsection.2.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.2.6}路径管理和词图}{30}{subsubsection.2.2.2.6}
+\contentsline {subsubsection}{\numberline {2.2.2.3}小批量随机梯度下降}{30}{subsubsection.2.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}本章小结}{31}{section.2.3}
+\contentsline {subsubsection}{\numberline {2.2.2.4}惯性系数}{30}{subsubsection.2.2.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第三章\hspace {.3em}}语音识别中深度序列模型}{33}{chapter.3}
+\contentsline {subsubsection}{\numberline {2.2.2.5}参数初始化与预训练}{31}{subsubsection.2.2.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}深度学习与神经网络}{33}{section.3.1}
+\contentsline {subsection}{\numberline {2.2.3}深度神经网络-隐马尔可夫模型混合系统}{33}{subsection.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}深度神经网络}{33}{subsection.3.1.1}
+\contentsline {section}{\numberline {2.3}端到端语音识别中的深度序列模型}{34}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}卷积神经网络}{35}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {2.3.1}无词图鉴别性训练模型}{35}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.3}循环神经网络}{37}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {2.3.2}连接时序模型}{36}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}神经网络训练}{38}{section.3.2}
+\contentsline {subsection}{\numberline {2.3.3}基于注意力机制序列到序列模型}{38}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}训练准则}{38}{subsection.3.2.1}
+\contentsline {section}{\numberline {2.4}鲁棒语音识别中的深度序列模型}{38}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}反向传播算法}{39}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {2.4.1}排列不变性训练及其在鸡尾酒会问题中应用}{38}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}小批量随机梯度下降}{41}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {2.4.2}基于迁移学习的排列不变性训练}{39}{subsection.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}惯性系数}{41}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {2.4.3}基于序列鉴别性训练的排列不变性训练}{43}{subsection.2.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.5}参数初始化与预训练}{42}{subsection.3.2.5}
+\contentsline {section}{\numberline {2.5}本章小结}{43}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.5.1}深度置信网络}{42}{subsubsection.3.2.5.1}
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}语音识别中的解码搜索问题}{45}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.5.2}鉴别性预训练}{44}{subsubsection.3.2.5.2}
+\contentsline {section}{\numberline {3.1}维特比解码搜索算法}{45}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}深度神经网络-隐马尔可夫模型混合系统}{44}{section.3.3}
+\contentsline {section}{\numberline {3.2}语音识别中的解码搜索问题}{46}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}端到端语音识别中的深度序列模型}{46}{section.3.4}
+\contentsline {subsection}{\numberline {3.2.1}关键词检测和孤立词识别}{47}{subsection.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}无词图鉴别性训练模型}{46}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.2.2}语法网络识别和大词汇连续语音识别}{48}{subsection.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}连接时序模型}{47}{subsection.3.4.2}
+\contentsline {section}{\numberline {3.3}解码器技术综述}{50}{section.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.3}基于注意力机制序列到序列模型}{49}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.3.1}解码器的技术流派}{50}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}鲁棒语音识别中深度序列模型}{49}{section.3.5}
+\contentsline {subsubsection}{\numberline {3.3.1.1}静态和动态的搜索空间构建方法}{50}{subsubsection.3.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}排列不变性训练及其在鸡尾酒会问题中应用}{49}{subsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.3.1.2}同步和异步的搜索算法}{53}{subsubsection.3.3.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}基于迁移学习的排列不变性训练}{50}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.3.2}主要模块和核心算法}{55}{subsection.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.3}基于序列鉴别性训练的排列不变性训练}{54}{subsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.3.2.1}解码器框架}{55}{subsubsection.3.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}本章小结}{54}{section.3.6}
+\contentsline {subsubsection}{\numberline {3.3.2.2}基于加权有限状态机的网络生成算法}{56}{subsubsection.3.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第四章\hspace {.3em}}基于GPU并行计算的搜索速度优化}{57}{chapter.4}
+\contentsline {subsubsection}{\numberline {3.3.2.3}分数计算}{57}{subsubsection.3.3.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}引言}{57}{section.4.1}
+\contentsline {subsubsection}{\numberline {3.3.2.4}维特比搜索}{58}{subsubsection.3.3.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}维特比算法并行化框架}{58}{section.4.2}
+\contentsline {subsubsection}{\numberline {3.3.2.5}剪枝}{58}{subsubsection.3.3.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}系统框架}{58}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {3.3.2.6}路径管理和词图}{59}{subsubsection.3.3.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}并行的令牌传递算法}{59}{section.4.3}
+\contentsline {section}{\numberline {3.4}解码器研究中的待解决问题}{60}{section.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}图搜索的动态负载均衡算法}{60}{section.4.4}
+\contentsline {section}{\numberline {3.5}本章小结}{61}{section.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}并行的词图处理算法}{61}{section.4.5}
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}基于GPU并行计算的搜索速度优化}{63}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.1}精确的词图生成算法}{61}{subsection.4.5.1}
+\contentsline {section}{\numberline {4.1}引言}{63}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.2}词图剪枝}{62}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.2}维特比算法并行化框架}{64}{section.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}实验结果}{62}{section.4.6}
+\contentsline {subsection}{\numberline {4.2.1}系统框架}{64}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.1}实验配置}{62}{subsection.4.6.1}
+\contentsline {section}{\numberline {4.3}并行的令牌传递算法}{65}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.2}性能和速度}{64}{subsection.4.6.2}
+\contentsline {section}{\numberline {4.4}图搜索的动态负载均衡算法}{66}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.3}分析}{64}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.5}并行的词图处理算法}{67}{section.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}本章小结}{66}{section.4.7}
+\contentsline {subsection}{\numberline {4.5.1}精确的词图生成算法}{67}{subsection.4.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第五章\hspace {.3em}}基于标签同步解码的搜索空间优化}{69}{chapter.5}
+\contentsline {subsection}{\numberline {4.5.2}词图剪枝}{68}{subsection.4.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}引言}{69}{section.5.1}
+\contentsline {section}{\numberline {4.6}实验结果}{68}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}基于连接时序模型的标签同步解码}{71}{section.5.2}
+\contentsline {subsection}{\numberline {4.6.1}实验配置}{68}{subsection.4.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}语音识别解码算法研究现状分析}{71}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {4.6.2}性能和速度}{70}{subsection.4.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1.1}序列标注与序列模型}{71}{subsubsection.5.2.1.1}
+\contentsline {subsection}{\numberline {4.6.3}分析}{70}{subsection.4.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.1.2}帧同步解码算法}{73}{subsubsection.5.2.1.2}
+\contentsline {section}{\numberline {4.7}本章小结}{72}{section.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理}{74}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}基于标签同步解码的搜索空间优化}{75}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.1}标签同步解码}{74}{subsubsection.5.2.2.1}
+\contentsline {section}{\numberline {5.1}引言}{75}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.2.2.2}标签同步解码算法实现}{75}{subsubsection.5.2.2.2}
+\contentsline {section}{\numberline {5.2}基于连接时序模型的标签同步解码}{77}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}基于无词图鉴别性训练模型的标签同步解码}{76}{section.5.3}
+\contentsline {subsection}{\numberline {5.2.1}语音识别解码算法研究现状分析}{77}{subsection.5.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.0.1}标签同步解码}{76}{subsubsection.5.3.0.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}序列标注与序列模型}{77}{subsubsection.5.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.3.0.2}标签同步解码算法实现}{78}{subsubsection.5.3.0.2}
+\contentsline {subsubsection}{\numberline {5.2.1.2}帧同步解码算法}{79}{subsubsection.5.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}基于标签同步解码的端到端语音识别}{79}{section.5.4}
+\contentsline {subsection}{\numberline {5.2.2}基于端到端建模的标签同步推理}{80}{subsection.5.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}训练和解码框架}{80}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.2.2.1}标签同步解码}{80}{subsubsection.5.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}模块化}{81}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.2.2.2}标签同步解码算法实现}{81}{subsubsection.5.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.3}标签同步解码}{82}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.3}基于无词图鉴别性训练模型的标签同步解码}{82}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.4}联合训练}{82}{subsection.5.4.4}
+\contentsline {subsubsection}{\numberline {5.3.0.1}标签同步解码}{82}{subsubsection.5.3.0.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}实验结果}{82}{section.5.5}
+\contentsline {subsubsection}{\numberline {5.3.0.2}标签同步解码算法实现}{84}{subsubsection.5.3.0.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}DSM实验}{83}{subsection.5.5.1}
+\contentsline {section}{\numberline {5.4}基于标签同步解码的端到端语音识别}{85}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}GSM实验}{86}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.4.1}训练和解码框架}{86}{subsection.5.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.3}标签同步解码在模块化训练中的应用}{89}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.4.2}模块化}{87}{subsection.5.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.6}本章小结}{91}{section.5.6}
+\contentsline {subsection}{\numberline {5.4.3}标签同步解码}{88}{subsection.5.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第六章\hspace {.3em}}基于标签同步解码的统一解码框架}{93}{chapter.6}
+\contentsline {subsection}{\numberline {5.4.4}联合训练}{88}{subsection.5.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}基于标签同步解码的置信度框架}{93}{section.6.1}
+\contentsline {section}{\numberline {5.5}实验结果}{88}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}引文}{93}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {5.5.1}DSM实验}{89}{subsection.5.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}LSD CTC词图中的置信度}{94}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {5.5.2}GSM实验}{92}{subsection.5.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.2.1}标签同步的音素声学置信度}{94}{subsubsection.6.1.2.1}
+\contentsline {subsection}{\numberline {5.5.3}标签同步解码在模块化训练中的应用}{95}{subsection.5.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.2.2}基于混淆网络和CTC标签同步解码词图的置信度}{95}{subsubsection.6.1.2.2}
+\contentsline {section}{\numberline {5.6}本章小结}{97}{section.5.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}基于标签同步解码的多识别任务统一框架}{96}{section.6.2}
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}基于标签同步解码的统一解码框架}{99}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.1}置信度和搜索空间}{98}{subsection.6.2.1}
+\contentsline {section}{\numberline {6.1}基于标签同步解码的置信度框架}{99}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1.1}关键词检测}{98}{subsubsection.6.2.1.1}
+\contentsline {subsection}{\numberline {6.1.1}引文}{99}{subsection.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1.2}基于上下文的语音识别}{98}{subsubsection.6.2.1.2}
+\contentsline {subsection}{\numberline {6.1.2}LSD CTC词图中的置信度}{100}{subsection.6.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1.3}大词汇连续语音识别}{99}{subsubsection.6.2.1.3}
+\contentsline {subsubsection}{\numberline {6.1.2.1}标签同步的音素声学置信度}{100}{subsubsection.6.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.2}基于附属归一化搜索空间的置信度方法}{99}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.2}基于混淆网络和CTC标签同步解码词图的置信度}{101}{subsubsection.6.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.2.1}统一的置信度框架}{99}{subsubsection.6.2.2.1}
+\contentsline {section}{\numberline {6.2}基于标签同步解码的多识别任务统一框架}{102}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.2.2}附属归一化搜索空间}{99}{subsubsection.6.2.2.2}
+\contentsline {subsection}{\numberline {6.2.1}置信度和搜索空间}{104}{subsection.6.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.2.3}基于CTC的标签同步解码}{100}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.1.1}关键词检测}{104}{subsubsection.6.2.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}实验结果}{101}{section.6.3}
+\contentsline {subsubsection}{\numberline {6.2.1.2}基于上下文的语音识别}{104}{subsubsection.6.2.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}实验配置}{101}{subsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.2.1.3}大词汇连续语音识别}{105}{subsubsection.6.2.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.2}基于FSD和LSD的混淆网络比较}{102}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.2.2}基于附属归一化搜索空间的置信度方法}{105}{subsection.6.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.2.1}音素级词图质量分析}{102}{subsubsection.6.3.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.1}统一的置信度框架}{105}{subsubsection.6.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.2.2}LSD CTC 词图及其生成的更好混淆网络}{103}{subsubsection.6.3.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.2}附属归一化搜索空间}{105}{subsubsection.6.2.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.3}置信度评估}{104}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.2.2.3}基于CTC的标签同步解码}{106}{subsubsection.6.2.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.3.1}LSD 声学音素置信度}{105}{subsubsection.6.3.3.1}
+\contentsline {section}{\numberline {6.3}实验结果}{107}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.3.3.2}基于LSD的混淆网络的置信度}{106}{subsubsection.6.3.3.2}
+\contentsline {subsection}{\numberline {6.3.1}实验配置}{107}{subsection.6.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.4}统一解码框架}{106}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.2}基于FSD和LSD的混淆网络比较}{108}{subsection.6.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.5}大词汇连续语音识别}{107}{subsection.6.3.5}
+\contentsline {subsubsection}{\numberline {6.3.2.1}音素级词图质量分析}{108}{subsubsection.6.3.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}本章小结}{108}{section.6.4}
+\contentsline {subsubsection}{\numberline {6.3.2.2}LSD CTC 词图及其生成的更好混淆网络}{109}{subsubsection.6.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第七章\hspace {.3em}}关键词检测的序列建模和标签同步解码}{109}{chapter.7}
+\contentsline {subsection}{\numberline {6.3.3}置信度评估}{110}{subsection.6.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}引言}{109}{section.7.1}
+\contentsline {subsubsection}{\numberline {6.3.3.1}LSD 声学音素置信度}{111}{subsubsection.6.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}关键词检测的声学建模}{111}{section.7.2}
+\contentsline {subsubsection}{\numberline {6.3.3.2}基于LSD的混淆网络的置信度}{112}{subsubsection.6.3.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}序列鉴别性训练}{111}{section.7.3}
+\contentsline {subsection}{\numberline {6.3.4}统一解码框架}{112}{subsection.6.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.1}生成式序列模型 和 鉴别式序列模型 在ASR中的应用}{111}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {6.3.5}大词汇连续语音识别}{113}{subsection.6.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.2}基于HMM的序列鉴别性训练}{113}{subsection.7.3.2}
+\contentsline {section}{\numberline {6.4}本章小结}{114}{section.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.3}CTC based 序列鉴别性训练}{114}{subsection.7.3.3}
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}关键词检测的序列建模和标签同步解码}{115}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}基于HMM的关键词检测的序列鉴别性训练}{115}{section.7.4}
+\contentsline {section}{\numberline {7.1}引言}{115}{section.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.1}模型训练}{115}{subsection.7.4.1}
+\contentsline {section}{\numberline {7.2}关键词检测的声学建模}{117}{section.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.2}后处理}{117}{subsection.7.4.2}
+\contentsline {section}{\numberline {7.3}序列鉴别性训练}{117}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.4.2.1}后验平滑}{117}{subsubsection.7.4.2.1}
+\contentsline {subsection}{\numberline {7.3.1}生成式序列模型 和 鉴别式序列模型 在ASR中的应用}{117}{subsection.7.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.4.2.2}$\tt filler$解码}{117}{subsubsection.7.4.2.2}
+\contentsline {subsection}{\numberline {7.3.2}基于HMM的序列鉴别性训练}{119}{subsection.7.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.5}基于CTC的关键词检测的标签同步解码}{118}{section.7.5}
+\contentsline {subsection}{\numberline {7.3.3}CTC based 序列鉴别性训练}{120}{subsection.7.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.5.1}模型训练}{118}{subsection.7.5.1}
+\contentsline {section}{\numberline {7.4}基于HMM的关键词检测的序列鉴别性训练}{121}{section.7.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.5.2}后处理}{119}{subsection.7.5.2}
+\contentsline {subsection}{\numberline {7.4.1}模型训练}{121}{subsection.7.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.5.3}序列鉴别性训练在HMM和CTC框架中的比较}{120}{subsection.7.5.3}
+\contentsline {subsection}{\numberline {7.4.2}后处理}{123}{subsection.7.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.6}实验结果}{120}{section.7.6}
+\contentsline {subsubsection}{\numberline {7.4.2.1}后验平滑}{123}{subsubsection.7.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.6.1}英文语料库检索任务}{120}{subsection.7.6.1}
+\contentsline {subsubsection}{\numberline {7.4.2.2}$\tt filler$解码}{123}{subsubsection.7.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.1.1}实验配置}{120}{subsubsection.7.6.1.1}
+\contentsline {section}{\numberline {7.5}基于CTC的关键词检测的标签同步解码}{124}{section.7.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.1.2}HMM和CTC模型训练}{121}{subsubsection.7.6.1.2}
+\contentsline {subsection}{\numberline {7.5.1}模型训练}{124}{subsection.7.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.1.3}后处理和速度分析}{123}{subsubsection.7.6.1.3}
+\contentsline {subsection}{\numberline {7.5.2}后处理}{125}{subsection.7.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.1.4}性能比较}{124}{subsubsection.7.6.1.4}
+\contentsline {subsection}{\numberline {7.5.3}序列鉴别性训练在HMM和CTC框架中的比较}{126}{subsection.7.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.6.2}中文数据集唤醒词识别}{126}{subsection.7.6.2}
+\contentsline {section}{\numberline {7.6}实验结果}{126}{section.7.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.2.1}实验配置}{126}{subsubsection.7.6.2.1}
+\contentsline {subsection}{\numberline {7.6.1}英文语料库检索任务}{126}{subsection.7.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.6.2.2}实验结果和比较}{126}{subsubsection.7.6.2.2}
+\contentsline {subsubsection}{\numberline {7.6.1.1}实验配置}{126}{subsubsection.7.6.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.7}本章小结}{127}{section.7.7}
+\contentsline {subsubsection}{\numberline {7.6.1.2}HMM和CTC模型训练}{127}{subsubsection.7.6.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {第八章\hspace {.3em}}全文总结}{129}{chapter.8}
+\contentsline {subsubsection}{\numberline {7.6.1.3}后处理和速度分析}{129}{subsubsection.7.6.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.1}基于GPU并行计算的搜索速度优化}{129}{section.8.1}
+\contentsline {subsubsection}{\numberline {7.6.1.4}性能比较}{130}{subsubsection.7.6.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.2}基于标签同步解码的搜索空间优化}{130}{section.8.2}
+\contentsline {subsection}{\numberline {7.6.2}中文数据集唤醒词识别}{132}{subsection.7.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.3}基于标签同步解码的统一解码框架}{130}{section.8.3}
+\contentsline {subsubsection}{\numberline {7.6.2.1}实验配置}{132}{subsubsection.7.6.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.4}关键词检测的序列建模和标签同步解码}{131}{section.8.4}
+\contentsline {subsubsection}{\numberline {7.6.2.2}实验结果和比较}{132}{subsubsection.7.6.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.5}后续工作展望}{132}{section.8.5}
+\contentsline {section}{\numberline {7.7}本章小结}{133}{section.7.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{参考文献}{133}{appendix*.7}
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}全文总结}{135}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{攻读学位期间发表的学术论文}{153}{appendix*.8}
+\contentsline {section}{\numberline {8.1}基于GPU并行计算的搜索速度优化}{135}{section.8.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{攻读学位期间申请的专利}{155}{appendix*.9}
+\contentsline {section}{\numberline {8.2}基于标签同步解码的搜索空间优化}{136}{section.8.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{157}{appendix*.10}
+\contentsline {section}{\numberline {8.3}基于标签同步解码的统一解码框架}{136}{section.8.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.4}关键词检测的序列建模和标签同步解码}{137}{section.8.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.5}后续工作展望}{138}{section.8.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{参考文献}{139}{appendix*.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{攻读学位期间发表的学术论文}{159}{appendix*.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{攻读学位期间申请的专利}{161}{appendix*.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{163}{appendix*.10}
