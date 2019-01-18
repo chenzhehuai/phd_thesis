@@ -22,6 +22,7 @@
 和向前预测~\cite{soltau2009dynamic,nolden2012search}是针对解码部分主要的加速方式。
 %in WFST framework, pruning , lookahead ... in e2e framework...
 
+如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，
 基于GPU的并行计算是另一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
 但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。
 ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。 %Detailed comparisons are in
