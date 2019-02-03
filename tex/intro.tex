@@ -660,7 +660,7 @@ $\mathbb{L}$ 表示 $\mathbf{L}$中所有的标签。 $q_s^{(l)}$ 表示第l个H
 
 
 {\em 鉴别式序列模型} 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模序列 $\mathbf{L}$的后验概率。 
-连接时序模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出标签之间的混淆部分。具体来说，这种模型会在两个标签$l_{i-1}$ 和 $l_{i}$之间预测出 $ \tt blank$ 建模单元。
+连接时序分类模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出标签之间的混淆部分。具体来说，这种模型会在两个标签$l_{i-1}$ 和 $l_{i}$之间预测出 $ \tt blank$ 建模单元。
 公式中的 $\mathcal{B}$ 是一个一对多的映射函数~\footnote{在最早文献~\cite{graves2006connectionist}中使用的公式定义为一个多对一的映射函数，同时使用它的反函数来定义 $\mathcal{B}^{-1}(\cdot)$ CTC模型中的映射。这里我们修改为一个一对多的映射函数，使公式与HMM中的定义更加一致。}:
 \begin{equation}
 \label{equ:ctc-b_2}
@@ -733,7 +733,7 @@ p(\mathbf{O}_u)=\sum_\mathbf{W} p(\mathbf{O}_u,\mathbf{W})= \sum_\mathbf{W} P(\m
 %discriminate KW or discriminate KW \& filler, but filler is imperfect
 
 {\em{鉴别式序列模型}} 是直接对序列后验概率进行估计的一类模型，如公式 (\ref{equ:ctc-model})所示。
-连接时序模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}。
+连接时序分类模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}。
 在~\cite{fernandez2007application}中, CTC被应用到KWS中。
 CTC的输出被定义为所有可能的关键词序列 $\mathbf{W}$的后验概率。其目标函数是:
 \begin{equation}
@@ -765,7 +765,7 @@ $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，
 
 图~\ref{fig:e2e}给出了一系列端到端序列建模模型，下文中将逐一进行讨论。
 
-\subsection{无词图鉴别性训练模型}
+\subsection{无词图鉴别性训练的模型}
 \label{chap:intro2-e2e-lfmmi}
 
 无词图鉴别性训练({\em lattice-free maximum mutual information}， LF-MMI~\cite{povey2016purely,chen2006advances})是指使用一个预先剪枝过的音素语言模型来代替传统鉴别性训练中词图。
@@ -801,10 +801,10 @@ $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$由HMM模型公�
 \end{figure}
 
 
-\subsection{连接时序模型}
+\subsection{连接时序分类模型}
 \label{chap:intro2-e2e-ctc}
 
-对于DNN-HMM混合模型而言，我们通常选取帧层面的交叉熵函数作为代价函数对DNN模型进行更新，这个过程中预先需要由GMM模型提供训练语料的帧层面的对齐。连接时序模型（Connectionist Temporal Classification, CTC）提出自动学习输入帧特征序列与其对应标签序列之间的对齐关系。
+对于DNN-HMM混合模型而言，我们通常选取帧层面的交叉熵函数作为代价函数对DNN模型进行更新，这个过程中预先需要由GMM模型提供训练语料的帧层面的对齐。连接时序分类模型（Connectionist Temporal Classification, CTC）提出自动学习输入帧特征序列与其对应标签序列之间的对齐关系。
 
 我们可以预先定义训练集的标签序列包含K个不同标签，这其中还包含意味着无发射标签的空符号标签$\tt blank$建模单元。我们定义输入帧特征序列以及相对应的标签序列。这样我们就可以通过在给定输入序列的条件下最大化标签序列的对数似然比，对预测模型进行更新。
 
