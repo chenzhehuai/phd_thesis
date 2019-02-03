@@ -1,11 +1,9 @@
 
 \chapter{基于标签同步解码的搜索空间优化}
 \label{chap:lsd}
-自动语音识别等序列标注任务的一个独特点是其对相邻帧的时序序列关联性建模。用于对相邻帧进行时序建模的主流序列模型包括隐马尔科夫模型（Hidden Markov Model， HMM）和连接时序模型（Connectionist Temporal Classification， CTC）。针对这些模型，当前主流的推理搜索搜索方法是帧层面的维特比束搜索算法，该算法复杂度很高，限制了语音识别的广泛应用。深度学习的发展使得更强的上下文和历史建模成为可能。通过引入blanks（“空”）单元，端到端建模系统能直接预测标签在给定特征下的后验概率。该章节系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，这包括使用高效的blank结构和后处理方法。该文提出的一系列通用方法在隐马尔科夫模型和连接时序模型上得到了验证。同时该章节还介绍了将标签同步算法应用于序列到序列的端到端模型的方案。在实验部分，该章节系统一方面取得大幅度语音识别解码速度改善，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度。
+自动语音识别等序列标注任务的一个独特点是其对相邻帧的时序序列关联性建模。用于对相邻帧进行时序建模的主流序列模型包括隐马尔科夫模型（Hidden Markov Model， HMM）和连接时序模型（Connectionist Temporal Classification， CTC）。针对这些模型，当前主流的推理搜索搜索方法是帧层面的维特比束搜索算法，该算法复杂度很高，限制了语音识别的广泛应用。深度学习的发展使得更强的上下文和历史建模成为可能。通过引入blanks（“空”）单元，端到端建模系统能直接预测标签在给定特征下的后验概率。该章节系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，这包括使用高效的blank结构和后处理方法。该文提出的一系列通用方法在隐马尔科夫模型和连接时序模型上得到了验证。
 
 
-\section{引言}
-\label{chap:lsd-intro}
 序列标注问题是指一类将给定的数据序列转化为标签序列的任务~\cite{graves2012supervised}，如自动语音识别（automatic speech recognition, ASR）和手写体识别（optical character recognition, OCR）等。这类问题与传统模式识别框架不同的是，给定的样本中各数据点不符合独立同分布（independent and identically distributed, i.i.d）假设。其主要问题在于特征向量序列的可变长性，如ASR中由语速变化导致的语音信号时长的不同。
 
 为了对上述时序特征进行建模，人们提出了序列模型。根据其建模过程，序列模型可以分为以下两类：1）生成式序列模型（generative sequence models, GSM），如隐马尔科夫模型（hidden Markov model , HMM）；2）判别式序列模型（discriminative sequence models, DSM），如连接时序模型（connectionist temporal classification, CTC）等。对于GSM，在序列鉴别性训练时，需要在序列层面使用贝叶斯定理来由条件似然度推导出序列后验概率；而DSM则可以直接推导和优化序列后验概率。
@@ -21,17 +19,7 @@
 本文提出将特征层面的搜索过程改变为标签层面，即搜索空间是由不同历史的标签组成的，使得解码速率等于标注速率，从而小于特征速率。具体来说，在标签推理搜索阶段，对帧层面声学模型的输出增加一步后处理过程：i）判断当前帧是否存在标签输出；ii）若有，执行搜索过程；若无，则丢弃标签输出。因此该后处理过程可被看作是每个输出标签概率计算的近似。与传统方法相比，该方法的优势是搜索空间更小，且搜索过程被大大加速。
 该文提出的一系列通用方法在隐马尔科夫模型和连接时序模型上得到了验证。
 
-同时该章节还介绍了将标签同步算法应用于序列到序列的端到端模型的方案。我们使用模块化训练的思想来改善端到端模型建模，使其更易于使用外在知识源来训练每一个端到端模型的子模块。值得注意的是，模型最后需要进行联合优化，因此最终在推理搜索阶段，模型仍然工作在端到端模式下。
-
-我们为端到端模型添加的优化包括：
-i) 利用声学数据和文本数据来逐一训练端到端系统，并使用模块化的策略将训练结果进行融合。具体来说先使用声学数据训练一个基于CTC的音频到音素的声学模型，而后使用文本数据训练一个基于CTC或序列到序列模型的音素到词语的语言模型。
-ii) 在训练的后期，将不同模型融合为音频到词语模型，使用上文提到的标签同步解码算法对声学模型进行降采样，而后进行联合训练优化。
-最终，音频到音素的声学模型，标签同步解码模块，音素到词语的语言模型被堆叠起来，在联合优化后，可以直接进行端到端推理搜索，保留了端到端系统解码简便的特性。
-%
-这样做的优点包括： i) 得益于模块化和初始化所带来的更简单的建模难度和更快的模型收敛速度 ii) 更易于与传统的声学建模和语言建模技术相结合，并分别使用声学和文本数据进行训练。
-
-
-最终在实验部分，该章节系统一方面取得大幅度语音识别解码速度改善，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度。
+最终在实验部分，该章节系统取得大幅度语音识别解码速度改善。
 
 \section{基于连接时序模型的标签同步解码}
 \label{chap:lsd-ctc}
@@ -150,16 +138,15 @@ $\mathcal{B}$决定了标签序列l以及$\mathbf{l}$对应的模型单元序列
     \end{equation}
 
   
-在FSD框架中，将特征帧的数量除以语句的长度定义为特征速率，标签输出数量除以语句的长度定义为标注速率，而WFST解码的帧数除以语句的长度定义为解码速率。该框架中，三个速率均相等。也就是说， $\prod_{t=1}^{T} y^{t}_{\pi_{t}}$  与帧t有关，而最大迭代次数则与序列可能的对齐方式和词汇量的大小有关。 因此，解码复杂度$\mathbb{C}$ 可表示为：
+在FSD框架中，将特征帧的数量除以语句的长度定义为特征速率，标签输出数量除以语句的长度定义为标注速率，而WFST解码的帧数除以语句的长度定义为解码速率。该框架中，三个速率均相等。也就是说， $\prod_{t=1}^{T} y^{t}_{\pi_{t}}$  与帧t有关，而最大迭代次数则与序列可能的对齐方式和词汇量的大小有关。 因此，解码复杂度$\mathbb{C}_{FSD}$ 可表示为：
   \begin{equation}
 \label{equ:complex-fsd}
 \begin{split}
-\mathbb{C} \propto T\cdot|L'| \cdot|W|
+\mathbb{C}_{FSD} = O (T)\cdot \mathbb{C}_{space}
 \end{split}
 \end{equation}
 
-其中T是语句中帧的数量，$L'$ 是模型单元的集合，
-W为词汇量。
+其中T是语句中帧的数量，$\mathbb{C}_{space}$定义参见公式\ref{equ:dec-cmp-space}。
 
 尽管被广泛使用，FSD方法仍有一些缺点：1）它是一个等间隔搜索算法，处理变长特征序列较为低效。2）当序列被分解为帧层面作为特征序列时，模型粒度较小，导致搜索空间很大。3）在每帧均进行贪心束剪枝，很难平衡搜索效率和搜索误差。因此，本文通过将特征层面的搜索过程改变为标签层面，提出了基于端到端建模的标签同步推理搜索，接下来作者将对该框架及其应用进行详细介绍。
 
@@ -333,7 +320,7 @@ P(\mathbf{x}|l)
   \begin{equation}
 \label{equ:complex-lsd}
 \begin{split}
-\mathbb{C} \propto (T-|U|)\cdot|L'| \cdot|W|
+\mathbb{C}_{LSD} = O (T-|U|)\cdot \mathbb{C}_{space}
 \end{split}
 \end{equation}
 
@@ -388,85 +375,6 @@ P(\mathbf{x}|l)
 
 其中$H(\cdot)$是输出分布 $p_\theta (\pi|\mathbf{x})$的熵，$\beta$是正比例因子。与文献\cite{pereyra2017regularizing}不同的是，基于熵剪枝算法的训练目的是最小化模型的原有训练准则以及输出分布的熵。而通常情况下，基于熵剪枝算法是基于一个已经训练好的模型对参数进行微调。在使用新的准则训练之后，LSD框架可在少量性能损失的情况下得以加速。在接下来的实验部分，本文将详细比较这四种剪枝方法。
 
-
-\section{基于标签同步解码的端到端语音识别}
-\label{chap:lsd-e2e}
-
-当前的端到端语音识别系统显示出诸多缺点，在开始使用标签同步解码算法进行优化之前，我们先对这些系统的缺点进行总结。
-
-首先，声学和文本数据并不能够被系统地共同利用，这将导致声学数据的需求量非常大。
-目前大多数对文本数据的应用停留于初始化阶段，但却不能在一个系统框架里，系统地使用声学和文本数据。
-与之相对，传统基于深度学习的隐马尔可夫训练框架则通过贝叶斯公式，将建模拆分为声学模型，转移模型，词表和语言模型，由此进行模块化的知识源融合。
-
-其次，声学和语言模型总是使用相同的建模单元，而这样的建模单元往往很难兼顾泛化能力和模型性能。音素感知是人类语言感知的基础单元~\cite{pisoni1985speech}。如果直接使用字符或者词作为建模单元，则并不能建立起这样的建模单元与发音之间的直接关系。这样一些研究忽略了音素这一人类语言中的先验知识。另一方面，使用字符而不是单词作为语言模型的建模单元，同样有损性能~\cite{jozefowicz2016exploring}.
-
-总的来说，端到端系统建立起了与NN-HMM混合系统完全不同的一个模型框架。因此先验知识和之前在语言和声学模型方法的研究很难迁移到这一新的框架中。
-%Decoding complexity. In CTC, external language model is used and increases the decoding complexity. In attention-based encoder-decoder, because the prediction in  each step is given by the last prediction, beam search is always taken to reduce the inference bias~\cite{bahdanau2015task}.
-
-\subsection{训练和解码框架}
-\label{sec:psd_mod_framework}
-
-之前针对端到端语音识别的研究工作集中在将所有的模型单元融合在一起并进行联合训练和端到端解码。在这项工作中，我们提出了一种模块化的训练策略，以便优化外在知识源分别训练各个子模块的潜力。同时，我们在训练结束后仍然保留端到端解码的优点。图~\ref{fig:psd_mod_framework}显示了这一框架。
-
-
-\begin{figure}
-  \centering
-    \includegraphics[width=\linewidth]{figure/psd_mod_framework.pdf}
-    \caption{\it 模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}
-    \label{fig:psd_mod_framework}
-\end{figure}
-
-这一端到端词序列识别系统被模块化如下：
-\begin{equation}
-\label{equ:framework-1}
-P(\mathbf{w}|\mathbf{x})\approx\max_{\mathbf{p}} \left[\ P(\mathbf{w}|\mathbf{p}) \cdot P(\mathbf{p}|\mathbf{x})\ \right]
-\end{equation}
-公式中 $\mathbf{w}$, $\mathbf{p}$ 和 $\mathbf{x}$ 为词序列，音素序列和音频特征序列。
-CTC准则被用于训练一个使用声学数据的声学到音素模型 (A2P)  。同时， 我们使用文本数据和CTC或S2S准则训练一个音素到词语模型。
-
-最终各模块将被融合到一起，成为声学到词语模型 (A2W) ，在联合训练过程中我们使用了音素同步解码算法 (PSD)~\cite{zhc00-chen-tasl2017}。
-\begin{equation}
-\label{equ:framework-2}
-P(\mathbf{w}|\mathbf{x})\approx \max_{\mathbf{p}}\left[\ P(\mathbf{w}|\mathbf{p}) \cdot PSD(\ P(\mathbf{p}|\mathbf{x})\ )\ \right]
-\end{equation}
-在解码阶段，经过联合训练后的模型将进行端到端推理搜索，因此其复杂度与普通端到端模型相同~\cite{audhkhasi2017direct}。
-%As discussed in~\cite{audhkhasi2017direct}, the end-to-end system simplifies the decoding pipeline.  The proposed method still keeps this advantage. 
-
-对于CTC，我们将最佳的推理搜索序列连接起来，得到最终解码序列。对于S2S模型，我们使用维特比束剪枝算法来得到相应结果。这里的端到端模型还可以进一步与外在语言模型相结合以改善性能。在这种情况下，N元语言模型将被编译为词WFST。这种情况下LSD 搜索算法~\cite{zhc00-chen-tasl2017}还可以进一步用于加速系统。
-
-
-\subsection{模块化}
-\label{sec:psd_mod_modu}
-由于音素是人类语言重要的先验知识，它建立起了声学和语言之间的关系，因此我们采用它作为理想的建模单元。声学到音素模块使用声学数据进行训练，并预测 $P(\mathbf{p}|\mathbf{x})$ 如图~\ref{fig:psd_mod_framework}(a)所示，其与传统音素CTC建模相同~\cite{miao2015eesen}。注意的是，虽然CTC被用于该项工作，其他传统声学模型同样可以被使用，比如 RNA~\cite{sak2017recurrent} 或者 LF-MMI~\cite{povey2016purely}。
-
-不同于传统模型，我们这里所提出的语言模型使用音素作为输入，推理搜索词序列，即 $P(\mathbf{w}|\mathbf{p})$，也就是一个音素到词的模型，如图~\ref{fig:psd_mod_framework}(b)所示。
-另一个主要不同是，P2W模块使用文本和词典，不再需要使用声学数据。
-总的来说，P2W模块类似于传统语言模型，除了以下几方面：
-
-i) P2W输入的是音素序列，并隐含进行文本切分。
-
-ii) P2W给定音素序列情况下预测词序列。因此不同于传统的语言模型专注于预测下一个词，在给定前词情况下。P2W实际上得到了更多关于下一个词的信息。因此实验结果显示，P2W的预测准确度明显高于普通的语言模型。
-
-iii) P2W 通过序列级准则进行训练，比如CTC和S2S，这样就能够自动学习到音素和词语之间的对齐关系。
-
-
-%cmp phone2graphme
-我们这里同时引入了一个词边界单元 $\tt wb$ 到音素列表中，以改善文本切分效果。 $\tt wb$ 出现在词语的边界处，比如对词语 ``okay ow k ey'' ，其被修改为``okay ow k ey $\tt wb$''。 这里的想法是使用 $\tt wb$ 作为文本切分的线索，比如它可以区分一些短词可能是长词前缀的情况。
-
-总结这里的模块化的优点包括： i) 声学和语言模型都使用了合理的建模单元 ii)系统地结果了声学和文本数据的使用来强化模型训练。
-
-
-\subsection{标签同步解码}
-\label{sec:psd_mod_psd}
-标签同步解码在前文已进行了充分介绍，下面我们将使用它，$PSD(\cdot)$ ，作为融合系统中的一个降采样模块，应用在A2P模块上，以减少输入序列的长度。我们这样做的优点包括： i) 更短的序列减轻了LSTM进行时序建模的难度 ii)  加速了联合优化过程 iii) 该方法同时也加速了解码速度~\cite{zhc00-chen-tasl2017}.
-
-
-\subsection{联合训练}
-\label{sec:psd_mod_joint}
-最终，所有模块将会被堆叠起来，如图~\ref{fig:psd_mod_framework}(c)所示。声学数据将用来调优该模型。
-词语级别的CTC准则使用方法类似于~\cite{soltau2016neural}。
-同时S2S被用于词级别的预测。在优化过程中，只有P2W进行联合训练，原因是：i) A2P工作在音素上，通常已经能取得较好性能~\cite{miao2015eesen,sak2015fast}. ii) 固定住A2P使得PSD可以显著减少音频帧数，加快训练速度。经过联合训练后，该模型仍工作在端到端推理搜索上，保留了优点。
-%
 
 
 \section{实验结果}
@@ -693,131 +601,8 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 
 表\ref{tab:exp-blk-topo-gsm}对比了前文提出的不同HMM拓扑结构。在FSD框架下，所有拓扑结构都有相似的解码结果和相同的搜索速度。对比前两行可以看出，与基线PB拓扑结构相比，在LSD框架下， BP可以获得更大的搜索加速。我们认为这个更优的搜索加速源于标签延迟现象，类似于文献\cite{amodei2015deep}中观察到的现象，这使得模型能更可靠地推断标签输出状态并减少混淆。因此，这能带来更尖锐的输出分布。从表中还可以看出，BPB拓扑结构可以进一步改善搜素速度；一些解码路径的例子也表明这种拓扑结构可以使每个上下文相关的隐马尔可夫模型输出更多的blank状态。最后，与前面表中CTC的结果相比，GSM中LSD框架能减少49\%的搜索时间。
 
-\subsection{标签同步解码在模块化训练中的应用}
-\label{exp:psd_mod}
-
-表\ref{tab:exp-module}针对各个模块的验证集（CV）上的性能进行了比较。加粗的系统将在后续中进行使用。
-
-\begin{table}[thbp!]
-  \caption{\label{tab:exp-module} {\it  各个模块的性能比较 }}
-  %\vspace{1mm}
-  \centerline{
-    \begin{tabular}{c c c c||m{0.15\columnwidth}}
-      \hline
-      模块  & 模型 & 推理搜索单元 & 词边界 & PER/WER CV (\%) \\
-      \hline \hline
-      \multirow{2}{0.08\columnwidth}{A2P}& \multirow{2}{0.08\columnwidth}{CTC} & \multirow{2}{0.15\columnwidth}{phoneme} & $\times$& 13.0 \\
-      &  &  & $\surd$& {\bf 12.0} \\
-      \hline\hline
-      \multirow{4}{0.08\columnwidth}{P2W}& \multirow{2}{0.08\columnwidth}{CTC}  &\multirow{2}{0.1\columnwidth}{word}   & $\times$  &16.0 \\
-      &  &  & $\surd$  &{\bf 4.3} \\
-      \cline{2-5}
-      & \multirow{2}{0.08\columnwidth}{S2S}  & \multirow{2}{0.1\columnwidth}{word}  & $\times$  & 13.9 \\
-      &  &  & $\surd$  & {\bf 2.8} \\
-      \hline
-    \end{tabular}
-  }
-\end{table}
-
-在A2P中，音素CTC的识别性能与~\cite{graves2006connectionist}中一致。 
-%add wb didnt affect result, 
-引入的$\tt wb$ 并不影响ASR性能。 
-%the slight imp because Error rate of A2P phoneme with wb includes wb token
-该系统中轻微的性能改善来自统计PER时包含了 $\tt wb$这一单元。而进一步统计 $\tt wb$ 的预测准则显示其低于 4\%。
-
-在P2W模块中，CTC和S2S都进行了比较。在不包含 $\tt wb$ 情况下，二者的性能都不好。正如前文所讨论的， $\tt wb$ 可以提供音素序列切分的线索，因此CTC和S2S在包含$\tt wb$ 之后都得到了提升。
-S2S一致地由于CTC，这是由于CTC中的CIA被去除，使建模能力得到增强~\cite{chan2016end}。 
-不同于传统的语言模型，这里不适用PPL作为准则，原因是本系统自动推理搜索出音素与词之间的对齐关系，并使用序列准则进行训练。
-
-%add blk modeling, both good
-%bold taken for the latter exp
-
-
-在第二部分中，我们比较了联合训练之后的结果，显示在表~\ref{tab:exp-joint}中。
-%Table~\ref{tab:exp-joint} shows the results.
-%proposed method versus the hybrid system and several end-to-end systems. 
-%Notably, all systems utilize the Switchboard corpus without external sources.
-为了更好地支撑这些结果，我们与近期在同一数据集上的公开结果进行比较~\cite{audhkhasi2017direct}。 
-这里的不同实验配置包括：i) 添加i-vector自适应 ii)使用BLSTM iii) 语言模型使用了Fisher数据集。
-因此本实验系统与~\cite{audhkhasi2017direct}中的系统包含相对 20-30\%的差距。 
-
-\begin{table}[thbp!]
-  \caption{\label{tab:exp-joint} {\it  针对是否包含模块化训练的性能比较 }}
-  \centerline{
-    \begin{tabular}{c |c |c m{0.15\columnwidth}||c c}
-      \hline
-       & E2E& \multicolumn{2}{c||}{Modularization } & \multicolumn{2}{c}{WER (\%)}\\
-       Name &  Opt. & A2P&P2W & swbd & callhm \\
-      \hline \hline
-      %/speechlab/users/mkh96/asr/baseline/swbd/lstm/exp/plstm5/decode/eval2000_0.0833/score_13_0.0/eval2000.ctm.swbd.filt.sys
-      %/fgfs/users/zhc00/works/ctc/allctc/amctc/ceam
-      %exp/plstm5/decode_lang_decode_sw1_tg/eval2000_0.0833/score_12_0.0/eval2000.ctm.swbd.filt.sys
-      CD-phone CE & $\times$ & HMM & WFST  &  14.9 & 27.6 \\
-      %exp/plstm_ctc5/decode_sw1_tg/eval2000_0.6/
-      CI-phone CTC & $\times$ & CTC & WFST  & 19.4 & 33.5 \\
-      \hline\hline
-       %Word CTC& $\surd$ & n/a & n/a  & 35.7 & 47.1 \\   
-      \multirow{1}{0.17\columnwidth}{Word CTC}&$\surd$ & n/a & n/a  & 29.6 & 41.7 \\         
-      \hline\hline
-      %exp/swb.plstm_ctc5_wb.f.d2w.2d.train_tr90.3d2.tr.lstm_l2_c384_p256/decode.final.nnet/eval2000/ctm.swbd.filt.sys
-      %exp/swb.plstm_ctc5_wb.f.d2w.2d.train_tr90.3h4.tr.lstm_l2_c700_p256/decode.final.nnet/eval2000/
-      \multirow{2}{0.17\columnwidth}{Mod. CTC}&$\surd$ & CTC & CTC  & 24.9 & 36.5 \\   
-      &$\surd$ & CTC & \ \ \ \ +WFST  & 23.0 & 35.1 \\ 
-      \hline
-       \multirow{1}{0.17\columnwidth}{Mod. S2S}&$\surd$ & CTC & S2S  & 31.2 & 40.5 \\   
-      \hline
-    \end{tabular}
-  }
-\end{table}
-
-基线的混合系统 (CD-phone CE) 和音素 CTC (CI-phone CTC)系统罗列于第一和二行。他们都是通过WFST联合解码得到的。
-%
-CI-phone CTC 的性能比CD-phone CE差~\footnote{在更多数据情况下，CTC 性能比传统系统好~\cite{sak2015fast}。我们之前的研究也显示同样的结论 \cite{zhc00-chen-tasl2017}}, 这里的性能差距类似于之前在~\cite{audhkhasi2017direct}中的发现。
-%Meanwhile, the gap between CD-phone CE and CI-phone CTC in this work is also similar to that in~\cite{audhkhasi2017direct}.
-%
-直接进行 A2W建模的 CTC (Word CTC)模型在第三行。它包含了音素模型初始化，但不包含GloVe初始化~\cite{audhkhasi2017direct}。
-这里的性能明显差于 CI-phone CTC。该系统为不带有模块预训练的基线系统。
-
-我们所提出的模块化训练系统 (Mod. CTC) 在第四行。
-我们使用了基于标签同步解码的联合训练，该工作的具体效果将在表~\ref{tab:exp-psd} 中继续讨论。
-Mod. CTC  显著改善了基线系统的性能。更好的性能来自： i) 得益于模块化和初始化所带来的更快和更好的模型收敛 ii) 更易于分别使用声学和文本数据来融合传统的声学和语音模型训练技术。
-
-表~\ref{tab:exp-psd}显示了引入PSD算法的重要性。所有的结果都是基于一张 Titan GPU所得到。 ``fr./s.''表示每秒钟所处理的声学帧数。这里的训练加速来自两方面： i)PSD减少了后续P2W需要处理的序列长度 ii) 由于序列长度有所减小，更多的序列可以被载入GPU显存，由此可以加速并行计算。
-同时，性能也有所改善。我们认为改善的结果来自于序列长度的缩短。虽然我们使用LSTM，但模型仍然很难记忆很长的序列。但是对于A2W建模，需要记忆的历史显著长于传统的 CI-phone CTC 或者混合系统。在其他一些研究中~\cite{chan2016end}也有类似的现象，而这些研究通过金字塔式的降帧率来缓解该问题。PSD是解决该问题的另一种思路。
-
-%cmp several tricks:
-%\begin{itemize}
-%\item Table~\ref{tab:exp-psd} shows with or without PSD. 4 titan. speedup from larger streams \& PSD reduce seq len
-%\item Table~\ref{tab:exp-add-text} shows the effect of  adding text data
-%\end{itemize}
-
-\begin{table}[thbp!]
-  \caption{\label{tab:exp-psd} {\it  是否包含PSD情况下的模型性能和训练速度 }}
-  \centerline{
-    \begin{tabular}{c c||c c| c c}
-      \hline
-        && \multicolumn{2}{c|}{训练速度} &  \multicolumn{2}{c}{WER (\%)} \\
-       Name & PSD & Seq./GPU&  fr./s. & swbd & callhm \\
-      \hline \hline
-      %exp/swb.plstm_ctc5.d2w.1a.train_tr90.3d3.tr.lstm_l2_c384_p256/log/train_nnet.log
-     \multirow{2}{0.2\columnwidth}{Mod. CTC} & $\times$ &5 & 1027 & 32.0 & 42.5 \\
-      %exp/swb.plstm_ctc5_wb.f.d2w.2d.train_tr90.3d2.tr.lstm_l2_c384_p256/log/iter05.tr.log
-        & $\surd$ &{\bf 30} & {\bf 5851} & {\bf 24.9} &{\bf 36.5}  \\
-      \hline
-    \end{tabular}
-  }
-\end{table}
-
-为了减轻CTC的CIA假设对模型性能所带来影响，我们实验了以下一些方案。
-首先，一个从N元语言模型得到的WFST被用于与模型一起进行联合解码，其结果显示在表~\ref{tab:exp-joint}的第五行。该系统得到了一定性能提升。由此第2行与第5行的性能差距被缩减到少于 15\%。
-%
-另一种方法是使用S2S来代替CTC。我们提出的基于模块化训练的S2S系统 (Mod. S2S) 在表~\ref{tab:exp-joint}中最后一行。不同于在表~\ref{tab:exp-module}中的现象，S2S系统并未得到性能改善。通过进一步分析解码结果，我们发现S2S很易于受到音素识别错误的影响。经过联合优化后，S2S并不能恢复这些错误，这项观察同样见于其他研究~\cite{prabhavalkar2017comparison}。
-%Especially, the acoustic signal is filled with much more noises than the phoneme sequences. 
-在我们的研究中尚未包含字符级别的建模系统，原因是字符对于声学和语言建模的难度都比较大，如前文所述，音素和词语对本文的建模更加直接。
-
-
 
 \section{本章小结}
 \label{chap:lsd-sum}
 
-在本章中，我们针对语音识别和端到端建模的推理搜索阶段，提出了标签同步解码算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，这包括使用高效的blank结构和后处理方法。该文提出的一系列通用方法在隐马尔科夫模型和连接时序模型上得到了验证。同时该章节还介绍了将标签同步算法应用于序列到序列的端到端模型的方案。在实验部分，该章节系统一方面取得大幅度语音识别解码速度改善，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度。
+在本章中，我们针对语音识别和端到端建模的推理搜索阶段，提出了标签同步解码算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，这包括使用高效的blank结构和后处理方法。该文提出的一系列通用方法在隐马尔科夫模型和连接时序模型上得到了验证。同时该章节还介绍了将标签同步算法应用于序列到序列的端到端模型的方案。在实验部分，该章节系统取得了大幅度语音识别解码速度改善。

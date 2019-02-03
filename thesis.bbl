@@ -1528,6 +1528,91 @@
       \field{userf}{en}
       \field{year}{2012}
     \endentry
+    \entry{graves2006connectionist}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
+           family={Graves},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
+           family={Fern{á}ndez},
+           familyi={F\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6ac505680efa9d3591dd05930a13ccd5}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Faustino},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={J{ü}rgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{52c652b4d779c29b106b4e621d88a8e3}
+      \strng{fullhash}{85579d659af01bfed04736114624f34d}
+      \strng{bibnamehash}{52c652b4d779c29b106b4e621d88a8e3}
+      \strng{authorbibnamehash}{52c652b4d779c29b106b4e621d88a8e3}
+      \strng{authornamehash}{52c652b4d779c29b106b4e621d88a8e3}
+      \strng{authorfullhash}{85579d659af01bfed04736114624f34d}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 23rd international conference on Machine learning}
+      \field{title}{Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks}
+      \field{userf}{en}
+      \field{year}{2006}
+      \field{pages}{369\bibrangedash 376}
+      \range{pages}{8}
+    \endentry
+    \entry{huang2018ctc}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=19d1a88449be1ba71adc8f6ffd5b3e5c}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Mingkun},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f982d7260fd9e30ecc0a8cef6ed9455a}{%
+           family={You},
+           familyi={Y\bibinitperiod},
+           given={Yongbin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yanmin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{09794a96af17c196815679d22122e104}
+      \strng{fullhash}{cc12a4be561f36968df735523cd94f76}
+      \strng{bibnamehash}{09794a96af17c196815679d22122e104}
+      \strng{authorbibnamehash}{09794a96af17c196815679d22122e104}
+      \strng{authornamehash}{09794a96af17c196815679d22122e104}
+      \strng{authorfullhash}{cc12a4be561f36968df735523cd94f76}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Interspeech 2018}
+      \field{title}{Knowledge Distillation for Sequence Model.}
+      \field{userf}{en}
+    \endentry
     \entry{mohri2002weighted}{article}{}
       \name{author}{3}{}{%
         {{hash=8298c87c77cd46a5b2b7e799ba087945}{%
@@ -3189,193 +3274,6 @@
       \field{pages}{437\bibrangedash 440}
       \range{pages}{4}
     \endentry
-    \entry{povey2016purely}{article}{}
-      \name{author}{8}{}{%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=a34d953bcda61ddbf769b6d43c4ca1a1}{%
-           family={Peddinti},
-           familyi={P\bibinitperiod},
-           given={Vijayaditya},
-           giveni={V\bibinitperiod}}}%
-        {{hash=56a90513feb241c962f96639d01f55fb}{%
-           family={Galvez},
-           familyi={G\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=3dcf3516cd05488b9d35de61dfbdddf8}{%
-           family={Ghahrmani},
-           familyi={G\bibinitperiod},
-           given={Pegah},
-           giveni={P\bibinitperiod}}}%
-        {{hash=88de77f111f4ab061e319190c0faa13c}{%
-           family={Manohar},
-           familyi={M\bibinitperiod},
-           given={Vimal},
-           giveni={V\bibinitperiod}}}%
-        {{hash=3a020dc61021cd3a7246a0b756b8d226}{%
-           family={Na},
-           familyi={N\bibinitperiod},
-           given={Xingyu},
-           giveni={X\bibinitperiod}}}%
-        {{hash=a05ddfce1216c69f4b61ee496b946530}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Yiming},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
-           family={Khudanpur},
-           familyi={K\bibinitperiod},
-           given={Sanjeev},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{2311c5edc6525f5cc245733812543e26}
-      \strng{fullhash}{7cea4e3b987620b8fe3422e354f0b265}
-      \strng{bibnamehash}{2311c5edc6525f5cc245733812543e26}
-      \strng{authorbibnamehash}{2311c5edc6525f5cc245733812543e26}
-      \strng{authornamehash}{2311c5edc6525f5cc245733812543e26}
-      \strng{authorfullhash}{7cea4e3b987620b8fe3422e354f0b265}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
-      \field{title}{Purely sequence-trained neural networks for ASR based on lattice-free MMI}
-      \field{userf}{en}
-      \field{year}{2016}
-    \endentry
-    \entry{chen2006advances}{article}{}
-      \name{author}{7}{}{%
-        {{hash=61f4f0885fe6faa7fe2e2c52e11cd8dc}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Stanley\bibnamedelima F},
-           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
-        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
-           family={Kingsbury},
-           familyi={K\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-        {{hash=5eb6bdb3ccaa7bf655e856bcf574430c}{%
-           family={Mangu},
-           familyi={M\bibinitperiod},
-           given={Lidia},
-           giveni={L\bibinitperiod}}}%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=ce2fc3785ea81b5ffeca97427d45bbab}{%
-           family={Saon},
-           familyi={S\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod}}}%
-        {{hash=b20d63e6bf6d2e637b4f5915a4accb2f}{%
-           family={Soltau},
-           familyi={S\bibinitperiod},
-           given={Hagen},
-           giveni={H\bibinitperiod}}}%
-        {{hash=cfb1a34f05df33abbac5edaa416f2b48}{%
-           family={Zweig},
-           familyi={Z\bibinitperiod},
-           given={Geoffrey},
-           giveni={G\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{111b5e423af631be0282d3b95b3b2e48}
-      \strng{fullhash}{259e8b54d147e54b3d46e62cdc6a2899}
-      \strng{bibnamehash}{111b5e423af631be0282d3b95b3b2e48}
-      \strng{authorbibnamehash}{111b5e423af631be0282d3b95b3b2e48}
-      \strng{authornamehash}{111b5e423af631be0282d3b95b3b2e48}
-      \strng{authorfullhash}{259e8b54d147e54b3d46e62cdc6a2899}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
-      \field{number}{5}
-      \field{title}{Advances in speech transcription at IBM under the DARPA EARS program}
-      \field{userf}{en}
-      \field{volume}{14}
-      \field{year}{2006}
-      \field{pages}{1596\bibrangedash 1608}
-      \range{pages}{13}
-    \endentry
-    \entry{graves2006connectionist}{inproceedings}{}
-      \name{author}{4}{}{%
-        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
-           family={Graves},
-           familyi={G\bibinitperiod},
-           given={Alex},
-           giveni={A\bibinitperiod}}}%
-        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
-           family={Fern{á}ndez},
-           familyi={F\bibinitperiod},
-           given={Santiago},
-           giveni={S\bibinitperiod}}}%
-        {{hash=6ac505680efa9d3591dd05930a13ccd5}{%
-           family={Gomez},
-           familyi={G\bibinitperiod},
-           given={Faustino},
-           giveni={F\bibinitperiod}}}%
-        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
-           family={Schmidhuber},
-           familyi={S\bibinitperiod},
-           given={J{ü}rgen},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {ACM}%
-      }
-      \strng{namehash}{52c652b4d779c29b106b4e621d88a8e3}
-      \strng{fullhash}{85579d659af01bfed04736114624f34d}
-      \strng{bibnamehash}{52c652b4d779c29b106b4e621d88a8e3}
-      \strng{authorbibnamehash}{52c652b4d779c29b106b4e621d88a8e3}
-      \strng{authornamehash}{52c652b4d779c29b106b4e621d88a8e3}
-      \strng{authorfullhash}{85579d659af01bfed04736114624f34d}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 23rd international conference on Machine learning}
-      \field{title}{Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks}
-      \field{userf}{en}
-      \field{year}{2006}
-      \field{pages}{369\bibrangedash 376}
-      \range{pages}{8}
-    \endentry
-    \entry{chan2016end}{thesis}{}
-      \name{author}{1}{}{%
-        {{hash=ab1fb800ced7899ad07a1f8377f5c41a}{%
-           family={Chan},
-           familyi={C\bibinitperiod},
-           given={William},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Carnegie Mellon University Pittsburgh, PA}%
-      }
-      \strng{namehash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \strng{fullhash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \strng{bibnamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \strng{authorbibnamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \strng{authornamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \strng{authorfullhash}{ab1fb800ced7899ad07a1f8377f5c41a}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{End-to-End Speech Recognition Models}
-      \field{type}{phdthesis}
-      \field{userf}{en}
-      \field{year}{2016}
-    \endentry
     \entry{hinton2012deep}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -3453,6 +3351,317 @@
       \field{pages}{82\bibrangedash 97}
       \range{pages}{16}
     \endentry
+    \entry{chan2016end}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=ab1fb800ced7899ad07a1f8377f5c41a}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Carnegie Mellon University Pittsburgh, PA}%
+      }
+      \strng{namehash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \strng{fullhash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \strng{bibnamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \strng{authorbibnamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \strng{authornamehash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \strng{authorfullhash}{ab1fb800ced7899ad07a1f8377f5c41a}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{End-to-End Speech Recognition Models}
+      \field{type}{phdthesis}
+      \field{userf}{en}
+      \field{year}{2016}
+    \endentry
+    \entry{digalakis1991dynamical}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=ad478e32aac137cd640286d4a3b27e1c}{%
+           family={Digalakis},
+           familyi={D\bibinitperiod},
+           given={Vassilios},
+           giveni={V\bibinitperiod}}}%
+        {{hash=5e9d164cc28e789e2b963b1c15ffc025}{%
+           family={Rohlicek},
+           familyi={R\bibinitperiod},
+           given={Jan\bibnamedelima Robin},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d9964335acf3f82957cd1e681220c042}{%
+           family={Ostendorf},
+           familyi={O\bibinitperiod},
+           given={Mari},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \strng{fullhash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \strng{bibnamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \strng{authorbibnamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \strng{authornamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \strng{authorfullhash}{fc7ff2eb12fb2f545d18a936ecae6849}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1991. ICASSP-91., 1991 International Conference on}
+      \field{title}{A dynamical system approach to continuous speech recognition}
+      \field{userf}{en}
+      \field{year}{1991}
+      \field{pages}{289\bibrangedash 292}
+      \range{pages}{4}
+    \endentry
+    \entry{abbeel2005discriminative}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=e28d4ee199593959d8c29980a64f1974}{%
+           family={Abbeel},
+           familyi={A\bibinitperiod},
+           given={Pieter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2a6ca55dc46029c413e9054d19502b28}{%
+           family={Coates},
+           familyi={C\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=67d13fe110c028d272a9291dff505b23}{%
+           family={Montemerlo},
+           familyi={M\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=799b172b8d02b7acdf21d0cc48934fca}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=5112ea130eadef0764fce0145b8b9f91}{%
+           family={Thrun},
+           familyi={T\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{309303a495ea71957a602ec1abd935e7}
+      \strng{fullhash}{b47fd52115556776ffebf1709814159a}
+      \strng{bibnamehash}{309303a495ea71957a602ec1abd935e7}
+      \strng{authorbibnamehash}{309303a495ea71957a602ec1abd935e7}
+      \strng{authornamehash}{309303a495ea71957a602ec1abd935e7}
+      \strng{authorfullhash}{b47fd52115556776ffebf1709814159a}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Robotics: Science and systems}
+      \field{title}{Discriminative Training of Kalman Filters.}
+      \field{userf}{en}
+      \field{volume}{2}
+      \field{year}{2005}
+      \field{pages}{1}
+      \range{pages}{1}
+    \endentry
+    \entry{chen2015pronunciation}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=f08cbe788537071f83928fe4a329ff43}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Guoguo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=cc7ada14a85aa4644c6f419954e5745c}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Hainan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e9cbed68288178d485a2dd5036aa6c4d}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Minhua},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
+           family={Khudanpur},
+           familyi={K\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{22264c839e611a3b69a7ff44b51af353}
+      \strng{fullhash}{0c69720f314dc4acd873d347a73f2116}
+      \strng{bibnamehash}{22264c839e611a3b69a7ff44b51af353}
+      \strng{authorbibnamehash}{22264c839e611a3b69a7ff44b51af353}
+      \strng{authornamehash}{22264c839e611a3b69a7ff44b51af353}
+      \strng{authorfullhash}{0c69720f314dc4acd873d347a73f2116}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Interspeech 2015}
+      \field{title}{Pronunciation and silence probability modeling for ASR.}
+      \field{userf}{en}
+      \field{year}{2015}
+      \field{pages}{533\bibrangedash 537}
+      \range{pages}{5}
+    \endentry
+    \entry{fernandez2007application}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
+           family={Fern{á}ndez},
+           familyi={F\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
+           family={Graves},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={J{ü}rgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{fullhash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{bibnamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authorbibnamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authornamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authorfullhash}{8bdefb8cf0c480789b96fb5239428828}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Artificial Neural Networks--ICANN 2007}
+      \field{title}{{An application of recurrent neural networks to discriminative keyword spotting}}
+      \field{userf}{en}
+      \field{year}{2007}
+      \field{pages}{220\bibrangedash 229}
+      \range{pages}{10}
+    \endentry
+    \entry{povey2016purely}{article}{}
+      \name{author}{8}{}{%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a34d953bcda61ddbf769b6d43c4ca1a1}{%
+           family={Peddinti},
+           familyi={P\bibinitperiod},
+           given={Vijayaditya},
+           giveni={V\bibinitperiod}}}%
+        {{hash=56a90513feb241c962f96639d01f55fb}{%
+           family={Galvez},
+           familyi={G\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3dcf3516cd05488b9d35de61dfbdddf8}{%
+           family={Ghahrmani},
+           familyi={G\bibinitperiod},
+           given={Pegah},
+           giveni={P\bibinitperiod}}}%
+        {{hash=88de77f111f4ab061e319190c0faa13c}{%
+           family={Manohar},
+           familyi={M\bibinitperiod},
+           given={Vimal},
+           giveni={V\bibinitperiod}}}%
+        {{hash=3a020dc61021cd3a7246a0b756b8d226}{%
+           family={Na},
+           familyi={N\bibinitperiod},
+           given={Xingyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a05ddfce1216c69f4b61ee496b946530}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yiming},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
+           family={Khudanpur},
+           familyi={K\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2311c5edc6525f5cc245733812543e26}
+      \strng{fullhash}{7cea4e3b987620b8fe3422e354f0b265}
+      \strng{bibnamehash}{2311c5edc6525f5cc245733812543e26}
+      \strng{authorbibnamehash}{2311c5edc6525f5cc245733812543e26}
+      \strng{authornamehash}{2311c5edc6525f5cc245733812543e26}
+      \strng{authorfullhash}{7cea4e3b987620b8fe3422e354f0b265}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Interspeech 2016}
+      \field{title}{Purely sequence-trained neural networks for ASR based on lattice-free MMI}
+      \field{userf}{en}
+      \field{year}{2016}
+    \endentry
+    \entry{chen2006advances}{article}{}
+      \name{author}{7}{}{%
+        {{hash=61f4f0885fe6faa7fe2e2c52e11cd8dc}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Stanley\bibnamedelima F},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
+           family={Kingsbury},
+           familyi={K\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=5eb6bdb3ccaa7bf655e856bcf574430c}{%
+           family={Mangu},
+           familyi={M\bibinitperiod},
+           given={Lidia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ce2fc3785ea81b5ffeca97427d45bbab}{%
+           family={Saon},
+           familyi={S\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b20d63e6bf6d2e637b4f5915a4accb2f}{%
+           family={Soltau},
+           familyi={S\bibinitperiod},
+           given={Hagen},
+           giveni={H\bibinitperiod}}}%
+        {{hash=cfb1a34f05df33abbac5edaa416f2b48}{%
+           family={Zweig},
+           familyi={Z\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{111b5e423af631be0282d3b95b3b2e48}
+      \strng{fullhash}{259e8b54d147e54b3d46e62cdc6a2899}
+      \strng{bibnamehash}{111b5e423af631be0282d3b95b3b2e48}
+      \strng{authorbibnamehash}{111b5e423af631be0282d3b95b3b2e48}
+      \strng{authornamehash}{111b5e423af631be0282d3b95b3b2e48}
+      \strng{authorfullhash}{259e8b54d147e54b3d46e62cdc6a2899}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
+      \field{number}{5}
+      \field{title}{Advances in speech transcription at IBM under the DARPA EARS program}
+      \field{userf}{en}
+      \field{volume}{14}
+      \field{year}{2006}
+      \field{pages}{1596\bibrangedash 1608}
+      \range{pages}{13}
+    \endentry
     \entry{mcgraw2016personalized}{inproceedings}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -3517,8 +3726,8 @@
       \strng{authorbibnamehash}{7851910a491e201720a091e0c06b4ad3}
       \strng{authornamehash}{7851910a491e201720a091e0c06b4ad3}
       \strng{authorfullhash}{1c9c1626037280d8cd276faecb65cb44}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2016 IEEE International Conference on}
@@ -3527,329 +3736,6 @@
       \field{year}{2016}
       \field{pages}{5955\bibrangedash 5959}
       \range{pages}{5}
-    \endentry
-    \entry{cherry1953some}{article}{}
-      \name{author}{1}{}{%
-        {{hash=8f387e60ff46b7433bb4ce2a5eb60778}{%
-           family={Cherry},
-           familyi={C\bibinitperiod},
-           given={E\bibnamedelima Colin},
-           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {ASA}%
-      }
-      \strng{namehash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \strng{fullhash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \strng{bibnamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \strng{authorbibnamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \strng{authornamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \strng{authorfullhash}{8f387e60ff46b7433bb4ce2a5eb60778}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Journal of the acoustical society of America}
-      \field{number}{5}
-      \field{title}{Some experiments on the recognition of speech, with one and with two ears}
-      \field{userf}{en}
-      \field{volume}{25}
-      \field{year}{1953}
-      \field{pages}{975\bibrangedash 979}
-      \range{pages}{5}
-    \endentry
-    \entry{bregman1994auditory}{book}{}
-      \name{author}{1}{}{%
-        {{hash=5c60d3d8f928acbb1181ab1f41301a64}{%
-           family={Bregman},
-           familyi={B\bibinitperiod},
-           given={Albert\bibnamedelima S},
-           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {MIT press}%
-      }
-      \strng{namehash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \strng{fullhash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \strng{bibnamehash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \strng{authorbibnamehash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \strng{authornamehash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \strng{authorfullhash}{5c60d3d8f928acbb1181ab1f41301a64}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Auditory scene analysis: The perceptual organization of sound}
-      \field{userf}{en}
-      \field{year}{1994}
-    \endentry
-    \entry{wang2006computational}{book}{}
-      \name{author}{2}{}{%
-        {{hash=0a1bd97b59cb3cf65dc849873adf0d25}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={DeLiang},
-           giveni={D\bibinitperiod}}}%
-        {{hash=3aea24e43b68b99683178ccc87f1fe17}{%
-           family={Brown},
-           familyi={B\bibinitperiod},
-           given={Guy\bibnamedelima J},
-           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley-IEEE press}%
-      }
-      \strng{namehash}{7a0500af8c1612f731c033f1400334f2}
-      \strng{fullhash}{7a0500af8c1612f731c033f1400334f2}
-      \strng{bibnamehash}{7a0500af8c1612f731c033f1400334f2}
-      \strng{authorbibnamehash}{7a0500af8c1612f731c033f1400334f2}
-      \strng{authornamehash}{7a0500af8c1612f731c033f1400334f2}
-      \strng{authorfullhash}{7a0500af8c1612f731c033f1400334f2}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Computational auditory scene analysis: Principles, algorithms, and applications}
-      \field{userf}{en}
-      \field{year}{2006}
-    \endentry
-    \entry{cooke2010monaural}{article}{}
-      \name{author}{3}{}{%
-        {{hash=dc431d17eaec3bc9672148ca53008e65}{%
-           family={Cooke},
-           familyi={C\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod}}}%
-        {{hash=f7569671cd18bd712ea205405a3f7ff4}{%
-           family={Hershey},
-           familyi={H\bibinitperiod},
-           given={John\bibnamedelima R},
-           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=bcd93a9433f067606d61aaeb69619a14}{%
-           family={Rennie},
-           familyi={R\bibinitperiod},
-           given={Steven\bibnamedelima J},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{a4a31d934deb019925b82f4f0511517b}
-      \strng{fullhash}{a4a31d934deb019925b82f4f0511517b}
-      \strng{bibnamehash}{a4a31d934deb019925b82f4f0511517b}
-      \strng{authorbibnamehash}{a4a31d934deb019925b82f4f0511517b}
-      \strng{authornamehash}{a4a31d934deb019925b82f4f0511517b}
-      \strng{authorfullhash}{a4a31d934deb019925b82f4f0511517b}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computer Speech \& Language}
-      \field{number}{1}
-      \field{title}{Monaural speech separation and recognition challenge}
-      \field{userf}{en}
-      \field{volume}{24}
-      \field{year}{2010}
-      \field{pages}{1\bibrangedash 15}
-      \range{pages}{15}
-    \endentry
-    \entry{du2014speech}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=f60521cb1b3dc6ad645440ca7844bd28}{%
-           family={Du},
-           familyi={D\bibinitperiod},
-           given={Jun},
-           giveni={J\bibinitperiod}}}%
-        {{hash=c0fe1b5e561e79fd6bc6acafdc3c5337}{%
-           family={Tu},
-           familyi={T\bibinitperiod},
-           given={Yanhui},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=90812e2aac1e3fb393dfd7663b4eefe1}{%
-           family={Xu},
-           familyi={X\bibinitperiod},
-           given={Yong},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=e2f687dde82b5667a7590b97cd3ac00c}{%
-           family={Dai},
-           familyi={D\bibinitperiod},
-           given={Lirong},
-           giveni={L\bibinitperiod}}}%
-        {{hash=26883d806fdb5a0cdc88e4154acb0773}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={Chin-Hui},
-           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{db08a22bf21a44c49487d9817cef0275}
-      \strng{fullhash}{bf7b225cd8349a2d0f2442b77cb7f704}
-      \strng{bibnamehash}{db08a22bf21a44c49487d9817cef0275}
-      \strng{authorbibnamehash}{db08a22bf21a44c49487d9817cef0275}
-      \strng{authornamehash}{db08a22bf21a44c49487d9817cef0275}
-      \strng{authorfullhash}{bf7b225cd8349a2d0f2442b77cb7f704}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Signal Processing (ICSP), 2014 12th International Conference on}
-      \field{title}{Speech separation of a target speaker based on deep neural networks}
-      \field{userf}{en}
-      \field{year}{2014}
-      \field{pages}{473\bibrangedash 477}
-      \range{pages}{5}
-    \endentry
-    \entry{weng2015deep}{article}{}
-      \name{author}{4}{}{%
-        {{hash=25d9f7894e51f1de6429e8b9a6308c23}{%
-           family={Weng},
-           familyi={W\bibinitperiod},
-           given={Chao},
-           giveni={C\bibinitperiod}}}%
-        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Dong},
-           giveni={D\bibinitperiod}}}%
-        {{hash=47940acafd5c8d4c52b80690308ae814}{%
-           family={Seltzer},
-           familyi={S\bibinitperiod},
-           given={Michael\bibnamedelima L},
-           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
-           family={Droppo},
-           familyi={D\bibinitperiod},
-           given={Jasha},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE Press}%
-      }
-      \strng{namehash}{d0abe1df167cab8377bf4c7398c4910a}
-      \strng{fullhash}{c7d95f4278ff9d70929c77c319201c9a}
-      \strng{bibnamehash}{d0abe1df167cab8377bf4c7398c4910a}
-      \strng{authorbibnamehash}{d0abe1df167cab8377bf4c7398c4910a}
-      \strng{authornamehash}{d0abe1df167cab8377bf4c7398c4910a}
-      \strng{authorfullhash}{c7d95f4278ff9d70929c77c319201c9a}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
-      \field{number}{10}
-      \field{title}{Deep neural networks for single-channel multi-talker speech recognition}
-      \field{userf}{en}
-      \field{volume}{23}
-      \field{year}{2015}
-      \field{pages}{1670\bibrangedash 1679}
-      \range{pages}{10}
-    \endentry
-    \entry{yu2017recognizing}{article}{}
-      \name{author}{3}{}{%
-        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Dong},
-           giveni={D\bibinitperiod}}}%
-        {{hash=26238bc0a75da6ffb5bcdeeeadad2315}{%
-           family={Chang},
-           familyi={C\bibinitperiod},
-           given={Xuankai},
-           giveni={X\bibinitperiod}}}%
-        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
-           family={Qian},
-           familyi={Q\bibinitperiod},
-           given={Yanmin},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \strng{namehash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \strng{fullhash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \strng{bibnamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \strng{authorbibnamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \strng{authornamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \strng{authorfullhash}{5fd1d6c7d29d73245b5e4ee5df267281}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{CoRR}
-      \field{title}{Recognizing Multi-talker Speech with Permutation Invariant Training}
-      \field{userf}{en}
-      \field{volume}{abs/1704.01985}
-      \field{year}{2017}
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1704.01985v3
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1704.01985v3
-      \endverb
-    \endentry
-    \entry{chen2018progressive}{article}{}
-      \name{author}{8}{}{%
-        {{hash=1c4d374c630e3002e6c077be470a838e}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhehuai},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
-           family={Droppo},
-           familyi={D\bibinitperiod},
-           given={Jasha},
-           giveni={J\bibinitperiod}}}%
-        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Jinyu},
-           giveni={J\bibinitperiod}}}%
-        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
-           family={Xiong},
-           familyi={X\bibinitperiod},
-           given={Wayne},
-           giveni={W\bibinitperiod}}}%
-        {{hash=1c4d374c630e3002e6c077be470a838e}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhehuai},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
-           family={Droppo},
-           familyi={D\bibinitperiod},
-           given={Jasha},
-           giveni={J\bibinitperiod}}}%
-        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Jinyu},
-           giveni={J\bibinitperiod}}}%
-        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
-           family={Xiong},
-           familyi={X\bibinitperiod},
-           given={Wayne},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE Press}%
-      }
-      \strng{namehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
-      \strng{fullhash}{0205c8114ef365e628f2968e1c9b2fa3}
-      \strng{bibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
-      \strng{authorbibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
-      \strng{authornamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
-      \strng{authorfullhash}{0205c8114ef365e628f2968e1c9b2fa3}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
-      \field{number}{1}
-      \field{title}{Progressive joint modeling in unsupervised single-channel overlapped speech recognition}
-      \field{userf}{en}
-      \field{volume}{26}
-      \field{year}{2018}
-      \field{pages}{184\bibrangedash 196}
-      \range{pages}{13}
     \endentry
     \entry{zhou2005data}{article}{}
       \name{author}{4}{}{%
@@ -3959,8 +3845,8 @@
       \strng{authorbibnamehash}{1865ada5ad09cfdb16e2d73760f5ecdc}
       \strng{authornamehash}{1865ada5ad09cfdb16e2d73760f5ecdc}
       \strng{authorfullhash}{1865ada5ad09cfdb16e2d73760f5ecdc}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Content-Based Multimedia Information Access-Volume 1}
@@ -3997,8 +3883,8 @@
       \strng{authorbibnamehash}{91c3f252ea5cbf9d6bbe196e96e90332}
       \strng{authornamehash}{91c3f252ea5cbf9d6bbe196e96e90332}
       \strng{authorfullhash}{91c3f252ea5cbf9d6bbe196e96e90332}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on}
@@ -4030,8 +3916,8 @@
       \strng{authorbibnamehash}{76d5a1aa07de73e5ac677d3109a22463}
       \strng{authornamehash}{76d5a1aa07de73e5ac677d3109a22463}
       \strng{authorfullhash}{76d5a1aa07de73e5ac677d3109a22463}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Automatic Speech Recognition \& Understanding, 2009. ASRU 2009. IEEE Workshop on}
@@ -4068,8 +3954,8 @@
       \strng{authorbibnamehash}{eb7fe77c26cdb019be661c37ae42f64d}
       \strng{authornamehash}{eb7fe77c26cdb019be661c37ae42f64d}
       \strng{authorfullhash}{eb7fe77c26cdb019be661c37ae42f64d}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Multimedia and Expo (ICME), 2012 IEEE International Conference on}
@@ -4106,8 +3992,8 @@
       \strng{authorbibnamehash}{620e807693375f941bcd9fc8783b77b5}
       \strng{authornamehash}{620e807693375f941bcd9fc8783b77b5}
       \strng{authorfullhash}{620e807693375f941bcd9fc8783b77b5}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
@@ -4517,8 +4403,8 @@
       \strng{authorbibnamehash}{03fcc53460e0f6d359d16697b0624f26}
       \strng{authornamehash}{03fcc53460e0f6d359d16697b0624f26}
       \strng{authorfullhash}{03fcc53460e0f6d359d16697b0624f26}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computer Speech \& Language}
@@ -4557,8 +4443,8 @@
       \strng{authorbibnamehash}{eb4816a0374a65123fbf15700228bfa0}
       \strng{authornamehash}{eb4816a0374a65123fbf15700228bfa0}
       \strng{authorfullhash}{eb4816a0374a65123fbf15700228bfa0}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of International Conference on Acoustics, Speech and Signal Processing (CASSP}
@@ -4592,8 +4478,8 @@
       \strng{authorbibnamehash}{7669a4afb43a5a37d8ca5ac744749669}
       \strng{authornamehash}{7669a4afb43a5a37d8ca5ac744749669}
       \strng{authorfullhash}{7669a4afb43a5a37d8ca5ac744749669}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Ninth Annual Conference of the International Speech Communication Association}
@@ -4628,8 +4514,8 @@
       \strng{authorbibnamehash}{23bcd1ceb300b33393a0b9bd5b99523f}
       \strng{authornamehash}{23bcd1ceb300b33393a0b9bd5b99523f}
       \strng{authorfullhash}{23bcd1ceb300b33393a0b9bd5b99523f}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Token passing: a simple conceptual model for connected speech recognition systems}
@@ -4928,6 +4814,1150 @@
       \field{title}{Fast and Accurate Recurrent Neural Network Acoustic Models for Speech Recognition}
       \field{userf}{en}
       \field{year}{2015}
+    \endentry
+    \entry{sainath2015convolutional}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=f8e38c199ec4b920a0bda0a5e7064d03}{%
+           family={Sainath},
+           familyi={S\bibinitperiod},
+           given={Tara\bibnamedelima N},
+           giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=7fe2d48ce31c87a150449138bad607f0}{%
+           family={Parada},
+           familyi={P\bibinitperiod},
+           given={Carolina},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{72e5a1cebafca3765e80617532f62381}
+      \strng{fullhash}{72e5a1cebafca3765e80617532f62381}
+      \strng{bibnamehash}{72e5a1cebafca3765e80617532f62381}
+      \strng{authorbibnamehash}{72e5a1cebafca3765e80617532f62381}
+      \strng{authornamehash}{72e5a1cebafca3765e80617532f62381}
+      \strng{authorfullhash}{72e5a1cebafca3765e80617532f62381}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{title}{Convolutional neural networks for small-footprint keyword spotting}
+      \field{userf}{en}
+      \field{year}{2015}
+      \field{pages}{1478\bibrangedash 1482}
+      \range{pages}{5}
+    \endentry
+    \entry{sukkar1996vocabulary}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4a438e1c4e1a5e6555b68be41f04711c}{%
+           family={Sukkar},
+           familyi={S\bibinitperiod},
+           given={Rafid\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=26883d806fdb5a0cdc88e4154acb0773}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Chin-Hui},
+           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{0fa2638713e9f36d8ced44f464cbd157}
+      \strng{fullhash}{0fa2638713e9f36d8ced44f464cbd157}
+      \strng{bibnamehash}{0fa2638713e9f36d8ced44f464cbd157}
+      \strng{authorbibnamehash}{0fa2638713e9f36d8ced44f464cbd157}
+      \strng{authornamehash}{0fa2638713e9f36d8ced44f464cbd157}
+      \strng{authorfullhash}{0fa2638713e9f36d8ced44f464cbd157}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{number}{6}
+      \field{title}{Vocabulary independent discriminative utterance verification for nonkeyword rejection in subword based speech recognition}
+      \field{userf}{en}
+      \field{volume}{4}
+      \field{year}{1996}
+      \field{pages}{420\bibrangedash 429}
+      \range{pages}{10}
+    \endentry
+    \entry{sandness2000keyword}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=6aa4d9daeb6c26be0e68df281b63063e}{%
+           family={Sandness},
+           familyi={S\bibinitperiod},
+           given={Eric\bibnamedelima D},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=edc81db47101623e685a761c2998e43a}{%
+           family={Hetherington},
+           familyi={H\bibinitperiod},
+           given={I\bibnamedelima Lee},
+           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \strng{fullhash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \strng{bibnamehash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \strng{authorbibnamehash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \strng{authornamehash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \strng{authorfullhash}{1fe33e79983c999169b27d8a7dcc7be2}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Interspeech 2000}
+      \field{title}{Keyword-based discriminative training of acoustic models.}
+      \field{userf}{en}
+      \field{year}{2000}
+      \field{pages}{135\bibrangedash 138}
+      \range{pages}{4}
+    \endentry
+    \entry{keshet2009discriminative}{article}{}
+      \name{author}{3}{}{%
+        {{hash=621fe59f9f3da150e86d3027269858a4}{%
+           family={Keshet},
+           familyi={K\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=83c82248603da0738e20a4913d94e597}{%
+           family={Grangier},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=02404a92b0be3f52ec5ac08e41c13445}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Samy},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \strng{fullhash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \strng{bibnamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \strng{authorbibnamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \strng{authornamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \strng{authorfullhash}{a4dc734a7466e4f9f7970201a9e75fa3}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Speech Communication}
+      \field{number}{4}
+      \field{title}{Discriminative keyword spotting}
+      \field{userf}{en}
+      \field{volume}{51}
+      \field{year}{2009}
+      \field{pages}{317\bibrangedash 329}
+      \range{pages}{13}
+    \endentry
+    \entry{young1994state}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1fef85810184a4b85295dae0885b1d66}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Steve\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=690274984d94b3efbdd2f32b3a35031e}{%
+           family={Woodland},
+           familyi={W\bibinitperiod},
+           given={Philip\bibnamedelima C},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{82eb638fddfd71b04f33b78f79534307}
+      \strng{fullhash}{82eb638fddfd71b04f33b78f79534307}
+      \strng{bibnamehash}{82eb638fddfd71b04f33b78f79534307}
+      \strng{authorbibnamehash}{82eb638fddfd71b04f33b78f79534307}
+      \strng{authornamehash}{82eb638fddfd71b04f33b78f79534307}
+      \strng{authorfullhash}{82eb638fddfd71b04f33b78f79534307}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Speech \& Language}
+      \field{number}{4}
+      \field{title}{State clustering in hidden Markov model-based continuous speech recognition}
+      \field{userf}{en}
+      \field{volume}{8}
+      \field{year}{1994}
+      \field{pages}{369\bibrangedash 383}
+      \range{pages}{15}
+    \endentry
+    \entry{povey2008boosted}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0f44441d5ce924584ad2f7294f4a5ce4}{%
+           family={Kanevsky},
+           familyi={K\bibinitperiod},
+           given={Dimitri},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
+           family={Kingsbury},
+           familyi={K\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e958692c2ffac06aacd0b29bb1482fc8}{%
+           family={Ramabhadran},
+           familyi={R\bibinitperiod},
+           given={Bhuvana},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ce2fc3785ea81b5ffeca97427d45bbab}{%
+           family={Saon},
+           familyi={S\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=29a326b6a3b49ada47e4bfa2da42e070}{%
+           family={Visweswariah},
+           familyi={V\bibinitperiod},
+           given={Karthik},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{528db3b153f08e14b0c60da048956edc}
+      \strng{fullhash}{8a11319e0198d9d378a3f384f971bc87}
+      \strng{bibnamehash}{528db3b153f08e14b0c60da048956edc}
+      \strng{authorbibnamehash}{528db3b153f08e14b0c60da048956edc}
+      \strng{authornamehash}{528db3b153f08e14b0c60da048956edc}
+      \strng{authorfullhash}{8a11319e0198d9d378a3f384f971bc87}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Acoustics, Speech and Signal Processing, 2008. ICASSP 2008. IEEE International Conference on}
+      \field{title}{Boosted MMI for model and feature-space discriminative training}
+      \field{userf}{en}
+      \field{year}{2008}
+      \field{pages}{4057\bibrangedash 4060}
+      \range{pages}{4}
+    \endentry
+    \entry{gibson2006hypothesis}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=f052ee560daa0fbbb3bb1daa27d8743d}{%
+           family={Gibson},
+           familyi={G\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9d2c122385cc21071982b3bbc486387f}{%
+           family={Hain},
+           familyi={H\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \strng{fullhash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \strng{bibnamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \strng{authorbibnamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \strng{authornamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \strng{authorfullhash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Interspeech 2006}
+      \field{title}{Hypothesis spaces for minimum Bayes risk training in large vocabulary speech recognition.}
+      \field{userf}{en}
+      \field{volume}{6}
+      \field{year}{2006}
+      \field{pages}{2406\bibrangedash 2409}
+      \range{pages}{4}
+    \endentry
+    \entry{meng2016non}{article}{}
+      \name{author}{2}{}{%
+        {{hash=cf5c1997fca209f65cd52b649cb051ca}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Zhong},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=d130e0fb0614fc89f8792edf59e1c68a}{%
+           family={Juang},
+           familyi={J\bibinitperiod},
+           given={Biing-Hwang},
+           giveni={B\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \strng{fullhash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \strng{bibnamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \strng{authorbibnamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \strng{authornamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \strng{authorfullhash}{ff61129bd4d9097cd7d8e57c9d1e8739}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Interspeech 2016}
+      \field{title}{Non-Uniform Boosted MCE Training of Deep Neural Networks for Keyword Spotting}
+      \field{userf}{en}
+      \field{year}{2016}
+      \field{pages}{770\bibrangedash 774}
+      \range{pages}{5}
+    \endentry
+    \entry{chen2018kws}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yanmin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{5072996fdda575810e32c15e47d67ed8}
+      \strng{fullhash}{5072996fdda575810e32c15e47d67ed8}
+      \strng{bibnamehash}{5072996fdda575810e32c15e47d67ed8}
+      \strng{authorbibnamehash}{5072996fdda575810e32c15e47d67ed8}
+      \strng{authornamehash}{5072996fdda575810e32c15e47d67ed8}
+      \strng{authorfullhash}{5072996fdda575810e32c15e47d67ed8}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Speech Communication}
+      \field{title}{Sequence Discriminative Training for Deep Learning based Acoustic Keyword Spotting}
+      \field{userf}{en}
+      \field{year}{2018}
+    \endentry
+    \entry{zhuang-is2016}{article}{}
+      \name{author}{4}{}{%
+        {{hash=7ed52a70e8b90e10908c9a5cc5d3f935}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Yimeng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=26238bc0a75da6ffb5bcdeeeadad2315}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Xuankai},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yanmin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{475c21ecfb7f72bd012bfb0a2895d098}
+      \strng{fullhash}{f3ed8e174ce0721f73ba9df79448c834}
+      \strng{bibnamehash}{475c21ecfb7f72bd012bfb0a2895d098}
+      \strng{authorbibnamehash}{475c21ecfb7f72bd012bfb0a2895d098}
+      \strng{authornamehash}{475c21ecfb7f72bd012bfb0a2895d098}
+      \strng{authorfullhash}{f3ed8e174ce0721f73ba9df79448c834}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Interspeech 2016}
+      \field{title}{Unrestricted Vocabulary Keyword Spotting Using LSTM-CTC}
+      \field{userf}{en}
+      \field{year}{2016}
+      \field{pages}{938\bibrangedash 942}
+      \range{pages}{5}
+    \endentry
+    \entry{chaudhari2007improvements}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=d508828f0d2f9c301bba2086ab443304}{%
+           family={Chaudhari},
+           familyi={C\bibinitperiod},
+           given={Upendra\bibnamedelima V},
+           giveni={U\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=adbd1116077aaa2a70687e049204087f}{%
+           family={Picheny},
+           familyi={P\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \strng{fullhash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \strng{bibnamehash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \strng{authorbibnamehash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \strng{authornamehash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \strng{authorfullhash}{c2d2420d672a266f908ff7c1ed27fae7}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Automatic Speech Recognition \& Understanding, 2007. ASRU. IEEE Workshop on}
+      \field{title}{Improvements in phone based audio search via constrained match with high order confusion estimates}
+      \field{userf}{en}
+      \field{year}{2007}
+      \field{pages}{665\bibrangedash 670}
+      \range{pages}{6}
+    \endentry
+    \entry{7736093}{article}{}
+      \name{author}{4}{}{%
+        {{hash=830dae9f179578bf86cab0dc871a02d7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=9baca8177b5d72559c24abc2df0caf82}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=347c15373835c191ad7dbde4d8ebd246}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cde667d169dfe28fa4feb92066902332}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2880f29fd3408566a7eef6074c95482}
+      \strng{fullhash}{a9b69289295c24feeb5d0af0029c8723}
+      \strng{bibnamehash}{f2880f29fd3408566a7eef6074c95482}
+      \strng{authorbibnamehash}{f2880f29fd3408566a7eef6074c95482}
+      \strng{authornamehash}{f2880f29fd3408566a7eef6074c95482}
+      \strng{authorfullhash}{a9b69289295c24feeb5d0af0029c8723}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2329-9290}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
+      \field{number}{1}
+      \field{title}{Phone Synchronous Speech Recognition With CTC Lattices}
+      \field{userf}{en}
+      \field{volume}{25}
+      \field{year}{2017}
+      \field{pages}{86\bibrangedash 97}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/TASLP.2016.2625459
+      \endverb
+    \endentry
+    \entry{cherry1953some}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8f387e60ff46b7433bb4ce2a5eb60778}{%
+           family={Cherry},
+           familyi={C\bibinitperiod},
+           given={E\bibnamedelima Colin},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ASA}%
+      }
+      \strng{namehash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \strng{fullhash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \strng{bibnamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \strng{authorbibnamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \strng{authornamehash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \strng{authorfullhash}{8f387e60ff46b7433bb4ce2a5eb60778}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of the acoustical society of America}
+      \field{number}{5}
+      \field{title}{Some experiments on the recognition of speech, with one and with two ears}
+      \field{userf}{en}
+      \field{volume}{25}
+      \field{year}{1953}
+      \field{pages}{975\bibrangedash 979}
+      \range{pages}{5}
+    \endentry
+    \entry{bregman1994auditory}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5c60d3d8f928acbb1181ab1f41301a64}{%
+           family={Bregman},
+           familyi={B\bibinitperiod},
+           given={Albert\bibnamedelima S},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \strng{fullhash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \strng{bibnamehash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \strng{authorbibnamehash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \strng{authornamehash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \strng{authorfullhash}{5c60d3d8f928acbb1181ab1f41301a64}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Auditory scene analysis: The perceptual organization of sound}
+      \field{userf}{en}
+      \field{year}{1994}
+    \endentry
+    \entry{wang2006computational}{book}{}
+      \name{author}{2}{}{%
+        {{hash=0a1bd97b59cb3cf65dc849873adf0d25}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={DeLiang},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3aea24e43b68b99683178ccc87f1fe17}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Guy\bibnamedelima J},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-IEEE press}%
+      }
+      \strng{namehash}{7a0500af8c1612f731c033f1400334f2}
+      \strng{fullhash}{7a0500af8c1612f731c033f1400334f2}
+      \strng{bibnamehash}{7a0500af8c1612f731c033f1400334f2}
+      \strng{authorbibnamehash}{7a0500af8c1612f731c033f1400334f2}
+      \strng{authornamehash}{7a0500af8c1612f731c033f1400334f2}
+      \strng{authorfullhash}{7a0500af8c1612f731c033f1400334f2}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computational auditory scene analysis: Principles, algorithms, and applications}
+      \field{userf}{en}
+      \field{year}{2006}
+    \endentry
+    \entry{cooke2010monaural}{article}{}
+      \name{author}{3}{}{%
+        {{hash=dc431d17eaec3bc9672148ca53008e65}{%
+           family={Cooke},
+           familyi={C\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f7569671cd18bd712ea205405a3f7ff4}{%
+           family={Hershey},
+           familyi={H\bibinitperiod},
+           given={John\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=bcd93a9433f067606d61aaeb69619a14}{%
+           family={Rennie},
+           familyi={R\bibinitperiod},
+           given={Steven\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a4a31d934deb019925b82f4f0511517b}
+      \strng{fullhash}{a4a31d934deb019925b82f4f0511517b}
+      \strng{bibnamehash}{a4a31d934deb019925b82f4f0511517b}
+      \strng{authorbibnamehash}{a4a31d934deb019925b82f4f0511517b}
+      \strng{authornamehash}{a4a31d934deb019925b82f4f0511517b}
+      \strng{authorfullhash}{a4a31d934deb019925b82f4f0511517b}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Speech \& Language}
+      \field{number}{1}
+      \field{title}{Monaural speech separation and recognition challenge}
+      \field{userf}{en}
+      \field{volume}{24}
+      \field{year}{2010}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
+    \entry{du2014speech}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=f60521cb1b3dc6ad645440ca7844bd28}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c0fe1b5e561e79fd6bc6acafdc3c5337}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Yanhui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=90812e2aac1e3fb393dfd7663b4eefe1}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Yong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e2f687dde82b5667a7590b97cd3ac00c}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Lirong},
+           giveni={L\bibinitperiod}}}%
+        {{hash=26883d806fdb5a0cdc88e4154acb0773}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Chin-Hui},
+           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{db08a22bf21a44c49487d9817cef0275}
+      \strng{fullhash}{bf7b225cd8349a2d0f2442b77cb7f704}
+      \strng{bibnamehash}{db08a22bf21a44c49487d9817cef0275}
+      \strng{authorbibnamehash}{db08a22bf21a44c49487d9817cef0275}
+      \strng{authornamehash}{db08a22bf21a44c49487d9817cef0275}
+      \strng{authorfullhash}{bf7b225cd8349a2d0f2442b77cb7f704}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Signal Processing (ICSP), 2014 12th International Conference on}
+      \field{title}{Speech separation of a target speaker based on deep neural networks}
+      \field{userf}{en}
+      \field{year}{2014}
+      \field{pages}{473\bibrangedash 477}
+      \range{pages}{5}
+    \endentry
+    \entry{weng2015deep}{article}{}
+      \name{author}{4}{}{%
+        {{hash=25d9f7894e51f1de6429e8b9a6308c23}{%
+           family={Weng},
+           familyi={W\bibinitperiod},
+           given={Chao},
+           giveni={C\bibinitperiod}}}%
+        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Dong},
+           giveni={D\bibinitperiod}}}%
+        {{hash=47940acafd5c8d4c52b80690308ae814}{%
+           family={Seltzer},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima L},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
+           family={Droppo},
+           familyi={D\bibinitperiod},
+           given={Jasha},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press}%
+      }
+      \strng{namehash}{d0abe1df167cab8377bf4c7398c4910a}
+      \strng{fullhash}{c7d95f4278ff9d70929c77c319201c9a}
+      \strng{bibnamehash}{d0abe1df167cab8377bf4c7398c4910a}
+      \strng{authorbibnamehash}{d0abe1df167cab8377bf4c7398c4910a}
+      \strng{authornamehash}{d0abe1df167cab8377bf4c7398c4910a}
+      \strng{authorfullhash}{c7d95f4278ff9d70929c77c319201c9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
+      \field{number}{10}
+      \field{title}{Deep neural networks for single-channel multi-talker speech recognition}
+      \field{userf}{en}
+      \field{volume}{23}
+      \field{year}{2015}
+      \field{pages}{1670\bibrangedash 1679}
+      \range{pages}{10}
+    \endentry
+    \entry{yu2017recognizing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=93509a9a7ccede33feb1e702b5a8bb9f}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Dong},
+           giveni={D\bibinitperiod}}}%
+        {{hash=26238bc0a75da6ffb5bcdeeeadad2315}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Xuankai},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yanmin},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \strng{fullhash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \strng{bibnamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \strng{authorbibnamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \strng{authornamehash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \strng{authorfullhash}{5fd1d6c7d29d73245b5e4ee5df267281}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{CoRR}
+      \field{title}{Recognizing Multi-talker Speech with Permutation Invariant Training}
+      \field{userf}{en}
+      \field{volume}{abs/1704.01985}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1704.01985v3
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1704.01985v3
+      \endverb
+    \endentry
+    \entry{chen2018progressive}{article}{}
+      \name{author}{8}{}{%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
+           family={Droppo},
+           familyi={D\bibinitperiod},
+           given={Jasha},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinyu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Wayne},
+           giveni={W\bibinitperiod}}}%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c137643a1d9eebff847bff4a61a5326d}{%
+           family={Droppo},
+           familyi={D\bibinitperiod},
+           given={Jasha},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinyu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a4068d39a5f12c9aea91dba492080a4}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Wayne},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press}%
+      }
+      \strng{namehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{fullhash}{0205c8114ef365e628f2968e1c9b2fa3}
+      \strng{bibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authorbibnamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authornamehash}{6edd3e9879d2ffb77b351c6cd0e767a1}
+      \strng{authorfullhash}{0205c8114ef365e628f2968e1c9b2fa3}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP)}
+      \field{number}{1}
+      \field{title}{Progressive joint modeling in unsupervised single-channel overlapped speech recognition}
+      \field{userf}{en}
+      \field{volume}{26}
+      \field{year}{2018}
+      \field{pages}{184\bibrangedash 196}
+      \range{pages}{13}
+    \endentry
+    \entry{garofalo1993continous}{article}{}
+      \name{author}{4}{}{%
+        {{hash=55fbc6685a018b161dc9f1fce4ef2625}{%
+           family={Garofalo},
+           familyi={G\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9f73a961976578ffd8a5149ea681e1fd}{%
+           family={Graff},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=711e498f70762fbff731d8ccc2794dc6}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Doug},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d129feef0589156c6229c70c8885050c}{%
+           family={Pallett},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b103965b0057d6a3f0ca9160b395977}
+      \strng{fullhash}{b64dfabb026395842fb9d1642cbf4e25}
+      \strng{bibnamehash}{6b103965b0057d6a3f0ca9160b395977}
+      \strng{authorbibnamehash}{6b103965b0057d6a3f0ca9160b395977}
+      \strng{authornamehash}{6b103965b0057d6a3f0ca9160b395977}
+      \strng{authorfullhash}{b64dfabb026395842fb9d1642cbf4e25}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linguistic data consortium, philadelphia}
+      \field{title}{{Continous Speech Recognition (CSR-I) Wall Street Journal (WSJ0) news, complete}}
+      \field{userf}{en}
+      \field{year}{1993}
+    \endentry
+    \entry{tdnnlstm}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=a34d953bcda61ddbf769b6d43c4ca1a1}{%
+           family={Peddinti},
+           familyi={P\bibinitperiod},
+           given={Vijayaditya},
+           giveni={V\bibinitperiod}}}%
+        {{hash=a05ddfce1216c69f4b61ee496b946530}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yiming},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
+           family={Khudanpur},
+           familyi={K\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1951f4c4278e4713dd63304cc590543b}
+      \strng{fullhash}{14eff6b285cf9a6ad1c07595b4a87369}
+      \strng{bibnamehash}{1951f4c4278e4713dd63304cc590543b}
+      \strng{authorbibnamehash}{1951f4c4278e4713dd63304cc590543b}
+      \strng{authornamehash}{1951f4c4278e4713dd63304cc590543b}
+      \strng{authorfullhash}{14eff6b285cf9a6ad1c07595b4a87369}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://www.danielpovey.com/files/2017_spl_tdnnlstm.pdf}}
+      \field{title}{Low latency modeling of temporal contexts}
+      \field{userf}{en}
+    \endentry
+    \entry{vesely2013sequence}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=8b9d26ab0bd1d05085a70899c6cd7962}{%
+           family={Vesel{ỳ}},
+           familyi={V\bibinitperiod},
+           given={Karel},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7317e829771fcdb6bffb1ce8c3b6c02f}{%
+           family={Ghoshal},
+           familyi={G\bibinitperiod},
+           given={Arnab},
+           giveni={A\bibinitperiod}}}%
+        {{hash=94a27420e61118ec81fb04b18135889b}{%
+           family={Burget},
+           familyi={B\bibinitperiod},
+           given={Luk{á}s},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{f34a088e4faa0b3e2486510f11ec87f7}
+      \strng{fullhash}{34cc6cda596533c290acac2cec8870d8}
+      \strng{bibnamehash}{f34a088e4faa0b3e2486510f11ec87f7}
+      \strng{authorbibnamehash}{f34a088e4faa0b3e2486510f11ec87f7}
+      \strng{authornamehash}{f34a088e4faa0b3e2486510f11ec87f7}
+      \strng{authorfullhash}{34cc6cda596533c290acac2cec8870d8}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{title}{Sequence-discriminative training of deep neural networks.}
+      \field{userf}{en}
+      \field{year}{2013}
+      \field{pages}{2345\bibrangedash 2349}
+      \range{pages}{5}
+    \endentry
+    \entry{povey2007evaluation}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
+           family={Povey},
+           familyi={P\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
+           family={Kingsbury},
+           familyi={K\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \strng{fullhash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \strng{bibnamehash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \strng{authorbibnamehash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \strng{authornamehash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \strng{authorfullhash}{dbda9c9e0eabf94ade042d4203d86b22}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
+      \field{title}{Evaluation of proposed modifications to MPE for large scale discriminative training}
+      \field{userf}{en}
+      \field{volume}{4}
+      \field{year}{2007}
+      \field{pages}{IV\bibrangedash 321}
+      \range{pages}{318}
+    \endentry
+    \entry{nict-icassp17}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=84d91cc05722fea8d7a0cc6caba674d6}{%
+           family={Kanda},
+           familyi={K\bibinitperiod},
+           given={Naoyuki},
+           giveni={N\bibinitperiod}}}%
+        {{hash=6251462ae5050493d4c46f66bb4581db}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Xugang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=5902e2f00bf26c1e9676114e6972e9ed}{%
+           family={Kawai},
+           familyi={K\bibinitperiod},
+           given={Hisashi},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, USA}%
+      }
+      \strng{namehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \strng{fullhash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \strng{bibnamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \strng{authorbibnamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \strng{authornamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \strng{authorfullhash}{a0e9b13d84244c5d2da8028f6d3cdf51}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
+      \field{title}{Minimum Bayes Risk Training of CTC Acoustic Models in Maximum a Posteriori Based Decoding Framework}
+      \field{userf}{en}
+      \field{year}{2017}
+      \field{pages}{4855\bibrangedash 4859}
+      \range{pages}{5}
+    \endentry
+    \entry{li2018developing}{article}{}
+      \name{author}{7}{}{%
+        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jinyu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5db4068796cde560b4fd3829096ef6c5}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+        {{hash=48c731464964d6c671b8384c3e00652c}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhuo},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=8d097edb76a84c5521027cac05bebc3c}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Changliang},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3b4ea794b97e489cbf3e63344c4adb33}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Xiong},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4a101fc2848e2b24ea10f74ace1493d9}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Guoli},
+           giveni={G\bibinitperiod}}}%
+        {{hash=48625f66421eceae9aec5d7c1b7f8933}{%
+           family={Gong},
+           familyi={G\bibinitperiod},
+           given={Yifan},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9d634b1656da783a8190730307f709ee}
+      \strng{fullhash}{bb01eade2be663a4d87e74db65ebe77f}
+      \strng{bibnamehash}{9d634b1656da783a8190730307f709ee}
+      \strng{authorbibnamehash}{9d634b1656da783a8190730307f709ee}
+      \strng{authornamehash}{9d634b1656da783a8190730307f709ee}
+      \strng{authorfullhash}{bb01eade2be663a4d87e74db65ebe77f}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1804.05166}
+      \field{title}{Developing far-field speaker system via teacher-student learning}
+      \field{userf}{en}
+      \field{year}{2018}
+    \endentry
+    \entry{cas-icassp17}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=5b9e912b1bff6131c4e7a0da0fa5884a}{%
+           family={Ge},
+           familyi={G\bibinitperiod},
+           given={Fengpei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=985bd01a03eac016042d3ac2908f599f}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Yonghong},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, USA}%
+      }
+      \strng{namehash}{240052572ed9c36456eb4a5c10c13a31}
+      \strng{fullhash}{240052572ed9c36456eb4a5c10c13a31}
+      \strng{bibnamehash}{240052572ed9c36456eb4a5c10c13a31}
+      \strng{authorbibnamehash}{240052572ed9c36456eb4a5c10c13a31}
+      \strng{authornamehash}{240052572ed9c36456eb4a5c10c13a31}
+      \strng{authorfullhash}{240052572ed9c36456eb4a5c10c13a31}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
+      \field{title}{Deep Neural Network Based Wake-Up-Word Speech Recognition with Two-stage Detection}
+      \field{userf}{en}
+      \field{year}{2017}
+      \field{pages}{2761\bibrangedash 2765}
+      \range{pages}{5}
+    \endentry
+    \entry{godfrey1992switchboard}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=6e41c36d1d62d5e43521873fdd5580e0}{%
+           family={Godfrey},
+           familyi={G\bibinitperiod},
+           given={John\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=bfcdb6a7ff4075907e8b4cd48b6b0169}{%
+           family={Holliman},
+           familyi={H\bibinitperiod},
+           given={Edward\bibnamedelima C},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=34a1b35cc033c2148f4ca4192755ef87}{%
+           family={McDaniel},
+           familyi={M\bibinitperiod},
+           given={Jane},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \strng{fullhash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \strng{bibnamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \strng{authorbibnamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \strng{authornamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \strng{authorfullhash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1992. ICASSP-92., 1992 IEEE International Conference on}
+      \field{title}{SWITCHBOARD: Telephone speech corpus for research and development}
+      \field{userf}{en}
+      \field{volume}{1}
+      \field{year}{1992}
+      \field{pages}{517\bibrangedash 520}
+      \range{pages}{4}
+    \endentry
+    \entry{seide2016cntk}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=ef03c6cf9b4db1e1c72b2202a2b4ab62}{%
+           family={Seide},
+           familyi={S\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+        {{hash=16cc54435100d2d57874201009784cb2}{%
+           family={Agarwal},
+           familyi={A\bibinitperiod},
+           given={Amit},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \strng{fullhash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \strng{bibnamehash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \strng{authorbibnamehash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \strng{authornamehash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \strng{authorfullhash}{43e648e661a60e3ae89cc97c4188c7b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}
+      \field{title}{CNTK: Microsoft's Open-Source Deep-Learning Toolkit}
+      \field{userf}{en}
+      \field{year}{2016}
+      \field{pages}{2135\bibrangedash 2135}
+      \range{pages}{1}
+    \endentry
+    \entry{7913606}{article}{}
+      \name{author}{2}{}{%
+        {{hash=802b5a39ded074a3feca773a2569c272}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b60c37442be87e7e0f7d15a865a63e8f}{%
+           family={Renals},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \strng{fullhash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \strng{bibnamehash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \strng{authorbibnamehash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \strng{authornamehash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \strng{authorfullhash}{b9698f16833f6c20fcf3ca2642c719e1}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2329-9290}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
+      \field{number}{7}
+      \field{title}{Small-Footprint Highway Deep Neural Networks for Speech Recognition}
+      \field{userf}{en}
+      \field{volume}{25}
+      \field{year}{2017}
+      \field{pages}{1502\bibrangedash 1511}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/TASLP.2017.2698723
+      \endverb
+      \keyw{recurrent neural nets;speech recognition;AMI corpus;Gaussian mixture models;HDNN;adaptation data;depth-gated feedforward neural network;gate functions;mobile devices;neural network acoustic models;recognition accuracy;resource-constrained platforms;small-footprint highway deep neural networks;speech recognition systems;Adaptation models;Hidden Markov models;Logic gates;Neural networks;Road transportation;Speech recognition;Training;Deep learning;highway networks;small-footprint models;speech recognition}
     \endentry
     \entry{xue2014singular}{inproceedings}{}
       \name{author}{5}{}{%
@@ -5377,8 +6407,8 @@
       \strng{authorbibnamehash}{018c79f6f3fd242601147af2c0be9773}
       \strng{authornamehash}{018c79f6f3fd242601147af2c0be9773}
       \strng{authorfullhash}{018c79f6f3fd242601147af2c0be9773}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE International Conference on}
@@ -5430,8 +6460,8 @@
       \strng{authorbibnamehash}{6b29933596f305d298ec2e6eb82d7130}
       \strng{authornamehash}{6b29933596f305d298ec2e6eb82d7130}
       \strng{authorfullhash}{dd1a2424def67a3da0b030b295e7d1a9}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2016 IEEE International Conference on}
@@ -5458,8 +6488,8 @@
       \strng{authorbibnamehash}{2ad96fc8dc0fb6d2a5e9f3548b4ca045}
       \strng{authornamehash}{2ad96fc8dc0fb6d2a5e9f3548b4ca045}
       \strng{authorfullhash}{2ad96fc8dc0fb6d2a5e9f3548b4ca045}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{International Journal of Computer Science and Network Security (IJCSNS}
@@ -5491,8 +6521,8 @@
       \strng{authorbibnamehash}{90f7b1d490eb4875ff0d97e856380ebc}
       \strng{authornamehash}{90f7b1d490eb4875ff0d97e856380ebc}
       \strng{authorfullhash}{90f7b1d490eb4875ff0d97e856380ebc}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Sixth European Conference on Speech Communication and Technology}
@@ -5517,8 +6547,8 @@
       \strng{authorbibnamehash}{ecf28c4bc54e45959246506856f1ac89}
       \strng{authornamehash}{ecf28c4bc54e45959246506856f1ac89}
       \strng{authorfullhash}{ecf28c4bc54e45959246506856f1ac89}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Automatic Speech Recognition and Understanding, 1997. Proceedings., 1997 IEEE Workshop on}
@@ -5550,8 +6580,8 @@
       \strng{authorbibnamehash}{1690e90491e089140b4fcecc1b5c13c9}
       \strng{authornamehash}{1690e90491e089140b4fcecc1b5c13c9}
       \strng{authorfullhash}{1690e90491e089140b4fcecc1b5c13c9}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on}
@@ -5585,8 +6615,8 @@
       \strng{authorbibnamehash}{9fb6de820564ec05e68e04dd9d75a158}
       \strng{authornamehash}{9fb6de820564ec05e68e04dd9d75a158}
       \strng{authorfullhash}{9fb6de820564ec05e68e04dd9d75a158}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Sixth European Conference on Speech Communication and Technology}
@@ -5626,8 +6656,8 @@
       \strng{authorbibnamehash}{e4a7d1b58a41d647e03e486860e994ee}
       \strng{authornamehash}{e4a7d1b58a41d647e03e486860e994ee}
       \strng{authorfullhash}{306ac9bec396539e73b94c0b61a3fa53}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{INTERSPEECH}
@@ -5657,8 +6687,8 @@
       \strng{authorbibnamehash}{dc3b8fd2e321ceb2dce167c286d50ac4}
       \strng{authornamehash}{dc3b8fd2e321ceb2dce167c286d50ac4}
       \strng{authorfullhash}{dc3b8fd2e321ceb2dce167c286d50ac4}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computer Speech \& Language}
@@ -5697,8 +6727,8 @@
       \strng{authorbibnamehash}{5c3b47733a05378929009cc8faef8972}
       \strng{authornamehash}{5c3b47733a05378929009cc8faef8972}
       \strng{authorfullhash}{5c3b47733a05378929009cc8faef8972}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2017 IEEE International Conference on}
@@ -5735,8 +6765,8 @@
       \strng{authorbibnamehash}{5072996fdda575810e32c15e47d67ed8}
       \strng{authornamehash}{5072996fdda575810e32c15e47d67ed8}
       \strng{authorfullhash}{5072996fdda575810e32c15e47d67ed8}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{International Conference on Intelligent Science and Big Data Engineering}
@@ -5763,8 +6793,8 @@
       \strng{authorbibnamehash}{dfca94b0427da7f9088af596e23b46c0}
       \strng{authornamehash}{dfca94b0427da7f9088af596e23b46c0}
       \strng{authorfullhash}{dfca94b0427da7f9088af596e23b46c0}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Supervised Sequence Labelling with Recurrent Neural Networks}
@@ -5806,8 +6836,8 @@
       \strng{authorbibnamehash}{48650ddb39241771d7601c3cff8254f7}
       \strng{authornamehash}{48650ddb39241771d7601c3cff8254f7}
       \strng{authorfullhash}{e4768b4f766b7f2c430d4d26236cdf30}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Audio, Speech, and Language Processing, IEEE Transactions on}
@@ -5846,8 +6876,8 @@
       \strng{authorbibnamehash}{c839d8031d384deac147998266e4e30e}
       \strng{authornamehash}{c839d8031d384deac147998266e4e30e}
       \strng{authorfullhash}{c839d8031d384deac147998266e4e30e}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2013 IEEE International Conference on Acoustics, Speech and Signal Processing}
@@ -5881,8 +6911,8 @@
       \strng{authorbibnamehash}{73f242feed66e2ff0c2b0ef877a8a1a8}
       \strng{authornamehash}{73f242feed66e2ff0c2b0ef877a8a1a8}
       \strng{authorfullhash}{73f242feed66e2ff0c2b0ef877a8a1a8}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{ICSLP}
@@ -5916,8 +6946,8 @@
       \strng{authorbibnamehash}{11e24f66c0bd4a0c0ceb2d8263cc03e6}
       \strng{authornamehash}{11e24f66c0bd4a0c0ceb2d8263cc03e6}
       \strng{authorfullhash}{11e24f66c0bd4a0c0ceb2d8263cc03e6}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Spoken Language, 1996. ICSLP 96. Proceedings., Fourth International Conference on}
@@ -5962,214 +6992,14 @@
       \strng{authorbibnamehash}{a592cda4c1d8fc933d6aa27505db1774}
       \strng{authornamehash}{a592cda4c1d8fc933d6aa27505db1774}
       \strng{authorfullhash}{24f26c8c01c05136b7b307da6fbace57}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1701.06548}
       \field{title}{Regularizing neural networks by penalizing confident output distributions}
       \field{userf}{en}
       \field{year}{2017}
-    \endentry
-    \entry{pisoni1985speech}{article}{}
-      \name{author}{4}{}{%
-        {{hash=fe8b8dfbbe4a8d0942d8d6233a9df4d2}{%
-           family={Pisoni},
-           familyi={P\bibinitperiod},
-           given={David\bibnamedelima B},
-           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-        {{hash=b242a1c7b9c4d4035e67487302edd9ff}{%
-           family={Nusbaum},
-           familyi={N\bibinitperiod},
-           given={Howard\bibnamedelima C},
-           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=198e93fa69a371f780265507e256314d}{%
-           family={Luce},
-           familyi={L\bibinitperiod},
-           given={Paul\bibnamedelima A},
-           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=e576fe721f242e3eb44e3f0ada298923}{%
-           family={Slowiaczek},
-           familyi={S\bibinitperiod},
-           given={Louisa\bibnamedelima M},
-           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{cb932be01fc1fa89d49fe6aee13e564f}
-      \strng{fullhash}{ca82100ef4d53c5f95ac6a5e6f0d3baf}
-      \strng{bibnamehash}{cb932be01fc1fa89d49fe6aee13e564f}
-      \strng{authorbibnamehash}{cb932be01fc1fa89d49fe6aee13e564f}
-      \strng{authornamehash}{cb932be01fc1fa89d49fe6aee13e564f}
-      \strng{authorfullhash}{ca82100ef4d53c5f95ac6a5e6f0d3baf}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Speech communication}
-      \field{number}{1-3}
-      \field{title}{Speech perception, word recognition and the structure of the lexicon}
-      \field{userf}{en}
-      \field{volume}{4}
-      \field{year}{1985}
-      \field{pages}{75\bibrangedash 95}
-      \range{pages}{21}
-    \endentry
-    \entry{jozefowicz2016exploring}{article}{}
-      \name{author}{5}{}{%
-        {{hash=b243d8e26a729c55dd5af5f97763dded}{%
-           family={Jozefowicz},
-           familyi={J\bibinitperiod},
-           given={Rafal},
-           giveni={R\bibinitperiod}}}%
-        {{hash=494b568c5dc85ba8f3f409635f9c5f25}{%
-           family={Vinyals},
-           familyi={V\bibinitperiod},
-           given={Oriol},
-           giveni={O\bibinitperiod}}}%
-        {{hash=29ea22df63f174ac629e9ef100b40484}{%
-           family={Schuster},
-           familyi={S\bibinitperiod},
-           given={Mike},
-           giveni={M\bibinitperiod}}}%
-        {{hash=62efade83d70f0323fe248755e6c90c5}{%
-           family={Shazeer},
-           familyi={S\bibinitperiod},
-           given={Noam},
-           giveni={N\bibinitperiod}}}%
-        {{hash=1fc7a40d6072b1bb1d4e56d14ef88e2f}{%
-           family={Wu},
-           familyi={W\bibinitperiod},
-           given={Yonghui},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \strng{namehash}{34033145e207bcb9f059f5797be089bf}
-      \strng{fullhash}{3416b765158c0d540f3c7824b5cfc292}
-      \strng{bibnamehash}{34033145e207bcb9f059f5797be089bf}
-      \strng{authorbibnamehash}{34033145e207bcb9f059f5797be089bf}
-      \strng{authornamehash}{34033145e207bcb9f059f5797be089bf}
-      \strng{authorfullhash}{3416b765158c0d540f3c7824b5cfc292}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1602.02410}
-      \field{title}{Exploring the limits of language modeling}
-      \field{userf}{en}
-      \field{year}{2016}
-    \endentry
-    \entry{miao2015eesen}{article}{}
-      \name{author}{3}{}{%
-        {{hash=b9b09a320f529969bebefe5b4eaaaad6}{%
-           family={Miao},
-           familyi={M\bibinitperiod},
-           given={Yajie},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=c39d88291c8c9fbc998599778d2f0221}{%
-           family={Gowayyed},
-           familyi={G\bibinitperiod},
-           given={Mohammad},
-           giveni={M\bibinitperiod}}}%
-        {{hash=64e42b033385cc6471532215b5b12d27}{%
-           family={Metze},
-           familyi={M\bibinitperiod},
-           given={Florian},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \strng{fullhash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \strng{bibnamehash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \strng{authorbibnamehash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \strng{authornamehash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \strng{authorfullhash}{6320de475fefdb7c1e98d8e9d81f2234}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1507.08240}
-      \field{title}{EESEN: End-to-end speech recognition using deep RNN models and WFST-based decoding}
-      \field{userf}{en}
-      \field{year}{2015}
-    \endentry
-    \entry{sak2017recurrent}{article}{}
-      \name{author}{4}{}{%
-        {{hash=10d67d0a7ebf888661095a1849453d16}{%
-           family={Sak},
-           familyi={S\bibinitperiod},
-           given={Ha{ş}im},
-           giveni={H\bibinitperiod}}}%
-        {{hash=9a11c18b1b88bd6f2fd1f462ecd4396e}{%
-           family={Shannon},
-           familyi={S\bibinitperiod},
-           given={Matt},
-           giveni={M\bibinitperiod}}}%
-        {{hash=0bc76ae3489ed701bf62b815b7166ed7}{%
-           family={Rao},
-           familyi={R\bibinitperiod},
-           given={Kanishka},
-           giveni={K\bibinitperiod}}}%
-        {{hash=a35d54f9a01c66a3c63e8e9ed69210cb}{%
-           family={Beaufays},
-           familyi={B\bibinitperiod},
-           given={Fran{ç}oise},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{0d71041a1b16337ddcdd2b70eb99ce48}
-      \strng{fullhash}{09cf21ee38efa843b8892b1505f7ad00}
-      \strng{bibnamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
-      \strng{authorbibnamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
-      \strng{authornamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
-      \strng{authorfullhash}{09cf21ee38efa843b8892b1505f7ad00}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Proc. Interspeech 2017}
-      \field{title}{Recurrent Neural Aligner: An Encoder-Decoder Neural Network Model for Sequence to Sequence Mapping}
-      \field{userf}{en}
-      \field{year}{2017}
-      \field{pages}{1298\bibrangedash 1302}
-      \range{pages}{5}
-    \endentry
-    \entry{godfrey1992switchboard}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=6e41c36d1d62d5e43521873fdd5580e0}{%
-           family={Godfrey},
-           familyi={G\bibinitperiod},
-           given={John\bibnamedelima J},
-           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-        {{hash=bfcdb6a7ff4075907e8b4cd48b6b0169}{%
-           family={Holliman},
-           familyi={H\bibinitperiod},
-           given={Edward\bibnamedelima C},
-           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=34a1b35cc033c2148f4ca4192755ef87}{%
-           family={McDaniel},
-           familyi={M\bibinitperiod},
-           given={Jane},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \strng{fullhash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \strng{bibnamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \strng{authorbibnamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \strng{authornamehash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \strng{authorfullhash}{0e2de5ca51fdf632e9fe72ce981b5aeb}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1992. ICASSP-92., 1992 IEEE International Conference on}
-      \field{title}{SWITCHBOARD: Telephone speech corpus for research and development}
-      \field{userf}{en}
-      \field{volume}{1}
-      \field{year}{1992}
-      \field{pages}{517\bibrangedash 520}
-      \range{pages}{4}
     \endentry
     \entry{miao2016ctc}{inproceedings}{}
       \name{author}{6}{}{%
@@ -6213,8 +7043,8 @@
       \strng{authorbibnamehash}{65b47f2b38c71d50441d49158f8ccb5b}
       \strng{authornamehash}{65b47f2b38c71d50441d49158f8ccb5b}
       \strng{authorfullhash}{6b00886ecd77134d891bf56e8f5c8614}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2016 IEEE International Conference on Acoustics, Speech and Signal Processing}
@@ -6223,6 +7053,39 @@
       \field{year}{2016}
       \field{pages}{2623\bibrangedash 2627}
       \range{pages}{5}
+    \endentry
+    \entry{miao2015eesen}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b9b09a320f529969bebefe5b4eaaaad6}{%
+           family={Miao},
+           familyi={M\bibinitperiod},
+           given={Yajie},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c39d88291c8c9fbc998599778d2f0221}{%
+           family={Gowayyed},
+           familyi={G\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=64e42b033385cc6471532215b5b12d27}{%
+           family={Metze},
+           familyi={M\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \strng{fullhash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \strng{bibnamehash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \strng{authorbibnamehash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \strng{authornamehash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \strng{authorfullhash}{6320de475fefdb7c1e98d8e9d81f2234}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1507.08240}
+      \field{title}{EESEN: End-to-end speech recognition using deep RNN models and WFST-based decoding}
+      \field{userf}{en}
+      \field{year}{2015}
     \endentry
     \entry{hauswald2015sirius}{inproceedings}{}
       \true{moreauthor}
@@ -6288,8 +7151,8 @@
       \strng{authorbibnamehash}{ad18221c44e9e0013f2aa4119fbdc192}
       \strng{authornamehash}{ad18221c44e9e0013f2aa4119fbdc192}
       \strng{authorfullhash}{83a3d4f15e8611fa585d055351c79b1a}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{ACM SIGPLAN Notices}
@@ -6323,8 +7186,8 @@
       \strng{authorbibnamehash}{b58b5d270b3aa71f5612cdd7caca859f}
       \strng{authornamehash}{b58b5d270b3aa71f5612cdd7caca859f}
       \strng{authorfullhash}{b58b5d270b3aa71f5612cdd7caca859f}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Synthesis Lectures on Speech and Audio Processing}
@@ -6335,52 +7198,6 @@
       \field{year}{2013}
       \field{pages}{1\bibrangedash 162}
       \range{pages}{162}
-    \endentry
-    \entry{7736093}{article}{}
-      \name{author}{4}{}{%
-        {{hash=830dae9f179578bf86cab0dc871a02d7}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Z.},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=9baca8177b5d72559c24abc2df0caf82}{%
-           family={Zhuang},
-           familyi={Z\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=347c15373835c191ad7dbde4d8ebd246}{%
-           family={Qian},
-           familyi={Q\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=cde667d169dfe28fa4feb92066902332}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{f2880f29fd3408566a7eef6074c95482}
-      \strng{fullhash}{a9b69289295c24feeb5d0af0029c8723}
-      \strng{bibnamehash}{f2880f29fd3408566a7eef6074c95482}
-      \strng{authorbibnamehash}{f2880f29fd3408566a7eef6074c95482}
-      \strng{authornamehash}{f2880f29fd3408566a7eef6074c95482}
-      \strng{authorfullhash}{a9b69289295c24feeb5d0af0029c8723}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{2329-9290}
-      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
-      \field{number}{1}
-      \field{title}{Phone Synchronous Speech Recognition With CTC Lattices}
-      \field{userf}{en}
-      \field{volume}{25}
-      \field{year}{2017}
-      \field{pages}{86\bibrangedash 97}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1109/TASLP.2016.2625459
-      \endverb
     \endentry
     \entry{miao2016simplifying}{inproceedings}{}
       \name{author}{5}{}{%
@@ -6419,8 +7236,8 @@
       \strng{authorbibnamehash}{434f8e860717f7d33f7f0514506f1e0a}
       \strng{authornamehash}{434f8e860717f7d33f7f0514506f1e0a}
       \strng{authorfullhash}{8499dc1351f57713993693e6950a0062}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2016 IEEE International Conference on Acoustics, Speech and Signal Processing}
@@ -6452,109 +7269,6 @@
       \field{title}{Improvements to the Pruning Behavior of DNN Acoustic Models}
       \field{userf}{en}
       \field{year}{2015}
-    \endentry
-    \entry{povey2008boosted}{inproceedings}{}
-      \name{author}{6}{}{%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=0f44441d5ce924584ad2f7294f4a5ce4}{%
-           family={Kanevsky},
-           familyi={K\bibinitperiod},
-           given={Dimitri},
-           giveni={D\bibinitperiod}}}%
-        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
-           family={Kingsbury},
-           familyi={K\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-        {{hash=e958692c2ffac06aacd0b29bb1482fc8}{%
-           family={Ramabhadran},
-           familyi={R\bibinitperiod},
-           given={Bhuvana},
-           giveni={B\bibinitperiod}}}%
-        {{hash=ce2fc3785ea81b5ffeca97427d45bbab}{%
-           family={Saon},
-           familyi={S\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod}}}%
-        {{hash=29a326b6a3b49ada47e4bfa2da42e070}{%
-           family={Visweswariah},
-           familyi={V\bibinitperiod},
-           given={Karthik},
-           giveni={K\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{528db3b153f08e14b0c60da048956edc}
-      \strng{fullhash}{8a11319e0198d9d378a3f384f971bc87}
-      \strng{bibnamehash}{528db3b153f08e14b0c60da048956edc}
-      \strng{authorbibnamehash}{528db3b153f08e14b0c60da048956edc}
-      \strng{authornamehash}{528db3b153f08e14b0c60da048956edc}
-      \strng{authorfullhash}{8a11319e0198d9d378a3f384f971bc87}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing, 2008. ICASSP 2008. IEEE International Conference on}
-      \field{title}{Boosted MMI for model and feature-space discriminative training}
-      \field{userf}{en}
-      \field{year}{2008}
-      \field{pages}{4057\bibrangedash 4060}
-      \range{pages}{4}
-    \endentry
-    \entry{prabhavalkar2017comparison}{article}{}
-      \name{author}{6}{}{%
-        {{hash=93bb6027d9d5e18776d8d859c9da7e5e}{%
-           family={Prabhavalkar},
-           familyi={P\bibinitperiod},
-           given={Rohit},
-           giveni={R\bibinitperiod}}}%
-        {{hash=0bc76ae3489ed701bf62b815b7166ed7}{%
-           family={Rao},
-           familyi={R\bibinitperiod},
-           given={Kanishka},
-           giveni={K\bibinitperiod}}}%
-        {{hash=f8e38c199ec4b920a0bda0a5e7064d03}{%
-           family={Sainath},
-           familyi={S\bibinitperiod},
-           given={Tara\bibnamedelima N},
-           giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-        {{hash=a9c8728e355996d027a7e56b60820a18}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Bo},
-           giveni={B\bibinitperiod}}}%
-        {{hash=15a4d947983ea11d0e2925ee0727f17c}{%
-           family={Johnson},
-           familyi={J\bibinitperiod},
-           given={Leif},
-           giveni={L\bibinitperiod}}}%
-        {{hash=5a9f30e0c0441d2aea255916ff375e8c}{%
-           family={Jaitly},
-           familyi={J\bibinitperiod},
-           given={Navdeep},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{ac458fc8304e093ed871fdedfcd829fd}
-      \strng{fullhash}{923c773f77702dc531d33abd56f5bdac}
-      \strng{bibnamehash}{ac458fc8304e093ed871fdedfcd829fd}
-      \strng{authorbibnamehash}{ac458fc8304e093ed871fdedfcd829fd}
-      \strng{authornamehash}{ac458fc8304e093ed871fdedfcd829fd}
-      \strng{authorfullhash}{923c773f77702dc531d33abd56f5bdac}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Proc. Interspeech 2017}
-      \field{title}{A Comparison of Sequence-to-Sequence Models for Speech Recognition}
-      \field{userf}{en}
-      \field{year}{2017}
-      \field{pages}{939\bibrangedash 943}
-      \range{pages}{5}
     \endentry
     \entry{ruan2016speech}{article}{}
       \name{author}{5}{}{%
@@ -7123,8 +7837,8 @@
       \strng{authorbibnamehash}{d0255ebb8a5f484d9aa610f46e8e31ac}
       \strng{authornamehash}{d0255ebb8a5f484d9aa610f46e8e31ac}
       \strng{authorfullhash}{d0255ebb8a5f484d9aa610f46e8e31ac}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech, and Signal Processing, 1995. ICASSP-95., 1995 International Conference on}
@@ -7157,8 +7871,8 @@
       \strng{authorbibnamehash}{6bf0ba45fecd607bf7c34070f2cf32b1}
       \strng{authornamehash}{6bf0ba45fecd607bf7c34070f2cf32b1}
       \strng{authorfullhash}{6bf0ba45fecd607bf7c34070f2cf32b1}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech, and Signal Processing, 1996. ICASSP-96. Conference Proceedings., 1996 IEEE International Conference on}
@@ -7196,8 +7910,8 @@
       \strng{authorbibnamehash}{b144fa56f16290501ea333cf3fa5a270}
       \strng{authornamehash}{b144fa56f16290501ea333cf3fa5a270}
       \strng{authorfullhash}{b144fa56f16290501ea333cf3fa5a270}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Spoken Language Technology Workshop (SLT), 2016 IEEE}
@@ -7206,6 +7920,134 @@
       \field{year}{2016}
       \field{pages}{441\bibrangedash 446}
       \range{pages}{6}
+    \endentry
+    \entry{pisoni1985speech}{article}{}
+      \name{author}{4}{}{%
+        {{hash=fe8b8dfbbe4a8d0942d8d6233a9df4d2}{%
+           family={Pisoni},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelima B},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=b242a1c7b9c4d4035e67487302edd9ff}{%
+           family={Nusbaum},
+           familyi={N\bibinitperiod},
+           given={Howard\bibnamedelima C},
+           giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=198e93fa69a371f780265507e256314d}{%
+           family={Luce},
+           familyi={L\bibinitperiod},
+           given={Paul\bibnamedelima A},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e576fe721f242e3eb44e3f0ada298923}{%
+           family={Slowiaczek},
+           familyi={S\bibinitperiod},
+           given={Louisa\bibnamedelima M},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{cb932be01fc1fa89d49fe6aee13e564f}
+      \strng{fullhash}{ca82100ef4d53c5f95ac6a5e6f0d3baf}
+      \strng{bibnamehash}{cb932be01fc1fa89d49fe6aee13e564f}
+      \strng{authorbibnamehash}{cb932be01fc1fa89d49fe6aee13e564f}
+      \strng{authornamehash}{cb932be01fc1fa89d49fe6aee13e564f}
+      \strng{authorfullhash}{ca82100ef4d53c5f95ac6a5e6f0d3baf}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Speech communication}
+      \field{number}{1-3}
+      \field{title}{Speech perception, word recognition and the structure of the lexicon}
+      \field{userf}{en}
+      \field{volume}{4}
+      \field{year}{1985}
+      \field{pages}{75\bibrangedash 95}
+      \range{pages}{21}
+    \endentry
+    \entry{jozefowicz2016exploring}{article}{}
+      \name{author}{5}{}{%
+        {{hash=b243d8e26a729c55dd5af5f97763dded}{%
+           family={Jozefowicz},
+           familyi={J\bibinitperiod},
+           given={Rafal},
+           giveni={R\bibinitperiod}}}%
+        {{hash=494b568c5dc85ba8f3f409635f9c5f25}{%
+           family={Vinyals},
+           familyi={V\bibinitperiod},
+           given={Oriol},
+           giveni={O\bibinitperiod}}}%
+        {{hash=29ea22df63f174ac629e9ef100b40484}{%
+           family={Schuster},
+           familyi={S\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+        {{hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1fc7a40d6072b1bb1d4e56d14ef88e2f}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yonghui},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{34033145e207bcb9f059f5797be089bf}
+      \strng{fullhash}{3416b765158c0d540f3c7824b5cfc292}
+      \strng{bibnamehash}{34033145e207bcb9f059f5797be089bf}
+      \strng{authorbibnamehash}{34033145e207bcb9f059f5797be089bf}
+      \strng{authornamehash}{34033145e207bcb9f059f5797be089bf}
+      \strng{authorfullhash}{3416b765158c0d540f3c7824b5cfc292}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1602.02410}
+      \field{title}{Exploring the limits of language modeling}
+      \field{userf}{en}
+      \field{year}{2016}
+    \endentry
+    \entry{sak2017recurrent}{article}{}
+      \name{author}{4}{}{%
+        {{hash=10d67d0a7ebf888661095a1849453d16}{%
+           family={Sak},
+           familyi={S\bibinitperiod},
+           given={Ha{ş}im},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9a11c18b1b88bd6f2fd1f462ecd4396e}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0bc76ae3489ed701bf62b815b7166ed7}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={Kanishka},
+           giveni={K\bibinitperiod}}}%
+        {{hash=a35d54f9a01c66a3c63e8e9ed69210cb}{%
+           family={Beaufays},
+           familyi={B\bibinitperiod},
+           given={Fran{ç}oise},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d71041a1b16337ddcdd2b70eb99ce48}
+      \strng{fullhash}{09cf21ee38efa843b8892b1505f7ad00}
+      \strng{bibnamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
+      \strng{authorbibnamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
+      \strng{authornamehash}{0d71041a1b16337ddcdd2b70eb99ce48}
+      \strng{authorfullhash}{09cf21ee38efa843b8892b1505f7ad00}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proc. Interspeech 2017}
+      \field{title}{Recurrent Neural Aligner: An Encoder-Decoder Neural Network Model for Sequence to Sequence Mapping}
+      \field{userf}{en}
+      \field{year}{2017}
+      \field{pages}{1298\bibrangedash 1302}
+      \range{pages}{5}
     \endentry
     \entry{zhc00-chen-icassp2017}{inproceedings}{}
       \name{author}{3}{}{%
@@ -7234,8 +8076,8 @@
       \strng{authorbibnamehash}{5c3b47733a05378929009cc8faef8972}
       \strng{authornamehash}{5c3b47733a05378929009cc8faef8972}
       \strng{authorfullhash}{5c3b47733a05378929009cc8faef8972}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2017 IEEE International Conference on Acoustics, Speech and Signal Processing}
@@ -7243,826 +8085,54 @@
       \field{userf}{en}
       \field{year}{2017}
     \endentry
-    \entry{sainath2015convolutional}{inproceedings}{}
-      \name{author}{2}{}{%
+    \entry{prabhavalkar2017comparison}{article}{}
+      \name{author}{6}{}{%
+        {{hash=93bb6027d9d5e18776d8d859c9da7e5e}{%
+           family={Prabhavalkar},
+           familyi={P\bibinitperiod},
+           given={Rohit},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0bc76ae3489ed701bf62b815b7166ed7}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={Kanishka},
+           giveni={K\bibinitperiod}}}%
         {{hash=f8e38c199ec4b920a0bda0a5e7064d03}{%
            family={Sainath},
            familyi={S\bibinitperiod},
            given={Tara\bibnamedelima N},
            giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-        {{hash=7fe2d48ce31c87a150449138bad607f0}{%
-           family={Parada},
-           familyi={P\bibinitperiod},
-           given={Carolina},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{72e5a1cebafca3765e80617532f62381}
-      \strng{fullhash}{72e5a1cebafca3765e80617532f62381}
-      \strng{bibnamehash}{72e5a1cebafca3765e80617532f62381}
-      \strng{authorbibnamehash}{72e5a1cebafca3765e80617532f62381}
-      \strng{authornamehash}{72e5a1cebafca3765e80617532f62381}
-      \strng{authorfullhash}{72e5a1cebafca3765e80617532f62381}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
-      \field{title}{Convolutional neural networks for small-footprint keyword spotting}
-      \field{userf}{en}
-      \field{year}{2015}
-      \field{pages}{1478\bibrangedash 1482}
-      \range{pages}{5}
-    \endentry
-    \entry{sukkar1996vocabulary}{article}{}
-      \name{author}{2}{}{%
-        {{hash=4a438e1c4e1a5e6555b68be41f04711c}{%
-           family={Sukkar},
-           familyi={S\bibinitperiod},
-           given={Rafid\bibnamedelima A},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=26883d806fdb5a0cdc88e4154acb0773}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={Chin-Hui},
-           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{0fa2638713e9f36d8ced44f464cbd157}
-      \strng{fullhash}{0fa2638713e9f36d8ced44f464cbd157}
-      \strng{bibnamehash}{0fa2638713e9f36d8ced44f464cbd157}
-      \strng{authorbibnamehash}{0fa2638713e9f36d8ced44f464cbd157}
-      \strng{authornamehash}{0fa2638713e9f36d8ced44f464cbd157}
-      \strng{authorfullhash}{0fa2638713e9f36d8ced44f464cbd157}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
-      \field{number}{6}
-      \field{title}{Vocabulary independent discriminative utterance verification for nonkeyword rejection in subword based speech recognition}
-      \field{userf}{en}
-      \field{volume}{4}
-      \field{year}{1996}
-      \field{pages}{420\bibrangedash 429}
-      \range{pages}{10}
-    \endentry
-    \entry{sandness2000keyword}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=6aa4d9daeb6c26be0e68df281b63063e}{%
-           family={Sandness},
-           familyi={S\bibinitperiod},
-           given={Eric\bibnamedelima D},
-           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=edc81db47101623e685a761c2998e43a}{%
-           family={Hetherington},
-           familyi={H\bibinitperiod},
-           given={I\bibnamedelima Lee},
-           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \strng{namehash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \strng{fullhash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \strng{bibnamehash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \strng{authorbibnamehash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \strng{authornamehash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \strng{authorfullhash}{1fe33e79983c999169b27d8a7dcc7be2}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2000}
-      \field{title}{Keyword-based discriminative training of acoustic models.}
-      \field{userf}{en}
-      \field{year}{2000}
-      \field{pages}{135\bibrangedash 138}
-      \range{pages}{4}
-    \endentry
-    \entry{keshet2009discriminative}{article}{}
-      \name{author}{3}{}{%
-        {{hash=621fe59f9f3da150e86d3027269858a4}{%
-           family={Keshet},
-           familyi={K\bibinitperiod},
-           given={Joseph},
-           giveni={J\bibinitperiod}}}%
-        {{hash=83c82248603da0738e20a4913d94e597}{%
-           family={Grangier},
-           familyi={G\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
-        {{hash=02404a92b0be3f52ec5ac08e41c13445}{%
-           family={Bengio},
-           familyi={B\bibinitperiod},
-           given={Samy},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \strng{fullhash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \strng{bibnamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \strng{authorbibnamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \strng{authornamehash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \strng{authorfullhash}{a4dc734a7466e4f9f7970201a9e75fa3}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Speech Communication}
-      \field{number}{4}
-      \field{title}{Discriminative keyword spotting}
-      \field{userf}{en}
-      \field{volume}{51}
-      \field{year}{2009}
-      \field{pages}{317\bibrangedash 329}
-      \range{pages}{13}
-    \endentry
-    \entry{young1994state}{article}{}
-      \name{author}{2}{}{%
-        {{hash=1fef85810184a4b85295dae0885b1d66}{%
-           family={Young},
-           familyi={Y\bibinitperiod},
-           given={Steve\bibnamedelima J},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-        {{hash=690274984d94b3efbdd2f32b3a35031e}{%
-           family={Woodland},
-           familyi={W\bibinitperiod},
-           given={Philip\bibnamedelima C},
-           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{82eb638fddfd71b04f33b78f79534307}
-      \strng{fullhash}{82eb638fddfd71b04f33b78f79534307}
-      \strng{bibnamehash}{82eb638fddfd71b04f33b78f79534307}
-      \strng{authorbibnamehash}{82eb638fddfd71b04f33b78f79534307}
-      \strng{authornamehash}{82eb638fddfd71b04f33b78f79534307}
-      \strng{authorfullhash}{82eb638fddfd71b04f33b78f79534307}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computer Speech \& Language}
-      \field{number}{4}
-      \field{title}{State clustering in hidden Markov model-based continuous speech recognition}
-      \field{userf}{en}
-      \field{volume}{8}
-      \field{year}{1994}
-      \field{pages}{369\bibrangedash 383}
-      \range{pages}{15}
-    \endentry
-    \entry{digalakis1991dynamical}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=ad478e32aac137cd640286d4a3b27e1c}{%
-           family={Digalakis},
-           familyi={D\bibinitperiod},
-           given={Vassilios},
-           giveni={V\bibinitperiod}}}%
-        {{hash=5e9d164cc28e789e2b963b1c15ffc025}{%
-           family={Rohlicek},
-           familyi={R\bibinitperiod},
-           given={Jan\bibnamedelima Robin},
-           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=d9964335acf3f82957cd1e681220c042}{%
-           family={Ostendorf},
-           familyi={O\bibinitperiod},
-           given={Mari},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \strng{fullhash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \strng{bibnamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \strng{authorbibnamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \strng{authornamehash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \strng{authorfullhash}{fc7ff2eb12fb2f545d18a936ecae6849}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1991. ICASSP-91., 1991 International Conference on}
-      \field{title}{A dynamical system approach to continuous speech recognition}
-      \field{userf}{en}
-      \field{year}{1991}
-      \field{pages}{289\bibrangedash 292}
-      \range{pages}{4}
-    \endentry
-    \entry{abbeel2005discriminative}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=e28d4ee199593959d8c29980a64f1974}{%
-           family={Abbeel},
-           familyi={A\bibinitperiod},
-           given={Pieter},
-           giveni={P\bibinitperiod}}}%
-        {{hash=2a6ca55dc46029c413e9054d19502b28}{%
-           family={Coates},
-           familyi={C\bibinitperiod},
-           given={Adam},
-           giveni={A\bibinitperiod}}}%
-        {{hash=67d13fe110c028d272a9291dff505b23}{%
-           family={Montemerlo},
-           familyi={M\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod}}}%
-        {{hash=799b172b8d02b7acdf21d0cc48934fca}{%
-           family={Ng},
-           familyi={N\bibinitperiod},
-           given={Andrew\bibnamedelima Y},
-           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
-        {{hash=5112ea130eadef0764fce0145b8b9f91}{%
-           family={Thrun},
-           familyi={T\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{309303a495ea71957a602ec1abd935e7}
-      \strng{fullhash}{b47fd52115556776ffebf1709814159a}
-      \strng{bibnamehash}{309303a495ea71957a602ec1abd935e7}
-      \strng{authorbibnamehash}{309303a495ea71957a602ec1abd935e7}
-      \strng{authornamehash}{309303a495ea71957a602ec1abd935e7}
-      \strng{authorfullhash}{b47fd52115556776ffebf1709814159a}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Robotics: Science and systems}
-      \field{title}{Discriminative Training of Kalman Filters.}
-      \field{userf}{en}
-      \field{volume}{2}
-      \field{year}{2005}
-      \field{pages}{1}
-      \range{pages}{1}
-    \endentry
-    \entry{chen2015pronunciation}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=f08cbe788537071f83928fe4a329ff43}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Guoguo},
-           giveni={G\bibinitperiod}}}%
-        {{hash=cc7ada14a85aa4644c6f419954e5745c}{%
-           family={Xu},
-           familyi={X\bibinitperiod},
-           given={Hainan},
-           giveni={H\bibinitperiod}}}%
-        {{hash=e9cbed68288178d485a2dd5036aa6c4d}{%
-           family={Wu},
-           familyi={W\bibinitperiod},
-           given={Minhua},
-           giveni={M\bibinitperiod}}}%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
-           family={Khudanpur},
-           familyi={K\bibinitperiod},
-           given={Sanjeev},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{22264c839e611a3b69a7ff44b51af353}
-      \strng{fullhash}{0c69720f314dc4acd873d347a73f2116}
-      \strng{bibnamehash}{22264c839e611a3b69a7ff44b51af353}
-      \strng{authorbibnamehash}{22264c839e611a3b69a7ff44b51af353}
-      \strng{authornamehash}{22264c839e611a3b69a7ff44b51af353}
-      \strng{authorfullhash}{0c69720f314dc4acd873d347a73f2116}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2015}
-      \field{title}{Pronunciation and silence probability modeling for ASR.}
-      \field{userf}{en}
-      \field{year}{2015}
-      \field{pages}{533\bibrangedash 537}
-      \range{pages}{5}
-    \endentry
-    \entry{vesely2013sequence}{inproceedings}{}
-      \name{author}{4}{}{%
-        {{hash=8b9d26ab0bd1d05085a70899c6cd7962}{%
-           family={Vesel{ỳ}},
-           familyi={V\bibinitperiod},
-           given={Karel},
-           giveni={K\bibinitperiod}}}%
-        {{hash=7317e829771fcdb6bffb1ce8c3b6c02f}{%
-           family={Ghoshal},
-           familyi={G\bibinitperiod},
-           given={Arnab},
-           giveni={A\bibinitperiod}}}%
-        {{hash=94a27420e61118ec81fb04b18135889b}{%
-           family={Burget},
-           familyi={B\bibinitperiod},
-           given={Luk{á}s},
-           giveni={L\bibinitperiod}}}%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{f34a088e4faa0b3e2486510f11ec87f7}
-      \strng{fullhash}{34cc6cda596533c290acac2cec8870d8}
-      \strng{bibnamehash}{f34a088e4faa0b3e2486510f11ec87f7}
-      \strng{authorbibnamehash}{f34a088e4faa0b3e2486510f11ec87f7}
-      \strng{authornamehash}{f34a088e4faa0b3e2486510f11ec87f7}
-      \strng{authorfullhash}{34cc6cda596533c290acac2cec8870d8}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
-      \field{title}{Sequence-discriminative training of deep neural networks.}
-      \field{userf}{en}
-      \field{year}{2013}
-      \field{pages}{2345\bibrangedash 2349}
-      \range{pages}{5}
-    \endentry
-    \entry{meng2016non}{article}{}
-      \name{author}{2}{}{%
-        {{hash=cf5c1997fca209f65cd52b649cb051ca}{%
-           family={Meng},
-           familyi={M\bibinitperiod},
-           given={Zhong},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=d130e0fb0614fc89f8792edf59e1c68a}{%
-           family={Juang},
-           familyi={J\bibinitperiod},
-           given={Biing-Hwang},
-           giveni={B\bibinithyphendelim H\bibinitperiod}}}%
-      }
-      \strng{namehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \strng{fullhash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \strng{bibnamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \strng{authorbibnamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \strng{authornamehash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \strng{authorfullhash}{ff61129bd4d9097cd7d8e57c9d1e8739}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
-      \field{title}{Non-Uniform Boosted MCE Training of Deep Neural Networks for Keyword Spotting}
-      \field{userf}{en}
-      \field{year}{2016}
-      \field{pages}{770\bibrangedash 774}
-      \range{pages}{5}
-    \endentry
-    \entry{huang2018ctc}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=19d1a88449be1ba71adc8f6ffd5b3e5c}{%
-           family={Huang},
-           familyi={H\bibinitperiod},
-           given={Mingkun},
-           giveni={M\bibinitperiod}}}%
-        {{hash=f982d7260fd9e30ecc0a8cef6ed9455a}{%
-           family={You},
-           familyi={Y\bibinitperiod},
-           given={Yongbin},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=1c4d374c630e3002e6c077be470a838e}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhehuai},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
-           family={Qian},
-           familyi={Q\bibinitperiod},
-           given={Yanmin},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Kai},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{09794a96af17c196815679d22122e104}
-      \strng{fullhash}{cc12a4be561f36968df735523cd94f76}
-      \strng{bibnamehash}{09794a96af17c196815679d22122e104}
-      \strng{authorbibnamehash}{09794a96af17c196815679d22122e104}
-      \strng{authornamehash}{09794a96af17c196815679d22122e104}
-      \strng{authorfullhash}{cc12a4be561f36968df735523cd94f76}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2018}
-      \field{title}{Knowledge Distillation for Sequence Model.}
-      \field{userf}{en}
-    \endentry
-    \entry{fernandez2007application}{incollection}{}
-      \name{author}{3}{}{%
-        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
-           family={Fern{á}ndez},
-           familyi={F\bibinitperiod},
-           given={Santiago},
-           giveni={S\bibinitperiod}}}%
-        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
-           family={Graves},
-           familyi={G\bibinitperiod},
-           given={Alex},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
-           family={Schmidhuber},
-           familyi={S\bibinitperiod},
-           given={J{ü}rgen},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{fullhash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{bibnamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authorbibnamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authornamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authorfullhash}{8bdefb8cf0c480789b96fb5239428828}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Artificial Neural Networks--ICANN 2007}
-      \field{title}{{An application of recurrent neural networks to discriminative keyword spotting}}
-      \field{userf}{en}
-      \field{year}{2007}
-      \field{pages}{220\bibrangedash 229}
-      \range{pages}{10}
-    \endentry
-    \entry{gibson2006hypothesis}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=f052ee560daa0fbbb3bb1daa27d8743d}{%
-           family={Gibson},
-           familyi={G\bibinitperiod},
-           given={Matthew},
-           giveni={M\bibinitperiod}}}%
-        {{hash=9d2c122385cc21071982b3bbc486387f}{%
-           family={Hain},
-           familyi={H\bibinitperiod},
-           given={Thomas},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \strng{fullhash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \strng{bibnamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \strng{authorbibnamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \strng{authornamehash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \strng{authorfullhash}{52e9451f4b5b1cf06df14c8c5e58b6b4}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2006}
-      \field{title}{Hypothesis spaces for minimum Bayes risk training in large vocabulary speech recognition.}
-      \field{userf}{en}
-      \field{volume}{6}
-      \field{year}{2006}
-      \field{pages}{2406\bibrangedash 2409}
-      \range{pages}{4}
-    \endentry
-    \entry{chen2018kws}{article}{}
-      \name{author}{3}{}{%
-        {{hash=1c4d374c630e3002e6c077be470a838e}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhehuai},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
-           family={Qian},
-           familyi={Q\bibinitperiod},
-           given={Yanmin},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Kai},
-           giveni={K\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{5072996fdda575810e32c15e47d67ed8}
-      \strng{fullhash}{5072996fdda575810e32c15e47d67ed8}
-      \strng{bibnamehash}{5072996fdda575810e32c15e47d67ed8}
-      \strng{authorbibnamehash}{5072996fdda575810e32c15e47d67ed8}
-      \strng{authornamehash}{5072996fdda575810e32c15e47d67ed8}
-      \strng{authorfullhash}{5072996fdda575810e32c15e47d67ed8}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Speech Communication}
-      \field{title}{Sequence Discriminative Training for Deep Learning based Acoustic Keyword Spotting}
-      \field{userf}{en}
-      \field{year}{2018}
-    \endentry
-    \entry{zhuang-is2016}{article}{}
-      \name{author}{4}{}{%
-        {{hash=7ed52a70e8b90e10908c9a5cc5d3f935}{%
-           family={Zhuang},
-           familyi={Z\bibinitperiod},
-           given={Yimeng},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=26238bc0a75da6ffb5bcdeeeadad2315}{%
-           family={Chang},
-           familyi={C\bibinitperiod},
-           given={Xuankai},
-           giveni={X\bibinitperiod}}}%
-        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
-           family={Qian},
-           familyi={Q\bibinitperiod},
-           given={Yanmin},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Kai},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{475c21ecfb7f72bd012bfb0a2895d098}
-      \strng{fullhash}{f3ed8e174ce0721f73ba9df79448c834}
-      \strng{bibnamehash}{475c21ecfb7f72bd012bfb0a2895d098}
-      \strng{authorbibnamehash}{475c21ecfb7f72bd012bfb0a2895d098}
-      \strng{authornamehash}{475c21ecfb7f72bd012bfb0a2895d098}
-      \strng{authorfullhash}{f3ed8e174ce0721f73ba9df79448c834}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
-      \field{title}{Unrestricted Vocabulary Keyword Spotting Using LSTM-CTC}
-      \field{userf}{en}
-      \field{year}{2016}
-      \field{pages}{938\bibrangedash 942}
-      \range{pages}{5}
-    \endentry
-    \entry{chaudhari2007improvements}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=d508828f0d2f9c301bba2086ab443304}{%
-           family={Chaudhari},
-           familyi={C\bibinitperiod},
-           given={Upendra\bibnamedelima V},
-           giveni={U\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-        {{hash=adbd1116077aaa2a70687e049204087f}{%
-           family={Picheny},
-           familyi={P\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \strng{fullhash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \strng{bibnamehash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \strng{authorbibnamehash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \strng{authornamehash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \strng{authorfullhash}{c2d2420d672a266f908ff7c1ed27fae7}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Automatic Speech Recognition \& Understanding, 2007. ASRU. IEEE Workshop on}
-      \field{title}{Improvements in phone based audio search via constrained match with high order confusion estimates}
-      \field{userf}{en}
-      \field{year}{2007}
-      \field{pages}{665\bibrangedash 670}
-      \range{pages}{6}
-    \endentry
-    \entry{garofalo1993continous}{article}{}
-      \name{author}{4}{}{%
-        {{hash=55fbc6685a018b161dc9f1fce4ef2625}{%
-           family={Garofalo},
-           familyi={G\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
-        {{hash=9f73a961976578ffd8a5149ea681e1fd}{%
-           family={Graff},
-           familyi={G\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
-        {{hash=711e498f70762fbff731d8ccc2794dc6}{%
-           family={Paul},
-           familyi={P\bibinitperiod},
-           given={Doug},
-           giveni={D\bibinitperiod}}}%
-        {{hash=d129feef0589156c6229c70c8885050c}{%
-           family={Pallett},
-           familyi={P\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{6b103965b0057d6a3f0ca9160b395977}
-      \strng{fullhash}{b64dfabb026395842fb9d1642cbf4e25}
-      \strng{bibnamehash}{6b103965b0057d6a3f0ca9160b395977}
-      \strng{authorbibnamehash}{6b103965b0057d6a3f0ca9160b395977}
-      \strng{authornamehash}{6b103965b0057d6a3f0ca9160b395977}
-      \strng{authorfullhash}{b64dfabb026395842fb9d1642cbf4e25}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Linguistic data consortium, philadelphia}
-      \field{title}{{Continous Speech Recognition (CSR-I) Wall Street Journal (WSJ0) news, complete}}
-      \field{userf}{en}
-      \field{year}{1993}
-    \endentry
-    \entry{tdnnlstm}{misc}{}
-      \name{author}{4}{}{%
-        {{hash=a34d953bcda61ddbf769b6d43c4ca1a1}{%
-           family={Peddinti},
-           familyi={P\bibinitperiod},
-           given={Vijayaditya},
-           giveni={V\bibinitperiod}}}%
-        {{hash=a05ddfce1216c69f4b61ee496b946530}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Yiming},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=d787f09b6c6cc374a9ad21fe9120fc1f}{%
-           family={Khudanpur},
-           familyi={K\bibinitperiod},
-           given={Sanjeev},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{1951f4c4278e4713dd63304cc590543b}
-      \strng{fullhash}{14eff6b285cf9a6ad1c07595b4a87369}
-      \strng{bibnamehash}{1951f4c4278e4713dd63304cc590543b}
-      \strng{authorbibnamehash}{1951f4c4278e4713dd63304cc590543b}
-      \strng{authornamehash}{1951f4c4278e4713dd63304cc590543b}
-      \strng{authorfullhash}{14eff6b285cf9a6ad1c07595b4a87369}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{http://www.danielpovey.com/files/2017_spl_tdnnlstm.pdf}}
-      \field{title}{Low latency modeling of temporal contexts}
-      \field{userf}{en}
-    \endentry
-    \entry{povey2007evaluation}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
-           family={Povey},
-           familyi={P\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod}}}%
-        {{hash=8f101126b3acf3a5a0f51d86f0fe89b8}{%
-           family={Kingsbury},
-           familyi={K\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \strng{fullhash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \strng{bibnamehash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \strng{authorbibnamehash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \strng{authornamehash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \strng{authorfullhash}{dbda9c9e0eabf94ade042d4203d86b22}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
-      \field{title}{Evaluation of proposed modifications to MPE for large scale discriminative training}
-      \field{userf}{en}
-      \field{volume}{4}
-      \field{year}{2007}
-      \field{pages}{IV\bibrangedash 321}
-      \range{pages}{318}
-    \endentry
-    \entry{nict-icassp17}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=84d91cc05722fea8d7a0cc6caba674d6}{%
-           family={Kanda},
-           familyi={K\bibinitperiod},
-           given={Naoyuki},
-           giveni={N\bibinitperiod}}}%
-        {{hash=6251462ae5050493d4c46f66bb4581db}{%
-           family={Lu},
-           familyi={L\bibinitperiod},
-           given={Xugang},
-           giveni={X\bibinitperiod}}}%
-        {{hash=5902e2f00bf26c1e9676114e6972e9ed}{%
-           family={Kawai},
-           familyi={K\bibinitperiod},
-           given={Hisashi},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {New Orleans, USA}%
-      }
-      \strng{namehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \strng{fullhash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \strng{bibnamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \strng{authorbibnamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \strng{authornamehash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \strng{authorfullhash}{a0e9b13d84244c5d2da8028f6d3cdf51}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
-      \field{title}{Minimum Bayes Risk Training of CTC Acoustic Models in Maximum a Posteriori Based Decoding Framework}
-      \field{userf}{en}
-      \field{year}{2017}
-      \field{pages}{4855\bibrangedash 4859}
-      \range{pages}{5}
-    \endentry
-    \entry{li2018developing}{article}{}
-      \name{author}{7}{}{%
-        {{hash=d270aa10662fa7c8d47b9f38aaf06bc9}{%
+        {{hash=a9c8728e355996d027a7e56b60820a18}{%
            family={Li},
            familyi={L\bibinitperiod},
-           given={Jinyu},
-           giveni={J\bibinitperiod}}}%
-        {{hash=5db4068796cde560b4fd3829096ef6c5}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Rui},
-           giveni={R\bibinitperiod}}}%
-        {{hash=48c731464964d6c671b8384c3e00652c}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhuo},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=8d097edb76a84c5521027cac05bebc3c}{%
-           family={Liu},
-           familyi={L\bibinitperiod},
-           given={Changliang},
-           giveni={C\bibinitperiod}}}%
-        {{hash=3b4ea794b97e489cbf3e63344c4adb33}{%
-           family={Xiao},
-           familyi={X\bibinitperiod},
-           given={Xiong},
-           giveni={X\bibinitperiod}}}%
-        {{hash=4a101fc2848e2b24ea10f74ace1493d9}{%
-           family={Ye},
-           familyi={Y\bibinitperiod},
-           given={Guoli},
-           giveni={G\bibinitperiod}}}%
-        {{hash=48625f66421eceae9aec5d7c1b7f8933}{%
-           family={Gong},
-           familyi={G\bibinitperiod},
-           given={Yifan},
-           giveni={Y\bibinitperiod}}}%
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=15a4d947983ea11d0e2925ee0727f17c}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Leif},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5a9f30e0c0441d2aea255916ff375e8c}{%
+           family={Jaitly},
+           familyi={J\bibinitperiod},
+           given={Navdeep},
+           giveni={N\bibinitperiod}}}%
       }
-      \strng{namehash}{9d634b1656da783a8190730307f709ee}
-      \strng{fullhash}{bb01eade2be663a4d87e74db65ebe77f}
-      \strng{bibnamehash}{9d634b1656da783a8190730307f709ee}
-      \strng{authorbibnamehash}{9d634b1656da783a8190730307f709ee}
-      \strng{authornamehash}{9d634b1656da783a8190730307f709ee}
-      \strng{authorfullhash}{bb01eade2be663a4d87e74db65ebe77f}
+      \strng{namehash}{ac458fc8304e093ed871fdedfcd829fd}
+      \strng{fullhash}{923c773f77702dc531d33abd56f5bdac}
+      \strng{bibnamehash}{ac458fc8304e093ed871fdedfcd829fd}
+      \strng{authorbibnamehash}{ac458fc8304e093ed871fdedfcd829fd}
+      \strng{authornamehash}{ac458fc8304e093ed871fdedfcd829fd}
+      \strng{authorfullhash}{923c773f77702dc531d33abd56f5bdac}
       \field{sortinit}{3}
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1804.05166}
-      \field{title}{Developing far-field speaker system via teacher-student learning}
-      \field{userf}{en}
-      \field{year}{2018}
-    \endentry
-    \entry{cas-icassp17}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=5b9e912b1bff6131c4e7a0da0fa5884a}{%
-           family={Ge},
-           familyi={G\bibinitperiod},
-           given={Fengpei},
-           giveni={F\bibinitperiod}}}%
-        {{hash=985bd01a03eac016042d3ac2908f599f}{%
-           family={Yan},
-           familyi={Y\bibinitperiod},
-           given={Yonghong},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {New Orleans, USA}%
-      }
-      \strng{namehash}{240052572ed9c36456eb4a5c10c13a31}
-      \strng{fullhash}{240052572ed9c36456eb4a5c10c13a31}
-      \strng{bibnamehash}{240052572ed9c36456eb4a5c10c13a31}
-      \strng{authorbibnamehash}{240052572ed9c36456eb4a5c10c13a31}
-      \strng{authornamehash}{240052572ed9c36456eb4a5c10c13a31}
-      \strng{authorfullhash}{240052572ed9c36456eb4a5c10c13a31}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing(ICASSP)}
-      \field{title}{Deep Neural Network Based Wake-Up-Word Speech Recognition with Two-stage Detection}
+      \field{journaltitle}{Proc. Interspeech 2017}
+      \field{title}{A Comparison of Sequence-to-Sequence Models for Speech Recognition}
       \field{userf}{en}
       \field{year}{2017}
-      \field{pages}{2761\bibrangedash 2765}
+      \field{pages}{939\bibrangedash 943}
       \range{pages}{5}
     \endentry
   \enddatalist

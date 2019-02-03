@@ -1,19 +1,11 @@
 
-\chapter{基于GPU并行计算的搜索速度优化}
+\chapter{基于GPU并行计算的解码速度优化}
 \label{chap:gpu}
 
 本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理搜索。该框架可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
 
-我们将维特比算法中的令牌合并操作实现为一个GPU并行计算中的原子操作，以便减少维特比束剪枝算法中的同步开销；我们提出了动态负载均衡的方式以更高效地进行并行计算，提高其多线程之间的利用率；我们重新设计了基于GPU并行计算的精确的词图生成和剪枝算法，以便充分利用GPU的性能特点。
-
-在Switchboard 上实验表明，我们所提出的方法在取得完全一致的1-best和词图质量情况下，可以得到3-15倍的加速，并在绝大部分GPU架构上进行了验证。除此之外，如果再进行多句子的并行处理，最终的加速比将达到46倍。
-
-
-\section{引言}
-\label{chap:gpu-intro}
-
 近来深度学习语音识别的发展唤起了大量语音识别转录的需求。在这一系统中，计算量较大的部分主要包括：声学模型推理和语言模型WFST解码。
-
+%
 为了减少声学模型推理的计算开销，研究人员们提出了一系列效率更高的声学模型，包括一些比较新颖的神经网络结构~\cite{xue2014singular,peddinti2018low}, 定点化
 ~\cite{mcgraw2016personalized}, 跳帧~\cite{pundak2016lower,zhc00-chen-is16,zhc00-chen-tasl2017}
 和端到端系统~\cite{audhkhasi2017direct,e2e-2018}.
@@ -25,7 +17,29 @@
 如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，
 基于GPU的并行计算是另一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
 但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。
-ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。 %Detailed comparisons are in
+ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。
+
+
+
+这项工作作为Kaldi工具包的一个扩展~\cite{povey2011kaldi}，实现了基于GPU并行计算的WFST解码。
+%
+这是一个通用的离线解码器~\footnote{近期的研究显示，使用CPU比较容易得到一个实时的解码器来针对在线解码应用
+ ~\cite{peddinti2018low,zhc00-chen-tasl2017} 。因此我们的目标集中在如何解码海量的离线语音，降低其计算损耗。},
+ 该解码器对语言模型和声学模型没有特别的限制，并且可以工作在各种架构的GPU上。
+%
+
+我们将维特比算法中的令牌合并操作实现为一个GPU并行计算中的原子操作，以便减少维特比束剪枝算法中的同步开销；我们提出了动态负载均衡的方式以更高效地进行并行计算，提高其多线程之间的利用率。
+为了支持第二遍重打分和更丰富的后处理，我们的设计基于WFST解码和词图生成的架构~\cite{povey2012generating}。我们重新设计了基于GPU并行计算的精确的词图生成和剪枝算法，以便充分利用GPU的性能特点。
+%
+我们对这项工作进行了开源~\footnote{\url{https://github.com/chenzhehuai/kaldi/tree/gpu-decoder}},
+它将会与大多数Kaldi脚本相兼容。
+
+
+
+在Switchboard 上实验表明，我们所提出的方法在取得完全一致的1-best和词图质量情况下，可以得到3-15倍的加速，并在绝大部分GPU架构上进行了验证。除此之外，如果再进行多句子的并行处理，最终的加速比将达到46倍。
+
+
+ %Detailed comparisons are in
 %Section~\ref{sec:relate}. 
 %is another ... , show  potential to allow  speech processing ...  and can be applied on all above model or algorithm side trials.
 %to speedup the first part.  batching
@@ -36,16 +50,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %
 
 
-这项工作作为Kaldi工具包的一个扩展~\cite{povey2011kaldi}，实现了基于GPU并行计算的WFST解码。
-%
-这是一个通用的离线解码器~\footnote{近期的研究显示，使用CPU比较容易得到一个实时的解码器来针对在线解码应用
- ~\cite{peddinti2018low,zhc00-chen-tasl2017} 。因此我们的目标集中在如何解码海量的离线语音，降低其计算损耗。},
- 该解码器对语言模型和声学模型没有特别的限制，并且可以工作在各种架构的GPU上。
-%
-为了支持第二遍重打分和更丰富的后处理，我们的设计基于WFST解码和词图生成的架构~\cite{povey2012generating}。
-%
-我们对这项工作进行了开源~\footnote{\url{https://github.com/chenzhehuai/kaldi/tree/gpu-decoder}},
-它将会与大多数Kaldi脚本相兼容。
+
 
 
 \section{维特比算法并行化框架}
