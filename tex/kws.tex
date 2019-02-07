@@ -27,15 +27,8 @@
 KWS可以被用于声学数据挖掘~\cite{zhou2005data}, 低资源的音频检索~\cite{shen2009comparison}, 
 语料库检索~\cite{garofolo2000trec} 和 唤醒词识别~\cite{chen2014small}. 本文主要考虑后两种应用。
 
-
-KWS 技术可以被分为两大类：
-i) 非监督的  {\em query-by-example} (QbyE) \cite{zhang2009unsupervised,barakat2012improved,chen2015query}, 它使用了关键词的声学样例来产生一系列模板，之后尝试将模板与测试音频样例进行匹配来决定是否被唤醒。
-ii) 监督的基于文本的方法，这部分可以被进一步分类为  基于{\em 大词汇连续语音识别} (LVCSR)  方法 ~\cite{garofolo2000trec,ng2000subword} 和  {\em 声学 KWS} \cite{mandal2014recent}。
-对于前者，在训练阶段需要构建一个词，半词或音素的语音识别系统。声学和语言模型在测试阶段一起对语音进行转录并得到词图。之后在词图上进行关键词搜索得到最终的结果。
-声学 KWS 不需要语言模型，通过直接建模目标关键词，半词或音素，构建一个声学模型来进行关键词的判别。一些方法中也会考虑引入非关键词元素到建模当中~\cite{sukkar1996utterance}。
-QbyE 主要用于低资源音频检索, 本文不针对这个方向。 
-在 语料库检索中, 基于LVCSR方法通常能得到更好的性能，相比声学KWS。但是基于LVCSR方法也有如下一些缺点: 需要训练一个非常通用的大词汇连续语音识别系统，因此需要大量语料；同时在测试阶段也需要非常大的词表进行覆盖。这样的缺点限制了它在一些应用，比如唤醒词识别，中的应用。除此之外，基于LVCSR的方法忽略了KWS任务本身的一些特性，改进这类方法主要跟改进大词汇连续语音识别声学建模相关。所以本章节主要研究声学KWS。
-
+我们在第\ref{chap:intro-kws-dec}章节对关键词检测技术的分类和相应的声学建模方法进行了总结。
+%
 在声学关键词检测中，模型通常是进行逐帧分类的。目前研究趋势包括两方面：应用一个较强的逐帧分类器，比如深度学习模型，使最终系统带来性能提升~\cite{chen2014small,sainath2015convolutional}。 其次，语音识别本身是一个序列分类问题，传统的GMM-HMM系统在使用序列级准则，序列鉴别性训练时，往往能带来显著性能提升，比如discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, minimum classification error (MCE)~\cite{sandness2000keyword} 和 performance-related discriminative training~\cite{keshet2009discriminative}。
 在上述的鉴别性训练中，对对识别可能性的建模，即完整的搜索空间的建模是成功的关键。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
 对领域外的搜素空间建模并不容易直接得到的问题限制了序列鉴别性训练在关键词检测中的广泛应用。
@@ -61,38 +54,8 @@ ii) 提出了一些新颖的办法来构建声学KWS的竞争可能性，以用�
 iii) 基于 LSD框架提出了高效的后处理方法，以便对音素混淆性进行建模。
 
 
-\subsection{关键词检测的声学建模}
-\label{Sec:kws-and-disc}
 
-基于声学的关键词检测模型通常是要最小化每一帧的分类错误。在深度学习的HMM混合系统 (NN-HMM) 中，使用的是 tri-phone state作为建模单元，而深度学习模型则用来对每个HMM状态的后验概率进行建模。
-特别是，对特征输入 ${\bf o}_{ut}$ 关于时间 $t$ 在句子 $u$中, 定义 $y_{ut}(s)=P(s|{\bf o}_{ut})$ ，表示神经网络在HMM 状态 $s$上的相应输出。这里的公式类似于GMM-HMM 系统~\cite{young1994state}, 除了需要使用伪对数似然度 $\log p({\bf o}_{ut}|s)$ 来针对HMM状态 $s$。
-\begin{equation}
-\label{equ:dnn-hmm-define}
-\begin{split}
- p({\bf o}_{ut}|s) \propto \frac{ y_{ut}(s)}{ P(s)}
-\end{split}
-\end{equation}
-公式中 $P(s)$ 是状态 $s$的先验概率。 
-在深度学习系统中，如果建模单元是关键词，那么关键词 $w$ 的后验概率是要被直接训练得到的：
-\begin{equation}
-\label{equ:dnn-kw-define}
-\begin{split}
-P(w|{\bf o}_{ut})= y_{ut}(w)
-\end{split}
-\end{equation}
-而前面讨论的后处理方法要被应用于逐帧的后验概率$y_{ut}(w)$上面。
-
-%CE formula
-这里通常可以使用负对数后验概率来作为交叉熵的目标函数。
-\begin{equation}
-\label{equ:dnn-hmm-ce}
-\begin{split}
-\mathcal{F}_{\tt{CE}}=- \sum_{u} \sum_{t} \log y_{ut}(s^{(r)}_{ut})
-\end{split}
-\end{equation}
-公式中 $s^{(r)}_{ut}$ 是在时间 $t$ 句子 $u$ 上的标注，通过状态级强制对齐算法来得到~\cite{woodland1994large}。
-
-\subsection{传统序列建模方法的缺陷}
+\subsection{关键词检测中传统序列建模方法的缺陷}
 
 序列建模方法在语音识别中的应用如第~\ref{Sec:seq-tr-review}章所述。
 而在声学KWS方法中，只有关键词序列被定义，而非关键词的竞争序列还未知。针对生成式序列模型 (GSM) ，基于似然度比值的可能性测试框架~\cite{sukkar1996utterance} 被提出以进行鉴别性训练，这里对其他竞争序列的似然度进行了惩罚。而这部分被惩罚的似然度使用两种单元进行建模： $\tt filler$ 模型, 建模非关键词的$p(\mathbf{O}_u|\Phi)$, 建模错误识别词的 $p(\mathbf{O}_u|\Psi)$ 。 与公式~(\ref{equ:lvcsr-mmi})相比，关键词序列的  $p(\mathbf{O}_u|\mathbf{W}_u)$ 可以被忽略，而对数边缘概率则被定义如下，
@@ -245,12 +208,13 @@ P''(s'|{\bf o}_{ut'})=\mathcal{N}_2\left (\mathbf{P}'(s|{\bf o}_{ut})^{(s=s',\ t
 
 $\tt filler$解码方法用于建模前面我们所讨论的领域外的搜索空间。在这项工作中的搜索空间如图~\ref{fig:filler-graph}所示。
 
-\begin{figure}
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/filler-graph.png}
-    \caption{\it 基于 $\tt filler$ 解码的搜索空间结构图}
-    \label{fig:filler-graph}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/filler-graph.png}
+    \bicaption[fig:filler-graph]{}{基于 $\tt filler$ 解码的搜索空间结构图}{Fig}{$\tt filler$ based decoding search space}
 \end{figure}
+
 
 它包含了两个部分：领域内搜索空间和领域外搜索空间。前者由关键词的子序列建模得到，如图~\ref{fig:filler-graph}中的音素序列。 $\tt filler$ 子网络用于对领域外的搜索空间进行建模。$\tt filler$ 子网络是由所有的音素自环组成的。
 
@@ -299,11 +263,11 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
 图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。再一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
 
-\begin{figure}[htbp!]
-\centering
-\includegraphics[width=\linewidth]{figure/kws-framework.eps}
-\caption{\it 所提出的MED方法的框架。这里使用音素CTC作为例子}
-\label{fig:med-framework}
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/kws-framework.eps}
+    \bicaption[fig:med-framework]{MED方法框架}{MED方法框架。这里使用音素CTC作为例子}{Fig}{The framework of MED based method. Phone based CTC is taken as an example.}
 \end{figure}
 
 \subsubsection{序列鉴别性训练在HMM和CTC框架中的比较}
@@ -353,14 +317,13 @@ PIT-ASR 准则~\cite{yu2017recognizing} 优雅地将语音信号的分离，说�
 在初始化之后，各模块组合起来进行联合调优。我们提出了两种联合训练思路：针对自身的迁移学习，多输出的序列鉴别性训练；除了这些工作之外，我们还提出了一系列对建模过程的改善，参见~\cite{chen2018progressive}。
 
 
-\begin{figure*}
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=0.7\linewidth]{figure/modules.pdf}
-    \caption{\it PIT-ASR 联合训练与模块化初始化和逐步联合训练比较。 点划线框表示可以学习的模型参数。点线框表示可以学习的并且是共享的模型参数。
-    %The black blocks indicate the model parameters and the green blocks indicate the training criteria.
-    }
-    \label{fig:modules}
-\end{figure*}
+    \captionstyle{\centering}
+    \includegraphics[width=0.7\textwidth]{figure/modules.pdf}
+    \bicaption[fig:modules]{PIT-ASR 联合训练与模块化初始化和逐步联合训练比较}{PIT-ASR 联合训练与模块化初始化和逐步联合训练比较。 点划线框表示可以学习的模型参数。点线框表示可以学习的并且是共享的模型参数。}{Fig}{The comparison between joint training, modular initialization, and progressive joint training.}
+\end{figure}
+
 
 \subsection{基于迁移学习的排列不变性训练}
 \label{chap:intro2-pit-ts}
@@ -368,13 +331,14 @@ PIT-ASR 准则~\cite{yu2017recognizing} 优雅地将语音信号的分离，说�
 迁移学习（教师-学生训练）被引入到这个问题中，以便使用平行干净语料来改善目标领域的混合语音识别系统。在这一框架中，学生是指该多说话人语音识别系统。它工作在目标领域，即混合语音信号的数据上，并尝试得到每个说话人相应的话语内容。这里教师模型输入源领域，即干净语音信号，并尝试分别对每个说话人得到相应推理搜索序列。
 
 
-\begin{figure*}
+
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=0.8\linewidth]{figure/sys-framework.png}
-    \caption{\it 模型系统训练框架。
-    \cite{yu2017recognizing}中提出的结构由虚线框部分表示，其用于推理搜索出每个说话人的语音信号的信息。该结构被模块化（三个实线框）并作逐一增量预训练。针对自身的迁移学习和多输出序列鉴别性训练在模块初始化后神经网络上进行。}
-    \label{fig:sys-fr}
-\end{figure*}
+    \captionstyle{\centering}
+    \includegraphics[width=1.1\textwidth]{figure/sys-framework.png}
+    \bicaption[fig:sys-fr]{逐步联合训练模型系统框架}{迁移学习模型系统训练框架。
+    \cite{yu2017recognizing}中提出的结构由虚线框部分表示，其用于推理搜索出每个说话人的语音信号的信息。该结构被模块化（三个实线框）并作逐一增量预训练。针对自身的迁移学习和多输出序列鉴别性训练在模块初始化后神经网络上进行。}{Fig}{The progressive joint training model framework.}
+\end{figure}
 
 
 这一针对自身的迁移学习将最小化混合语音信号的模型和干净语音信号的模型输出分布之间的KL散度（KLD）。
@@ -393,21 +357,21 @@ KLD(P({l}_{utn}^{(c)}|\mathbf{O}_{un}^{(r)}),P({l}_{utn}^{(s')}|\mathbf{O}_{u}^{
 
 图~\ref{fig:tr-curve}给出了多种训练方法在验证集上的学习曲线比较。从图中可以看出，本章节所提出的方法具有更好初始点和最终的收敛点。这些都得益于本章节方法使得神经网络的学习任务更简单，最终收敛效果相应得到了提升。
 
-\begin{figure}
+
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/joint-tr.pdf}
-    \caption{\it 基于迁移学习逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享的模型参数。}
-    \label{fig:joint-tr}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/joint-tr.pdf}
+    \bicaption[fig:joint-tr]{基于迁移学习逐步联合训练方法}{基于迁移学习逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享的模型参数。}{Fig}{The self-transfer learning based model framework.}
 \end{figure}
 
 
-\begin{figure}
-{
+
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/tr-curve.pdf}
-    }
-    \caption{\it 原始联合训练和所提出的方法在验证集上学习曲线比较。在图中，联合训练，逐步联合训练，基于迁移学习逐步联合训练被分别表示为Joint Model,  Pro. Joint Model 和 Pro. Joint Model + Transf. 图中每个epoch包含24小时训练数据。 } 
-    \label{fig:tr-curve}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/tr-curve.pdf}
+    \bicaption[fig:tr-curve]{原始联合训练和所提出的方法在验证集上学习曲线比较}{原始联合训练和所提出的方法在验证集上学习曲线比较。在图中，联合训练，逐步联合训练，基于迁移学习逐步联合训练被分别表示为Joint Model,  Pro. Joint Model 和 Pro. Joint Model + Transf. 图中每个epoch包含24小时训练数据。}{Fig}{The learning curve comparison of naive joint training and the proposed methods. }
 \end{figure}
 
 \subsection{基于序列鉴别性训练的排列不变性训练}
@@ -696,12 +660,14 @@ kw-filler系统可以使用前述的标签同步解码算法进行进一步速�
   }
 \end{table}
 
-\begin{figure}
+
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/roc.pdf}
-    \caption{\it 非固定关键词的关键词检测的ROC 曲线比较}
-    \label{fig:roc}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/roc.pdf}
+    \bicaption[fig:roc]{非固定关键词的关键词检测的ROC 曲线比较}{非固定关键词的关键词检测的ROC 曲线比较}{Fig}{The ROC curve comparison of unrestricted KWS. }
 \end{figure}
+
 
 这里我们使用交叉熵训练得到的系统作为第一行的基线。它是一个基于 NN-HMM 的传统系统，包含了聚类的tri-phone 状态建模。 这里的HMM拓扑结构见图~\ref{fig:hmm-topo}(a)。
 传统鉴别性训练在交叉熵系统基础上进行。这里的词图由模型与一元语言模型解码得到~\cite{povey2007evaluation}。
@@ -888,12 +854,13 @@ PIT-ASR 模型~\cite{yu2017recognizing}, 表示为 PIT-CE, 被作为联合训练
 图~\ref{fig:example}中给出了一些本文提出的系统所得到的解码例子，以及其相对应的PIT基线系统的例子。基线系统包含了很多模型泛化能力差所带来的错误。通过所提出的方法，错误得到了显著的减少。注意到在这个例子中，本章提出的基于自迁移学习的联合训练方法主要减少了相似发音之间的错误识别，而序列鉴别性训练则主要减少一些明显的语法和语言学错误，这些现象符合我们对两种训练方法的预期，也显示了它们可以被结合在一起。
 
 
-\begin{figure*}
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/pit-example.pdf}
-    \caption{\it 50 小时数据集的解码例子，这里比较了所提出的方法与PIT基线的不同性能。上半部分来自A输出，下半部分来自B输出。 C, S, D, I 分别表示：正确，替换错误，删除错误，插入错误。}
-    \label{fig:example}
-\end{figure*}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/pit-example.pdf}
+    \bicaption[fig:example]{50 小时数据集的解码例子}{50 小时数据集的解码例子，这里比较了所提出的方法与PIT基线的不同性能。上半部分来自A输出，下半部分来自B输出。 C, S, D, I 分别表示：正确，替换错误，删除错误，插入错误。}{Fig}{The decoding examples of 50 hours corpus.}
+\end{figure}
+
 
 另一方面，在相似参数量情况下但使用其他的深度学习模型，即 {1 LACE + 5$\cdot$4 BLSTM}, 这样的系统可以带来一致性的性能改善，显示在第六到第九行中。我们相信这些额外的改善来自对于问题模块化的合理假设，由此对深度学习模型进行了合理的使用。这些相似比较分析可以参见文献~\cite{chen2018progressive}。
 

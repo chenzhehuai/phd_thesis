@@ -4,19 +4,14 @@
 
 本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理搜索。该框架可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
 
-近来深度学习语音识别的发展唤起了大量语音识别转录的需求。在这一系统中，计算量较大的部分主要包括：声学模型推理和语言模型WFST解码。
-%
-为了减少声学模型推理的计算开销，研究人员们提出了一系列效率更高的声学模型，包括一些比较新颖的神经网络结构~\cite{xue2014singular,peddinti2018low}, 定点化
-~\cite{mcgraw2016personalized}, 跳帧~\cite{pundak2016lower,zhc00-chen-is16,zhc00-chen-tasl2017}
-和端到端系统~\cite{audhkhasi2017direct,e2e-2018}.
-%frame sub-sample or PSD, novel model, SVD, quantization, ...
-同时算法的改进，比如剪枝~\cite{mohri2002weighted,hori2004fast}
-和向前预测~\cite{soltau2009dynamic,nolden2012search}是针对解码部分主要的加速方式。
+
+近来深度学习语音识别的发展唤起了大量语音识别转录的需求。在这一系统中，计算量较大的部分主要包括：声学模型推理和语言模型WFST解码。本章节主要针对后者。
 %in WFST framework, pruning , lookahead ... in e2e framework...
+除了第\ref{chap:intro2}章节的总结，基于GPU的并行计算是一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
 
 如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，
-基于GPU的并行计算是另一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
-但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。
+语音识别解码网络中多数WFST边之间并不直接相关，具有并行处理的可能性。
+但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。比如依据第\ref{chap:intro2-wfst}章节的讨论， 商用语言模型的WFST大小将达到百GB以上，已经大幅超出了GPU的显存大小。
 ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。
 
 
@@ -36,7 +31,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 
 
 
-在Switchboard 上实验表明，我们所提出的方法在取得完全一致的1-best和词图质量情况下，可以得到3-15倍的加速，并在绝大部分GPU架构上进行了验证。除此之外，如果再进行多句子的并行处理，最终的加速比将达到46倍。
+在Switchboard 上实验表明，我们所提出的方法在取得完全一致的最优路径 (1-best) 和词图质量情况下，可以得到3-15倍的加速，并在绝大部分GPU架构上进行了验证。除此之外，如果再进行多句子的并行处理，最终的加速比将达到46倍。
 
 
  %Detailed comparisons are in
@@ -58,22 +53,38 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 
 我们所提出的系统工作在二遍解码框架下~\cite{woodland19951994}，以便能够支持更大的语言模型，并支持词图上丰富的后处理。
 
-\subsection{系统框架}
-\begin{figure*}[ht]
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=1\linewidth]{figure/gpu_framework.pdf}
-    \caption{\it  并行维特比束剪枝算法以及精确词图处理系统的框架}
-    \label{fig:gpu-framework}
-\end{figure*}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/gpu_framework.pdf}
+    \bicaption[fig:gpu-framework]{ 并行维特比束剪枝算法以及精确词图处理系统的框架}{ 并行维特比束剪枝算法以及精确词图处理系统的框架}{Fig}{The framework of the parallel Viterbi beam search algorithm with exact lattice processing.}
+\end{figure}
+
 图~\ref{fig:gpu-framework} 显示了系统的框架，这包括两个GPU同时处理流，分别进行解码和词图剪枝，它们完全并行同时受不同CPU线程所控制。具体来说，对第 ($t+1$)帧, 第二个处理流将处理第一个流产生的第($t$)帧的词图。
 %GPU and CPU work asynchronously and there are two GPU concurrent streams
 %performing decoding and lattice processing respectively.
 
-解码的流程类似于CPU 版本~\cite{povey2011kaldi}，但工作在不同的一些设计上，以适应并行计算需求，其罗列于下面的章节。负载均衡算法则处理了线程之间并行的分配，它们具体体现在如何分配WFST状态和边。
+解码的流程类似于CPU 版本~\cite{povey2011kaldi}，如算法\ref{code:tokpass}所示。本章节的并行算法将使得算法\ref{code:tokpass}中的第7和第8行的串行循环处理并行化。
+结合公式（\ref{equ:dec-cmp-dec}）和公式（\ref{equ:dec-cmp-space2}），串行版本的解码器复杂度大致为，
+
+\begin{equation}
+\label{equ:dec-cmp-serial}
+ \begin{split}
+\mathbb{C}_{serial} = O(T\cdot I \cdot K)
+ \end{split}
+\end{equation}
+
+定义上述算法\ref{code:tokpass}中第7行的并行度为$P_1$，第8行的并行度为$P_2$，并行处理所带来的额外复杂度为$\mathbb{C}_{extra} $，则并行版本的解码器复杂度大致为，
+
+\begin{equation}
+\label{equ:dec-cmp-parallel}
+ \begin{split}
+\mathbb{C}_{parallel} = O(T\cdot \frac{I}{P_2} \cdot \frac{K}{P_1})\cdot \mathbb{C}_{extra}
+ \end{split}
+\end{equation}
+
+因此并行算法理论上的最大加速比为 $(P_1 \cdot P_2)$。下面的章节将具体展开一些针对并行处理所需要的特殊设计，以提升并行效率（提高 $(P_1 \cdot P_2)$），降低同步损耗（减少$\mathbb{C}_{extra}$）。其中负载均衡算法处理了线程并行之间的任务分配，它们具体体现在如何分配WFST状态和边。
 %position of 4 topics below in the system and acts like an overall procedure/algorithm
-
-
-
 
 \section{并行的令牌传递算法}
 \label{sec:atomic}
@@ -141,7 +152,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %\textit{atomicMin}(address, val). Read the 64-bit {\em{old}} located at the {\em{address}}, computes the \textit{min} of {\em{old}} and {\em{val}}, and stores the result to {\em{address}}~\cite{cuda9}.}
 %\vspace{-1em}
 
-原始的CPU算法在进行令牌合并时候是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加critical sections~\cite{lamport1979make}
+原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的12-18行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加critical sections~\cite{lamport1979make}
 以便使令牌合并这一步仍然恢复串行。这种设计不仅低效，而且会在早期GPU中引入死锁。
 \cite{you2009parallel} 提出一种在每个状态上做针对所有令牌传递结果的规约操作，但这样将引入额外的规约过程中的写冲突和同步损耗，而且这些损耗总是发生在计算的最后阶段。
 %
@@ -188,13 +199,14 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 \end{algorithm}
 
 
-\begin{figure}[ht]
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=1.1\linewidth]{figure/load-balance.pdf}
-    \caption{\it 一个针对动态负载均衡的例子。这里的虚线框表示一个
-      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其他线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}
-    \label{fig:load-balance}
+    \captionstyle{\centering}
+    \includegraphics[width=1.1\textwidth]{figure/load-balance.pdf}
+    \bicaption[fig:load-balance]{一个针对动态负载均衡的例子}{一个针对动态负载均衡的例子。这里的虚线框表示一个
+      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其他线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}{Fig}{An example of dynamic load balancing.}
 \end{figure}
+
 
 \section{并行的词图处理算法}
 \label{sec:lat-gen}
@@ -417,29 +429,29 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 
 
 
-\begin{figure}
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=\linewidth]{figure/gpu_analysis.pdf}
-    \caption{\it  语言模型大小，帧率，GPU架构的比较}
-    \label{fig:exp-ana}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/gpu_analysis.pdf}
+    \bicaption[fig:exp-ana]{语言模型大小，帧率，GPU架构的比较}{语言模型大小，帧率，GPU架构的比较}{Fig}{The comparison between different LM sizes, AM frame rates, GPU architectures.}
 \end{figure}
 
+
 \begin{itemize} 
-   \item Profiling.
+   \item 计算时间占比分析.
    \vspace{-0.25em}
  \end{itemize} 
   图~\ref{fig:exp-profile} 比较了CPU和GPU的各个子模块的时间占用~\footnote{词图生成在CPU中被包含到令牌传递部分中} 。
   % (we can change this one to a histogram figure like this "Exploring Recognition Network Representations for Efficient Speech Inference.pdf", figure 4)
   GPU在显著快于CPU版本的同时，每部分分布比较均衡，显示出系统并没有显著的瓶颈。GPU解码器的令牌传递和词图处理都得到了显著加速。同时 ``other'' 部分包含了GPU的内核启动时间和同步等待时间。对于这些部分的优化也是未来研究的一个有意义话题。
 
-\begin{figure}[ht]
+
+\begin{figure}[!htp]
   \centering
-    \includegraphics[width=1\linewidth]{figure/gpu_profile.pdf}
-    \caption{{\it 针对解码器的时间占比分析} }
-    \label{fig:exp-profile}
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/gpu_profile.pdf}
+    \bicaption[fig:exp-profile]{针对解码器的时间占比分析}{针对解码器的时间占比分析}{Fig}{The computational profiling analysis of the proposed decoder.}
 \end{figure}
-
-
 
 \section{本章小结}
 \label{chap:gpu-sum}

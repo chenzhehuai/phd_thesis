@@ -1,13 +1,10 @@
 
 \chapter{基于标签同步解码的搜索空间优化}
 \label{chap:lsd}
-自动语音识别等序列标注任务的一个独特点是其对相邻帧的时序序列关联性建模。用于对相邻帧进行时序建模的主流序列模型包括隐马尔科夫模型（Hidden Markov Model， HMM）和连接时序分类模型（Connectionist Temporal Classification， CTC）。针对这些模型，当前主流的推理搜索方法是帧层面的维特比束搜索算法，该算法复杂度很高，限制了语音识别的广泛应用。深度学习的发展使得更强的上下文和历史建模成为可能。通过引入blanks（“空”）单元，端到端建模系统能直接预测标签在给定特征下的后验概率。该章节系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，这包括使用高效的blank结构和后处理方法。该文提出的一系列通用方法在隐马尔科夫模型和连接时序分类模型上得到了验证。
 
+本论文基于端到端建模，系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，从而加速解码。
 
-序列标注问题是指一类将给定的数据序列转化为标签序列的任务~\cite{graves2012supervised}，如自动语音识别（automatic speech recognition, ASR）和手写体识别（optical character recognition, OCR）等。这类问题与传统模式识别框架不同的是，给定的样本中各数据点不符合独立同分布（independent and identically distributed, i.i.d）假设。其主要问题在于特征向量序列的可变长性，如ASR中由语速变化导致的语音信号时长的不同。
-
-为了对上述时序特征进行建模，人们提出了序列模型。根据其建模过程，序列模型可以分为以下两类：1）生成式序列模型（generative sequence models, GSM），如隐马尔科夫模型（hidden Markov model , HMM）；2）判别式序列模型（discriminative sequence models, DSM），如连接时序分类模型（connectionist temporal classification, CTC）等。对于GSM，在序列鉴别性训练时，需要在序列层面使用贝叶斯定理来由条件似然度推导出序列后验概率；而DSM则可以直接推导和优化序列后验概率。
-
+为了对语音识别中的时序特征进行建模，人们提出了序列模型。根据其建模过程，序列模型包含GSM和DSM，在第\ref{Sec:seq-tr-review}章节进行了介绍。
 通常来说，出于以下原因，GSM和DSM被分解为帧层面的训练准则：1）为了更加高效地发挥帧层面分类器的建模效果，如混合高斯模型（Gaussian mixture model, GMM~\cite{woodland1994large}）和深度神经网络（deep neural network, DNN ~\cite{hinton2012deep}）；2）为了减轻模型的稀疏性，以及通过将简单模型分解为多个组分来增强模型的泛化能力，例如ASR中将模型分解为声学模型、字典和语言模型等；3）未经序列分解的模型在推理搜索前需要得到整个序列信息进而进行后续处理，这将给解码过程造成严重的运行延时。本文提出的序列标注方法即是基于帧层面分解的模型~\cite{forney1973viterbi,mohri2002weighted}。
 
 在推理搜索阶段，为了找到与输入特征最为匹配的标签序列，搜索过程需要将声学模型，语言模型和字典等模型结合起来。该过程是通过在每帧使用基于束剪枝的维特比算法来实现的~\cite{forney1973viterbi}，称为帧同步解码（frame synchronous decoding, FSD）。在该框架中，我们将特征帧的数量和语句长度的比值定义为特征速率，将标签输出数量与语句长度的比值定义为标注速率，将解码的帧数与语句长度的比值定义为解码速率。那么，在帧同步解码中，这三个速率均相等。
@@ -23,140 +20,15 @@
 
 \section{基于连接时序分类模型的标签同步解码}
 \label{chap:lsd-ctc}
-\subsection{语音识别解码算法研究现状分析}
-\label{chap:lsd-review}
-\subsubsection{序列标注与序列模型}
-\label{chap:lsd-review-model}
 
-序列标注包括所有将数据特征序列转化为标签序列的任务~\cite{graves2012supervised}，本节以ASR为例进行简要介绍。该任务中，在训练阶段，一组带有已知标签的输入特征被提供给系统进行模型构建；而测试阶段，则基于特征序列和其它知识源如语言模型和字典进行模型推理搜索。序列标注问题与传统模式识别框架的区别在于以下两个方面。
+我们在第\ref{Sec:sgm-and-sdm}章节总结了语音识别中的序列建模方法。在模型推理搜索阶段，为了找到与输入特征最为匹配的标签序列，搜索过程需要将前述序列模型与其它知识源，即字典、语言模型等融合起来。即解码标签序列是由前述各分解序列所共同决定的。该搜索过程是通过在每帧上使用基于束剪枝的维特比算法进行的\cite{forney1973viterbi}，即第\ref{chap:lsd-review-fsd}章节介绍的传统帧同步解码算法。该框架中，解码速率等于标注速率，标注速率等于特征速率。
 
-（1）序列内数据的相关性。无论是特征序列，还是标签序列，序列中各数据点均不符合独立同分布（i.i.d.）假设。特征序列是由声道的连续运动而产生的。而标签序列则受到句法和语法规则、字典以及语言模型的约束。因此，特征和标签均为强相关序列。
+尽管被广泛使用，FSD方法仍有一些缺点：1）它是一个等间隔搜索算法，处理变长特征序列较为低效。即使在采用第\ref{chap:intro2-score}章节总结的跳帧等分数计算优化算法时仍存在该问题。 2）当序列被分解为帧层面作为特征序列时，模型粒度较小，导致搜索空间很大。3）在每帧均进行贪心束剪枝，很难平衡搜索效率和搜索误差。因此，本文通过将特征层面的搜索过程改变为标签层面，提出了基于端到端建模的标签同步推理搜索，接下来作者将对该框架及其应用进行详细介绍。
 
-（2）标签和特征序列之间的相关性。ASR中，特征和标签之间的对齐方式是未知的，标签序列总是短于特征序列，即其主要问题在于由语速变化等导致的特征序列的可变长性。这就要求序列模型能够同时确定输出标签的位置和内容。
-
-为了对上述序列相关性这一特征进行建模，人们提出了序列模型。根据其建模过程，序列模型可被分为生成式序列模型（GSM）和判别式序列模型（DSM）。
-
-生成式序列模型是通过计算给定标签序列时特征序列的概率 $p(\mathbf{x}|\mathbf{l})$ 来定义的。该模型通过使用贝叶斯方法引入人类语音产生物理过程的先验知识，来提供时序和长度约束。HMM因其作为生成式序列模型来表征人类语音声学特征的能力，而成为ASR的流行建模方法 。在神经网络-隐马尔科夫模型（neural network-hidden Markov model, NN-HMM）混合系统中，HMMs用来对语音信号的动态变化进行建模，而观测概率则通过神经网络来进行估计。
-  
-  \begin{equation}
-\label{equ:hmm-model}
-\begin{split}
-p(\mathbf{x}|\mathbf{l})=\sum_{\mathbf{\pi}\in\mathcal{A}(\mathbf{l})}p(\mathbf{x}|\pi) =\sum_{\pi}\prod_{t=1}^{T} p(\mathbf{x}|\pi_t) P(\pi_t|\pi_{t-1})\\
-%y_{ut}(s^{(r)}_{ut})
-=\sum_{\pi}\prod_{t=1}^{T} p(\pi_t|\mathbf{x})\frac{P(\pi_t|\pi_{t-1})}{P(\pi_t)}
-\end{split}
-\end{equation}
-
-其中 $\mathbf{l}$是生成式序列模型的标签序列，如上下文相关（context dependent, CD）的音素序列。π 是HMM状态序列， $\pi_t$ 是第t帧对应的HMM状态，$\pi_s^{(l)}$ 是指第l个HMM模型的第s个HMM状态。 $P(\pi_t|\pi_{t-1})$  是HMM状态转移概率，$P(\pi_t)$  是$\pi_t$的状态先验概率。$\mathcal{A}$是指从标签序列$\mathbf{l}$到其相应HMM状态序列 $\pi$的映射函数，如下所示。
-
-\begin{equation}
-\label{equ:a-func}
-\begin{split}
-\mathcal{A}:{L}  \mapsto \{ \pi_1^{(1)},\cdots,\pi_5^{(1)},\cdots,\pi_5^{(|{L}|)} \}
-\end{split}
-\end{equation}
-
-${L}$ 是标签序列$\mathbf{l}$的各个单元的集合。其中每个标签序列单元对应一个HMM模型，而每个HMM模型对应五个HMM状态，如图~\ref{fig:hmm-topo}(a)中所示。状态后验概率$p(\pi_t|\mathbf{x})$ 可通过神经网络进行估计得出。
-
-而判别式序列模型则是直接计算给定特征序列 $\mathbf{x}$时产生标签序列$\mathbf{l}$的后验概率$p(\mathbf{l}|\mathbf{x})$。其中，连接时序分类模型（CTC）用于解决未分割序列数据的标注问题，它通过引入$\tt blank$ 标签单元，实现对输入序列的任意一点的一对一输出标签预测。
-
-
-\begin{equation}
-\label{equ:psd-ctc-model}
-\begin{split}
-p(\mathbf{l}|\mathbf{x})=\sum_{\pi\in\mathcal{B}(\mathbf{l})}p(\pi|\mathbf{x}) =\sum_{\pi}\prod_{t=1}^{T} p(\pi_t|\mathbf{x})
-\end{split}
-\end{equation}
-
-其中$\mathcal{B}$ 为如下所定义的一对多映射：
-
-\begin{equation}
-\label{equ:psd-ctc-b}
-\begin{split}
-\mathcal{B}:{L}   \mapsto  {L} \cup \{{\tt blank}\}
-\end{split}
-\end{equation}
-$\mathcal{B}$决定了标签序列l以及$\mathbf{l}$对应的模型单元序列$\pi$ 的集合。如图~\ref{fig:hmm-topo}(b)所示，通过在序列$l$的每个标签单元$\mathbf{l}$之间插入一个可选的自循环$ \tt blank$ 单元进行映射。$p(\pi_t|\mathbf{x})$  则可使用以特征序列 $\mathbf{x}$为输入的循环递归神经网络（recurrent neural network, RNN）或长短时记忆神经网络（long short term memory, LSTM）\cite{hochreiter1997long}等估计得到。
-
-通常，如引言中所述，为了有效利用帧级分类器如GMM\cite{woodland1994large}和神经网络\cite{hinton2012deep}的建模效果，减轻建模的稀疏性和增强泛化能力，避免未经分解的模型因处理整个序列而导致的运行延时等问题，GSM和DSM都被分解为帧层面上的训练，本文接下来便对传统的帧同步解码进行介绍。
-
-
-\subsubsection{帧同步解码算法}
-\label{chap:lsd-review-fsd}
-
-在模型推理搜索阶段，为了找到与输入特征最为匹配的标签序列，搜索过程需要将前述序列模型与其它知识源，即字典、语言模型等融合起来。即解码标签序列是由前述各分解序列所共同决定的。该搜索过程是通过在每帧上使用基于束剪枝的维特比算法进行的\cite{forney1973viterbi}，即帧同步解码（FSD）。FSD框架中，解码速率等于标注速率，标注速率等于特征速率。
-
-
-在大词汇量连续语音识别（large vocabulary conversational speech recognition， LVCSR）中，解码算法的目标是找到最佳的词序列。通过应用字典和语言模型将词序列映射到标签序列，解码公式可推导如下：
-\begin{equation}\label{eq:asr-dec}
-        \mathbf{w}^*=\mathop{\arg\!\max}\limits_\mathbf{w} \{
-        P(\mathbf{w})p(\mathbf{x}|\mathbf{w})
-        \}=\mathop{\arg\!\max}\limits_\mathbf{w} \{
-        P(\mathbf{w})p(\mathbf{x}|\mathbf{l}_\mathbf{w})
-        \} %\nonumber
-     \end{equation}
-其中，$\mathbf{w}$是词序列，${\mathbf{w}}^*$ 是最佳词序列。$\mathbf{l}_{\mathbf{w}}$ 表示 $\mathbf{w}$通过映射得到的标签序列，如NN-HMM系统中的上下文相关音素。
-
-以CTC为例：
-\begin{equation}\label{eq:ctc-with-prior}
-        \mathbf{w}^*=\mathop{\arg\!\max}\limits_\mathbf{w} \left\{
-        \frac{P(\mathbf{l}_\mathbf{w}|\mathbf{x})P(\mathbf{w})}{P(\mathbf{l}_\mathbf{w})}
-        \right\}
-     \end{equation}
-     \begin{equation} \label{eq:ctc-dec}
-    = \mathop{\arg\!\max}\limits_\mathbf{w} \left\{
-        P(\mathbf{w})
-        \mathop{\max}\limits_{\mathbf{l}_\mathbf{w}} \frac{P( \mathbf{l}_\mathbf{w}|\mathbf{x} )}{P(\mathbf{l}_\mathbf{w})}\right\}
-     \end{equation}
-
-这里以单音素的CTC为例（CTC标签符号集合包括音素标签和$\tt blank$符号）。   $P(\mathbf{l}_\mathbf{w})$是音素序列的先验概率。
-对于某个特定的CTC标签序列，其前向概率可定义\cite{graves2006connectionist}并近似为：
-
-        \begin{equation} \label{eq:fwd-ctc}
-        P(\mathbf{l}|\mathbf{x}) =
-        \sum_{\pi\in\mathcal{B}(\mathbf{l})} %\pi:\pi \in L',\mathcal{B}(\pi_{1\mathord{:}T})=\mathbf{l}
-           {\prod_{t=1}^{T}{y^{t}_{\pi_{t}}}}
-        \cong \mathop{\max}\limits_{\pi\in\mathcal{B}(\mathbf{l})}
-           {\prod_{t=1}^{T}{y^{t}_{\pi_{t}}}}
-        \end{equation}
-
-
-其中， $\mathcal{B}$的定义见公式\ref{equ:psd-ctc-b}。
-因此，公式\ref{eq:ctc-dec}可进一步被推导为如下的帧同步维特比束搜索（frame synchronous Viterbi beam search）。这里，整体优化搜索空间-WFST，在每一帧都需要被遍历。
-
-              
-    \begin{equation} \label{eq:viterbi-app}
-    %\begin{split}
-       \mathbf{w}^* \cong\mathop{\arg\!\max}\limits_\mathbf{w}
-       \left\{\!
-       P(\mathbf{w})
-       \mathop{\max}\limits
-       _{\!\!\pi\in\mathcal{B}(\mathbf{l})}
-       \frac{1}{P(\mathbf{l}_\mathbf{w})}
-       \prod_{t=1}^{T}{y^{t}_{\pi_{t}}}
-      \right \}
-    \end{equation}
-
-  
-在FSD框架中，将特征帧的数量除以语句的长度定义为特征速率，标签输出数量除以语句的长度定义为标注速率，而WFST解码的帧数除以语句的长度定义为解码速率。该框架中，三个速率均相等。也就是说， $\prod_{t=1}^{T} y^{t}_{\pi_{t}}$  与帧t有关，而最大迭代次数则与序列可能的对齐方式和词汇量的大小有关。 因此，解码复杂度$\mathbb{C}_{FSD}$ 可表示为：
-  \begin{equation}
-\label{equ:complex-fsd}
-\begin{split}
-\mathbb{C}_{FSD} = O (T)\cdot \mathbb{C}_{space}
-\end{split}
-\end{equation}
-
-其中T是语句中帧的数量，$\mathbb{C}_{space}$定义参见公式\ref{equ:dec-cmp-space}。
-
-尽管被广泛使用，FSD方法仍有一些缺点：1）它是一个等间隔搜索算法，处理变长特征序列较为低效。2）当序列被分解为帧层面作为特征序列时，模型粒度较小，导致搜索空间很大。3）在每帧均进行贪心束剪枝，很难平衡搜索效率和搜索误差。因此，本文通过将特征层面的搜索过程改变为标签层面，提出了基于端到端建模的标签同步推理搜索，接下来作者将对该框架及其应用进行详细介绍。
-
-
-\subsection{基于端到端建模的标签同步推理搜索}
-\label{chap:lsd-lsd-ctc}
 
 该部分中，本文提出将搜索过程从特征层面改为标签层面，称为标签同步解码（label synchronous decoding， LSD）。本部分将对DSM中的LSD进行公式推导，具体实现方案及一些解码加速的经验方案也将进行讨论。
 
-\subsubsection{标签同步解码}
+\subsection{标签同步解码}
 \label{chap:lsd-lsd-ctc-method}
 在测试阶段，在基于音素的CTC模型中，从公式 \ref{eq:asr-dec}可以推导出公式\ref{eq:ctc-dec}。 而根据CTC中输出标签之间的条件独立性假设，$P(\mathbf{l}|\mathbf{x})$可以如下获得:
 \begin{equation} \label{eq:indep-output-ctc}
@@ -172,7 +44,17 @@ $\mathcal{B}$决定了标签序列l以及$\mathbf{l}$对应的模型单元序列
         \mathop{\max}\limits_{\mathbf{l}_\mathbf{w}} \frac{ \prod_{l\in\mathbf{l}_\mathbf{w}} P(l|\mathbf{x}) }{P(\mathbf{l}_\mathbf{w})}\right\}
      \end{equation}
 
-在$P(l|\mathbf{x})$的计算过程中，本文提出在帧级神经网络的输出上进行一步后处理。其中公共$\tt blank$帧的集合定义如下:
+观察图~\ref{fig:peaky-dist}中的CTC模型输出分布，我们可以发现，传统HMM模型的输出分布非常平滑。CTC相比于HMM模型，能够给出更突出的概率分布。具体来说在大多数帧上CTC模型输出较大的$\tt blank$的概率，只在少数帧上输出较大的非$\tt blank$的音素概率。这一现象符合端到端建模的初衷，即建模只关心最终的音素输出，而不关心每一帧的状态级强制对齐结果。而解码过程中，由于$\tt blank$输出并不会影响后续的词典和语言模型概率，因此解码搜索算法也只关心非$\tt blank$的音素输出概率。
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/peaky_distribution.png}
+    \bicaption[fig:peaky-dist]{HMM，CTC的模型输出分布示例}{HMM，CTC的模型输出分布示例。纵轴表示模型输出概率，横轴表示时间。灰色分布表示CTC模型的$\tt blank$概率输出}{Fig}{The inference distributions of HMM and CTC models.}
+\end{figure}
+
+在音素级的$P(l|\mathbf{x})$的计算过程中，本文提出在帧级神经网络的输出上进行一步后处理，以便滤除$\tt blank$输出，仅保留非$\tt blank$的音素输出概率来进行公式(\ref{eq:ctc-dec-lsd})的解码搜索。本文定义公共$\tt blank$帧的集合如下:
   \begin{equation} \label{eq:com-blk-idx}
     U=\{u:y^{u}_{\tt{blank}} > \mathcal{T}\}
 %    u \triangleq \left\{
@@ -221,7 +103,7 @@ $\mathcal{B}$决定了标签序列l以及$\mathbf{l}$对应的模型单元序列
         \end{split}
        \end{equation}
 
-\subsubsection{标签同步解码算法实现}
+\subsection{标签同步解码算法实现}
 \label{chap:lsd-lsd-ctc-alg}
 
 DSM的标签同步解码算法如算法~\ref{code:lsd-dsm-alg}所示。S和E是预编译的WFST网络的起始和结束节点。Q指有效令牌，B ̂指解码路径，T是总帧数。$NNPropagate(t)$ 是每帧的声学模型推理过程。$isBlankFrame(F)$ 用于检测每帧是否为blank。 $ViterbiBeamSearch(F, Q)$是FSD中的标准维特比搜索算法，但在LSD中仅在标签级别执行。  $finalTransition(E,S,Q)$用于搜索WFST的终止节点\cite{hori2007efficient}。
@@ -246,19 +128,10 @@ DSM的标签同步解码算法如算法~\ref{code:lsd-dsm-alg}所示。S和E是�
 \end{algorithm}
 
 
-\begin{figure*}
-  \centering
-    \includegraphics[width=\linewidth]{figure/hmm-topo.png}
-    \caption{\it 
-    HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。
-    }
-    \label{fig:hmm-topo}
-\end{figure*}
-
 \section{基于无词图鉴别性训练的模型的标签同步解码}
 \label{chap:lsd-lfmmi}
 
-\subsubsection{标签同步解码}
+\subsection{标签同步解码}
 \label{chap:lsd-lsd-hmm}
 
 在GSM中，相邻HMM之间的输出标签也是条件独立的：
@@ -286,8 +159,7 @@ DSM的标签同步解码算法如算法~\ref{code:lsd-dsm-alg}所示。S和E是�
         \end{split}
        \end{equation}  
 
-
-最近，研究人员们提出了一些新的HMM拓扑结构\cite{povey2016purely,pundak2016lower}，它们具有与式\ref{equ:psd-ctc-b}中CTC的$\mathcal{B}$函数类似的一对多映射。以文献\cite{povey2016purely}为例，每个CD音素由两个状态建模，如图~\ref{fig:hmm-topo}(c)所示，且转移概率设置为常数值0.5，因此在式\ref{eq:viterbi-blk-gsm}中可被省略。具体来说，其中一个状态模拟blank建模，如图~\ref{fig:hmm-topo}（b）中的$\tt \langle b \rangle$，另外一个状态则模拟输出标签单元，如图中的$\mathbf{l}$。不同之处在于文献\cite{povey2016purely}中的每个CD音素都保留了自己的blank版本。因此HMM中的状态由标签输出状态或者与CTC类似的blank状态组成。虽然在我们的实验中，这些模型的输出分布比CTC中更平滑，但DSM中提出的公式~(\ref{eq:com-blk-idx}) 和 (\ref{eq:viterbi-blk-ctc})可以被扩展到GSM。
+我们在第\ref{Sec:lfmmi-train}章节介绍了几种本文所扩展的HMM拓扑结构，如图~\ref{fig:hmm-topo}(c-e)。虽然在我们的实验中，这些模型的输出分布比CTC中更平滑，但DSM中提出的公式~(\ref{eq:com-blk-idx}) 和 (\ref{eq:viterbi-blk-ctc})可以被扩展到GSM。
 
 
 这里提出对神经网络的输出$P(\pi_t|\mathbf{x})$ 进行后处理，其中 $\pi_t $是帧t的推理搜索模型单元。由于这些模型中的模拟blank状态，公式\ref{eq:gsm-dec-lsd}中的维特比束搜索不必包括标签输出候选序列的所有帧。因此，给出某一帧的模型推理搜索分布时，是否从维特比搜索中排除某帧的判决如下：
@@ -311,28 +183,12 @@ P(\mathbf{x}|l)
        \end{equation}   
 
 
-其中第一部分是标签输出状态。在该情况下，每个标签输出均在WFST中进行维特比搜索。而另外一组的blank部分，则假设没有标签输出。不同于CTC，不同标签输出维护自己的blank状态版本。即使是blank帧，也可能包含不同的输出标签信息。因此， $\prod_{\pi\not\in U}\frac{y_{b_l}^u P(b_l|\mathbf{x})}{P(b_l)}$的分数不能被丢弃。上文提出一种高效的算法对这一项进行计算。
+其中第一部分是标签输出状态。在该情况下，每个标签输出均在WFST中进行维特比搜索。而另外一组的blank部分，则假设没有标签输出。不同于CTC，不同标签输出维护自己的blank状态版本。即使是blank帧，也可能包含不同的输出标签信息。因此， $\prod_{\pi\not\in U}\frac{y_{b_l}^u P(b_l|\mathbf{x})}{P(b_l)}$的分数不能被丢弃。下文提出一种高效的算法对这一项进行计算。
 
 这里所提出的后处理可以被视为输出标签概率$P(\pi|\mathbf{x})$的近似，从而使得维特比束搜索得以在标签级别上进行。
-下文中我们将对FSD和LSD进行对比。
-
-本文提出将特征层面的搜索过程改变为标签层面，即搜索空间是由不同历史的标签组成的，使得解码速率等于标注速率，从而小于特征速率。具体来说，所提出的LSD的解码复杂度如下:
-  \begin{equation}
-\label{equ:complex-lsd}
-\begin{split}
-\mathbb{C}_{LSD} = O (T-|U|)\cdot \mathbb{C}_{space}
-\end{split}
-\end{equation}
 
 
-其中空白帧的数量 $|U|$,总是接近于T。对比式\ref{equ:complex-fsd}和式(\ref{equ:complex-lsd}，FSD得到了很大的加速。这里将FSD和LSD之间的主要区别总结如下：
-
-  不同的信息率。 在FSD中，声学和语言信息均在每帧进行处理，使得二者的处理速率均和声学特征的帧率相同。而在LSD中，声学信息是以声学特征的帧率进行处理的，而语言信息则按声学模型推理的标注速率进行处理。声学和语言信息处理的不同速率去除了大量的搜索冗余。
-  可调整的搜索间隔。 在FSD框架下，WFST网络是以等间隔遍历的（即使带有跳帧的深度神经网络在解码\cite{vanhoucke2013multiframe}时是以更长的间隔遍历语言搜索空间，但其间隔仍然是相等的）。 而在LSD中，搜索间隔可通过灵活的自我调整（在不造成性能下降的前提下）来去除blank帧带来的语言搜索空间搜索冗余，这给解码带来了很大的效率提升。
-
-
-
-\subsubsection{标签同步解码算法实现}
+\subsection{标签同步解码算法实现}
 \label{chap:lsd-lsd-hmm-alg}
 
 用于GSM的标签同步解码算法如算法\ref{code:lsd-gsm-alg}所示。与算法1相比，在每个blank帧中，输出序列可以包含不同的blank单元。因此对相邻的blank帧计算$\prod_{\pi\not\in U}\frac{y_{b_l}^u P(b_l|\mathbf{x})}{P(b_l)}$ 。在非blank帧中，首先将各个blank单元各自累积得到的概率得分分别添加到当前帧的所有候选序列分数中，之后再进行维特比搜索算法。
@@ -361,8 +217,7 @@ P(\mathbf{x}|l)
 \end{algorithm}
 
 
-
-除此之外，本文将图\ref{fig:hmm-topo}（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
+除此之外，在HMM拓扑结构方面，本文将第\ref{Sec:lfmmi-train}章节提出的图\ref{fig:hmm-topo}（d-e）所示的几种改进结构都应用在了GSM中。
 
 本文在维特比搜索中除了使用传统的束剪枝算法\cite{forney1973viterbi}和直方图剪枝算法\cite{steinbiss1994improvements}（自适应束剪枝\cite{van1996adaptive}）之外，提出了另外两种剪枝方法。 在LSD中，blank帧占总帧数的百分比与加速比成正比，而blank帧通过公式进行判定。作为束剪枝算法的变体，这里提出了基于blank帧阈值T的剪枝算法，称为blank剪枝。当阈值T固定时，推理搜索分布的尖峰属性决定了加速比，而尖峰属性显示了神经网络输出分布的置信度。在神经网络的模型训练阶段，本文又提出了基于假设剪枝的熵剪枝算法。 在文献\cite{pereyra2017regularizing}中，作者通过惩罚确定的输出分布来防止过拟合和提高神经网络的泛化能力。受这项工作的启发， 我们在LSD框架中对输出分布的熵进行了控制，作为候选序列的剪枝方法。具体来说，在模型训练中将输出分布的熵添加到负对数似然$\mathcal{L}(\theta)$中，公式如下所示:
   
@@ -375,6 +230,25 @@ P(\mathbf{x}|l)
 
 其中$H(\cdot)$是输出分布 $p_\theta (\pi|\mathbf{x})$的熵，$\beta$是正比例因子。与文献\cite{pereyra2017regularizing}不同的是，基于熵剪枝算法的训练目的是最小化模型的原有训练准则以及输出分布的熵。而通常情况下，基于熵剪枝算法是基于一个已经训练好的模型对参数进行微调。在使用新的准则训练之后，LSD框架可在少量性能损失的情况下得以加速。在接下来的实验部分，本文将详细比较这四种剪枝方法。
 
+
+
+\section{逐帧同步解码与标签同步解码的对比}
+\label{chap:lsd-lsd-hmm-alg}
+
+本文提出将特征层面的搜索过程改变为标签层面，即搜索空间是由不同历史的标签组成的，使得解码速率等于标注速率，从而小于特征速率。具体来说，所提出的LSD的解码复杂度如下:
+  \begin{equation}
+\label{equ:complex-lsd}
+\begin{split}
+\mathbb{C}_{LSD} = O (T-|U|) \cdot \mathbb{C}_{frame}
+\end{split}
+\end{equation}
+
+
+其中空白帧的数量 $|U|$,总是接近于T。对比公式(\ref{equ:complex-fsd})和公式(\ref{equ:complex-lsd})，FSD得到了很大的加速。这里将FSD和LSD之间的主要区别总结如下：
+\begin{itemize}
+\item 不同的信息率。 在FSD中，声学和语言信息均在每帧进行处理，使得二者的处理速率均和声学特征的帧率相同。而在LSD中，声学信息是以声学特征的帧率进行处理的，而语言信息则按声学模型推理的标注速率进行处理。声学和语言信息处理的不同速率去除了大量的搜索冗余。
+\item 可调整的搜索间隔。 在FSD框架下，WFST网络是以等间隔遍历的（即使带有跳帧的深度神经网络在解码\cite{vanhoucke2013multiframe}时是以更长的间隔遍历语言搜索空间，但其间隔仍然是相等的）。 而在LSD中，搜索间隔可通过灵活的自我调整（在不造成性能下降的前提下）来去除blank帧带来的语言搜索空间搜索冗余，这给解码带来了很大的效率提升。
+\end{itemize}
 
 
 \section{实验结果}
@@ -422,13 +296,13 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 （2）速度鲁棒性：上面的实验解码过程中都使用一个中等大小的语言模型（3阶，3.1 M语言模型）,为了测试LSD框架相对于FSD加速效果的鲁棒性（也即对复杂的语言搜索空间下的可扩展性），如图2所示，这里将解码语言模型从2阶变大到4阶[ ]，大小从0.2 M变大到4.7 M，使用每帧中的平均活动令牌数（\#AT）来评价解码速度。从图 ~\ref{fig:ctc-dnn-lm-scaleup} 中可以看出，随着语言模型的增大，LSD的\#AT值几乎没有变化，而与此同时，FSD的 \#AT值则明显加速增长。此外，FSD的\#AT值总是远远超过LSD的\#AT值。也就是说，LSD实现的加速对LM搜索空间的增加是鲁棒的，GSM的实验也得出了类似的结论，因此LSD适合应用于更复杂的LM。
  
 
-   \begin{figure}[tbhp!]
-   % after de-compress: data/local/lm/sw1_fsh.o3g.kn.gz 76MB data/local/lm/sw1_fsh.o4g.kn.gz 128M
-        \centering
-        \includegraphics[width=\linewidth]{figure/speed-robust.pdf}
-        \caption{{\it LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势。（为清晰起见，这里仅绘制swb子集，calhm子集具有类似变化趋势。）}}
-        \label{fig:ctc-dnn-lm-scaleup}
-      \end{figure}
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/speed-robust.pdf}
+    \bicaption[fig:ctc-dnn-lm-scaleup]{LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势}{LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势。为清晰起见，这里仅绘制swb子集，calhm子集具有类似变化趋势。}{Fig}{The trend of average active token numbers and the sizes of LMs in LSD and FSD based frameworks.}
+\end{figure}
+
 
 （3）结合跳帧方法：该部分对比了跳帧方法下的LSD与FSD框架，实现结果表明可以将跳帧方法与FSD框架进行结合使用。值得注意的是，在后面的实验中，LSD也可以应用于跳帧或降低帧率的GSM声学模型中。
 
@@ -458,13 +332,12 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 （4）候选序列剪枝：图\ref{fig:prune-wer-at-dsm}比较了本文提出的LSD框架与传统的剪枝技术，即束剪枝（表示为beam）和直方图剪枝（表示为histogram）。 在LSD中，通过调整公式\ref{eq:com-blk-idx}和\ref{eq:com-blk-idx-gsm}中定义的T来调整加速比和性能，这也可以被视为另一种候选序列剪枝方法（表示为blank）。 上文中提出的基于熵剪枝算法表示为entropy。
  
 
-\begin{figure}[tbhp!]
-   % after de-compress: data/local/lm/sw1_fsh.o3g.kn.gz 76MB data/local/lm/sw1_fsh.o4g.kn.gz 128M
-        \centering
-        \includegraphics[width=\linewidth]{figure/prune-wer-at-dsm.pdf}
-        \caption{{\it 对于swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势。calhm子集结果类似 }} %The number of average active tokens is obtained by the original frame rate before reduction.
-        \label{fig:prune-wer-at-dsm}
-      \end{figure}
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/prune-wer-at-dsm.pdf}
+    \bicaption[fig:prune-wer-at-dsm]{swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}{swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势。calhm子集结果类似}{Fig}{The trend of WER v.s. the number of active tokens using different pruning methods in CTC and swb-subset.}
+\end{figure}
 
 
 从图中可以看出，基于LSD的方法，entropy和blank，与基于FSD的方法beam和histogram相比保持显著优势。其原因在于，基于FSD的候选序列剪枝对所有候选序列进行统一处理，而相反，LSD框架可以看作是将候选序列划分为特征级别和标签级别。因此，如公式\ref{eq:ctc-dec-lsd}及公式\ref{eq:com-blk-idx}所示，LSD框架中，可以在特征层和标签层进行剪枝。也即，基于LSD的候选序列剪枝方法受益于将搜索过程从特征层转移到标签层。
@@ -518,14 +391,13 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 
 
 
- 
-\begin{figure}[tbhp!]
-   % after de-compress: data/local/lm/sw1_fsh.o3g.kn.gz 76MB data/local/lm/sw1_fsh.o4g.kn.gz 128M
-        \centering
-        \includegraphics[width=\linewidth]{figure/prune-wer-at-gsm.pdf}
-        \caption{{\it  LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势  }}
-        \label{fig:prune-wer-at-gsm}
-      \end{figure}
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/prune-wer-at-gsm.pdf}
+    \bicaption[fig:prune-wer-at-gsm]{LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}{LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}{Fig}{The trend of WER v.s. the number of active tokens using different pruning methods in LF-MMI.}
+\end{figure}
+
    
 （3）进一步设计：本节将对比前文中讨论的各种转移模型，以及由此获得的效率的进一步提高。该部分所有实验均在LF-MMI准则上进行，但实验结论可以扩展到其它神经网络和训练准则上。 
 

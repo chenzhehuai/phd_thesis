@@ -15,7 +15,7 @@
 
 \subsection{特征提取}
 \label{sec:feat_extra}
-语音信号原始形态是一种连续的波形语音，为了能进行 更有效的识别，通常我们会先将连续的波形转换为一个离散的实数序列向量$\mathbf{O}=\left[ \mathbf{o}_1, ..., \mathbf{o}_T \right]$。每个向量是压缩语音变化的表示。这些矢量也称为特征矢量或观察特征矢量。语音信号是准静态信号，因此我们首先需要将其切割成多个重叠的离散段，通常是以10毫秒的间隔向后滑动25毫秒长的窗口。通过此方法提取的段称为帧。汉明窗口或汉宁窗口通常用于平滑，以减少边界效应，然后使用快速傅立叶变换将其从时域特征变换到频域特征。在得到频域上的复数特征后，通过利用不同的后处理方法可以得到不同特征：典型的有感知线性预测系数(Perceptual Linear Prediction, PLP)~\cite{hermansky1990perceptual}和梅尔倒谱系数(Mel-Frequency Cepstral Coefficients, MFCC)~\cite{davis1980comparison}。近来，由于深度神经网络拥有更强大的建模能力，研究者发现保留梅尔滤波器输出中维度之间的相关性的滤波器组特征(Filter Bank Feature, FBANK)~\cite{seide2011feature}更适合于深度神经网络利用，接下来将对这三种特征进行详细介绍：
+语音信号原始形态是一种连续的波形语音，为了能进行 更有效的识别，通常我们会先将连续的波形转换为一个离散的实数序列向量$\mathbf{O}=\left[ \mathbf{o}_1, ..., \mathbf{o}_T \right]^\top$。每个向量是压缩语音变化的表示。这些矢量也称为特征矢量或观察特征矢量。语音信号是准静态信号，因此我们首先需要将其切割成多个重叠的离散段，通常是以10毫秒的间隔向后滑动25毫秒长的窗口。通过此方法提取的段称为帧。汉明窗口或汉宁窗口通常用于平滑，以减少边界效应，然后使用快速傅立叶变换将其从时域特征变换到频域特征。在得到频域上的复数特征后，通过利用不同的后处理方法可以得到不同特征：典型的有感知线性预测系数(Perceptual Linear Prediction, PLP)~\cite{hermansky1990perceptual}和梅尔倒谱系数(Mel-Frequency Cepstral Coefficients, MFCC)~\cite{davis1980comparison}。近来，由于深度神经网络拥有更强大的建模能力，研究者发现保留梅尔滤波器输出中维度之间的相关性的滤波器组特征(Filter Bank Feature, FBANK)~\cite{seide2011feature}更适合于深度神经网络利用，接下来将对这三种特征进行详细介绍：
 \begin{itemize}
     \item 滤波器组特征 \\
     1. 在获得频谱的复杂特征之后，通常丢弃相位信息，并且仅留下复杂特征的幅度部分。然后通过梅尔频率缩放公式调整频率轴。最后，我们可以得到一个缩放的幅度频域特征：
@@ -46,6 +46,30 @@
 \subsection{声学模型}
 声学模型的作用是计算一个候选词序列$\mathbf{w}$生成出观测到的特征向量序列$\mathbf{O}$概率。它从概率论角度提供了给定词标注之后语音信号的信号生成的过程。在传统GMM-HMM声学模型中，HMM建模了语音信号的的序列性，GMM建模了特征向量生成的概率。在最新的基于深度神经网络的声学模型中，深度神经网络被用来计算特征向量生成概率。 GMM-HMM将在章节\ref{sec:hmm}中详细介绍，DNN-HMM将在章节\ref{sec:dnn_hmm}中详细介绍。声学模型是语音信号的识别系统中最核心部件之一，也是本论文研究重点。
 
+
+\subsubsection{声学单元和参数绑定}
+当进行小词汇语音信号的识别时，如识别数字时通常可以用隐马尔可夫模型直接建模独立的单词。然而当词汇数量从中等词汇上涨到大词汇(>10000)时，利用隐马尔可夫模型来建模每一个词汇变成了不可能事情。一个广泛利用的解决该问题方法为建模子词单元。
+
+音素是一个被广泛利用的子词单元，它是语音信号的中最小声学元素。利用音素的好处是存在将每个词转换为音素标准，这样每个词能很容易的被分解成各个音素。在音素上建模的模型被称作音素模型，音素数目一般远远小于待识别词的个数。在当前最先进大词汇连续语音信号的识别系统里，通常利用46个音素。
+
+利用音素能更容易的获得足够数据以训练出更具有鲁棒性的模型参数。需要注意是当利用音素来建模时，需要提供一个字典用于将单词序列映射成子词单元序列，然后才能在子词单元的层面进行识别和运算。在识别最后,还需要将子词单元序列转换回单词序列。
+
+目前有两种被广泛利用音素集合。一种是单音素，也称为上下文无关音素；另一种则是上下文相关音素。由于协同发音现象的影响，当前音素发音和前一个、后一个音素之间具有很强的相关性，所以在许多识别任务里，仅仅利用单音素效果不是很好。为了建模协同发音现象，目前最先进语音信号的识别系统利用的是上下文相关音素，其中三音速利用最为广泛，它将当前音素的前一个和后一个音素同时建模。
+
+比如，以one来说，它对应三音素序列即扩展为one=\{sil−w−ah, w-ah-n, ah-n-sil\}。虽然利用更多的上下文信息可以建立更复杂的音素模型，如五音素~\cite{hain2005automatic}(quin-phones)，但三音素依然是目前利用最广泛音素模型。根据是否考虑单词间的边界，三音素模型可以继续细分为跨单词三音素和单词内三音素。跨单词三音素允许三音素的扩展跨越单词：在两个单词边界，当前音素的前一个和后一个音素分别是上一个单词的最后一个音素和下一个单词第一个音素。词内三音素则相反，音素只能在单词的内部进行扩展。因此，在每个单词开头和结尾,是一个双音素。跨单词三音素在大规模词汇连续语音信号的识别系统里效果更好~\cite{woodland1994large}。
+
+利用三音素后，声学单元个数将变得巨大。当利用46个单音素时，所有可能的三音素个数达到了$46^3=97336$，这一数字甚至超过了词表大小，不可能有充足数据能训练如此大的模型。目前一个通用解决该问题的方法是利用参数共享~\cite{young1993use, young1994tree}。它基本思想是将一些参数绑定在一起。参数共享可以存在于各个层面，包括音素，状态，高斯等。由于利用最广泛的是在状态共享层面，因而也被称为状态聚类。在利用状态聚类时，来自同一组的状态将共享状态输出分布，每一个实际状态输出分布被称为一个语素(senone)，如图\ref{fig:state-tying}所示。
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=.8\textwidth]{figure/state.png}
+    \bicaption[fig:state-tying]{}{单高斯三音素的状态聚类}{Fig}{State clustering for single gaussian triphones}
+\end{figure}
+
+目前利用最广泛的聚类方法是基于数据驱动自底向上聚类。对训练集中存在的每一对语素之间计算一个距离，距离在某个阈值以内的语素将会被聚集在一起。数据驱动的主要问题在于当没有足够多训练数据时，这一方法将不再可靠，更严重的是，训练数据中不存在信息将无法被捕捉到。
+
+另外一个更好的方法是利用音标决策树的方法来进行聚类。音标决策树是一棵包含了一系列关于每个音素左右上下文问题的二叉树，因为问题答案只有对和错。聚类自上而下开始，所有的状态都从根节点出发，通过回答上下文问题来分割左右儿子。直至处于当前节点的训练数据状态数目小于一个阈值，分割过程停止，此时叶子节点即为一个语素。决策树中的关键难题在于提问的顺序，目前最常用方法是在每次分裂时挑选能在分裂后似然增加的最大的那个问题。虽然这样决策树可能陷入局部最优，但它确实有效处理了对于不可见的三音素分类问题。
+
 \subsubsection{隐马尔可夫模型 (HMM)}
 \label{sec:hmm}
 隐马尔可夫模型是一个统计学中生成模型，在语音信号的识别领域获得了重大成功。在隐马尔可夫模型中,一个特定声学的单元，如一个单词或一个音素将被建模为一个有限状态机，而我们所观测到特征序列则是由该音频所对应的词序列连接成的有限状态机生成的。在每个时间单元，状态将以一个给定的概率分布发生转变：跳转到下一个状态或保持在当前状态。变换完成后，将由另一个概率函数生成一个特征向量。一个拥有三个输出状态的从左到右隐马尔可夫模型如图\ref{fig:hmm}所示，其中状态1和5是进入状态和退出状态，它们并不输出观测特征向量。这一结构是语音信号的识别中最常用结构。
@@ -57,7 +81,7 @@
     \bicaption[fig:hmm]{}{隐马尔可夫模型}{Fig}{Hidden Markov Model}
 \end{figure}
 
-令$\mathbf{O}=[\mathbf{o}_1, ..., \mathbf{o}_T]$为由一个声学单元生成的特征向量序列，其中$\mathbf{o}_t$是一个第$t$时刻的$D$维的语音特征向量，$T$是语音信号的序列的总帧数。声学特征序列的生成过程如下面所示：
+令$\mathbf{O}=[\mathbf{o}_1, ..., \mathbf{o}_T]^\top$为由一个声学单元生成的特征向量序列，其中$\mathbf{o}_t$是一个第$t$时刻的$D$维的语音特征向量，$T$是语音信号的序列的总帧数。声学特征序列的生成过程如下面所示：
 \begin{enumerate}
     \item 在第0时刻从状态1开始
     \item 在时刻$t$($0 \le t \le T-1$)。假设当前处于状态$i$，以概率$a_{i,i+1}$跳转到状态i+1或者以概率$a_{i,i}$停留在当前状态。
@@ -65,7 +89,7 @@
     \item 重复2直至到达状态5
 \end{enumerate}
 
-这样我们可以利用一个状态序列来描述语音信号的特征的输出过程$\mathbf{s}=[s_1, ..., s_T]$。而现实中我们只能观察到由状态输出语音信号的特征序列，状态序列$\mathbf{s}$是隐藏的，这也是该模型被称为隐马尔可夫模型原因。一个隐马尔可夫模型通常包含如下参数：
+这样我们可以利用一个状态序列来描述语音信号的特征的输出过程$\mathbf{s}=[s_1, ..., s_T]^\top$。而现实中我们只能观察到由状态输出语音信号的特征序列，状态序列$\mathbf{s}$是隐藏的，这也是该模型被称为隐马尔可夫模型原因。一个隐马尔可夫模型通常包含如下参数：
 \begin{itemize}
     \item $\pi$ 初始状态分布: \\
     令$s_t$表示在时刻t时所处状态，那么$\pi_i = P(s_0=i), \sum_{i=1}^N \pi_i = 1, \pi_i \ge 0$，其中$N$是总状态数。在拥有进入状态隐马尔可夫模型中，通常$\pi_1=1$。
@@ -97,45 +121,45 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 
 似然计算是利用和训练隐马尔可夫模型时需要考虑的最核心问题，直接枚举所有状态序列复杂度无疑是很高的。这一概率可以利用前向-后向算法快速计算，该算法也被称作鲍姆威尔士算法~\cite{baum1967inequality}(Baum-Welsh algorithm)。前向-后向算法通过利用动态规划思想，只需要$O(N^2T)$时间复杂度即可以计算出该概率，其中$N$是总状态数，$T$是总帧数。
 
-定义前向概率$\alpha_i(t)$为到t时刻为止，且第t时刻所处状态为$i$，观测到特征序列$\left( \mathbf{o}_1, \dots, \mathbf{o}_t \right)$的概率。
-\begin{equation}
-\alpha_i(t)=p(\mathbf{o}_1, \dots, \mathbf{o}_t,s_t=i|\mathbf{w}, \mathcal{M})
-\end{equation}
-前向概率可以通过递归快速计算，对于$1<i<N, 0<t<=T$
-\begin{equation}
-\alpha_i(t)=(\sum_{j=1}^{N-1}\alpha_j(t-1)a_{j,i})b_i(\mathbf{o}_t)
-\end{equation}
-边界条件为：
-\begin{eqnarray}
-\alpha_i(t)=
-\begin{cases}
-1& i=1,t=0 \\
-0& i \ne 1,t=0 \\
-\sum_{j=2}^{N-1}\alpha_i(T)a_{j,N}& i=N, t=T+1
-\end{cases}
-\end{eqnarray}
-对于常用于语音信号的识别五状态HMM而言，因为转移只存在于相邻两个状态之间，所以时间复杂度减少为$O(NT)$。
-
-同样我们可以定义后向概率$\beta_i(t)$为从第t时刻开始，且第t时刻所处状态为$i$的概率,观测到特征序列$\left( \mathbf{o}_{t+1}, \dots, \mathbf{o}_T \right)$概率。
-\begin{equation}
-\beta_i(t)=p(\mathbf{o}_{t+1},...,\mathbf{o}_T|s_t=i, \mathbf{w}, \mathcal{M})
-\end{equation}
-后向概率也可以通过递归快速计算，对于$1<i<N, 0<t<T$
-\begin{equation}
-\beta_i(t)=\sum_{j=1}^{N} a_{i,j} b_j(\mathbf{o}_{t+1}) \beta_j(t+1)
-\end{equation}
-边界条件为：
-\begin{eqnarray}
-\beta_i(t)=
-\begin{cases}
-a_{i,N} & t=T \\
-\sum_{j=2}^{N-1} a_{1,j} b_j(\mathbf{o}_{1}) \beta_j(1) & i=1, t=0
-\end{cases}
-\end{eqnarray}
-计算完前向概率和后向概率之后，可以很容易得到似然的公式为：
-\begin{equation}
-    p(\mathbf{O}|\mathbf{w}, \mathcal{M})=\alpha_N(T+1)=\beta_1(0)
-\end{equation}
+%定义前向概率$\alpha_i(t)$为到t时刻为止，且第t时刻所处状态为$i$，观测到特征序列$\left( \mathbf{o}_1, \dots, \mathbf{o}_t \right)$的概率。
+%\begin{equation}
+%\alpha_i(t)=p(\mathbf{o}_1, \dots, \mathbf{o}_t,s_t=i|\mathbf{w}, \mathcal{M})
+%\end{equation}
+%前向概率可以通过递归快速计算，对于$1<i<N, 0<t<=T$
+%\begin{equation}
+%\alpha_i(t)=(\sum_{j=1}^{N-1}\alpha_j(t-1)a_{j,i})b_i(\mathbf{o}_t)
+%\end{equation}
+%边界条件为：
+%\begin{eqnarray}
+%\alpha_i(t)=
+%\begin{cases}
+%1& i=1,t=0 \\
+%0& i \ne 1,t=0 \\
+%\sum_{j=2}^{N-1}\alpha_i(T)a_{j,N}& i=N, t=T+1
+%\end{cases}
+%\end{eqnarray}
+%对于常用于语音信号的识别五状态HMM而言，因为转移只存在于相邻两个状态之间，所以时间复杂度减少为$O(NT)$。
+%
+%同样我们可以定义后向概率$\beta_i(t)$为从第t时刻开始，且第t时刻所处状态为$i$的概率,观测到特征序列$\left( \mathbf{o}_{t+1}, \dots, \mathbf{o}_T \right)$概率。
+%\begin{equation}
+%\beta_i(t)=p(\mathbf{o}_{t+1},...,\mathbf{o}_T|s_t=i, \mathbf{w}, \mathcal{M})
+%\end{equation}
+%后向概率也可以通过递归快速计算，对于$1<i<N, 0<t<T$
+%\begin{equation}
+%\beta_i(t)=\sum_{j=1}^{N} a_{i,j} b_j(\mathbf{o}_{t+1}) \beta_j(t+1)
+%\end{equation}
+%边界条件为：
+%\begin{eqnarray}
+%\beta_i(t)=
+%\begin{cases}
+%a_{i,N} & t=T \\
+%\sum_{j=2}^{N-1} a_{1,j} b_j(\mathbf{o}_{1}) \beta_j(1) & i=1, t=0
+%\end{cases}
+%\end{eqnarray}
+%计算完前向概率和后向概率之后，可以很容易得到似然的公式为：
+%\begin{equation}
+%    p(\mathbf{O}|\mathbf{w}, \mathcal{M})=\alpha_N(T+1)=\beta_1(0)
+%\end{equation}
 
 \subsubsection{最大似然估计}
 训练GMM-HMM通常采用最大似然估计(Maximal Likelihood Estimation, MLE)准则。令$\mathcal{M}= \lbrace \{ a_{i,j}, 1 \le i,j \le N \}, \{ c^m, \bm{\mu}^m, \bm{\Sigma}^m, 1 \le m \le M \} \rbrace$为GMM-HMM中所有参数。其中$N,M$分别为总状态数和总高斯成分数。优化准则即为:
@@ -213,28 +237,10 @@ EM算法是一个迭代的优化过程，其优化步骤如下：
     \end{itemize}
 \end{itemize}
 
-\subsubsection{声学单元和参数绑定}
-当进行小词汇语音信号的识别时，如识别数字时通常可以用隐马尔可夫模型直接建模独立的单词。然而当词汇数量从中等词汇上涨到大词汇(>10000)时，利用隐马尔可夫模型来建模每一个词汇变成了不可能事情。一个广泛利用的解决该问题方法为建模子词单元。
-
-音素是一个被广泛利用的子词单元，它是语音信号的中最小声学元素。利用音素的好处是存在将每个词转换为音素标准，这样每个词能很容易的被分解成各个音素。在音素上建模的模型被称作音素模型，音素数目一般远远小于待识别词的个数。在当前最先进大词汇连续语音信号的识别系统里，通常利用46个音素。
-
-利用音素能更容易的获得足够数据以训练出更具有鲁棒性的模型参数。需要注意是当利用音素来建模时，需要提供一个字典用于将单词序列映射成子词单元序列，然后才能在子词单元的层面进行识别和运算。在识别最后,还需要将子词单元序列转换回单词序列。
-
-目前有两种被广泛利用音素集合。一种是单音素，也称为上下文无关音素；另一种则是上下文相关音素。由于协同发音现象的影响，当前音素发音和前一个、后一个音素之间具有很强的相关性，所以在许多识别任务里，仅仅利用单音素效果不是很好。为了建模协同发音现象，目前最先进语音信号的识别系统利用的是上下文相关音素，其中三音速利用最为广泛，它将当前音素的前一个和后一个音素同时建模。
-
-比如，以one来说，它对应三音素序列即扩展为one=\{sil−w−ah, w-ah-n, ah-n-sil\}。虽然利用更多的上下文信息可以建立更复杂的音素模型，如五音素~\cite{hain2005automatic}(quin-phones)，但三音素依然是目前利用最广泛音素模型。根据是否考虑单词间的边界，三音素模型可以继续细分为跨单词三音素和单词内三音素。跨单词三音素允许三音素的扩展跨越单词：在两个单词边界，当前音素的前一个和后一个音素分别是上一个单词的最后一个音素和下一个单词第一个音素。词内三音素则相反，音素只能在单词的内部进行扩展。因此，在每个单词开头和结尾,是一个双音素。跨单词三音素在大规模词汇连续语音信号的识别系统里效果更好~\cite{woodland1994large}。
-
-利用三音素后，声学单元个数将变得巨大。当利用46个单音素时，所有可能的三音素个数达到了$46^3=97336$，这一数字甚至超过了词表大小，不可能有充足数据能训练如此大的模型。目前一个通用解决该问题的方法是利用参数共享~\cite{young1993use, young1994tree}。它基本思想是将一些参数绑定在一起。参数共享可以存在于各个层面，包括音素，状态，高斯等。由于利用最广泛的是在状态共享层面，因而也被称为状态聚类。在利用状态聚类时，来自同一组的状态将共享状态输出分布，每一个实际状态输出分布被称为一个语素(senone)，如图\ref{fig:state-tying}所示。
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=.8\textwidth]{figure/state.png}
-    \bicaption[fig:state-tying]{}{单高斯三音素的状态聚类}{Fig}{State clustering for single gaussian triphones}
-\end{figure}
-
-目前利用最广泛的聚类方法是基于数据驱动自底向上聚类。对训练集中存在的每一对语素之间计算一个距离，距离在某个阈值以内的语素将会被聚集在一起。数据驱动的主要问题在于当没有足够多训练数据时，这一方法将不再可靠，更严重的是，训练数据中不存在信息将无法被捕捉到。
-
-另外一个更好的方法是利用音标决策树的方法来进行聚类。音标决策树是一棵包含了一系列关于每个音素左右上下文问题的二叉树，因为问题答案只有对和错。聚类自上而下开始，所有的状态都从根节点出发，通过回答上下文问题来分割左右儿子。直至处于当前节点的训练数据状态数目小于一个阈值，分割过程停止，此时叶子节点即为一个语素。决策树中的关键难题在于提问的顺序，目前最常用方法是在每次分裂时挑选能在分裂后似然增加的最大的那个问题。虽然这样决策树可能陷入局部最优，但它确实有效处理了对于不可见的三音素分类问题。
+在定义了各种鉴别性训练准则后， 如何根据这些准则对模型参数进行优化就
+成为了另一个重要的问题。 一个好的模型参数优化方法必须能够有效的优化上述准则、并可以高效率的实现， 还要拥有良好的收敛性能。 遗憾的是， 到目前为止， 对区分性
+训练准则而言还没有一种算法能够保证其收敛性。 这样的局面与最大似然准则下的情形不同。 因此， 研究者通常致力于寻找一些在经验上有比较良好优化能力、 又能较快收敛性的算法， 以便对鉴别性训练准则进行模型参数优化。常用的参数优化方法主要分为两大类， 一类是基于梯度下降(Gradient Descent, GD)的方法， 二类
+是基于扩展Baum-Welch(EB)方法。在后文将讨论的深度学习框架下，基于梯度下降的算法被广泛使用，将在第~\ref{sec:intro-sgd}章进行详细介绍。
 
 \subsection{语言模型}
 \label{sec:lm}
@@ -255,8 +261,8 @@ EM算法是一个迭代的优化过程，其优化步骤如下：
 \begin{itemize}
     \item 降权(Discounting) \\
     降权方法用于解决训练集中未观测到N元组概率无定义的问题，它的主要思想是将被观测到的N元组概率乘上一个降权系数，将剩下的部分平均分配给未观测到N元组。最常用的降权方法有Good-Turing法~\cite{good1953population,katz1987estimation}，Witten-Bell法~\cite{witten1991zero}和绝对降权法~\cite{ney1995estimation}
-    \item 回溯法(Backing-off) \\
-    回溯法利用训练数据中观测到的具有较短历史信息的词序列的组合概率来近似那些没有出现过、由较长历史信息组成词序列组合。
+    \item 回退法(Back off) \\
+    回退法利用训练数据中观测到的具有较短历史信息的词序列的组合概率来近似那些没有出现过、由较长历史信息组成词序列组合。
     \item 多模型插值(Interpolation) \\
     当一个N元语言模型不是很鲁棒时，可以通过和更低阶的语言模型进行插值以获得更平滑模型，比如在语音信号的识别中通常会将单元，二元和三元语言模型进行插值来构建一个更鲁棒语言模型。插值的权重通常在一个校验集上调节得到。同样，我们也可以用同样的方法对由不同语料训练出N元语言模型进行插值。
 \end{itemize}
@@ -267,37 +273,13 @@ EM算法是一个迭代的优化过程，其优化步骤如下：
 其中$K$是词序列包含的总词数，拥有更低PPL语言模型具有更低的不确定度和混淆度，通常也能潜在的降低语音信号的识别词错误率。当然，这一关系并非一直成立，因而在语音信号的识别中最终还是以词错误率来判断语言模型的好坏。
 
 \subsection{解码及搜索}
-\label{sec:decode}
-如公式\ref{eq:asr}所示，解码的过程是在给定声学模型和语言模型之后寻找拥有最大概率路径。
-\begin{eqnarray}
-\mathbf{w}^* &=& \arg \max_{\mathbf{w} \in \mathcal{H}}p(\mathbf{O}|\mathbf{w})P(\mathbf{w}) \\
-&=& \arg \max_{\mathbf{w} \in \mathcal{H}} \sum_{\mathbf{s}} P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})P(\mathbf{w})
-\end{eqnarray}
-这里$\mathbf{s}$是所有可能的状态序列，$P(\mathbf{w})$通过语言模型计算，$P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})$通过声学模型计算。正如我们在章节\ref{sec:calc_like}中讨论过的，这一似然可以通过前向后向算法进行计算。然而，因为候选词序列可能性过于庞大，无法通过对每个候选进行前向后向算法来计算似然。因此，实际中通常利用最大概率的状态路径来近似整个概率，即：
-\begin{equation}
-\label{eq:decode}
-\mathbf{w}^* = \arg \max_{\mathbf{w} \in \mathcal{H}} \max_{\mathbf{s}} P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})P(\mathbf{w})
-\end{equation}
-这样我们可以通过利用动态规划(Dynamic Programming, DP)的方法计算出拥有最大概率状态序列，然后以此推理搜索出词序列，这一算法被称为Viterbi算法~\cite{viterbi1967error}。另$\phi_i(t)$表示在时刻$t$且输出了部分从$\mathbf{o}_1$至$\mathbf{o}_t$声学特征后停留在状态$i$的最大概率。它可以利用递归来计算：
-\begin{equation}
-    \phi_i(t)=\max_j\{\phi_j(t-1)a_{j,i}\}b_i(\mathbf{o}_t)
-\end{equation}
-这里$a_{i,j}$是状态转移概率，$b_i(\mathbf{o}_t)$是状态输出概率。最终：
-\begin{equation}
-    p(\mathbf{O}|\mathbf{w}) \approx \phi_{N}(T+1) = \max_i\{\phi_i(T)a_{i,N}\}
-\end{equation}
-Viterbi算法可以很容易扩展到连续语音信号的识别，一种扩展后的Viterbi算法也被称为令牌传递(Token Passing)算法~\cite{young2002htk}。在这一算法中，每一个状态将不仅仅保留一个最优路径，而是保存一部分个令牌。每一个令牌记录着某个候选词序列在第$t$时刻到达状态$i$的最优路径。在到达一个词边界时，语言模型的分数会直接加上。在整个观测序列结束时，拥有最大概率的令牌将被提取出来回溯其整个HMM序列。
+语音信号的识别既是一个模式识别问题，也包含相应的推理搜索问题。前一个问题对各种语音信号的、语言现象进行数学表示和描述，在基于统计学习的模式识别框架下进行建模，这决定了语音信号的识别系统可达到识别准确度的上限。而后一个问题在给定模型情况底下，研究如何高效地将输入语音信号的和模型相匹配，推理搜索得到最优识别结果，这决定了识别速度和实际可达的识别准确度。
+在语音信号的识别的推理搜索阶段，解码器功能是对声学模型计算出的声学特征概率和语言模型计算出的语言概率进行组合来得到最大概率的词序列。
 
-即使利用了令牌传递算法，在大词汇连续语音信号的识别中，传播所有令牌搜索代价依然十分庞大。为了减少计算代价，通常会利用基于集束搜索(beam search)剪枝方法。在这一方法中，所有$\phi_i(t)$低于$i$中最大概率减去一个阈值的令牌都会被移除，这一阈值也被称为集束(beam)宽度，剪枝也可以在加完语言模型之后进行。虽然beam搜索方法可以显著减少计算量，但是有可能在早期阶段利用了过窄的beam宽度而剪去了真正最优路径导致识别错误。所以，beam宽度设置需要在减少计算量和提升识别准确率之间进行均衡。
-
-语言分数和声学分数之间动态范围的区别也是需要考虑问题，通常会分别对声学分数和语言分数进行缩放。另外需对插入错误添加额外惩罚，从而均衡词错误率中的插入和删除错误比例，因而最终语音信号的识别中利用的准则是：
-\begin{equation}
-\mathbf{w}^* = \arg \max_{\mathbf{w} \in \mathcal{H}} \{\log p(\mathbf{O}|\mathbf{w}) + \alpha \log P(\mathbf{w}) + \beta L_{\mathbf{w}}\}
-\end{equation}
-这里$\alpha$是语言模型分数缩放系数，$\beta$是插入错误惩罚系数，$L_{\mathbf{w}}$是词序列长度。
-通常会选择最大概率路径作为识别结果，也可以输出一部分候选结果然后用更强的语言模型来重新评价（比如利用神经网络语言模型）。这一候选的路径一般利用N-best列表~\cite{schwartz1990n}或者利用能包含更多信息的词级词图(Word Graph/Word Lattice)~\cite{ortmanns1997word}。近些年来，基于加权有限状态机(Weighted Finite-State Transducer, WFST)~\cite{mohri2002weighted}的搜索解码器被愈加多的人采用，它的优点是可以将语言模型提前地融合成一个统一搜索网络，从而在解码时加快解码速度。
+语音识别系统可以分为关键词检测，孤立词识别，语法网络识别，大词汇连续语音识别和基于神经网络语音模型的大词汇连续语音识别。我们将在第~\ref{chap:intro2}章进一步探讨解码器的具体设计。
 
 \section{深度学习在语音识别中的应用}
+\label{chap:intro2-dl-asr}
 
 \subsection{深度学习与神经网络}
 \label{chap:intro2-dl}
@@ -502,6 +484,7 @@ $N$是最后一层输出维度。
 从公式\ref{eq:error_prop}中可以观察到，误差信号需要自顶层向下进行反向传播，因此该方法被称为误差反向传播算法。
 
 \subsubsection{小批量随机梯度下降}
+\label{sec:intro-sgd}
 深度神经网络采用梯度下降的方法进行优化，因此每一轮迭代都需要对一个批量(batch)训练样本计算梯度。批量大小的选择上通常海会同时影响收敛速度与模型的性能。
 
 最简单批量选择方法是去使用整个训练集，这种方法被称为批量训练(batch training)。它有如下优势：首先，批量训练的收敛性是众所周知的，其次，批量训练可以在多计算机之间并行。但由于每次参数更新都要遍历全部数据集~\cite{yu2010roles}，所以对大词汇语音识别任务而言，这是十分低效的。
@@ -612,7 +595,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 \section{基于深度学习的序列建模}
 \label{Sec:seq-tr-review}
 
-由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同定义方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (DSM) ，比如 CTC 或者 encoder-decoder 模型。 
+由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同定义方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (DSM) ，比如 CTC 或者 encoder-decoder 模型（将在下一章讨论）。 
 %序列鉴别性训练 for GSM is discussed in Section~\ref{Sec:sgm-sdt-intro} and DSM based 序列鉴别性训练 is discussed in Section~\ref{Sec:sdm-sdt-intro}.
  %while 序列鉴别性训练 in  CTC framework is considered in Section~\ref{Sec:kws-ctc}.
 
@@ -625,7 +608,15 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 \subsection{生成式序列模型和鉴别式序列模型}
 \label{Sec:sgm-and-sdm}
 在语音识别中一个独有并且有趣的自然现象是声学序列和语言学序列的长度可变性。
-序列模型正是被提出用来解决两个序列之间的关联性。大部分序列模型都包含一个用来对时序特性建模的部分, 比如GMM~\cite{woodland1994large} 和深度学习模型~\cite{hinton2012deep}用来对局部的声学特征进行建模，再加上一个对序列长度和转移进行建模的部分，比如HMM。近期提出的鉴别式序列模型, encoder-decoder~\cite{chan2016end}则尝试直接对序列建模而不是进行序列到逐帧的拆分。但在大部分语音识别研究中，性能和延迟在上述模型中都有一定限制。因此不参与本章节讨论。
+该任务中，在训练阶段，一组带有已知标签的输入特征被提供给系统进行模型构建；而测试阶段，则基于特征序列和其它知识源如语言模型和字典进行模型推理搜索。序列标注问题与传统模式识别框架的区别在于以下两个方面。
+
+\begin{itemize}
+\item 序列内数据的相关性。无论是特征序列，还是标签序列，序列中各数据点均不符合独立同分布（i.i.d.）假设。特征序列是由声道的连续运动而产生的。而标签序列则受到句法和语法规则、字典以及语言模型的约束。因此，特征和标签均为强相关序列。
+
+\item 标签和特征序列之间的相关性。ASR中，特征和标签之间的对齐方式是未知的，标签序列总是短于特征序列，即其主要问题在于由语速变化等导致的特征序列的可变长性。这就要求序列模型能够同时确定输出标签的位置和内容。
+\end{itemize}
+
+为了对上述序列相关性这一特征进行建模，人们提出了序列模型。大部分序列模型都包含一个用来对时序特性建模的部分, 比如GMM~\cite{woodland1994large} 和深度学习模型~\cite{hinton2012deep}用来对局部的声学特征进行建模，再加上一个对序列长度和转移进行建模的部分，比如HMM。近期提出的鉴别式序列模型, encoder-decoder~\cite{chan2016end}则尝试直接对序列建模而不是进行序列到逐帧的拆分。但在大部分语音识别研究中，性能和延迟在上述模型中都有一定限制。因此不参与本章节讨论。
 本章节所有的序列鉴别性训练方法均基于逐帧的分解方式。基于模型是对条件似然度或者后验概率进行建模的不同，概率模型通常可以分为生成式和鉴别式两种类型。值得注意的是在序列上或者在帧上，都可以使用生成式或者鉴别式进行分别建模，二者工作在不同层面上。
 比如目前通常使用的混合 NN-HMM 模型就是采用生成式序列模型和鉴别式帧分类器。
 在本章节中，我们主要关注序列模型。下文我们将比较模型结构和优化准则，在生成式和鉴别式序列模型中的异同。
@@ -659,6 +650,14 @@ $\mathbb{L}$ 表示 $\mathbf{L}$中所有的标签。 $q_s^{(l)}$ 表示第l个H
 
 
 
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/hmm-topo.png}
+    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
+\end{figure}
+
+
 {\em 鉴别式序列模型} 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模序列 $\mathbf{L}$的后验概率。 
 连接时序分类模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出标签之间的混淆部分。具体来说，这种模型会在两个标签$l_{i-1}$ 和 $l_{i}$之间预测出 $ \tt blank$ 建模单元。
 公式中的 $\mathcal{B}$ 是一个一对多的映射函数~\footnote{在最早文献~\cite{graves2006connectionist}中使用的公式定义为一个多对一的映射函数，同时使用它的反函数来定义 $\mathcal{B}^{-1}(\cdot)$ CTC模型中的映射。这里我们修改为一个一对多的映射函数，使公式与HMM中的定义更加一致。}:
@@ -668,7 +667,8 @@ $\mathbb{L}$ 表示 $\mathbf{L}$中所有的标签。 $q_s^{(l)}$ 表示第l个H
 \mathcal{B}:\mathbb{L}   \mapsto  \mathbb{L} \cup \{\tt blank\}
 \end{split}
 \end{equation}
-$\mathcal{B}$ 决定了标签序列 $\mathbf{L}$ 和它相应的由建模单元所组成的模型状态序列$\mathbf{q}$。 这一映射的做法是在每个组成 $\mathbf{L}$ 的$l$的标签中，插入一个可选的并且可重复的 $ \tt blank$ 标签。 $P(q_t|\mathbf{O})$是由深度学习模型直接根据给定的特征序列$\mathbf{O}$来估计得出的， 比如使用LSTM~\cite{hochreiter1997long}。 
+$\mathcal{B}$ 决定了标签序列 $\mathbf{L}$ 和它相应的由建模单元所组成的模型状态序列$\mathbf{q}$。 这一映射的做法是在每个组成 $\mathbf{L}$ 的$l$的标签中，插入一个可选的并且可重复的 $ \tt blank$ 标签。CTC的隐状态可以表示为图~\ref{fig:hmm-topo}(b)。
+ $P(q_t|\mathbf{O})$是由深度学习模型直接根据给定的特征序列$\mathbf{O}$来估计得出的， 比如使用LSTM~\cite{hochreiter1997long}。 
 当使用了序列鉴别性模型之后，序列鉴别性准则的优化形式就非常直接。
 
 %In summary, sequence models are used to model the temporal characteristics of the acoustic feature sequences. 
@@ -754,7 +754,14 @@ $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，
 \section{端到端语音识别中的深度序列模型}
 \label{chap:intro2-e2e}
 
+第\ref{chap:intro2-dl-asr}章节介绍的传统DNN-HMM模型核心在于将整体语音识别系统依据人类语言的先验知识进行模块化（modularization），而后分部分建模，再使用第\ref{Sec:seq-tr-review}章节中的序列鉴别性训练技术进行联合调优。这样的系统普遍存在两部分潜在缺点：
+\begin{itemize}
+    \item 模块化限制了序列建模能力。模块化依据人类语言学知识来进行建模步骤的划分，但往往这些先验知识并不一定反应真实的自然语言现象。而模块化通常假设各模块之间是条件独立的（比如语言模型只建模词语之间的概率，而与声学特征无关），那么错误的条件独立假设将会限制最终系统的性能。这些条件独立假设通常出现在人类语言的不同粒度上（比如音素、字词），因此上述性能的限制就具体体现在序列建模能力上。
+    \item 模块化使得系统构建步骤复杂。如第\ref{chap:intro-asr}章节所述，传统系统搭建步骤复杂，还需要大量人类数据科学家进行模型超参数调优。语音识别的广泛推广，使得对大量语言和大量工作场景的支持成为了迫切的需求，这就对系统搭建难度和速度提出了新的要求。同时语言学研究尚未深入涉及人类的大量语言，而DNN-HMM这类模块化系统较难在语言学知识缺失（比如音素集合缺失）的情况下被搭建。
+\end{itemize}
+
 得益于标注数据的增多和算力改善，深度学习模型取得了更强的分类能力。由此人们开始考虑直接使用深度序列模型对序列进行直接建模，以取得更好序列建模能力。如图~\ref{fig:e2e-idea}所示，原来传统系统中的tri-phone HMM状态建模可以直接被深度模型所取代，由此直接对音素序列进行建模。
+值得注意的是，根据上一章节中的分类，这类模型绝大部分为{\em 鉴别式序列模型}， 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模输出序列 $\mathbf{L}$的后验概率。 这里的$\mathbf{L}$不仅可以是上面提到的音素，也可以是字（grapheme or character），字母（letter），音节（syllable），或词语（word）。
 
 \begin{figure}[!htp]
   \centering
@@ -763,10 +770,20 @@ $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，
     \bicaption[fig:e2e-idea]{}{端到端系统举例}{Fig}{Motivation and Example of End-to-end Modeling}
 \end{figure}
 
-图~\ref{fig:e2e}给出了一系列端到端序列建模模型，下文中将逐一进行讨论。
+%图~\ref{fig:e2e}给出了一，
+下文中将逐一讨论各种端到端序列建模模型。
 
 \subsection{无词图鉴别性训练的模型}
 \label{chap:intro2-e2e-lfmmi}
+
+第\ref{Sec:seq-tr-review}章节所讨论的传统序列鉴别性训练系统是一种比较经典的序列建模方法，但存在几方面缺陷：
+\begin{itemize}
+\item 词图构建引入了一个额外的步骤，使得词图更新频度和词图质量需要进行额外的权衡。词图用于对搜索空间进行限制，因此较准确的方法是使用本次模块更新迭代之前的原始模型来生成词图，再依托该词图在进行模型更新迭代。但是每次生成词图需要联合语言模型进行语音识别解码，计算复杂度较大。因此传统序列建模方法通常会降低词图更新的频度以减少计算量。
+\item 逐句生成的词图导致序列建模过程中较难进行多句并行训练，而并行训练时目前最主流的加速模型训练的方式，训练速度的问题导致目前难以进行大规模的序列建模训练。因此传统DNN-HMM模型无法直接进行序列建模训练，而只能依托交叉熵训练作为初始化，然后使用少量数据或少量迭代来进行序列建模训练。
+\item 该框架基于一个预训练的种子模型，因此种子模型的质量一方面关系到目前流行的深度学习模型的最终优化结果，另一方面也影响标签序列逐帧强制对齐的精度，从而影响最终序列建模训练的结果。
+\end{itemize}
+除此之外，该方法依托传统DNN-HMM训练系统搭建，因此还存在前文讨论的模块化所带来的潜在缺点。
+
 
 无词图鉴别性训练({\em lattice-free maximum mutual information}， LF-MMI~\cite{povey2016purely,chen2006advances})是指使用一个预先剪枝过的音素语言模型来代替传统鉴别性训练中词图。
 该语言模型用于建模鉴别性训练中的搜索空间。
@@ -784,21 +801,21 @@ $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，
 $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$由HMM模型公式定义得到。 
 
 
-该方法与传统鉴别性训练不同之处在于： 
+该方法与传统鉴别性训练还有以下的不同之处：
 \begin{itemize}
 \item 在分母式子中所使用的标注序列 $\mathbf{L}_u$ 存在多种候选路径，这些候选路径来自于标注软对齐中对标签在一定窗宽内左右帧移。这里将所有可能的对齐路径都存储在分子词图中。
 \item 模拟搜索空间的分母语言模型 $P(\mathbf{L})$, $P(\mathbf{L}_u)$使用的是一个在训练标注文本中训练得到的音素语言模型。以这个模型来替代词图的使用。
-\item 一个专用HMM拓扑结构被专门提出，它包含有两个HMM状态。其中状态${\bf q}_2$ 用于模拟CTC中的$\tt blank$ 建模单元，同时其他状态来模拟输出标签单元。这里不同之处在于每个 tri-phone都维护一个它专有的$\tt blank$建模。
+\item 一个专用HMM拓扑结构被专门提出，它包含有两个HMM状态。其中状态${\bf q}_2$ 用于模拟CTC中的$\tt blank$ 建模单元，同时其他状态来模拟输出标签单元。这里不同之处在于每个 tri-phone都维护一个它专有的$\tt blank$建模。LF-MMI的隐状态可以表示为图~\ref{fig:hmm-topo}(c)。
 \item 输出帧率被降低了3倍。
 \end{itemize}
+\cite{povey2016purely}中的研究发现，经过上述的诸多修改之后，LF-MMI模型可以在无初始化情况下直接训练得到。而更多的研究显示，LF-MMI模型的搭建步骤还可以进一步简化~\cite{hadian2018end}。我们近期的一些初始研究表明，LF-MMI显示出了端到端系统的一些特性，比如可以直接对音素或字母进行建模。文献\cite{hadian2018end}将LF-MMI模型也归类为一种端到端模型。
 
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[clip=true, width=0.9\textwidth]{figure/e2e.png}
-    \bicaption[fig:e2e]{}{传统系统与端到端系统比较}{Fig}{Comparison of Various End-to-end Models}
-\end{figure}
+%\begin{figure}[!htp]
+%  \centering
+%    \captionstyle{\centering}
+%    \includegraphics[clip=true, width=0.7\textwidth]{figure/e2e.png}
+%    \bicaption[fig:e2e]{}{传统系统与端到端系统比较}{Fig}{Comparison of Various End-to-end Models}
+%\end{figure}
 
 
 \subsection{连接时序分类模型}
@@ -830,13 +847,12 @@ $\mathcal{B}$ 决定了标签序列 $\mathbf{L}$ 和它相应由建模单元所�
 \subsection{基于注意力机制序列到序列模型}
 \label{chap:intro2-e2e-s2s}
 
-另一类端到端模型称为序列到序列模型。下文讨论将以基于注意力机制的序列到序列模型~\cite{chan2016end}为主进行介绍，该类模型也是当前主要研究热点。
-该模型预测了在直接给定特征序列$\mathbf{x}$下的标签序列和之前已经预测出的标签历史序列$\mathbf{l}_{1:i-1}$后验概率。
+另一类端到端模型称为序列到序列模型。下文讨论将以基于注意力机制的序列到序列模型（encoder-decoder模型）~\cite{chan2016end}为主进行介绍，该类模型也是当前主要研究热点。
+该模型预测了在直接给定特征序列$\mathbf{O}$下的标签序列和之前已经预测出的标签历史序列$\mathbf{L}_{1:i-1}$后验概率。
 \begin{equation}
-\vspace{-0.6em}  
 \label{equ:enc-dec}
 \begin{split}
-P(\mathbf{l}|\mathbf{x})=\prod_i P(l_{i}|\mathbf{x},\mathbf{l}_{1:i-1})
+P(\mathbf{L}|\mathbf{O})=\prod_i P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})
 \end{split}
 \end{equation}
 %An attention mechanism weights  hidden vectors of the audio feature sequence to pick the most related hidden vectors for prediction at every step of the output sequence.
@@ -844,15 +860,15 @@ P(\mathbf{l}|\mathbf{x})=\prod_i P(l_{i}|\mathbf{x},\mathbf{l}_{1:i-1})
 %\vspace{-0.6em}
 \label{equ:enc-dec-hid}
 \begin{split}
-\mathbf{h}&=\text{Encoder}(\mathbf{x})\\
+\mathbf{H}&=\text{Encoder}(\mathbf{O})\\
 \end{split}
 \vspace{-0.3em}  
 \end{equation}
 \begin{equation}
 \label{equ:enc-dec-dec}
-P(l_{i}|\mathbf{x},\mathbf{l}_{1:i-1})=\text{AttentionDecoder}(\mathbf{h}, s_{i-1})
+P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})=\text{AttentionDecoder}(\mathbf{H}, s_{i-1})
 \end{equation}
-在公式中， $\mathbf{h}$表示编码器（encoder）网络的隐层状态。$\mathbf{s_{i-1}}$表示解码器（decoder）的上一输出相应隐层状态。$\text{Encoder}(\cdot)$ 通常是一个单向或者多向的LSTM网络，同时 $\text{AttentionDecoder}(\cdot)$ 通常是一个单向LSTM网络。 %\addcomment{this notation is not clear, does $\mathbf{x}$ mean all features in th sequence? why subscript for time in $\mathbf{l}$ but superscript for $\mathbf{s}$ }
+在公式中， $\mathbf{H}$表示编码器（encoder）网络的隐层状态。$\mathbf{s_{i-1}}$表示解码器（decoder）的上一输出相应隐层状态。$\text{Encoder}(\cdot)$ 通常是一个单向或者多向的LSTM网络，同时 $\text{AttentionDecoder}(\cdot)$ 通常是一个单向LSTM网络。 %\addcomment{this notation is not clear, does $\mathbf{x}$ mean all features in th sequence? why subscript for time in $\mathbf{l}$ but superscript for $\mathbf{s}$ }
 
 与传统混合系统~\cite{hinton2012deep}相比，该模型所使用的$\text{AttentionDecoder}(\cdot)$隐含地建模了语言模型信息，并将其与 $\text{Encoder}$所组成的声学模型进行联合训练。
 %
