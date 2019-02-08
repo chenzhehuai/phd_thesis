@@ -4,9 +4,7 @@
 \label{chap:seqtrain}
 
 语音识别是一种序列预测问题，在语音识别中一个独有并且有趣的自然现象是声学序列和语言学序列的长度可变性。
-序列模型正是被提出用来解决两个序列之间的关联性。
-依据序列的不同定义方式，目前有两种不同的序列鉴别性训练方法，一种针对生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对鉴别式序列模型 (DSM) ，比如 CTC 或者 encoder-decoder 模型。 
-在这些序列模型中，除了需要研究如何将各种基于深度学习的模型方法应用到逐帧分类当中，使用序列级的鉴别性训练准则来强化模型的序列分类能力，也被证明是取得业界最好的大词汇连续语音识别系统的关键。
+序列模型正是被提出用来解决两个序列之间的关联性。在这些序列模型中，除了需要研究如何将各种基于深度学习的模型方法应用到逐帧分类当中，使用序列级的鉴别性训练准则来强化模型的序列分类能力，也被证明是取得业界最好的大词汇连续语音识别系统的关键。
 
 
 序列建模方法通常只在训练LVCSR模型时进行使用，但针对其他非传统识别任务的序列建模研究并不充分，这包括：关键词检测任务和多说话人重叠语音信号识别任务等。这类任务仍然是序列预测问题，但是却没有合适的训练准则和相应的设计，来充分优化分类器的序列建模能力。因此这些领域近几年的进展主要仍然来自于深度学习本身所带来的更好的逐帧分类能力。
@@ -31,16 +29,16 @@ KWS可以被用于声学数据挖掘~\cite{zhou2005data}, 低资源的音频检�
 我们在第\ref{chap:intro-kws-dec}章节对关键词检测技术的分类和相应的声学建模方法进行了总结。
 %
 在声学关键词检测中，模型通常是进行逐帧分类的。目前研究趋势包括两方面：应用一个较强的逐帧分类器，比如深度学习模型，使最终系统带来性能提升~\cite{chen2014small,sainath2015convolutional}。 其次，语音识别本身是一个序列分类问题，传统的GMM-HMM系统在使用序列级准则，序列鉴别性训练时，往往能带来显著性能提升，比如discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, minimum classification error (MCE)~\cite{sandness2000keyword} 和 performance-related discriminative training~\cite{keshet2009discriminative}。
-在上述的鉴别性训练中，对对识别可能性的建模，即完整的搜索空间的建模是成功的关键。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
+在上述的鉴别性训练中，对识别可能路径的建模，即完整的搜索空间的建模是成功的关键。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
 对领域外的搜素空间建模并不容易直接得到的问题限制了序列鉴别性训练在关键词检测中的广泛应用。
-特别是在非固定关键词的关键词检测, 所以可能的竞争可能性通常无法被穷举，同时这种可能性的产生过程在使用LVCSR框架进行的时候~\cite{povey2005discriminative}非常耗时。 
+特别是在非固定关键词的关键词检测, 所以可能的竞争可能路径通常无法被穷举，同时这种可能路径的产生过程在使用LVCSR框架进行的时候~\cite{povey2005discriminative}非常耗时。 
 %combination of both hasn't been carefully 
 
 %Neural networks (NNs) for speech recognition are typically trained to classify individual frames based on a cross-entropy criterion (section 2.1).
 在这篇文章中，我们为深度学习的 声学非固定关键词的关键词检测设计了相应的序列鉴别性训练方法。针对如何对序列概率进行定义，可分为序列条件似然度和序列后验概率，这包括两种序列模型： {\em 生成式序列模型} (GSM)，比如HMM, 和 {\em 鉴别式序列模型} (DSM)，比如 CTC。
 对于GSM，序列鉴别性训练需要在序列上使用贝叶斯公式来通过序列条件似然度得到后验概率；而DSM则可以直接使用序列后验概率。
 
-对这两种框架，竞争可能性的建模都是核心难题。
+对这两种框架，竞争可能路径的建模都是核心难题。
 本章节提出两种方法来解决这一问题：隐性使用音素或半词单元的语言模型来建模，或者显性加入非关键词的标签。
 %proposed KWS 
 %Both frameworks are improved in the paper. 
@@ -51,7 +49,7 @@ KWS可以被用于声学数据挖掘~\cite{zhou2005data}, 低资源的音频检�
 
 本章节的主要贡献包括：
 i) 针对生成式序列模型和鉴别式序列模型的序列鉴别性训练的第一个系统研究工作
-ii) 提出了一些新颖的办法来构建声学KWS的竞争可能性，以用于鉴别性训练。这些方法显著提升了关键词检测系统的性能。
+ii) 提出了一些新颖的办法来构建声学KWS的竞争可能路径，以用于鉴别性训练。这些方法显著提升了关键词检测系统的性能。
 iii) 基于 LSD框架提出了高效的后处理方法，以便对音素混淆性进行建模。
 
 
@@ -59,7 +57,7 @@ iii) 基于 LSD框架提出了高效的后处理方法，以便对音素混淆�
 \subsection{关键词检测中传统序列建模方法的缺陷}
 
 序列建模方法在语音识别中的应用如第~\ref{Sec:seq-tr-review}章所述。
-而在声学KWS方法中，只有关键词序列被定义，而非关键词的竞争序列还未知。针对生成式序列模型 (GSM) ，基于似然度比值的可能性测试框架~\cite{sukkar1996utterance} 被提出以进行鉴别性训练，这里对其他竞争序列的似然度进行了惩罚。而这部分被惩罚的似然度使用两种单元进行建模： $\tt filler$ 模型, 建模非关键词的$p(\mathbf{O}_u|\Phi)$, 建模错误识别词的 $p(\mathbf{O}_u|\Psi)$ 。 与公式~(\ref{equ:lvcsr-mmi})相比，关键词序列的  $p(\mathbf{O}_u|\mathbf{W}_u)$ 可以被忽略，而对数边缘概率则被定义如下，
+而在声学KWS方法中，只有关键词序列被定义，而非关键词的竞争序列还未知。针对生成式序列模型 (GSM) ，基于似然度比值的可能路径测试框架~\cite{sukkar1996utterance} 被提出以进行鉴别性训练，这里对其他竞争序列的似然度进行了惩罚。而这部分被惩罚的似然度使用两种单元进行建模： $\tt filler$ 模型, 建模非关键词的$p(\mathbf{O}_u|\Phi)$, 建模错误识别词的 $p(\mathbf{O}_u|\Psi)$ 。 与公式~(\ref{equ:lvcsr-mmi})相比，关键词序列的  $p(\mathbf{O}_u|\mathbf{W}_u)$ 可以被忽略，而对数边缘概率则被定义如下，
 \begin{equation}
 \label{equ:wbmve-po}
 \begin{split}
@@ -91,14 +89,7 @@ iii) 基于 LSD框架提出了高效的后处理方法，以便对音素混淆�
 $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$ 由公式~(\ref{equ:hmm-model_2})得到。 
 
 
-该方法与传统鉴别性训练不同之处在于： 
-\begin{itemize}
-\item 在分母式子中所使用的标注序列 $\mathbf{L}_u$ 存在多种候选路径，这些候选路径来自于标注软对齐中对标签在一定窗宽内的左右帧移。这里将所有可能的对齐路径都存储在分子词图中。
-\item 模拟搜索空间的分母语言模型 $P(\mathbf{L})$, $P(\mathbf{L}_u)$是使用一个在训练标注文本中训练得到的音素语言模型。
-\item 一个专用的HMM拓扑结构被专门提出，它包含有两个HMM状态。其中状态${\bf q}_2$ 用于模拟CTC中的$\tt blank$ 建模单元，同时其他状态来模拟输出标签单元。这里的不同之处在于每个 tri-phone都维护一个它专有的$\tt blank$建模。
-\item 输出帧率被降低了3倍。
-\end{itemize}
-
+我们在第\ref{chap:intro2-e2e-lfmmi}章节总结了该方法与传统鉴别性训练的不同之处。
 
 %iv) the cross-entropy regularization is applied with moderately larger weight in the cross-entropy. The reason is that the sub-word level language model is unavailable in test stage. Empirically the model should balance between sequence level and frame level criteria.
 %regu is similar but MTL-ce  
@@ -109,8 +100,7 @@ $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$ 由公式~(\ref{
 i) 我们使用音素而不是tri-phone作为建模单元。
 % to improve model inference efficiency. 
 首先是在测试阶段，效率将会得到改善；其次是这样会使得后文将讨论的 $\tt filler$ 构建显著简化。
-ii) HMM的拓扑结构如图~\ref{fig:hmm-topo}(d-e)所示进行了修改,
-本文将图\ref{fig:hmm-topo}（d-e）所示的几种改进的HMM拓扑结构应用在了GSM中。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
+ii) HMM的拓扑结构，在第\ref{Sec:sgm-and-sdm}章节介绍的基础上，如图~\ref{fig:hmm-topo}(c-e)所示进行了修改。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
 在实验部分我们将详细比较这些拓扑结构~\ref{Sec:exp-model-arch}。
 
 %similarlly b-mmi
@@ -262,7 +252,7 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于CTC词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
 
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
-图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。再一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
+图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
 
 \begin{figure}[!htp]
   \centering
@@ -271,10 +261,10 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
     \bicaption[fig:med-framework]{MED方法框架}{MED方法框架。这里使用音素CTC作为例子}{Fig}{The framework of MED based method. Phone based CTC is taken as an example.}
 \end{figure}
 
-\subsubsection{序列鉴别性训练在HMM和CTC框架中的比较}
+\subsection{序列鉴别性训练在HMM和CTC框架中的比较}
 \label{Sec:disc-and-ctc}
 
-本文中， 序列鉴别性训练被分为两种序列模型而进行: 生成式序列模型 和 鉴别式序列模型。在开始实验部分之前，我们先对两种做法进行一些综合比较：
+本文中， 序列鉴别性训练被分为两种序列模型而进行: 生成式序列模型 和 鉴别式序列模型。我们对两种做法进行一些综合比较：
 
 \begin{itemize}
   \item {\em 生成和鉴别式序列模型}。 在HMM中，需要采用贝叶斯公式将序列状态转移概率和深度学习所估计的后验概率结合起来。在CTC中，给定特征序列后的标签序列的后验概率则直接由深度学习模型进行建模。
@@ -381,8 +371,8 @@ KLD(P({l}_{utn}^{(c)}|\mathbf{O}_{un}^{(r)}),P({l}_{utn}^{(s')}|\mathbf{O}_{u}^{
 本章节我们提出了一种传统鉴别性训练技术变种，它在进行鉴别性训练的同时，也抑制输出通道上说话人跟踪错误。
 
 语音识别是一种序列分类和预测问题。因此在单输出语音识别中，序列级的准则将有助于改善系统性能。
-而在鸡尾酒会问题中，对于单通道多说话人混叠语音识别系统，则又包含了说话人跟踪问题，也属于序列级问题。因此序列鉴别性准则将有助于这样序列分类问题。
-在单输出语音识别中，我们使用如下公式对序列后验概率进行建模，
+而在鸡尾酒会问题中，对于单通道多说话人混叠语音识别系统，则又包含了说话人跟踪问题，也属于序列级问题。因此序列鉴别性准则将有助于这样的序列分类问题。
+在单输出语音识别中，等效于公式(\ref{equ:map-dec})，我们使用如下公式对序列后验概率进行建模，
 
 %ASR can be formulated as a {\em{maximum a posterior}} (MAP) decision process to integrate sequence level criteria to the training of the acoustic model. 
   
@@ -421,7 +411,7 @@ $p(\mathbf{O}_u|\mathbf{L}_u)$ 是相应声学模型概率。
 非固定关键词的关键词检测 (语料库检索 任务), 和固定关键词的关键词检测（唤醒词识别 任务）都在实验部分进行了考察。所有实验都是在声学KWS上进行。
 
 
-多说话人重叠语音信号识别任务在Switchboard数据集的人工混叠集合上进行，我们以排列不变性训练作为该任务下的基线系统，并分别验证了前文所提出的联合优化，迁移学习，序列鉴别性训练等方式。
+多说话人重叠语音信号识别任务在Switchboard数据集的人工混叠集合上进行，排列不变性训练是当前主流的建模方法之一，我们以排列不变性训练~\ref{yu2017recognizing}作为该任务下的基线系统，并分别验证了前文所提出的联合优化，迁移学习，序列鉴别性训练等方式。
 
 %\subsection{非固定关键词的关键词检测 task}
 %\label{Sec:}
@@ -850,7 +840,7 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
   }
 \end{table}
 
-PIT-ASR 模型~\cite{yu2017recognizing}, 表示为 PIT-CE, 被作为联合训练方式的基线系统，在第一行中。 
+PIT-ASR 模型~\cite{yu2017recognizing}在第一行中, 表示为 PIT-CE, 被作为联合训练方式的基线系统。 
 本文提出的逐步联合训练方法在第二行中，是一个更好的通过分部分微调结合起来得到的联合训练系统。本文提出的基于自迁移学习的联合训练模型显示出了额外的非常显著的性能改善，显示在第三和第四行中。最后，多输出的序列鉴别性训练被进一步应用到上述系统中，并取得了额外的改善，即使教师模型已经是一个基于MMI序列鉴别性准则训练的模型，这与~\cite{7913606}中观察到的现象类似。
 图~\ref{fig:example}中给出了一些本文提出的系统所得到的解码例子，以及其相对应的PIT基线系统的例子。基线系统包含了很多模型泛化能力差所带来的错误。通过所提出的方法，错误得到了显著的减少。注意到在这个例子中，本章提出的基于自迁移学习的联合训练方法主要减少了相似发音之间的错误识别，而序列鉴别性训练则主要减少一些明显的语法和语言学错误，这些现象符合我们对两种训练方法的预期，也显示了它们可以被结合在一起。
 

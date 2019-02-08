@@ -44,9 +44,9 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4--1}{\ignorespaces 基于 $\tt filler$ 解码的搜索空间结构图}}{75}{figure.4.1}
+\contentsline {figure}{\numberline {4--1}{\ignorespaces 基于 $\tt filler$ 解码的搜索空间结构图}}{74}{figure.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4--2}{\ignorespaces MED方法框架}}{76}{figure.4.2}
+\contentsline {figure}{\numberline {4--2}{\ignorespaces MED方法框架}}{75}{figure.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4--3}{\ignorespaces PIT-ASR 联合训练与模块化初始化和逐步联合训练比较}}{78}{figure.4.3}
 \defcounter {refsection}{0}\relax 
@@ -56,47 +56,47 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4--6}{\ignorespaces 原始联合训练和所提出的方法在验证集上学习曲线比较}}{81}{figure.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4--7}{\ignorespaces 非固定关键词的关键词检测的ROC 曲线比较}}{87}{figure.4.7}
+\contentsline {figure}{\numberline {4--7}{\ignorespaces 非固定关键词的关键词检测的ROC 曲线比较}}{86}{figure.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4--8}{\ignorespaces 50 小时数据集的解码例子}}{92}{figure.4.8}
-\defcounter {refsection}{0}\relax 
-\addvspace {10.0pt}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--1}{\ignorespaces 并行维特比束剪枝算法以及精确词图处理系统的框架}}{96}{figure.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--2}{\ignorespaces 一个针对动态负载均衡的例子}}{99}{figure.5.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--3}{\ignorespaces 语言模型大小，帧率，GPU架构的比较}}{104}{figure.5.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5--4}{\ignorespaces 针对解码器的时间占比分析}}{105}{figure.5.4}
+\contentsline {figure}{\numberline {4--8}{\ignorespaces 50 小时数据集的解码例子}}{91}{figure.4.8}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--1}{\ignorespaces HMM，CTC的模型输出分布示例}}{109}{figure.6.1}
+\contentsline {figure}{\numberline {5--1}{\ignorespaces 并行维特比束剪枝算法以及精确词图处理系统的框架}}{94}{figure.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--2}{\ignorespaces LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势}}{116}{figure.6.2}
+\contentsline {figure}{\numberline {5--2}{\ignorespaces 一个针对动态负载均衡的例子}}{97}{figure.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--3}{\ignorespaces swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}}{117}{figure.6.3}
+\contentsline {figure}{\numberline {5--3}{\ignorespaces 语言模型大小，帧率，GPU架构的比较}}{102}{figure.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--4}{\ignorespaces LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}}{119}{figure.6.4}
+\contentsline {figure}{\numberline {5--4}{\ignorespaces 针对解码器的时间占比分析}}{103}{figure.5.4}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--1}{\ignorespaces LSD CTC Lattice的例子}}{125}{figure.7.1}
+\contentsline {figure}{\numberline {6--1}{\ignorespaces HMM，CTC的模型输出分布示例}}{107}{figure.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--2}{\ignorespaces FSD HMM 和 LSD CTC所产生的词图比较}}{126}{figure.7.2}
+\contentsline {figure}{\numberline {6--2}{\ignorespaces LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势}}{114}{figure.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--3}{\ignorespaces 不同语音识别任务的架构比较}}{130}{figure.7.3}
+\contentsline {figure}{\numberline {6--3}{\ignorespaces swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}}{115}{figure.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--4}{\ignorespaces 模块化训练策略的框架}}{132}{figure.7.4}
+\contentsline {figure}{\numberline {6--4}{\ignorespaces LF-MMI中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}}{117}{figure.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--5}{\ignorespaces OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}{135}{figure.7.5}
+\addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--6}{\ignorespaces 词图密度 v.s. 相对 OWER下降比例}}{136}{figure.7.6}
+\contentsline {figure}{\numberline {7--1}{\ignorespaces LSD CTC Lattice的例子}}{123}{figure.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--7}{\ignorespaces LSD和FSD的词边界稳定性}}{137}{figure.7.7}
+\contentsline {figure}{\numberline {7--2}{\ignorespaces FSD HMM 和 LSD CTC所产生的词图比较}}{124}{figure.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--8}{\ignorespaces 词图密度 v.s. 混淆网络深度}}{137}{figure.7.8}
+\contentsline {figure}{\numberline {7--3}{\ignorespaces 不同语音识别任务的架构比较}}{128}{figure.7.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--4}{\ignorespaces 模块化训练策略的框架}}{130}{figure.7.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--5}{\ignorespaces OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}{133}{figure.7.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--6}{\ignorespaces 词图密度 v.s. 相对 OWER下降比例}}{134}{figure.7.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--7}{\ignorespaces LSD和FSD的词边界稳定性}}{135}{figure.7.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7--8}{\ignorespaces 词图密度 v.s. 混淆网络深度}}{135}{figure.7.8}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
