@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  7 FEB 2019 21:51
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  8 FEB 2019 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2456,9 +2456,6 @@ File: figure/hmm-topo.png Graphic file (type bmp)
 [36] [37] [38]
 File: figure/e2e-idea.png Graphic file (type bmp)
 <figure/e2e-idea.png>
-
-Underfull \vbox (badness 1248) has occurred while \output is active []
-
 [39] [40] [41] [42]) [43]
 \openout2 = `tex/intro2.aux'.
 
@@ -2468,10 +2465,7 @@ Underfull \vbox (badness 1248) has occurred while \output is active []
 
 ]
 第三章
-[45] [46] [47]
-Underfull \vbox (badness 6910) has occurred while \output is active []
-
-[48] [49]
+[45] [46] [47] [48] [49]
 Underfull \vbox (badness 7522) has occurred while \output is active []
 
 [50]
@@ -2492,7 +2486,7 @@ File: figure/dec_arch.png Graphic file (type bmp)
 <figure/dec_arch.png>
 [56] [57] [58] [59] [60]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 450.
+put line 458.
 
 Underfull \vbox (badness 3128) has occurred while \output is active []
 
@@ -2518,11 +2512,11 @@ File: figure/filler-graph.png Graphic file (type bmp)
 <figure/filler-graph.png>
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 215.
+(Font)              size <10.95> substituted on input line 216.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 215.
+(Font)              size <10.95> substituted on input line 216.
 
 [74] [75]
 File: figure/kws-framework.eps Graphic file (type eps)
@@ -2534,7 +2528,7 @@ File: figure/modules.pdf Graphic file (type pdf)
 File: figure/sys-framework.png Graphic file (type bmp)
 <figure/sys-framework.png>
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 338--340
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 339--341
  [][] 
  []
 
@@ -2543,22 +2537,22 @@ File: figure/joint-tr.pdf Graphic file (type pdf)
 File: figure/tr-curve.pdf Graphic file (type pdf)
 <use figure/tr-curve.pdf>
 [79] [80] [81] [82] [83] [84]
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 660--660
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 661--661
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 660--660
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 661--661
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 660--660
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 661--661
 []|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 660--660
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 661--661
 []|\TU/texgyretermes(0)/m/n/12.045 0.8M|  
  []
 
@@ -2759,7 +2753,7 @@ File: figure/bound-stable.png Graphic file (type bmp)
 File: figure/latden-cndepth.png Graphic file (type bmp)
 <figure/latden-cndepth.png>
 [136] [137] [138] [139] [140]
-Underfull \hbox (badness 10000) in paragraph at lines 702--702
+Underfull \hbox (badness 10000) in paragraph at lines 703--703
 []|\TU/texgyretermes(0)/m/n/12.045 PER/WER
  []
 
@@ -2869,12 +2863,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37531 strings out of 492970
- 759092 string characters out of 6137298
- 1288813 words of memory out of 5000000
- 40838 multiletter control sequences out of 15000+600000
+ 37534 strings out of 492970
+ 759140 string characters out of 6137298
+ 1288926 words of memory out of 5000000
+ 40841 multiletter control sequences out of 15000+600000
  552344 words of font info for 163 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (195 pages, 2892552 bytes).
+Output written on thesis.xdv (195 pages, 2893628 bytes).

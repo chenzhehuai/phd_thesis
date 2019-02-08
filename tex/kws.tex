@@ -1,6 +1,7 @@
 
 
 \chapter{非传统识别任务的序列建模}
+\label{chap:seqtrain}
 
 语音识别是一种序列预测问题，在语音识别中一个独有并且有趣的自然现象是声学序列和语言学序列的长度可变性。
 序列模型正是被提出用来解决两个序列之间的关联性。
@@ -36,7 +37,7 @@ KWS可以被用于声学数据挖掘~\cite{zhou2005data}, 低资源的音频检�
 %combination of both hasn't been carefully 
 
 %Neural networks (NNs) for speech recognition are typically trained to classify individual frames based on a cross-entropy criterion (section 2.1).
-在这篇文章中，我们为深度学习的 声学非固定关键词的关键词检测设计了相应的序列鉴别性训练方法。关于如何对序列概率进行定义，可分为序列条件似然度和序列后验概率，这包括两种序列模型： {\em 生成式序列模型} (GSM)，比如HMM, 和 {\em 鉴别式序列模型} (DSM)，比如 CTC。
+在这篇文章中，我们为深度学习的 声学非固定关键词的关键词检测设计了相应的序列鉴别性训练方法。针对如何对序列概率进行定义，可分为序列条件似然度和序列后验概率，这包括两种序列模型： {\em 生成式序列模型} (GSM)，比如HMM, 和 {\em 鉴别式序列模型} (DSM)，比如 CTC。
 对于GSM，序列鉴别性训练需要在序列上使用贝叶斯公式来通过序列条件似然度得到后验概率；而DSM则可以直接使用序列后验概率。
 
 对这两种框架，竞争可能性的建模都是核心难题。

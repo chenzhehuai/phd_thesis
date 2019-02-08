@@ -595,7 +595,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 \section{基于深度学习的序列建模}
 \label{Sec:seq-tr-review}
 
-由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同定义方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (DSM) ，比如 CTC 或者 encoder-decoder 模型（将在下一章讨论）。 
+由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同定义方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (DSM) ，比如 CTC。Encoder-decoder 模型也是一类鉴别式序列模型，我们将在第\ref{chap:intro2-e2e}章节讨论。 
 %序列鉴别性训练 for GSM is discussed in Section~\ref{Sec:sgm-sdt-intro} and DSM based 序列鉴别性训练 is discussed in Section~\ref{Sec:sdm-sdt-intro}.
  %while 序列鉴别性训练 in  CTC framework is considered in Section~\ref{Sec:kws-ctc}.
 
@@ -687,7 +687,7 @@ P(\mathbf{W}_u|\mathbf{O}_u)=\frac {p(\mathbf{O}_u|\mathbf{W}_u)P(\mathbf{W}_u)}
 %y_{ut}(s^{(r)}_{ut})
 \end{split}
 \end{equation}
-公式中$\mathbf{W}_u$ 是句子 $u$ 对应的词序列。 $P(\mathbf{W}_u)$ 是语言模型概率。在语音识别中，$P(\mathbf{W}_u)$ 被定义为关键词和非关键词序列的先验概率。
+公式中$\mathbf{W}_u$ 是句子 $u$ 对应的词序列。 在语音识别中，$P(\mathbf{W}_u)$ 是语言模型概率。在关键词检测任务中，$P(\mathbf{W}_u)$ 则可以被定义为关键词和非关键词序列的先验概率。
 $p(\mathbf{O}|\mathbf{W})$ 是相应的声学部分，由下式得到。
 %INTRO: W relation with L
 \begin{equation}
@@ -718,7 +718,7 @@ p(\mathbf{O}_u)=\sum_\mathbf{W} p(\mathbf{O}_u,\mathbf{W})= \sum_\mathbf{W} P(\m
 =\sum_{u} \log \frac {p(\mathbf{O}_u|\mathbf{W}_u)^{\kappa}P(\mathbf{W}_u)}{\sum_{\mathbf{W}} p(\mathbf{O}_u|\mathbf{W})^{\kappa}P(\mathbf{W})}  
 \end{split}
 \end{equation}
-公式中的分布 $P(\mathbf{W}_u|\mathbf{O}_u)$, 在 (\ref{equ:map-dec})中, 由一个常量 $\kappa$ 进行调节。 %$\mathbf{S}$ and $\mathbf{S}_u$ is the acoustic model state sequences corresponding to $\mathbf{W}$ and $\mathbf{W}_u$ respectively. 
+公式中的分布 $P(\mathbf{W}_u|\mathbf{O}_u)$, 在 (\ref{equ:map-dec})中定义, 并被添加了一个常量 $\kappa$ 进行语言模型的权重调节。 %$\mathbf{S}$ and $\mathbf{S}_u$ is the acoustic model state sequences corresponding to $\mathbf{W}$ and $\mathbf{W}_u$ respectively. 
 在公式(\ref{equ:lvcsr-mmi})中给定了序列后验概率表达式, 而其他一些序列鉴别性训练准则则是由贝叶斯风险框架推导得到的，将在接下来的章节中进行讨论~\ref{Sec:lfmmi-train}。
 
 
@@ -733,9 +733,7 @@ p(\mathbf{O}_u)=\sum_\mathbf{W} p(\mathbf{O}_u,\mathbf{W})= \sum_\mathbf{W} P(\m
 %discriminate KW or discriminate KW \& filler, but filler is imperfect
 
 {\em{鉴别式序列模型}} 是直接对序列后验概率进行估计的一类模型，如公式 (\ref{equ:ctc-model})所示。
-连接时序分类模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}。
-在~\cite{fernandez2007application}中, CTC被应用到KWS中。
-CTC的输出被定义为所有可能的关键词序列 $\mathbf{W}$的后验概率。其目标函数是:
+连接时序分类模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}，其目标函数为，
 \begin{equation}
 \label{equ:ctc-formu}
 \begin{split}
@@ -744,7 +742,11 @@ CTC的输出被定义为所有可能的关键词序列 $\mathbf{W}$的后验概�
 \end{split}
 \end{equation}
 公式中 $\mathbf{L}$ 是CTC模型的标签序列，比如半词或者音素序列等。
-在声学KWS中，没有引入语言模型。 $P(\mathbf{W}_u|\mathbf{L})$ 是一个确定性的由词典到关键词序列的映射。
+语音识别中，CTC通常被用来建模半词或者音素序列等。
+在~\cite{fernandez2007application}中, CTC被应用到KWS中，
+其输出也可以被定义为所有可能的关键词序列 $\mathbf{W}$的后验概率。
+在语音识别中，$P(\mathbf{W}_u|\mathbf{L})$ 由语言模型和词典给出。
+在声学KWS中，没有引入语言模型，$P(\mathbf{W}_u|\mathbf{L})$ 是一个确定性的由词典到关键词序列的映射。
 $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，并分解到每一帧如公式 (\ref{equ:ctc-model})所示。
 注意到一个额外的$\tt blank$ 单元被引入到逐帧的公式 (\ref{equ:ctc-model})中以建模语音信号的混淆区段。
 %
@@ -779,7 +781,7 @@ $P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，
 第\ref{Sec:seq-tr-review}章节所讨论的传统序列鉴别性训练系统是一种比较经典的序列建模方法，但存在几方面缺陷：
 \begin{itemize}
 \item 词图构建引入了一个额外的步骤，使得词图更新频度和词图质量需要进行额外的权衡。词图用于对搜索空间进行限制，因此较准确的方法是使用本次模块更新迭代之前的原始模型来生成词图，再依托该词图在进行模型更新迭代。但是每次生成词图需要联合语言模型进行语音识别解码，计算复杂度较大。因此传统序列建模方法通常会降低词图更新的频度以减少计算量。
-\item 逐句生成的词图导致序列建模过程中较难进行多句并行训练，而并行训练时目前最主流的加速模型训练的方式，训练速度的问题导致目前难以进行大规模的序列建模训练。因此传统DNN-HMM模型无法直接进行序列建模训练，而只能依托交叉熵训练作为初始化，然后使用少量数据或少量迭代来进行序列建模训练。
+\item 逐句生成的词图导致序列建模过程中较难进行多句并行训练，而并行训练是目前最主流的加速模型训练的方式，训练速度的问题导致目前难以进行大规模的序列建模训练。因此传统DNN-HMM模型无法直接进行序列建模训练，而只能依托交叉熵训练作为初始化，然后使用少量数据或少量迭代来进行序列建模训练。
 \item 该框架基于一个预训练的种子模型，因此种子模型的质量一方面关系到目前流行的深度学习模型的最终优化结果，另一方面也影响标签序列逐帧强制对齐的精度，从而影响最终序列建模训练的结果。
 \end{itemize}
 除此之外，该方法依托传统DNN-HMM训练系统搭建，因此还存在前文讨论的模块化所带来的潜在缺点。
@@ -885,4 +887,4 @@ P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})=\text{AttentionDecoder}(\mathbf{H}, s_{i-
 在这章中我们简要介绍了语音信号的识别的基本内容，首先讨论了特征提取，包括MFCC，PLP，FBANK等三种语音信号的识别中常用特征；接着介绍了语音信号的识别中最成功的声学模型——HMM以及利用最大似然估计和序列鉴别性准则来优化HMM模型；继而讨论了现实语音信号的识别系统中的声学单元和参数绑定；最后讨论了N元语言模型和Viterbi解码等内容。
 
 紧接着我们回顾了语音识别中最常用神经网络结构，主要包括深度神经网络、卷积神经网络、循环神经网络。接着探讨了神经网络的训练方法，包括训练准则、反向传播算法以及一些实际优化细节。随后回顾了深度神经网络-隐马尔可夫模型混合系统，这是目前语音识别领域最有效的将DNN与HMM结合的办法。
-接着引出了目前研究的热点，即端到端语音识别系统。我们系统介绍了端到端建模各个变种，它们的特点及优势，为之后几章改进和推理搜索框架研究进行了铺垫。最后我们介绍了基于深度序列模型的鲁棒语音识别及其在鸡尾酒会问题中几项研究。
+接着引出了目前研究的热点，即端到端语音识别系统。我们系统介绍了端到端建模各个变种，它们的特点及优势，为之后几章改进和推理搜索框架研究进行了铺垫。
