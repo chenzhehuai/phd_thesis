@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  8 FEB 2019 22:51
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  12 FEB 2019 09:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2352,34 +2352,34 @@ File: pdf/authorization.pdf Graphic file (type pdf)
 
 
 
-] [2]) [3
+]
+Underfull \vbox (badness 3179) has occurred while \output is active []
 
-] [4
+[2] [3] [4
+
+]) [5] [6
 
 
-] (./thesis.toc [5] [6] [7])
+] (./thesis.toc [7] [8] [9])
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
-[8] (./thesis.lof [9
+[10] (./thesis.lof [11
 
 ])
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
-[10] (./thesis.lot)
+[12] (./thesis.lot)
 \tf@lot=\write8
 \openout8 = `thesis.lot'.
 
-[11
+[13
 
-]
+] [14]
 \openout2 = `tex/symbol.aux'.
 
-(./tex/symbol.tex [12
-
-
-]
+(./tex/symbol.tex
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 19.
@@ -2388,7 +2388,10 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 19.
 
-[13]) [14]
+[15
+
+
+]) [16]
 \openout2 = `tex/intro0.aux'.
 
 (./tex/intro0.tex
@@ -2402,21 +2405,27 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
 File: figure/WER.png Graphic file (type bmp)
 <figure/WER.png>
 
-Underfull \vbox (badness 7522) has occurred while \output is active []
+Underfull \vbox (badness 3179) has occurred while \output is active []
 
-[2] [3]
+[2]
+Underfull \vbox (badness 2564) has occurred while \output is active []
+
+[3]
 File: figure/asr.png Graphic file (type bmp)
 <figure/asr.png>
-[4] [5] [6] [7] [8]) [9]
+[4] [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[6] [7] [8] [9]) [10]
 \openout2 = `tex/intro.aux'.
 
-(./tex/intro.tex [10
-
-
-
-]
+(./tex/intro.tex
 第二章
-[11] [12] [13]
+[11
+
+
+
+] [12] [13]
 File: figure/state.png Graphic file (type bmp)
 <figure/state.png>
 [14]
@@ -2438,150 +2447,140 @@ cript=latn;language=DFLT;mapping=tex-text;!
 [18] [19] [20] [21]
 File: figure/dnn.png Graphic file (type bmp)
 <figure/dnn.png>
-[22]
+[22] [23]
 File: figure/activation.png Graphic file (type bmp)
 <figure/activation.png>
-[23] [24]
+[24]
 File: figure/cnn.png Graphic file (type bmp)
 <figure/cnn.png>
-[25] [26] [27] [28] [29] [30]
+[25] [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[27] [28] [29] [30]
 File: figure/RBM.png Graphic file (type bmp)
 <figure/RBM.png>
-[31] [32]
+[31]
 File: figure/dnn_hmm.png Graphic file (type bmp)
 <figure/dnn_hmm.png>
-[33] [34] [35]
+[32] [33] [34] [35]
 File: figure/hmm-topo.png Graphic file (type bmp)
 <figure/hmm-topo.png>
-[36] [37] [38]
+
+Underfull \vbox (badness 1297) has occurred while \output is active []
+
+[36] [37]
 File: figure/e2e-idea.png Graphic file (type bmp)
 <figure/e2e-idea.png>
-[39] [40] [41] [42]) [43]
+[38] [39] [40] [41]) [42]
 \openout2 = `tex/intro2.aux'.
 
-(./tex/intro2.tex [44
+(./tex/intro2.tex
+第三章
+[43
 
 
 
 ]
-第三章
-[45] [46] [47] [48] [49]
-Underfull \vbox (badness 7522) has occurred while \output is active []
 
-[50]
+LaTeX Warning: Reference `sec:calc_like' on page 44 undefined on input line 62.
+
+
+[44] [45] [46] [47] [48]
 File: figure/ug.png Graphic file (type bmp)
 <figure/ug.png>
 File: figure/bg.png Graphic file (type bmp)
 <figure/bg.png>
 File: figure/xwrdbg.png Graphic file (type bmp)
 <figure/xwrdbg.png>
-[51] [52]
+[49] [50]
 File: figure/tg.png Graphic file (type bmp)
 <figure/tg.png>
-
-Underfull \vbox (badness 2680) has occurred while \output is active []
-
-[53] [54] [55]
+[51] [52] [53]
 File: figure/dec_arch.png Graphic file (type bmp)
 <figure/dec_arch.png>
-[56] [57] [58] [59] [60]
+
+Underfull \vbox (badness 2547) has occurred while \output is active []
+
+[54]
+Underfull \vbox (badness 1072) has occurred while \output is active []
+
+[55] [56] [57] [58]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 458.
 
 Underfull \vbox (badness 3128) has occurred while \output is active []
 
-[61]
+[59]
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
+[60]
 File: figure/lattice.png Graphic file (type bmp)
 <figure/lattice.png>
-[62] [63] [64] [65] [66]) [67]
+[61] [62] [63] [64]) [65]
 \openout2 = `tex/kws.aux'.
 
-(./tex/kws.tex [68
+(./tex/kws.tex [66
 
 
 
 ]
 第四章
-[69] [70] [71] [72]
+[67] [68] [69] [70]
 File: figure/filler-graph.png Graphic file (type bmp)
 <figure/filler-graph.png>
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 206.
+(Font)              size <10.95> substituted on input line 199.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 206.
+(Font)              size <10.95> substituted on input line 199.
 
-[73]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[71] [72] [73]
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+[]|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
+ []
 
-[74]
-File: figure/kws-framework.eps Graphic file (type eps)
-<figure/kws-framework.eps>
-[75] [76]
+
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+[]|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
+ []
+
+
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+[]|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
+ []
+
+[74] [75] [76]
 File: figure/modules.pdf Graphic file (type pdf)
 <use figure/modules.pdf>
+[77] [78]
 File: figure/sys-framework.png Graphic file (type bmp)
 <figure/sys-framework.png>
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 329--331
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 536--538
  [][] 
  []
 
-[77] [78]
 File: figure/joint-tr.pdf Graphic file (type pdf)
 <use figure/joint-tr.pdf>
 File: figure/tr-curve.pdf Graphic file (type pdf)
 <use figure/tr-curve.pdf>
-[79] [80] [81]
-
-LaTeX Warning: Reference `yu2017recognizing' on page 82 undefined on input line
- 414.
-
-[82] [83]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[84]
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 651--651
-[]|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
- []
-
-
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 651--651
-[]|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
- []
-
-
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 651--651
-[]|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
- []
-
-
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 651--651
-[]|\TU/texgyretermes(0)/m/n/12.045 0.8M|  
- []
-
-File: figure/roc.pdf Graphic file (type pdf)
-<use figure/roc.pdf>
-[85] [86] [87] [88] [89]
+[79] [80] [81] [82]
 File: figure/pit-example.pdf Graphic file (type pdf)
 <use figure/pit-example.pdf>
-[90] [91]) [92]
+[83] [84]) [85]
 \openout2 = `tex/gpuwfst.aux'.
 
-(./tex/gpuwfst.tex
+(./tex/gpuwfst.tex [86
+
+
+
+]
 第五章
 File: figure/gpu_framework.pdf Graphic file (type pdf)
 <use figure/gpu_framework.pdf>
-[93
-
-
-
-] [94] [95]
+[87] [88] [89]
 File: figure/load-balance.pdf Graphic file (type pdf)
 <use figure/load-balance.pdf>
 
@@ -2589,16 +2588,16 @@ Overfull \hbox (45.52718pt too wide) in paragraph at lines 205--207
  [][] 
  []
 
-[96] [97] [98] [99] [100] [101]
+[90] [91] [92] [93] [94] [95]
 File: figure/gpu_analysis.pdf Graphic file (type pdf)
 <use figure/gpu_analysis.pdf>
-[102]
+[96]
 File: figure/gpu_profile.pdf Graphic file (type pdf)
 <use figure/gpu_profile.pdf>
-) [103]
+) [97]
 \openout2 = `tex/psd.aux'.
 
-(./tex/psd.tex [104
+(./tex/psd.tex [98
 
 
 
@@ -2607,10 +2606,10 @@ File: figure/gpu_profile.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 1231) has occurred while \output is active []
 
-[105] [106]
+[99] [100]
 File: figure/peaky_distribution.png Graphic file (type bmp)
 <figure/peaky_distribution.png>
-[107]
+[101]
 Overfull \hbox (19.14575pt too wide) in paragraph at lines 109--110
 \TU/AdobeSongStd-Light(0)/m/n/12.045 是 \TU/texgyretermes(0)/m/n/12.045 FSD \TU/
 AdobeSongStd-Light(0)/m/n/12.045 中 的 标 准 维 特 比 搜 索 算 法，|  但 在 \TU/texgyretermes
@@ -2619,16 +2618,13 @@ ML/cmm/m/it/12.045 finalTransition\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 E;
 S; Q\OT1/cmr/m/n/12.045 )$
  []
 
-[108] [109]
-Underfull \vbox (badness 2564) has occurred while \output is active []
-
-[110] [111]
+[102] [103] [104] [105]
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[112]
+[106]
 Overfull \hbox (22.75665pt too wide) in paragraph at lines 291--291
 []|[]| 
  []
@@ -2652,10 +2648,10 @@ Overfull \hbox (22.75665pt too wide) in paragraph at lines 329--329
 []|[]| 
  []
 
-[113] [114]
+[107] [108]
 File: figure/prune-wer-at-dsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-dsm.pdf>
-[115]
+[109]
 Overfull \hbox (0.5702pt too wide) in paragraph at lines 385--385
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
@@ -2677,7 +2673,7 @@ Overfull \hbox (0.5702pt too wide) in paragraph at lines 385--385
 
 File: figure/prune-wer-at-gsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-gsm.pdf>
-[116] [117]
+[110] [111]
 Overfull \hbox (0.5702pt too wide) in paragraph at lines 435--435
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
@@ -2727,16 +2723,40 @@ Overfull \hbox (22.75665pt too wide) in paragraph at lines 471--471
 []|[]| 
  []
 
-[118]) [119]
+[112]) [113]
 \openout2 = `tex/unified.aux'.
 
-(./tex/unified.tex [120
+(./tex/unified.tex [114
 
 
 
 ]
 第七章
-[121] [122]
+[115]
+File: figure/kws-framework.png Graphic file (type bmp)
+<figure/kws-framework.png>
+[116]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[117]
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+[]|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
+ []
+
+
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+[]|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
+ []
+
+
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+[]|\TU/texgyretermes(0)/m/n/12.045 0.8M|  
+ []
+
+File: figure/roc.pdf Graphic file (type pdf)
+<use figure/roc.pdf>
+[118] [119] [120] [121] [122] [123]
 File: figure/ctc_lat.png Graphic file (type bmp)
 <figure/ctc_lat.png>
 File: figure/lat-exp.jpg Graphic file (type bmp)
@@ -2744,71 +2764,77 @@ File: figure/lat-exp.jpg Graphic file (type bmp)
 
 Underfull \vbox (badness 5147) has occurred while \output is active []
 
-[123] [124] [125] [126]
+[124] [125] [126]
 File: figure/graph_example.png Graphic file (type bmp)
 <figure/graph_example.png>
 [127] [128]
-File: figure/psd_mod_framework.pdf Graphic file (type pdf)
-<use figure/psd_mod_framework.pdf>
-[129] [130] [131] [132]
 File: figure/OPER-latden.png Graphic file (type bmp)
 <figure/OPER-latden.png>
-[133]
+[129]
 File: figure/OWER-latden.png Graphic file (type bmp)
 <figure/OWER-latden.png>
 File: figure/bound-stable.png Graphic file (type bmp)
 <figure/bound-stable.png>
 File: figure/latden-cndepth.png Graphic file (type bmp)
 <figure/latden-cndepth.png>
-[134] [135] [136] [137] [138]
-Underfull \hbox (badness 10000) in paragraph at lines 703--703
+[130] [131] [132] [133] [134]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[135]
+File: figure/psd_mod_framework.pdf Graphic file (type pdf)
+<use figure/psd_mod_framework.pdf>
+[136] [137]
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
 []|\TU/texgyretermes(0)/m/n/12.045 PER/WER
  []
 
-[139] [140]) [141]
+[138] [139]) [140]
 \openout2 = `tex/summary.aux'.
 
-(./tex/summary.tex [142
-
-
-
-]
+(./tex/summary.tex
 第八章
-[143] [144] [145]) [146]
+
+Underfull \vbox (badness 7558) has occurred while \output is active []
+
+[141
+
+
+
+] [142] [143]) [144]
 Underfull \hbox (badness 1005) in paragraph at lines 118--118
 []\TU/texgyretermes(0)/m/n/12.045 Saduoki Furui. “\TU/texgyretermes(0)/m/it/12.
 045 Unsupervised speaker adaptation based on hierarchical spectral
  []
 
-[147
+[145
 
 
 
-] [148] [149] [150] [151] [152] [153] [154] [155]
+] [146] [147] [148] [149] [150] [151] [152] [153] [154]
 Overfull \hbox (42.24709pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 Word Models for English Conversational Speech 
 Recognition\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1703.07754\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[156]
+[155]
 Overfull \hbox (1.1576pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 English and Mandarin Text Entry on Mobile Devi
 ces\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 arXiv pr
 eprint arXiv:1608.07323\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[157] [158] [159] [160] [161] [162]
+[156] [157] [158] [159] [160]
 Overfull \hbox (52.74632pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 recognition using deep RNN models and WFST-bas
 ed decoding\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1507.08240\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[163] [164] [165]
+[161] [162] [163]
 \openout2 = `tex/pub.aux'.
 
-(./tex/pub.tex [166
+(./tex/pub.tex [164
 
 
 ]
@@ -2816,30 +2842,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
-[167]
-Underfull \hbox (badness 10000) in paragraph at lines 19--21
+[165]
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 23--24
+Underfull \hbox (badness 1661) in paragraph at lines 24--25
 \TU/texgyretermes(0)/m/n/12.045 Distillation for Sequence Model, 19th Annual Co
 nference of International Speech
  []
 
-) [168]
+[166]) [167]
 \openout2 = `tex/patents.aux'.
 
-(./tex/patents.tex) [169
+(./tex/patents.tex [168
 
 
 
-]
+]) [169]
 \openout2 = `tex/ack.aux'.
 
 (./tex/ack.tex [170
@@ -2857,7 +2883,7 @@ ex/patents.aux) (./tex/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F8D23FB407F35AE5E5E54E840C237226.
+(rerunfilecheck)             Checksum: FDB16B10C15EA09DBDFC10FFF9D5144B.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2874,12 +2900,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37535 strings out of 492970
- 759159 string characters out of 6137298
- 1288951 words of memory out of 5000000
- 40842 multiletter control sequences out of 15000+600000
- 552344 words of font info for 163 fonts, out of 8000000 for 9000
+ 37560 strings out of 492970
+ 761329 string characters out of 6137298
+ 1290965 words of memory out of 5000000
+ 40867 multiletter control sequences out of 15000+600000
+ 552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (193 pages, 2887836 bytes).
+Output written on thesis.xdv (195 pages, 2915072 bytes).

@@ -116,7 +116,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 % An alternative formulation of the Viterbi algorithm is used in ASR, called Token Passing algorithm~\cite{woodland19951994}.
 % %
 在ASR解码中，维特比搜索被实现为 \textit{令牌传递算法}~\cite{woodland19951994}, 其令牌表示的是截止 $t$帧情况下的一个局部识别序列，同时对于每一个 WFST状态在 $t$帧时都可以用一个可移动的令牌进行表示。
-在每一帧，维特比路径是通过 \textit{令牌合并}过程得到的, 其他一个 \textit{min} 操作被加到了每个状态的所有输入边上 (比如对状态7，在图~\ref{fig:load-balance} 中，那么它的输入边包括2至7,5至7,7至7三条), 这里我们需要计算得到它们之中的最佳分数，以及这个分数来自哪一个状态。
+在每一帧，维特比路径是通过 \textit{令牌合并}过程得到的, 其它一个 \textit{min} 操作被加到了每个状态的所有输入边上 (比如对状态7，在图~\ref{fig:load-balance} 中，那么它的输入边包括2至7,5至7,7至7三条), 这里我们需要计算得到它们之中的最佳分数，以及这个分数来自哪一个状态。
 
 %Thus for a state, tokens coming from different paths need to be compared and recombined together in serial. 
 %Only the best one is passed to the next WFST state,
@@ -152,7 +152,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %\textit{atomicMin}(address, val). Read the 64-bit {\em{old}} located at the {\em{address}}, computes the \textit{min} of {\em{old}} and {\em{val}}, and stores the result to {\em{address}}~\cite{cuda9}.}
 %\vspace{-1em}
 
-原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的12-18行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加critical sections~\cite{lamport1979make}
+原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的12-18行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加临界区（critical sections）~\cite{lamport1979make}
 以便使令牌合并这一步仍然恢复串行。这种设计不仅低效，而且会在早期GPU中引入死锁。
 \cite{you2009parallel} 提出一种在每个状态上做针对所有令牌传递结果的规约操作，但这样将引入额外的规约过程中的写冲突和同步损耗，而且这些损耗总是发生在计算的最后阶段。
 %
@@ -204,7 +204,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
     \captionstyle{\centering}
     \includegraphics[width=1.1\textwidth]{figure/load-balance.pdf}
     \bicaption[fig:load-balance]{一个针对动态负载均衡的例子}{一个针对动态负载均衡的例子。这里的虚线框表示一个
-      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其他线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}{Fig}{An example of dynamic load balancing.}
+      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其它线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}{Fig}{An example of dynamic load balancing.}
 \end{figure}
 
 
@@ -312,9 +312,11 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 %  \item metrics: WER, oracle lattice WER (hard to do in SWBD), rescored WER, NCE result and 
 
 我们对1-best 结果和词图质量都进行了比较。为了公平起见，我们保持两种解码器得出相同的词图密度 ({\em{lat.den.}}, 其使用arcs/frame进行度量)~\cite{woodland19951994}。
-在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}。Normalized cross entropy (NCE)~\cite{siu1999evaluation}被用于评估词图得出的置信度的质量。这里我们训练了决策树以将这些词图后验概率转换为我们最终需要的置信度~\cite{chen2017confidence,chen2017unified}.
-实时率 (RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理搜索所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)
-一块 Tesla V100 默认地用于GPU解码，后续我们还会比较其他GPU架构下的性能。
+在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}。
+{\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017} 用来作为词图所得到的词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。
+这里我们训练了决策树以将这些词图后验概率转换为我们最终需要的置信度~\cite{chen2017confidence,chen2017unified}.
+实时率 (real-time factor, RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理搜索所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)
+一块 Tesla V100 默认地用于GPU解码，后续我们还会比较其它GPU架构下的性能。
 
 
 \subsection{性能和速度}

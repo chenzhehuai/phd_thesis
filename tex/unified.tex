@@ -2,16 +2,305 @@
 \chapter{标签同步解码的扩展应用}
 \label{chap:lsd-apply}
 
-本章节我们将进一步探讨标签同步解码算法的一些扩展应用。这包括置信度框架，多识别任务统一框架，以及端到端语音识别。
+在上一章中，我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。这一算法同时还能产生高质量的音素词图，称为CTC音素词图，我们将在第\ref{sec:exp-lsd-lat-quality}章节通过实验验证其质量。基于CTC音素词图，本章节我们将进一步探讨标签同步解码算法的一些扩展应用。这包括关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
+
+在关键词检测中，我们基于前面章节介绍的LSD算法提出了一种高效的后处理算法，以解决音素混淆建模的问题。
+在基于CTC的关键词检测中，虽然CTC是一个序列级准则，但是并没有对非关键词部分进行建模。因此该准则改善了关键词之间的鉴别性，但是没有改善关键词和非关键词之间的鉴别性。
+本文将非关键词建模单元直接引入到建模当中。同时我们基于前述LSD算法得到的音素词图，提出了一套基于编辑距离的后处理算法以引入音素混淆性，使系统更加鲁棒。
 
 由于不同ASR应用之间不同的搜索空间大小和效率要求，当前业界最优的置信度及其相应的解码算法在不同应用上具有不同架构，这些不同应用包括：关键词检测，基于上下文的语音识别和大词汇连续语音识别。针对基于词图后验概率的置信度，计算量主要集中在词图部分的边缘概率计算过程。如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，本章节中，我们将结合前面章节对解码的大幅加速和搜索空间的优化等工作，提出一系列针对不同应用的通用置信度，并尝试将不同应用中的语音识别推理搜索过程统一到同一框架中。
 本章节所提出的置信度在Switchboard数据集上得到了显著改善，同时这类统一框架的通用置信度在不同应用中取得了一致的非常有竞争力的性能，使得各种语音识别应用可以工作在同一框架中。
 
 另一方面，该章节研究将标签同步算法应用于序列到序列的端到端模型的方案。在实验部分，该章节系统一方面取得大幅度语音识别解码速度改善，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度。
 
-\section{基于标签同步解码的置信度框架}
-\label{chap:unify-confidence}
 
+\section{基于标签同步解码的关键词检测}
+\label{Sec:kws-ctc}
+
+
+在基于CTC的关键词检测中，我们基于前面章节介绍的LSD算法提出了一种高效的后处理算法，以解决音素混淆建模的问题，使系统更加鲁棒。
+除此之外，虽然CTC是一个序列级准则，但是并没有对非关键词部分进行建模。因此该准则改善了关键词之间的鉴别性，但是没有改善关键词和非关键词之间的鉴别性。
+本文将非关键词建模单元直接引入到建模当中。
+
+\subsection{模型训练}
+\label{Sec:modeltrain}
+
+如前面章节\ref{Sec:sdm-sdt-intro}所述，序列鉴别性训练的关键之处是竞争序列的建模。
+%criteria \& model unit
+在本文中，我们研究了两种方向：词语建模和音素建模的CTC关键词检测模型。
+
+为了更好地建模词级CTC模型的竞争序列，这里针对非关键词引入了新的建模单元。
+类似于传统的声学KWS方法，代表非关键词的$\tt filler$被引入。在训练阶段, $\tt filler$ 则取代所有标注中的非关键词。
+
+%word boundary modelling
+另一个方向是针对音素级模型，我们进行修改的动机是：
+i) 任何音素序列，也包括非关键部分，都可以由音素模型来进行建模。
+ii) 使得声学模型容易做到与关键词无关，应用于非固定关键词的关键词检测任务。
+%
+除此之外，我们在词语边界处引入了 $\tt wb$ 单元~\cite{zhuang-is2016}。 在 音素 CTC 中 $\tt wb$ 和 $\tt blank$ 被分别作为词和音素的边界进行建模。区分这样的边界区段不仅可以改善泛化能力，而且也对后面将介绍的后处理有帮助。
+
+这里针对引入的建模单元，公式修改如下：
+\begin{equation}
+\label{equ:ctc-kw}
+\begin{split}
+P(\mathbf{L}_u|\mathbf{O}_u)=P(\mathbf{L}_u'|\mathbf{O}_u)_{\mathbf{L}_u' = \mathcal{D}(\mathbf{L}_u)}
+\end{split}
+\end{equation}
+$\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素级CTC具有不同的定义。
+\begin{equation}
+\label{equ:ctc-d}
+\begin{split}
+\mathcal{D}_{\tt{word}}:\mathbb{L}  \mapsto \mathbb{L}  \cup \{{\tt filler}\}\\
+\mathcal{D}_{\tt{sub-word}}:\mathbb{L}  \mapsto \mathbb{L}  \cup \{{\tt wb}\}
+\end{split}
+\end{equation}
+经过修改之后，在词级或者音素级建模中，搜索空间都将包含关键词，非关键词，音素边界和词边界。
+
+\subsection{后处理}
+\label{Sec:post-process-ctc}
+
+我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于CTC词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
+
+%which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
+图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=0.8\textwidth]{figure/kws-framework.png}
+    \bicaption[fig:med-framework]{MED方法框架}{MED方法框架。这里使用音素CTC作为例子}{Fig}{The framework of MED based method. Phone based CTC is taken as an example.}
+\end{figure}
+
+%\subsection{序列鉴别性训练在HMM和CTC框架中的比较}
+%\label{Sec:disc-and-ctc}
+%
+%本文中， 序列鉴别性训练被分为两种序列模型而进行: 生成式序列模型 和 鉴别式序列模型。我们对两种做法进行一些综合比较：
+%
+%\begin{itemize}
+%  %\item {\em 生成和鉴别式序列模型}。 在HMM中，需要采用贝叶斯公式将序列状态转移概率和深度学习所估计的后验概率结合起来。在CTC中，给定特征序列后的标签序列的后验概率则直接由深度学习模型进行建模。
+%  %\item {\em 序列建模}。 通过引入 $\tt{blank}$ 到每一帧分解后的建模当中，CTC隐性地对标签进行了序列建模。在HMM中，标签序列被显性地被N元语言模型进行限制和共同建模。
+%  在计算序列的后验概率时，两种框架都使用了前后向算法。
+%  %\item {\em 混淆区段}. $\tt{blank}$ 原先是提供给CTC进行两个标签之间的混淆区段的建模的。类似的结构也可以如图~\ref{fig:hmm-topo}(c-e)所示在HMM中使用。除了拓扑结构的不同， $\tt blank$ 的粒度在HMM和 CTC中也是初始不同的。
+%  %\item {\em 竞争序列建模}. 在词级CTC中，非关键词元素显示地由建模单元进行建模，即 $\tt filler$ 和 $\tt wb$。 在HMM中，我们采用音素单元对这些竞争序列进行隐性的建模。同时一个音素级的语言模型给出了音素搜索空间的建模效果。 %phone+explicit lm prior
+%  %%\item {\em Discriminative training}. CTC directly models the sequence level posterior probability. The sequence discrimination is implied in the model. For GSM, 序列鉴别性训练 employs maximum a posteriori (MAP) criterion. The discrimination between the correct label sequence and competing hypotheses is modeled by the occupancy probability of the former versus that of the latter.
+%\end{itemize}
+
+\subsection{实验结果}
+
+本章节在非固定关键词的关键词检测和固定关键词的唤醒词识别任务上都进行了验证，采用与第\ref{chap:kws}章节相同的数据集，实验配置，和评价指标。我们也绘出了receiver operating characteristic (ROC) 曲线，以总结实验结果。
+CTC模型的配置详见 \cite{7736093}。我们使用单向 每层384节点的两层LSTM 进行实验，其带有 128 个节点的映射层。
+CTC MED后处理方法, 表示为 {\em{MED}}, 并使用\cite{7736093}中提出的固定阈值方法。
+我们在第\ref{sec:exp-lsd-lat-quality}章节针对CTC音素词图质量进行更细致的分析。
+
+\subsubsection{非固定关键词的关键词检测}
+
+在音素CTC中，引入的$\tt wb$ 建模单元在表~\ref{tab:wb}中进行了比较。对于少于6个音素的关键词被认为是短关键词，其余的为长关键词。因此可以将关键词集分成两部分分别检查他们的模型性能。
+在短和长关键词中$\tt wb$都可以带来性能提升。长关键词的性能一致地优于短关键词，原因是短关键词的音素序列更可能是其它关键词的子集，造成了混淆和误唤醒率；$\tt wb$的引入缓解了这个问题。
+
+ \begin{table}[h]
+ \caption{\label{tab:wb} {\it 音素CTC在是否包含 $\tt wb$ 时的模型性能}}
+ \vspace{2em}
+  \centerline
+  {
+\begin{tabular}{cc||c}
+\hline 
+Keyword Length & wb & EER \tabularnewline
+\hline 
+\hline 
+\multirow{2}*{short} & $\times$ & 9.0 \tabularnewline
+& $\bm{\surd}$ & 4.5 \tabularnewline
+\hline\hline
+\multirow{2}*{long} & $\times$ & 3.1 \tabularnewline
+ & $\bm{\surd}$ & 1.8 \tabularnewline
+\hline 
+\end{tabular}
+ }
+%\vspace{2mm}
+\end{table}
+
+
+不同的针对CTC的后处理算法在本节中进行了检查。值得注意的是，本部分是非固定关键词的关键词检测任务，因此音素被用来构建关键词序列。
+
+\begin{table}[thbp!]
+  \caption{\label{tab:post-discri-ctc} {\it  CTC关键词检测系统的后处理}}
+  \vspace{2em} 
+  %\vspace{1mm}
+  \centerline{
+    \begin{tabular}{c |c||cc}
+      \hline
+      \multicolumn{1}{c|}{Model (Crit.) } &
+      \multicolumn{1}{c||}{Post} &
+      \multicolumn{1}{c}{EER} &
+      \multicolumn{1}{c}{RTF}\\
+      \hline\hline
+      %\multirow{2}{0.2\columnwidth}{NU-LF-bMMI}& smooth& 8.5  \\
+      %& kw-filler&2.7\\
+      %\hline\hline
+      %0.026+0.012
+       & smooth& 11.4  &0.026\\
+     CTC & \textbf{kw-filler}&3.2&0.038\\
+      & MED & 3.6 &0.031\\
+      \hline
+    \end{tabular}
+  }
+\end{table}
+如表~\ref{tab:post-discri-ctc} 所示，在  CTC中，后验概率平滑方法会得到比 kw-filler显著差的结果。但是由于它的速度优势，该方法可以作为实际的前处理，滤除一些容易判断的样本，以减少语料库检索同的计算量。
+在 CTC中我们比较了所提出的 MED 算法。
+它显示了明显比kw-filler更差一些的性能，但效率较高。该方法将会在后续章节中进一步检验。
+kw-filler系统在未来的工作中可以使用前述的标签同步解码算法进行进一步速度优化。
+
+
+最后，我们将性能和速度的比较总结在表~\ref{tab:perf-all-ctc}中。 我们同时列出了第\ref{chap:kws}章节中最好的系统LF-bMMI作为参照。
+我们绘制出了 ROC 曲线如图~\ref{fig:roc}, 其中越低的曲线结果越好。其中所有的系统都使用kw-filler作为后处理方法。
+
+\begin{table}[thbp!]
+  \caption{\label{tab:perf-all-ctc} {\it  非固定关键词的关键词检测中的性能和速度比较}}
+  \vspace{2em} 
+  %\vspace{1mm}
+  \centerline{
+    \begin{tabular}{c | c | c |c ||cc}
+      \hline
+      \multicolumn{1}{c|}{Model } &
+      \multicolumn{1}{c|}{Context } &
+      \multicolumn{1}{c|}{\# Param. } &
+      \multicolumn{1}{c||}{Criterion} &
+%      \multicolumn{1}{c||}{Post} &
+      \multicolumn{1}{c}{EER} &
+      \multicolumn{1}{c}{RTF} \\
+      \hline \hline
+      %\multirow{1}{0.05\columnwidth}{dnn}&\multirow{1}{0.05\columnwidth}{CD}&\multirow{1}{0.05\columnwidth}{2.0M}& CE & kw-filler & 5.1 & 0.074 \\
+      %\hline
+     TDNN HMM&\multirow{1}{0.05\columnwidth}{CD}&\multirow{1}{0.05\columnwidth}{0.6M}& CE &  4.0 & 0.051 \\
+       %0.015+0.036
+       %\cline{2-7}
+      TDNN HMM&\multirow{1}{0.05\columnwidth}{CI}&\multirow{1}{0.05\columnwidth}{0.5M}& LF-bMMI &  \textbf{2.9} & \textbf{0.028}
+       \\
+       %0.008+0.020
+       %\cline{4-7}
+      %&&& NU-LF-bMMI & kw-filler & 2.7 & - \\
+       \hline\hline
+       \multirow{1}{*}{LSTM CTC}&\multirow{1}{0.05\columnwidth}{CI}&\multirow{1}{0.05\columnwidth}{0.8M}& CTC & \textbf{3.2} & \textbf{0.038} \\
+      \hline
+    \end{tabular}
+  }
+\end{table}
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/roc.pdf}
+    \bicaption[fig:roc]{非固定关键词的关键词检测的ROC 曲线比较}{非固定关键词的关键词检测的ROC 曲线比较}{Fig}{The ROC curve comparison of unrestricted KWS. }
+\end{figure}
+
+
+这里我们使用交叉熵训练得到的系统作为第一行的基线。它是一个基于 NN-HMM 的传统系统，包含了聚类的tri-phone 状态建模。 这里的HMM拓扑结构见图~\ref{fig:hmm-topo}(a)。
+
+使用LSTM的CTC系统在最后一行中，显示了比传统CE模型更好的性能 ($\alpha = 0.05$, $p = 0.01$) 。 从图~\ref{fig:roc}中看, CTC系统相比第\ref{chap:kws}章节中最好的系统LF-bMMI存在相对较多误唤醒。
+
+我们在一些初始的尝试中使用基于HMM的序列鉴别性训练作用在CTC初始化的变种模型上~\cite{sak2015fast,nict-icassp17}。但结果并不成功，没有带来改善: 在词级别CTC中~\cite{li2018developing}, LVCSR 解码词图不包含有效的竞争路径。而在音素级别模型上，如前所述，词图的质量限制了传统框架下鉴别性训练所能得到的改善。% ii) Essentially, after CTC pre-training, the state prior probability $P(\mathbf{L})$~\cite{nict-icassp17} is combined with the original model to form a CTC variant. The CTC variant models $P(\mathbf{O}|\mathbf{L})$, and become a GSM. 
+
+
+
+\subsubsection{固定关键词的唤醒词识别}
+
+%model 
+在该任务中，我们测试了词级系统和音素级系统。CTC的关键词检测系统与传统交叉熵系统进行了比较。词级系统的输出为关键词序列中的每个词。我们同时列出了第\ref{chap:kws}章节中最好的系统NU-LF-bMMI作为参照。
+
+表~\ref{tab:perf-mandarin-ctc}显示了相应的结果。
+一个交叉熵训练的词级别的TDNN系统被作为基线系统~\cite{chen2014small}。该系统采用了后验平滑作为后处理方式。
+
+%compare EER \& FAF
+
+\begin{table}[thbp!]
+  \caption{\label{tab:perf-mandarin-ctc} {\it  固定关键词的CTC的KWS系统的性能和速度比较}}
+   \vspace{2em}
+  %\vspace{1mm}
+  \centerline{
+    \begin{tabular}{c|m{4.5em}|c|c||ccc}
+      \hline
+      %&
+      %&&& \multicolumn{4}{c}{post-processing} \\
+      %\cline{4-7}
+      %&
+      %&&&  \multicolumn{2}{c}{smooth} & \multicolumn{2}{c}{kw-filler} %& \multicolumn{2}{c}{MED}\\
+      %\cline{4-7}
+      \multicolumn{1}{c|}{Model}
+      &\multicolumn{1}{c|}{Unit} 
+      &\multicolumn{1}{c|}{Criterion}&\multicolumn{1}{c||}{Post }&EER&FAF&RTF%&FS&RTF
+      \\
+      \hline\hline
+      %/aifs/users/zhc00/works/kws/lfmmi_chn700/exp/nnet3/chn700.subsetby20_train.nnet_tdnn_a_tiny/
+      \cite{chen2014small}
+      &\multirow{1}{*}{Word}
+      &CE &smooth & 6.2 & 0.64 &0.014\\
+      %0.013
+      \multirow{1}{*}{HMM}&\multirow{1}{*}{Syllable}& NU-LF-bMMI& & \textbf{5.2} &\textbf{0.51} &\textbf{0.029}\\
+     \hline\hline
+      %
+      %/aifs/users/zhc00/works/kws/ctc_chn700/ctc
+      \multirow{2}{*}{CTC}
+      &\multirow{1}{*}{Word}
+      & \multirow{2}{*}{CTC} &smooth &9.1 & 1.13 & 0.024  \\
+      %\cline{2-2}\cline{4-7}
+      %ref: https://spetechcular.com/trac/asr/wiki/ctc_kws_chn_car https://spetechcular.com/trac/asr/wiki/%E6%AF%85%E8%90%8C2016#a2016.6.6
+      &\ +{\tt filler}& &MED & \textbf{7.0}&\textbf{0.90} & \textbf{0.029}\\
+      %0.024
+      \hline
+    \end{tabular}
+  }
+\end{table}
+
+在第二行中的系统类似于\cite{fernandez2007application}。虽然它在文献\cite{fernandez2007application}中取得了较好的性能, 但在本部分测试中仍然差于词级别的CE系统。我们相信这是因为我们使用的训练和测试集相比该文献具有更大的挑战。我们针对这一系统如前文所述，添加了 $\tt filler$ 建模单元，以改善关键词与非关键词之间的鉴别性；同时我们增加了基于 MED的后处理算法，以便引入音素混淆性的先验知识。我们所提出的系统在第三行中取得了显著更好的结果。但是这个系统仍然没有超过传统的CE系统。
+%This may be because the baseline in fixed vocabulary KWS is highly tuned while the CTC-MED approach treats all phones equally during training. It is worth noting that due to the same reason, the LF-bMMI approach does not outperform the baseline neither. 
+我们认为进一步的改善应该包括两方面：对CTC模型的噪声鲁棒性的研究；使用更好的深度学习模型来改善模型性能。
+%in keyword specific corpus 
+
+%MED uses
+
+\section{多识别任务统一置信度框架}
+\label{chap:unify}
+
+要为所有的ASR应用设计一套统一的推理搜索框架，并取得最好的性能和速度，是一项非常有挑战的研究。这里面的关键点在于： i) 如何对最佳识别结果进行规范化，以得到对该最佳结果的置信度估计，也就是置信度中的归一化项的建模
+    ii) 如何保证在低功耗设备中的计算量控制在一个较小范围内，比如关键词检测技术就经常被用于个人助理情况，需要对功耗进行优化。
+    {\em Keyword-filler}方法~\cite{young1994detecting} 和 {\em utterance verification}~\cite{rose1995training} 方法都可以视为这方面的尝试。比如，在关键词检测中，一些研究提出使用上下文无关的(CI) 语言学单元，称为 $\tt filler$ 来对所有非关键词部分进行建模，而这种建模往往是不完美的。
+    在基于上下文的语音识别中，这种框架更加受制于较弱的上下文建模能力，而这将影响 $\tt filler$ 的识别效果。
+    %More elaborated $\tt filler$~\cite{el1997accurate}, e.g., CD $\tt filler$, is proposed to improve the recognition but brings about further computational burden without significant improvement.
+    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其它任务中结论不尽相同。
+
+    最近在鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受次启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
+    
+    针对这样做在低功耗设备上带来的挑战，我们采用前面章节讨论的基于CTC的标签同步解码\cite{Chen+2016} 来进行处理，由此带来了很大的效率改善。
+    本章节我们提出了一个统一并且高效的置信度框架，并且将其应用于目前主流的上述三种 ASR应用。
+
+
+
+  \subsection{置信度与搜索空间}
+  \label{Sec:conf-search-space}
+
+  关于搜索空间和解码框架的不同，依据第\ref{sec:decode}章节的总结，通常可以根据不同ASR应用将其分为三类，而三种应用上目前最好的置信度算法方式并不统一。
+
+  \subsubsection{关键词检测}
+    \label{Sec:kws-task}
+
+      关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要研究在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，或将Filler加入声学建模中。
+
+  \subsubsection{基于上下文的语音识别}
+  \label{Sec:task-task}
+
+  针对语音助手等应用，目前对于基于上下文的语音识别的需求越来越强。在这些场景中，语法~\cite{woodland1994large} 或基于类的语言模型~\cite{ward1996class} 都是比较主流方法~\cite{vasserman2016contextual}。
+  这种任务的错误识别包括：i) 错误将领域外的句子识别为领域内的结果 ii) 正确识别出了领域，但是上下文短语的部分识别错误。为了给出合理的结果，置信度用于对识别结果进行判别。对于领域内识别，语音模式和上下文信息识别可以被看做是一个完整的搜索空间，这时使用LVCSR的后验概率的置信度是合理的。但是对于领域外的句子，上面提到的置信度并没有对其搜索空间进行建模。因此这样的置信度目前还没有比较合理的方案进行解决。
+
+  \subsubsection{大词汇连续语音识别}
+  \label{Sec:lvcsr-task}
+
+  在 {\em 大词汇连续语音识别} (LVCSR)~\cite{woodland1994large}中,  搜索空间由N元语言模型进行建模。为了支持语言学后处理~\cite{hakkani2006beyond}, CM被用来提供对语音识别结果的可靠度分析。
+  基于识别结果后验概率的CM~\cite{wessel2001confidence}是LVCSR中最通用的置信度方法。
+  在这一框架中，ASR使用 {\em maximum a posterior} (MAP) 决策过程进行建模。给定整个特征序列的ASR输出的后验概率被作为句子的置信度。 对于MAP的归一化项，即观察概率建模，使用的是所有识别结果组成的搜索空间的后验概率求和。由于语音识别的搜索空间很大，通常这一过程由解码得到的词图来进行限制。
+
+
+\subsection{基于标签同步解码的置信度框架}
+\label{chap:unify-confidence}
 
 %review CTC & LSD & its potential in CM
 CTC\cite{graves2006connectionist} 近期被提出来并作为目前主流的新模型\cite{fernandez2008phoneme}\cite{sainath2015acoustic}\cite{amodei2015deep}\cite{sak2015fast}.
@@ -49,7 +338,7 @@ CTC\cite{graves2006connectionist} 近期被提出来并作为目前主流的新�
 $\mathbf{l}_{w}$ 表示词语  $w$对应的音素序列。
 $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\tt blank$ CTC 标签序列).
 由于LSD CTC中的词边间比较确定, $\mathbf{j}_w$ 可以被定义为 $w$ 词所最佳对应的音素序列索引。
-我们提出的基于标签同步解码的声学分数可以作为单独的置信度，也可以与其他用于建模的特征结合，作为置信度模型的输入 \cite{yu2011calibration}。 
+我们提出的基于标签同步解码的声学分数可以作为单独的置信度，也可以与其它用于建模的特征结合，作为置信度模型的输入 \cite{yu2011calibration}。 
 具体来说，$\mathcal{B}$函数的建模在CTC中并不完美，使得这里会出现同一个音素有多帧的音素后验概率输出。所以，我们需要在它上面进一步进行归一化。 其中一种方法是进行算数平均，被称为 {\em peak-mean}。但是，由于有多个概率输出尖峰，更好的一种方法是忽略不完美的部分并保留最大的结果，所以从中挑选最大的后验概率作为其置信度，被称为 {\em peak-max}。除此之外，不同词语具有不同的长度，因此我们需要针对长度作一次平均。为了使性能更好，我们这里对音素序列的长度也进行了归一化 称为{\em phone-mean}。
 
 % introducing (no blk) confidence
@@ -114,45 +403,6 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
 %analysis on latter indicators in experiment part
 
-
-\section{基于标签同步解码的多识别任务统一框架}
-\label{chap:unify}
-
-要为所有的ASR应用设计一套统一的推理搜索框架，并取得最好的性能和速度，是一项非常有挑战的研究。这里面的关键点在于： i) 如何对最佳识别结果进行规范化，以得到对该最佳结果的置信度估计，也就是置信度中的归一化项的建模
-    ii) 如何保证在低功耗设备中的计算量控制在一个较小范围内，比如关键词检测技术就经常被用于个人助理情况，需要对功耗进行优化。
-    {\em Keyword-filler}方法~\cite{young1994detecting} 和 {\em utterance verification}~\cite{rose1995training} 方法都可以视为这方面的尝试。比如，在关键词检测中，一些研究提出使用上下文无关的(CI) 语言学单元，称为 $\tt filler$ 来对所有非关键词部分进行建模，而这种建模往往是不完美的。
-    在基于上下文的语音识别中，这种框架更加受制于较弱的上下文建模能力，而这将影响 $\tt filler$ 的识别效果。
-    %More elaborated $\tt filler$~\cite{el1997accurate}, e.g., CD $\tt filler$, is proposed to improve the recognition but brings about further computational burden without significant improvement.
-    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其他任务中结论不尽相同。
-
-    最近在鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受次启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
-    
-    针对这样做在低功耗设备上带来的挑战，我们采用前面章节讨论的基于CTC的标签同步解码\cite{Chen+2016} 来进行处理，由此带来了很大的效率改善。
-    本章节我们提出了一个统一并且高效的置信度框架，并且将其应用于目前主流的上述三种 ASR应用。
-
-  \subsection{置信度与搜索空间}
-  \label{Sec:conf-search-space}
-
-  关于搜索空间和解码框架的不同，依据第\ref{sec:decode}章节的总结，通常可以根据不同ASR应用将其分为三类，而三种应用上目前最好的置信度算法方式并不统一。
-
-  \subsubsection{关键词检测}
-    \label{Sec:kws-task}
-
-    	关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要研究在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，或将Filler加入声学建模中。
-
-  \subsubsection{基于上下文的语音识别}
-  \label{Sec:task-task}
-
-  针对语音助手等应用，目前对于基于上下文的语音识别的需求越来越强。在这些场景中，语法~\cite{woodland1994large} 或基于类的语言模型~\cite{ward1996class} 都是比较主流方法~\cite{vasserman2016contextual}。
-  这种任务的错误识别包括：i) 错误将领域外的句子识别为领域内的结果 ii) 正确识别出了领域，但是上下文短语的部分识别错误。为了给出合理的结果，置信度用于对识别结果进行判别。对于领域内识别，语音模式和上下文信息识别可以被看做是一个完整的搜索空间，这时使用LVCSR的后验概率的置信度是合理的。但是对于领域外的句子，上面提到的置信度并没有对其搜索空间进行建模。因此这样的置信度目前还没有比较合理的方案进行解决。
-
-  \subsubsection{大词汇连续语音识别}
-  \label{Sec:lvcsr-task}
-
-  在 {\em 大词汇连续语音识别} (LVCSR)~\cite{woodland1994large}中,  搜索空间由N元语言模型进行建模。为了支持语言学后处理~\cite{hakkani2006beyond}, CM被用来提供对语音识别结果的可靠度分析。
-  基于识别结果后验概率的CM~\cite{wessel2001confidence}是LVCSR中最通用的置信度方法。
-  在这一框架中，ASR使用 {\em maximum a posterior} (MAP) 决策过程进行建模。给定整个特征序列的ASR输出的后验概率被作为句子的置信度。 对于MAP的归一化项，即观察概率建模，使用的是所有识别结果组成的搜索空间的后验概率求和。由于语音识别的搜索空间很大，通常这一过程由解码得到的词图来进行限制。
-
   \subsection{基于附属归一化搜索空间的置信度方法}
   \label{Sec:norm-gragh}
 
@@ -205,7 +455,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
  P(\mathbf{x}^{w})\approx \max_{H^{w}} P(H^{w}) \cdot  P(\mathbf{x}^{w}|H^{w})
  \end{equation}
  
- 附属归一化搜索空间的解码结果是对观察概率的一个很好估计。由于声学模型的单元通常是音素，这样的置信度框架在大多数语音识别应用中都是合适的。与传统词图方法相比较，这里提出的方法相比其他的ASR搜索空间更加稳定鲁棒，我们将在实验中证实这一点。除此之外，这套方法不需要再额外引入一系列非关键词的模型建模单元，比如基于 $\tt filler$ 或者语句验证这类估计框架。
+ 附属归一化搜索空间的解码结果是对观察概率的一个很好估计。由于声学模型的单元通常是音素，这样的置信度框架在大多数语音识别应用中都是合适的。与传统词图方法相比较，这里提出的方法相比其它的ASR搜索空间更加稳定鲁棒，我们将在实验中证实这一点。除此之外，这套方法不需要再额外引入一系列非关键词的模型建模单元，比如基于 $\tt filler$ 或者语句验证这类估计框架。
  所以， 置信度归一化建模可以是相对原始搜索空间和声学模型而独立的部分。
 
 
@@ -221,104 +471,8 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
 上面讨论的方法具有一定的计算昂贵性，特别是针对低功耗应用比如关键词检测。基于CTC的标签同步解码 \cite{Chen+2016} 可以考虑被采用，以加速这样的应用。由于这类方法可以跳过blank的区段，使得结果中具有更少的混淆，这体现在公式 (\ref{eq:cm-obser})中。这类方法也被前面的章节证明，解码只占全部计算量的一小部分 \cite{Chen+2016}\cite{zhc00-chen-tasl2017} 。在实验中我们将验证相关结论。
 
-
-
-\section{基于标签同步解码的声学特征到词的端到端语音识别}
-\label{chap:lsd-e2e}
-
-当前的端到端语音识别系统显示出诸多缺点，在开始使用标签同步解码算法进行优化之前，我们先对这些系统的缺点进行总结。
-
-首先，声学和文本数据并不能够被系统地共同利用，这将导致声学数据的需求量非常大。
-目前大多数对文本数据的应用停留于初始化阶段，但却不能在一个系统框架里，系统地使用声学和文本数据。
-与之相对，传统基于深度学习的隐马尔可夫训练框架则通过贝叶斯公式，将建模拆分为声学模型，转移模型，词表和语言模型，由此进行模块化的知识源融合。
-
-其次，声学和语言模型总是使用相同的建模单元，而这样的建模单元往往很难兼顾泛化能力和模型性能。音素感知是人类语言感知的基础单元~\cite{pisoni1985speech}。如果直接使用字符或者词作为建模单元，则并不能建立起这样的建模单元与发音之间的直接关系。这样一些研究忽略了音素这一人类语言中的先验知识。另一方面，使用字符而不是单词作为语言模型的建模单元，同样有损性能~\cite{jozefowicz2016exploring}.
-%
-总的来说，端到端系统建立起了与NN-HMM混合系统完全不同的一个模型框架。因此先验知识和之前在语言和声学模型方法的研究很难迁移到这一新的框架中。
-%Decoding complexity. In CTC, external language model is used and increases the decoding complexity. In attention-based encoder-decoder, because the prediction in  each step is given by the last prediction, beam search is always taken to reduce the inference bias~\cite{bahdanau2015task}.
-
-该章节将标签同步算法应用于序列到序列的端到端模型的方案。我们使用模块化训练的思想来改善端到端模型建模，使其更易于使用外在知识源来训练每一个端到端模型的子模块。值得注意的是，模型最后需要进行联合优化，因此最终在推理搜索阶段，模型仍然工作在端到端模式下。
-
-我们为端到端模型添加的优化包括：
-i) 利用声学数据和文本数据来逐一训练端到端系统，并使用模块化的策略将训练结果进行融合。具体来说先使用声学数据训练一个基于CTC的音频到音素的声学模型，而后使用文本数据训练一个基于CTC或序列到序列模型的音素到词语的语言模型。
-ii) 在训练的后期，将不同模型融合为音频到词语模型，使用上文提到的标签同步解码算法对声学模型进行降采样，而后进行联合训练优化。
-最终，音频到音素的声学模型，标签同步解码模块，音素到词语的语言模型被堆叠起来，在联合优化后，可以直接进行端到端推理搜索，保留了端到端系统解码简便的特性。
-%
-这样做的优点包括： i) 得益于模块化和初始化所带来的更简单的建模难度和更快的模型收敛速度 ii) 更易于与传统的声学建模和语言建模技术相结合，并分别使用声学和文本数据进行训练。
-
-
-\subsection{训练和解码框架}
-\label{sec:psd_mod_framework}
-
-之前针对端到端语音识别的研究工作集中在将所有的模型单元融合在一起并进行联合训练和端到端解码。在这项工作中，我们提出了一种模块化的训练策略，以便优化外在知识源分别训练各个子模块的潜力。同时，我们在训练结束后仍然保留端到端解码的优点。图~\ref{fig:psd_mod_framework}显示了这一框架。
-
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/psd_mod_framework.pdf}
-    \bicaption[fig:psd_mod_framework]{模块化训练策略的框架}{模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}{Fig}{The framework of modular training strategy.}
-\end{figure}
-
-
-这一端到端词序列识别系统被模块化如下：
-\begin{equation}
-\label{equ:framework-1}
-P(\mathbf{w}|\mathbf{x})\approx\max_{\mathbf{p}} \left[\ P(\mathbf{w}|\mathbf{p}) \cdot P(\mathbf{p}|\mathbf{x})\ \right]
-\end{equation}
-公式中 $\mathbf{w}$, $\mathbf{p}$ 和 $\mathbf{x}$ 为词序列，音素序列和音频特征序列。
-CTC准则被用于训练一个使用声学数据的声学到音素模型 (A2P)  。同时， 我们使用文本数据和CTC或S2S准则训练一个音素到词语模型。
-
-最终各模块将被融合到一起，成为声学到词语模型 (A2W) ，在联合训练过程中我们使用了音素同步解码算法 (PSD)~\cite{zhc00-chen-tasl2017}。
-\begin{equation}
-\label{equ:framework-2}
-P(\mathbf{w}|\mathbf{x})\approx \max_{\mathbf{p}}\left[\ P(\mathbf{w}|\mathbf{p}) \cdot PSD(\ P(\mathbf{p}|\mathbf{x})\ )\ \right]
-\end{equation}
-在解码阶段，经过联合训练后的模型将进行端到端推理搜索，因此其复杂度与普通端到端模型相同~\cite{audhkhasi2017direct}。
-%As discussed in~\cite{audhkhasi2017direct}, the end-to-end system simplifies the decoding pipeline.  The proposed method still keeps this advantage. 
-
-对于CTC，我们将最佳的推理搜索序列连接起来，得到最终解码序列。对于S2S模型，我们使用维特比束剪枝算法来得到相应结果。这里的端到端模型还可以进一步与外在语言模型相结合以改善性能。在这种情况下，N元语言模型将被编译为词WFST。这种情况下LSD 搜索算法~\cite{zhc00-chen-tasl2017}还可以进一步用于加速系统。
-
-
-\subsection{模块化}
-\label{sec:psd_mod_modu}
-由于音素是人类语言重要的先验知识，它建立起了声学和语言之间的关系，因此我们采用它作为理想的建模单元。声学到音素模块使用声学数据进行训练，并预测 $P(\mathbf{p}|\mathbf{x})$ 如图~\ref{fig:psd_mod_framework}(a)所示，其与传统音素CTC建模相同~\cite{miao2015eesen}。注意的是，虽然CTC被用于该项工作，其他传统声学模型同样可以被使用，比如 RNA~\cite{sak2017recurrent} 或者 LF-MMI~\cite{povey2016purely}。
-
-不同于传统模型，我们这里所提出的语言模型使用音素作为输入，推理搜索词序列，即 $P(\mathbf{w}|\mathbf{p})$，也就是一个音素到词的模型，如图~\ref{fig:psd_mod_framework}(b)所示。
-另一个主要不同是，P2W模块使用文本和词典，不再需要使用声学数据。
-总的来说，P2W模块类似于传统语言模型，除了以下几方面：
-
-i) P2W输入的是音素序列，并隐含进行文本切分。
-
-ii) P2W给定音素序列情况下预测词序列。因此不同于传统的语言模型专注于预测下一个词，在给定前词情况下。P2W实际上得到了更多关于下一个词的信息。因此实验结果显示，P2W的预测准确度明显高于普通的语言模型。
-
-iii) P2W 通过序列级准则进行训练，比如CTC和S2S，这样就能够自动学习到音素和词语之间的对齐关系。
-
-
-%cmp phone2graphme
-我们这里同时引入了一个词边界单元 $\tt wb$ 到音素列表中，以改善文本切分效果。 $\tt wb$ 出现在词语的边界处，比如对词语 ``okay ow k ey'' ，其被修改为``okay ow k ey $\tt wb$''。 这里的想法是使用 $\tt wb$ 作为文本切分的线索，比如它可以区分一些短词可能是长词前缀的情况。
-
-总结这里的模块化的优点包括： i) 声学和语言模型都使用了合理的建模单元 ii)系统地结果了声学和文本数据的使用来强化模型训练。
-
-
-\subsection{标签同步解码}
-\label{sec:psd_mod_psd}
-标签同步解码在前文已进行了充分介绍，下面我们将使用它，$PSD(\cdot)$ ，作为融合系统中的一个降采样模块，应用在A2P模块上，以减少输入序列的长度。我们这样做的优点包括： i) 更短的序列减轻了LSTM进行时序建模的难度 ii)  加速了联合优化过程 iii) 该方法同时也加速了解码速度~\cite{zhc00-chen-tasl2017}.
-
-
-\subsection{联合训练}
-\label{sec:psd_mod_joint}
-最终，所有模块将会被堆叠起来，如图~\ref{fig:psd_mod_framework}(c)所示。声学数据将用来调优该模型。
-词语级别的CTC准则使用方法类似于~\cite{soltau2016neural}。
-同时S2S被用于词级别的预测。在优化过程中，只有P2W进行联合训练，原因是：i) A2P工作在音素上，通常已经能取得较好性能~\cite{miao2015eesen,sak2015fast}. ii) 固定住A2P使得PSD可以显著减少音频帧数，加快训练速度。经过联合训练后，该模型仍工作在端到端推理搜索上，保留了优点。
-%
-
-
-\section{实验结果}
+\subsection{实验结果}
 \label{chap:unify-exp}
-
-
-\subsection{实验配置}
 
 %In this section,  phone lattices from FSD and LSD were firstly compared, and their effects on CM were analyzed. Then experiments were held on proposed two types of CMs.
 
@@ -369,13 +523,12 @@ iii) P2W 通过序列级准则进行训练，比如CTC和S2S，这样就能够�
  在基线置信度方法中包含针对用于建模的特征的置信度，表示为 $\tt AC $ 和 $ \tt CN $。 我们提出的方法分别在实验中进行了比较，他们是$\tt AX1 $, $\tt AX2 $ 和 $\tt AX3 $ 。 
  附属归一化搜索空间 $\tt AX2 $是由一个三元音素级语言模型而得到的，它包含了{\em 145K} 组词历史。 $\tt AX3 $ 是由词级别搜索网络 $L$ 与一个由所有发音自环组成的网络$G$合成得到的,  $L \circ G$. $\tt filler$ 方法没有被包括在评估中，因为它理论上和 $\tt AX1$相同。
 
-\subsection{基于FSD和LSD的混淆网络比较}
-\label{sec:exp-lattice-ana}
 
 本章研究了LSD生成的混淆网络的质量比FSD好的原因。我们首先比较了音素词图质量，而后讨论了词级词图和混淆网络的生成方案。
 
 
 \subsubsection{音素级词图质量分析}
+\label{sec:exp-lsd-lat-quality}
 
 如前面章节所讨论，CTC 模型尝试对多对一函数$\mathcal{B}$进行建模，使得最终结果能得到非常突出的音素推理搜索结果。
 LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分布中生成得到的，之后可以将剩余帧的一定阈值以内的音素后验概率收集起来组成时间上不连续的词语串。这样的方式避免了一些搜索错误和混淆的音素边界问题，使得最终得到的词图更紧致。
@@ -397,8 +550,6 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 在相似OPER情况下，对同一个CTC模型，LSD词图的大小比FSD词图小超过10倍。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
 总结起来，在相同大小下，LSD CTC包含更多的音素声学信息。由于接下来的重点是比较FSD和LSD，因此我们仅罗列该部分结果。
 
-
-\subsubsection{LSD CTC 词图及其生成的更好混淆网络}
 
 %CTC model encodes the many-to-one function of $\mathcal{B}$ and results in peaky phonemic inference results.
 %However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).
@@ -446,7 +597,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 
 
 
-\subsection{置信度评估}
+\subsubsection{置信度评估}
 
 本章中我们比较上面讨论的混淆网络进一步得到置信度后的性能。为了补偿词图大小和对后验概率的过度估计，这里训练了一个决策树，来将所有概率映射到置信度分数上 \cite{evermann2000large}。 注意到，句子级置信度也可以由类似方法来得到。
 我们使用上文提到的NCE来衡量词级置信度质量优劣。
@@ -455,7 +606,6 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
      \end{equation}
 公式中 $H(\mathbf{C})$表示的是标注的序列的熵， $H(\mathbf{C}|\mathbf{x})$ 是置信度序列的熵。这是一个针对相比于总是提供平均分数的系统，其信息量增益的数量的指标。更高的NCE代表更好的系统。
 
-\subsubsection{LSD 声学音素置信度}
 
 表~\ref{tab:psd-conf}比较了所提出的LSD音素声学置信度与传统音素后验平均置信度。该传统方法 \cite{hu2013new}最初应用于HMM，并在本工作中拓展到 FSD的CTC 系统中 (表示为 {\em baseline}).  \ref{sec:psd-ac-conf} 提出的{\em peak-mean}, {\em peak-max}, {\em phone-mean}, {\em phone-conf} 
  等方案被表示为 {\tt PN1}, {\tt PN2}, {\tt PN3} and {\tt PC} 。
@@ -487,9 +637,6 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 在 LSD框架里，词边界和 {$\tt blank$} 分配问题都能够被解决，使得我们可以得到质量更好的置信度。同时当声学置信度和基于{\em phone-conf} 的置信度进行融合时，往往能取得最好的结果。因此在后续实验中，我们使用 $\tt PN2\oplus PN3\oplus PC$ 作为所提出的最优置信度。
 %This is another superiority of LSD phonemic acoustic confidence because of effective usage of  information from {$\tt blank$} span.
 
-
-\subsubsection{基于LSD的混淆网络的置信度}
-%swb & CellPhone
 
 %\subsubsection{Quality Comparison of Confidence Measures}
 %word level NCE
@@ -544,7 +691,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 %%%%%%%%%%%%%% unified %%%%%%%%%%%%%%%%
 
 
- \subsection{统一解码框架}
+ \subsubsection{统一解码框架}
  \label{Sec:exp-kws}
  %meidi / wsj
  %EER & FScore
@@ -630,7 +777,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 
       \end{table}
 
-    表~\ref{tab:exp-grammar-cm} 给出了结果。在相比之前更大的搜索空间下， $ \tt CN $ 显著超越了 $ \tt AC $，因为 $ \tt AC $ 并没有使用其他的竞争信息，由此容易造成误唤醒。 $ \tt AX2 $ 和 $ \tt AX3 $ 类似于 $ \tt CN $。 原因是我们所提出的附属归一化搜索空间是针对ASR搜索空间的一个很好近似。 $\tt AX3$ 依然是性能最好的一个系统，我们将其用于下面的实验。
+    表~\ref{tab:exp-grammar-cm} 给出了结果。在相比之前更大的搜索空间下， $ \tt CN $ 显著超越了 $ \tt AC $，因为 $ \tt AC $ 并没有使用其它的竞争信息，由此容易造成误唤醒。 $ \tt AX2 $ 和 $ \tt AX3 $ 类似于 $ \tt CN $。 原因是我们所提出的附属归一化搜索空间是针对ASR搜索空间的一个很好近似。 $\tt AX3$ 依然是性能最好的一个系统，我们将其用于下面的实验。
 
     关于效率，我们测试的框架对其基本没有影响。原因是与原来的搜索空间相比，我们提出的附属归一化搜索空间由于非常小，只会带来轻微影响。
 
@@ -677,7 +824,98 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
     %Taking all three experiments into account, the proposed unified confidence measure and decoding framework using auxiliary normalization graph and phone synchronous decoding provides consistent performance and efficiency across varieties of ASR search space within the single framework.
 
 
-\subsection{标签同步解码在模块化训练的端到端系统中的应用}
+\section{基于标签同步解码的声学特征到词的端到端语音识别}
+\label{chap:lsd-e2e}
+
+当前的端到端语音识别系统显示出诸多缺点，在开始使用标签同步解码算法进行优化之前，我们先对这些系统的缺点进行总结。
+
+首先，声学和文本数据并不能够被系统地共同利用，这将导致声学数据的需求量非常大。
+目前大多数对文本数据的应用停留于初始化阶段，但却不能在一个系统框架里，系统地使用声学和文本数据。
+与之相对，传统基于深度学习的隐马尔科夫训练框架则通过贝叶斯公式，将建模拆分为声学模型，转移模型，词表和语言模型，由此进行模块化的知识源融合。
+
+其次，声学和语言模型总是使用相同的建模单元，而这样的建模单元往往很难兼顾泛化能力和模型性能。音素感知是人类语言感知的基础单元~\cite{pisoni1985speech}。如果直接使用字符或者词作为建模单元，则并不能建立起这样的建模单元与发音之间的直接关系。这样一些研究忽略了音素这一人类语言中的先验知识。另一方面，使用字符而不是单词作为语言模型的建模单元，同样有损性能~\cite{jozefowicz2016exploring}.
+%
+总的来说，端到端系统建立起了与NN-HMM混合系统完全不同的一个模型框架。因此先验知识和之前在语言和声学模型方法的研究很难迁移到这一新的框架中。
+%Decoding complexity. In CTC, external language model is used and increases the decoding complexity. In attention-based encoder-decoder, because the prediction in  each step is given by the last prediction, beam search is always taken to reduce the inference bias~\cite{bahdanau2015task}.
+
+该章节将标签同步算法应用于序列到序列的端到端模型的方案。我们使用模块化训练的思想来改善端到端模型建模，使其更易于使用外在知识源来训练每一个端到端模型的子模块。值得注意的是，模型最后需要进行联合优化，因此最终在推理搜索阶段，模型仍然工作在端到端模式下。
+
+我们为端到端模型添加的优化包括：
+i) 利用声学数据和文本数据来逐一训练端到端系统，并使用模块化的策略将训练结果进行融合。具体来说先使用声学数据训练一个基于CTC的音频到音素的声学模型，而后使用文本数据训练一个基于CTC或序列到序列模型的音素到词语的语言模型。
+ii) 在训练的后期，将不同模型融合为音频到词语模型，使用上文提到的标签同步解码算法对声学模型进行降采样，而后进行联合训练优化。
+最终，音频到音素的声学模型，标签同步解码模块，音素到词语的语言模型被堆叠起来，在联合优化后，可以直接进行端到端推理搜索，保留了端到端系统解码简便的特性。
+%
+这样做的优点包括： i) 得益于模块化和初始化所带来的更简单的建模难度和更快的模型收敛速度 ii) 更易于与传统的声学建模和语言建模技术相结合，并分别使用声学和文本数据进行训练。
+
+
+\subsection{训练和解码框架}
+\label{sec:psd_mod_framework}
+
+之前针对端到端语音识别的研究工作集中在将所有的模型单元融合在一起并进行联合训练和端到端解码。在这项工作中，我们提出了一种模块化的训练策略，以便优化外在知识源分别训练各个子模块的潜力。同时，我们在训练结束后仍然保留端到端解码的优点。图~\ref{fig:psd_mod_framework}显示了这一框架。
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/psd_mod_framework.pdf}
+    \bicaption[fig:psd_mod_framework]{模块化训练策略的框架}{模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}{Fig}{The framework of modular training strategy.}
+\end{figure}
+
+
+这一端到端词序列识别系统被模块化如下：
+\begin{equation}
+\label{equ:framework-1}
+P(\mathbf{w}|\mathbf{x})\approx\max_{\mathbf{p}} \left[\ P(\mathbf{w}|\mathbf{p}) \cdot P(\mathbf{p}|\mathbf{x})\ \right]
+\end{equation}
+公式中 $\mathbf{w}$, $\mathbf{p}$ 和 $\mathbf{x}$ 为词序列，音素序列和音频特征序列。
+CTC准则被用于训练一个使用声学数据的声学到音素模型 (A2P)  。同时， 我们使用文本数据和CTC或S2S准则训练一个音素到词语模型。
+
+最终各模块将被融合到一起，成为声学到词语模型 (A2W) ，在联合训练过程中我们使用了音素同步解码算法 (PSD)~\cite{zhc00-chen-tasl2017}。
+\begin{equation}
+\label{equ:framework-2}
+P(\mathbf{w}|\mathbf{x})\approx \max_{\mathbf{p}}\left[\ P(\mathbf{w}|\mathbf{p}) \cdot PSD(\ P(\mathbf{p}|\mathbf{x})\ )\ \right]
+\end{equation}
+在解码阶段，经过联合训练后的模型将进行端到端推理搜索，因此其复杂度与普通端到端模型相同~\cite{audhkhasi2017direct}。
+%As discussed in~\cite{audhkhasi2017direct}, the end-to-end system simplifies the decoding pipeline.  The proposed method still keeps this advantage. 
+
+对于CTC，我们将最佳的推理搜索序列连接起来，得到最终解码序列。对于S2S模型，我们使用维特比束剪枝算法来得到相应结果。这里的端到端模型还可以进一步与外在语言模型相结合以改善性能。在这种情况下，N元语言模型将被编译为词WFST。这种情况下LSD 搜索算法~\cite{zhc00-chen-tasl2017}还可以进一步用于加速系统。
+
+
+\subsection{模块化}
+\label{sec:psd_mod_modu}
+由于音素是人类语言重要的先验知识，它建立起了声学和语言之间的关系，因此我们采用它作为理想的建模单元。声学到音素模块使用声学数据进行训练，并预测 $P(\mathbf{p}|\mathbf{x})$ 如图~\ref{fig:psd_mod_framework}(a)所示，其与传统音素CTC建模相同~\cite{miao2015eesen}。注意的是，虽然CTC被用于该项工作，其它传统声学模型同样可以被使用，比如 RNA~\cite{sak2017recurrent} 或者 LF-MMI~\cite{povey2016purely}。
+
+不同于传统模型，我们这里所提出的语言模型使用音素作为输入，推理搜索词序列，即 $P(\mathbf{w}|\mathbf{p})$，也就是一个音素到词的模型，如图~\ref{fig:psd_mod_framework}(b)所示。
+另一个主要不同是，P2W模块使用文本和词典，不再需要使用声学数据。
+总的来说，P2W模块类似于传统语言模型，除了以下几方面：
+
+i) P2W输入的是音素序列，并隐含进行文本切分。
+
+ii) P2W给定音素序列情况下预测词序列。因此不同于传统的语言模型专注于预测下一个词，在给定前词情况下。P2W实际上得到了更多关于下一个词的信息。因此实验结果显示，P2W的预测准确度明显高于普通的语言模型。
+
+iii) P2W 通过序列级准则进行训练，比如CTC和S2S，这样就能够自动学习到音素和词语之间的对齐关系。
+
+
+%cmp phone2graphme
+我们这里同时引入了一个词边界单元 $\tt wb$ 到音素列表中，以改善文本切分效果。 $\tt wb$ 出现在词语的边界处，比如对词语 ``okay ow k ey'' ，其被修改为``okay ow k ey $\tt wb$''。 这里的想法是使用 $\tt wb$ 作为文本切分的线索，比如它可以区分一些短词可能是长词前缀的情况。
+
+总结这里的模块化的优点包括： i) 声学和语言模型都使用了合理的建模单元 ii)系统地结果了声学和文本数据的使用来强化模型训练。
+
+
+\subsection{标签同步解码}
+\label{sec:psd_mod_psd}
+标签同步解码在前文已进行了充分介绍，下面我们将使用它，$PSD(\cdot)$ ，作为融合系统中的一个降采样模块，应用在A2P模块上，以减少输入序列的长度。我们这样做的优点包括： i) 更短的序列减轻了LSTM进行时序建模的难度 ii)  加速了联合优化过程 iii) 该方法同时也加速了解码速度~\cite{zhc00-chen-tasl2017}.
+
+
+\subsection{联合训练}
+\label{sec:psd_mod_joint}
+最终，所有模块将会被堆叠起来，如图~\ref{fig:psd_mod_framework}(c)所示。声学数据将用来调优该模型。
+词语级别的CTC准则使用方法类似于~\cite{soltau2016neural}。
+同时S2S被用于词级别的预测。在优化过程中，只有P2W进行联合训练，原因是：i) A2P工作在音素上，通常已经能取得较好性能~\cite{miao2015eesen,sak2015fast}. ii) 固定住A2P使得PSD可以显著减少音频帧数，加快训练速度。经过联合训练后，该模型仍工作在端到端推理搜索上，保留了优点。
+%
+
+
+\subsection{实验结果}
 \label{exp:psd_mod}
 
 表\ref{tab:exp-module}针对各个模块的验证集（CV）上的性能进行了比较。加粗的系统将在后续中进行使用。
@@ -767,7 +1005,7 @@ CI-phone CTC 的性能比CD-phone CE差~\footnote{在更多数据情况下，CTC
 Mod. CTC  显著改善了基线系统的性能。更好的性能来自： i) 得益于模块化和初始化所带来的更快和更好的模型收敛 ii) 更易于分别使用声学和文本数据来融合传统的声学和语音模型训练技术。
 
 表~\ref{tab:exp-psd}显示了引入PSD算法的重要性。所有的结果都是基于一张 Titan GPU所得到。 ``fr./s.''表示每秒钟所处理的声学帧数。这里的训练加速来自两方面： i)PSD减少了后续P2W需要处理的序列长度 ii) 由于序列长度有所减小，更多的序列可以被载入GPU显存，由此可以加速并行计算。
-同时，性能也有所改善。我们认为改善的结果来自于序列长度的缩短。虽然我们使用LSTM，但模型仍然很难记忆很长的序列。但是对于A2W建模，需要记忆的历史显著长于传统的 CI-phone CTC 或者混合系统。在其他一些研究中~\cite{chan2016end}也有类似的现象，而这些研究通过金字塔式的降帧率来缓解该问题。PSD是解决该问题的另一种思路。
+同时，性能也有所改善。我们认为改善的结果来自于序列长度的缩短。虽然我们使用LSTM，但模型仍然很难记忆很长的序列。但是对于A2W建模，需要记忆的历史显著长于传统的 CI-phone CTC 或者混合系统。在其它一些研究中~\cite{chan2016end}也有类似的现象，而这些研究通过金字塔式的降帧率来缓解该问题。PSD是解决该问题的另一种思路。
 
 %cmp several tricks:
 %\begin{itemize}
@@ -795,7 +1033,7 @@ Mod. CTC  显著改善了基线系统的性能。更好的性能来自： i) 得
 为了减轻CTC的CIA假设对模型性能所带来影响，我们实验了以下一些方案。
 首先，一个从N元语言模型得到的WFST被用于与模型一起进行联合解码，其结果显示在表~\ref{tab:exp-joint}的第五行。该系统得到了一定性能提升。由此第2行与第5行的性能差距被缩减到少于 15\%。
 %
-另一种方法是使用S2S来代替CTC。我们提出的基于模块化训练的S2S系统 (Mod. S2S) 在表~\ref{tab:exp-joint}中最后一行。不同于在表~\ref{tab:exp-module}中的现象，S2S系统并未得到性能改善。通过进一步分析解码结果，我们发现S2S很易于受到音素识别错误的影响。经过联合优化后，S2S并不能恢复这些错误，这项观察同样见于其他研究~\cite{prabhavalkar2017comparison}。
+另一种方法是使用S2S来代替CTC。我们提出的基于模块化训练的S2S系统 (Mod. S2S) 在表~\ref{tab:exp-joint}中最后一行。不同于在表~\ref{tab:exp-module}中的现象，S2S系统并未得到性能改善。通过进一步分析解码结果，我们发现S2S很易于受到音素识别错误的影响。经过联合优化后，S2S并不能恢复这些错误，这项观察同样见于其它研究~\cite{prabhavalkar2017comparison}。
 %Especially, the acoustic signal is filled with much more noises than the phoneme sequences. 
 在我们的研究中尚未包含字符级别的建模系统，原因是字符对于声学和语言建模的难度都比较大，如前文所述，音素和词语对本文的建模更加直接。
 
@@ -803,6 +1041,13 @@ Mod. CTC  显著改善了基线系统的性能。更好的性能来自： i) 得
     
 \section{本章小结}
 \label{chap:unify-sum}
-由于不同ASR应用之间不同的搜索空间大小和效率要求，当前业界最优的置信度及其相应的解码算法在不同应用上具有不同架构。针对基于词图后验概率的置信度，计算量主要集中在词图部分的边缘概率计算过程。本章节中，我们首先改善了基于CTC的后验概率置信度方案；而后我们结合前面章节对解码的大幅加速和搜索空间的优化等工作，提出一系列针对不同应用的通用置信度，并尝试将不同应用中的语音识别推理搜索过程统一到同一框架中。
 
-，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度
+
+
+本章节我们针对标签同步解码算法的三个扩展应用：关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
+%
+我们基于前面章节介绍的LSD算法提出了一种高效的后处理算法，以解决关键词检测中的音素混淆建模的问题。
+%
+我们将结合前面章节对解码的大幅加速和搜索空间的优化等工作，提出一系列针对不同应用的通用置信度，并尝试将不同应用中的语音识别推理搜索过程统一到同一框架中。
+%
+另一方面，我们将标签同步算法应用于序列到序列的端到端模型。在实验部分，该章节系统一方面取得大幅度语音识别解码速度改善，另一方面在端到端建模上取得了更快和更好的模型收敛和模型准确度。
