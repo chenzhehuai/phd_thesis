@@ -64,7 +64,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %GPU and CPU work asynchronously and there are two GPU concurrent streams
 %performing decoding and lattice processing respectively.
 
-解码的流程类似于CPU 版本~\cite{povey2011kaldi}，如算法\ref{code:tokpass}所示。本章节的并行算法将使得算法\ref{code:tokpass}中的第7和第8行的串行循环处理并行化。
+解码的流程类似于CPU 版本~\cite{povey2011kaldi}，如算法\ref{code:tokpass}所示。本章节的并行算法将使得算法\ref{code:tokpass}中的第8和第9行的串行循环处理并行化。
 结合公式（\ref{equ:dec-cmp-dec}）和公式（\ref{equ:dec-cmp-space2}），串行版本的解码器复杂度大致为，
 
 \begin{equation}
@@ -74,7 +74,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
  \end{split}
 \end{equation}
 
-定义上述算法\ref{code:tokpass}中第7行的并行度为$P_1$，第8行的并行度为$P_2$，并行处理所带来的额外复杂度为$\mathbb{C}_{extra} $，则并行版本的解码器复杂度大致为，
+定义上述算法\ref{code:tokpass}中第8行的并行度为$P_1$，第9行的并行度为$P_2$，并行处理所带来的额外复杂度为$\mathbb{C}_{extra} $，则并行版本的解码器复杂度大致为，
 
 \begin{equation}
 \label{equ:dec-cmp-parallel}
@@ -152,7 +152,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %\textit{atomicMin}(address, val). Read the 64-bit {\em{old}} located at the {\em{address}}, computes the \textit{min} of {\em{old}} and {\em{val}}, and stores the result to {\em{address}}~\cite{cuda9}.}
 %\vspace{-1em}
 
-原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的12-18行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加临界区（critical sections）~\cite{lamport1979make}
+原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的13-19行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加临界区（critical sections）~\cite{lamport1979make}
 以便使令牌合并这一步仍然恢复串行。这种设计不仅低效，而且会在早期GPU中引入死锁。
 \cite{you2009parallel} 提出一种在每个状态上做针对所有令牌传递结果的规约操作，但这样将引入额外的规约过程中的写冲突和同步损耗，而且这些损耗总是发生在计算的最后阶段。
 %
@@ -160,7 +160,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 
 我们提出算法~\ref{code:atomic}, 它是一个通用的计算方法，适应于任何模型的令牌合并，没有精度损失。这个算法执行于每一个GPU线程上，并且针对每一条WFST边进行并行，比如在图\ref{fig:load-balance} 中从状态2到状态7的边可以由这一算法进行处理。
 % describes the 2-stage atomic operation based token recombination. 
-我们首先将分数和边的索引合并为一个64比特整形数，以表示合并之前的令牌, 同时我们将分数放在高位上，使得它可以控制后续的合并结果。在每一帧，我们将所有令牌的信息保存在一个长度为所有可行边的数组上。这保重合并过程没有写入的冲突，也就不会带来同步损耗。所有的令牌都被处理后，我们收集所有仍然活跃的合并令牌，将64比特数字返回原先的分数和边的索引，由此将真正的令牌信息存入相应的令牌中，而这一步也同样是并行进行的。
+我们首先将分数和边的索引合并为一个64比特整形数，以表示合并之前的令牌, 同时我们将分数放在高位上，使得它可以控制后续的合并结果。在每一帧，我们将所有令牌的信息保存在一个长度为所有可行边的数组上。这保证合并过程没有写入的冲突，也就不会带来同步损耗。所有的令牌都被处理后，我们收集所有仍然活跃的合并令牌，将64比特数字返回原先的分数和边的索引，由此将真正的令牌信息存入相应的令牌中，而这一步也同样是并行进行的。
 
 
 \section{图搜索的动态负载均衡算法}
@@ -245,19 +245,19 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
  \vspace{-0.25em}
  \begin{algorithm}[ht]
  %\vspace{-0.25em}
- \caption{Grid级别的词图处理算法  \textcolor[rgb]{0,0.5,0}{(Input: processing frame, lattice token vector and lattice arc vector are taken as inputs)}}
+ \caption{Grid级别的词图处理算法  \textcolor[rgb]{0,0.5,0}{(输入: 处理的帧数, 词图令牌向量组，词图边向量组)}}
  \label{code:exact-lattice}
  \begin{flushleft}
- Function {\em{ArcExtraCost}}(arc) returns the cost difference between the best path including the arc, and the best overall path.
+  函数 {\em{ArcExtraCost}}(arc) 将返回包含这条输入边的最优路径的cost值与全局最优路径的cost值之间的差别。
  \end{flushleft}
  \begin{algorithmic}[1]
  \Procedure{ Prune Lattice For Frame } {f, toks, arcs}
- \For{tok in toks(f-1)} \Comment \textcolor[rgb]{0.8,0,0}{extraCost initialization}
+ \For{tok in toks(f-1)} \Comment \textcolor[rgb]{0.8,0,0}{extraCost 初始化}
  \State tok.extraCost = FLT\_MAX
  \EndFor
   \While{modified == 1}
  \State  modified = 0
- \For{ arc in arcs(f)} \Comment \textcolor[rgb]{0.8,0,0}{thread parallelism }
+ \For{ arc in arcs(f)} \Comment \textcolor[rgb]{0.8,0,0}{线程并行化 }
  \State cost = \textit{ArcExtraCost}(arc)
  \If { cost $<$ latticeBeam}
  \State \textit{atomicMin}(tok.extraCost,cost)
@@ -313,7 +313,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 
 我们对1-best 结果和词图质量都进行了比较。为了公平起见，我们保持两种解码器得出相同的词图密度 ({\em{lat.den.}}, 其使用arcs/frame进行度量)~\cite{woodland19951994}。
 在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}。
-{\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017} 用来作为词图所得到的词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。
+第\ref{sec:intro-cm}章节中的{\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017}被 用来作为词图所得到的词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。
 这里我们训练了决策树以将这些词图后验概率转换为我们最终需要的置信度~\cite{chen2017confidence,chen2017unified}.
 实时率 (real-time factor, RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理搜索所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)
 一块 Tesla V100 默认地用于GPU解码，后续我们还会比较其它GPU架构下的性能。
@@ -359,7 +359,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 作为对比，我们在CPU上使用了类似的序列并行技术，但仅取得了1.8倍的加速比。
 %
 
-虽然原子操作优化的加速比并不明显，它有效去除了critical section，而这部分使得使用传统GPU框架进行解码成为可能，这部分我们将在后文中讨论。同时动态负载均衡取得了最好的实验效果。
+虽然原子操作优化的加速比并不明显，但它有效去除了临界区，而这部分使得使用传统GPU框架进行解码成为可能，这部分我们将在后文中进一步讨论。同时动态负载均衡取得了最好的实验效果。
 %(which metric can be used to show the effect of load balancing)
 
 为了更公证地比较总体的RTF，我们使用一个GPU独立进行单序列声学模型推理。单序列的总体RTF在1-best解码器和词图解码器上分别为 0.18 和 0.03~\footnote{这里的声学模型推理还可以使用序列批处理进行额外加速~\cite{dixon2009harnessing}, 我们以往的经验是有10倍左右的加速比。}。 更深层次地将声学模型推理和语言模型解码相结合，是一个有意义的未来研究课题。
@@ -411,7 +411,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
  \begin{itemize} 
    \item 声学模型帧率
  \end{itemize} 
- 我们测试了原始帧率而非降帧率后的声学模型，用图中的虚线表示。它仍然显著比CPU的降帧率系统好。值得注意的是这说明CPU系统比GPu系统慢了3倍以上，因为降帧率技术同样非常重要，可以显著加速解码系统~\cite{pundak2016lower,zhc00-chen-tasl2017}。而这项技术在GPU解码器中仍然很重要。
+ 我们测试了原始帧率而非降帧率后的声学模型，用图中的虚线表示。它仍然显著比CPU的降帧率系统好。值得注意的是这说明CPU系统比GPU系统慢了3倍以上，因为降帧率技术同样非常重要，可以显著加速解码系统~\cite{pundak2016lower,zhc00-chen-tasl2017}。而这项技术在GPU解码器中仍然很重要。
 \begin{itemize}
    \item 语言模型大小和内存开销。
  \end{itemize} 

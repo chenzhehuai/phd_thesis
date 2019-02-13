@@ -5255,6 +5255,42 @@
       \field{pages}{I\bibrangedash I}
       \range{pages}{1}
     \endentry
+    \entry{zhc00-chen-icassp2017}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=7ed52a70e8b90e10908c9a5cc5d3f935}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Yimeng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{5c3b47733a05378929009cc8faef8972}
+      \strng{fullhash}{5c3b47733a05378929009cc8faef8972}
+      \strng{bibnamehash}{5c3b47733a05378929009cc8faef8972}
+      \strng{authorbibnamehash}{5c3b47733a05378929009cc8faef8972}
+      \strng{authornamehash}{5c3b47733a05378929009cc8faef8972}
+      \strng{authorfullhash}{5c3b47733a05378929009cc8faef8972}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Conference on Acoustics, Speech and Signal Processing}
+      \field{title}{Confidence Measures for CTC-based Phone Synchronous Decoding}
+      \field{userf}{en}
+      \field{year}{2017}
+    \endentry
     \entry{vesely2010parallel}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=8b9d26ab0bd1d05085a70899c6cd7962}{%
@@ -6546,8 +6582,8 @@
       \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE transactions on computers}
@@ -6585,8 +6621,8 @@
       \strng{authorbibnamehash}{018c79f6f3fd242601147af2c0be9773}
       \strng{authornamehash}{018c79f6f3fd242601147af2c0be9773}
       \strng{authorfullhash}{018c79f6f3fd242601147af2c0be9773}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE International Conference on}
@@ -6842,42 +6878,6 @@
       \field{title}{Frame based system combination and a comparison with weighted ROVER and CNC.}
       \field{userf}{en}
       \field{year}{2006}
-    \endentry
-    \entry{zhc00-chen-icassp2017}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=1c4d374c630e3002e6c077be470a838e}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhehuai},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=7ed52a70e8b90e10908c9a5cc5d3f935}{%
-           family={Zhuang},
-           familyi={Z\bibinitperiod},
-           given={Yimeng},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Kai},
-           giveni={K\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{5c3b47733a05378929009cc8faef8972}
-      \strng{fullhash}{5c3b47733a05378929009cc8faef8972}
-      \strng{bibnamehash}{5c3b47733a05378929009cc8faef8972}
-      \strng{authorbibnamehash}{5c3b47733a05378929009cc8faef8972}
-      \strng{authornamehash}{5c3b47733a05378929009cc8faef8972}
-      \strng{authorfullhash}{5c3b47733a05378929009cc8faef8972}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2017 IEEE International Conference on Acoustics, Speech and Signal Processing}
-      \field{title}{Confidence Measures for CTC-based Phone Synchronous Decoding}
-      \field{userf}{en}
-      \field{year}{2017}
     \endentry
     \entry{chen2017confidence}{inproceedings}{}
       \name{author}{3}{}{%
@@ -7931,8 +7931,8 @@
       \strng{authorbibnamehash}{f85e80bfbb4175a587df951e5904581a}
       \strng{authornamehash}{f85e80bfbb4175a587df951e5904581a}
       \strng{authorfullhash}{f85e80bfbb4175a587df951e5904581a}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Audio, Speech, and Language Processing, IEEE Transactions on}

@@ -59,7 +59,7 @@ O(T\times (\left|{S}\right|+\left|{E}\right|))
 \mathbf{w}^* &=& \arg \max_{\mathbf{w} \in \mathcal{H}}p(\mathbf{O}|\mathbf{w})P(\mathbf{w}) \\
 &=& \arg \max_{\mathbf{w} \in \mathcal{H}} \sum_{\mathbf{s}} P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})P(\mathbf{w})
 \end{eqnarray}
-这里$\mathbf{s}$是所有可能的状态序列，$P(\mathbf{w})$通过语言模型计算，$P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})$通过声学模型计算。正如我们在章节\ref{sec:calc_like}中讨论过的，这一似然可以通过前向后向算法进行计算。然而，因为候选词序列可能性过于庞大，无法通过对每个候选进行前向后向算法来计算似然。因此，实际中通常利用最大概率的状态路径来近似整个概率，即：
+这里$\mathbf{s}$是所有可能的状态序列，$P(\mathbf{w})$通过语言模型计算，$P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})$通过声学模型计算。正如我们在章节\ref{sec:hmm}中讨论过的，这一似然可以通过前向后向算法进行计算。然而，因为候选词序列可能性过于庞大，无法通过对每个候选进行前向后向算法来计算似然。因此，实际中通常利用最大概率的状态路径来近似整个概率，即：
 \begin{equation}
 \label{eq:decode}
 \mathbf{w}^* = \arg \max_{\mathbf{w} \in \mathcal{H}} \max_{\mathbf{s}} P(\mathbf{s}|\mathbf{w})p(\mathbf{O}|\mathbf{s})P(\mathbf{w})
@@ -81,7 +81,7 @@ Viterbi算法可以很容易扩展到连续语音信号的识别，一种扩展�
 \mathbf{w}^* = \arg \max_{\mathbf{w} \in \mathcal{H}} \{\log p(\mathbf{O}|\mathbf{w}) + \alpha \log P(\mathbf{w}) + \beta L_{\mathbf{w}}\}
 \end{equation}
 这里$\alpha$是语言模型分数缩放系数，$\beta$是插入错误惩罚系数，$L_{\mathbf{w}}$是词序列长度。
-通常会选择最大概率路径作为识别结果，也可以输出一部分候选结果然后用更强的语言模型来重新评价（比如利用神经网络语言模型）。这一候选的路径一般利用N-best列表~\cite{schwartz1990n}或者利用能包含更多信息的词级词图(Word Graph/Word Lattice)~\cite{ortmanns1997word}。
+通常会选择最大概率路径作为识别结果，也可以输出一部分候选结果然后用更强的语言模型来重新评价（比如利用神经网络语言模型）。这一候选的路径一般利用N-best列表~\cite{schwartz1990n}或者利用能包含更多信息的词级词图(将在第\ref{sec:intro-lattice}章节介绍)~\cite{ortmanns1997word}。
 
 在语音信号的识别推理搜索阶段，解码器是语音信号的识别系统的核心和灵魂，所有信息都汇集于此。它将不同来源、 不同层次、 不同性质的知识和信息关联在一起，使它们互相之间取长补短， 从而得到正确的语音信号的识别结果。因此，如何将各种性质不同的信息有机融合是解码网络和解码算法设计中必须认真研究和解决的重要问题之一。
 从解码器的作用来看，它不仅是验证语音信号识别中各种理论，模型和算法正确性的基本实验平台，也是构建实际系统的基础。因此，在解码器设计中，还必须考虑到研究的便利性和工程的实际应用。
@@ -106,7 +106,7 @@ ii) 监督的基于文本的方法，这部分可以被进一步分类为  基�
 对于前者，在训练阶段需要构建一个词，半词或音素的语音识别系统。声学和语言模型在测试阶段一起对语音进行转录并得到词图。之后在词图上进行关键词搜索得到最终的结果。
 声学 KWS 不需要语言模型，通过直接建模目标关键词，半词或音素，构建一个声学模型来进行关键词的判别。一些方法中也会考虑引入非关键词元素到建模当中~\cite{sukkar1996utterance}。
 QbyE 主要用于低资源音频检索, 本文不针对这个方向。 
-在 语料库检索中, 基于LVCSR方法通常能得到更好的性能，相比声学KWS。但是基于LVCSR方法也有如下一些缺点: 需要训练一个非常通用的大词汇连续语音识别系统，因此需要大量语料；同时在测试阶段也需要非常大的词表进行覆盖。这样的缺点限制了它在一些应用，比如唤醒词识别中的应用。除此之外，基于LVCSR的方法忽略了KWS任务本身的一些特性，该类方法的推理搜索阶段解码搜索算法主与大词汇连续语音识别中类似，详细讨论参加第\ref{chap:intro-lvcsr}章节。
+在 语料库检索中, 基于LVCSR方法通常能得到更好的性能，相比声学KWS。但是基于LVCSR方法也有如下一些缺点: 需要训练一个非常通用的大词汇连续语音识别系统，因此需要大量语料；同时在测试阶段也需要非常大的词表进行覆盖。这样的缺点限制了它在一些应用，比如唤醒词识别中的应用。除此之外，基于LVCSR的方法忽略了KWS任务本身的一些特性，该类方法的推理搜索阶段解码搜索算法与大词汇连续语音识别中类似，详细讨论参加第\ref{chap:intro-lvcsr}章节。
 
 
 \subsubsection{基于声学的关键词检测}
@@ -464,6 +464,7 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
 \State stateMap=$\{\}$;
 \State    $\bullet$ \textrm{令牌传递}
 \For {t in T} \Comment \textcolor[rgb]{0,0.5,0}{每一帧}
+\State    $\bullet$ \textrm{每一帧层面的维特比束剪枝搜索(ViterbiBeamSearch)}
 \For{curTok in Queue} \Comment \textcolor[rgb]{0,0.5,0}{每一个上一帧的Token}
 \For{arc in curTok.arcs}  \Comment \textcolor[rgb]{0,0.5,0}{每个Token的出边}
 \State amScore=amScores[t][arc.inId];
@@ -567,6 +568,13 @@ N-Best 结果和词图。同时，它也负责对剪枝过程中所剪掉的较�
 
 \end{itemize}
 
+在大词汇连续语音识别中，{\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017} 被用来作为词级别置信度质量的评估。
+     \begin{equation}\label{eq:nce}
+    NCE=\frac{H(\mathbf{C})-H(\mathbf{C}|\mathbf{x})}{H(\mathbf{C})}
+     \end{equation}
+公式中 $H(\mathbf{C})$表示的是标注的序列的熵， $H(\mathbf{C}|\mathbf{x})$ 是置信度序列的熵。这是一个针对相比于总是提供平均分数的系统，其信息量增益的数量的指标。更高的NCE代表更好的系统。
+% 
+为了补偿词图大小和对后验概率的过度估计，这里通常会训练一棵决策树，来将所有概率映射到置信度分数上 \cite{evermann2000large}。 注意到，句子级置信度也可以由类似方法来得到。
 
 \section{解码器研究中的待解决问题}
 \label{chap:intro2-dec-future}
@@ -592,7 +600,7 @@ N-Best 结果和词图。同时，它也负责对剪枝过程中所剪掉的较�
 \item 
 该种方案基于对语音识别中各知识源（声学、语言、语义等）进行搜索空间的预先构建及整体优化，导致最终得到的搜索空间巨大，包括离线构建、在线使用、动态修改等各环节算法的计算量和内存消耗都非常大，是阻碍语音识别应用场景扩展的一个重要原因。旨在解决该问题，针对新型声学和语音模型的搜索空间整体优化研究尚不充分，而基于推理中间状态对搜索空间进行动态优化的研究几乎处于空白。
 \end{enumerate}
-因此，尽管基于深度学习模型，加权有限状态机和基于帧的维特比网络搜索算法的深度学习已经发展到基本可用水平，但是精度仍然不能满足人类之间的正常交流要求。速度限制也使得语音识别无法在低成本和低功耗的解决方案上工作，这些解决方案一起阻碍了语音识别技术的大规模商业应用。
+因此，尽管基于深度学习模型，加权有限状态机和基于帧的维特比网络搜索算法的深度学习已经发展到基本可用水平，但是精度仍然不能满足人类之间的正常交流要求。速度限制也使得语音识别无法在低成本和低功耗的解决方案上工作，这些一起阻碍了语音识别技术的大规模商业应用。
 
 \subsection{发展机遇和亟待解决问题}
 \label{chap:intro2-dec-todo}

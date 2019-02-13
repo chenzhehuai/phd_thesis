@@ -36,7 +36,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3--3}{\ignorespaces Bigram和cross-word triphone的语法网络}}{50}{figure.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3--4}{\ignorespaces Trigram和within-word triphone的语法网络}}{52}{figure.3.4}
+\contentsline {figure}{\numberline {3--4}{\ignorespaces Trigram和within-word triphone的语法网络}}{51}{figure.3.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3--5}{\ignorespaces 通用解码器架构}}{55}{figure.3.5}
 \defcounter {refsection}{0}\relax 
@@ -70,7 +70,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6--1}{\ignorespaces HMM，CTC的模型输出分布示例}}{101}{figure.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6--2}{\ignorespaces LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势}}{108}{figure.6.2}
+\contentsline {figure}{\numberline {6--2}{\ignorespaces LSD和FSD框架中平均活跃令牌数随LM变大的变化趋势}}{107}{figure.6.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {6--3}{\ignorespaces swb子集，CTC中，使用不同剪枝技术时WER随平均活跃令牌数的变化趋势}}{109}{figure.6.3}
 \defcounter {refsection}{0}\relax 
@@ -88,13 +88,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {7--5}{\ignorespaces 不同语音识别任务的架构比较}}{128}{figure.7.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--6}{\ignorespaces OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}{129}{figure.7.6}
+\contentsline {figure}{\numberline {7--6}{\ignorespaces OPER v.s. 词图密度在 FSD 和 LSD 中的比较}}{130}{figure.7.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {7--7}{\ignorespaces 词图密度 v.s. 相对 OWER下降比例}}{130}{figure.7.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {7--8}{\ignorespaces LSD和FSD的词边界稳定性}}{131}{figure.7.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7--9}{\ignorespaces 词图密度 v.s. 混淆网络深度}}{131}{figure.7.9}
+\contentsline {figure}{\numberline {7--9}{\ignorespaces 词图密度 v.s. 混淆网络深度}}{132}{figure.7.9}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {7--10}{\ignorespaces 模块化训练策略的框架}}{136}{figure.7.10}
 \defcounter {refsection}{0}\relax 

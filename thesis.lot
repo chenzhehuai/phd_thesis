@@ -34,13 +34,13 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--1}{\ignorespaces {\it LSD versus FSD in DSM}}}{107}{table.6.1}
+\contentsline {table}{\numberline {6--1}{\ignorespaces {\it LSD versus FSD in DSM}}}{106}{table.6.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6--2}{\ignorespaces {\it LSD与跳帧方法的对比}}}{108}{table.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--3}{\ignorespaces {\it LSD与FSD在不同的GSM模型上的性能和速度比较}}}{111}{table.6.3}
+\contentsline {table}{\numberline {6--3}{\ignorespaces {\it LSD与FSD在不同的GSM模型上的性能和速度比较}}}{110}{table.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--4}{\ignorespaces {\it 生成式序列模型中的blank粒度}}}{112}{table.6.4}
+\contentsline {table}{\numberline {6--4}{\ignorespaces {\it 生成式序列模型中的blank粒度}}}{111}{table.6.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {6--5}{\ignorespaces {\it 生成式序列模型中的blank拓扑结构}}}{112}{table.6.5}
 \defcounter {refsection}{0}\relax 
@@ -58,7 +58,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--6}{\ignorespaces {\it 针对音素声学置信度的比较}}}{132}{table.7.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{133}{table.7.7}
+\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{132}{table.7.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--8}{\ignorespaces {\it KWS 任务}}}{133}{table.7.8}
 \defcounter {refsection}{0}\relax 
@@ -70,7 +70,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--12}{\ignorespaces {\it 针对是否包含模块化训练的性能比较 }}}{139}{table.7.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{140}{table.7.13}
+\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{139}{table.7.13}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
