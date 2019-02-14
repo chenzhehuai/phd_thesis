@@ -152,7 +152,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %\textit{atomicMin}(address, val). Read the 64-bit {\em{old}} located at the {\em{address}}, computes the \textit{min} of {\em{old}} and {\em{val}}, and stores the result to {\em{address}}~\cite{cuda9}.}
 %\vspace{-1em}
 
-原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的13-19行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加临界区（critical sections）~\cite{lamport1979make}
+原始的CPU算法在进行令牌合并时（算法\ref{code:tokpass}的14-20行）是串行的。我们即将讨论如何在GPU中实现令牌合并，而将如何高效并行这些指令放在下面的章节中。一种最简单的实现是通过添加临界区（critical sections）~\cite{lamport1979make}
 以便使令牌合并这一步仍然恢复串行。这种设计不仅低效，而且会在早期GPU中引入死锁。
 \cite{you2009parallel} 提出一种在每个状态上做针对所有令牌传递结果的规约操作，但这样将引入额外的规约过程中的写冲突和同步损耗，而且这些损耗总是发生在计算的最后阶段。
 %

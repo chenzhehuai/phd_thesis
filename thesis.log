@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  13 FEB 2019 14:52
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  14 FEB 2019 08:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2497,11 +2497,10 @@ File: figure/dec_arch.png Graphic file (type bmp)
 <figure/dec_arch.png>
 [54] [55] [56] [57] [58]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 458.
-[59]
+put line 459.
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
-[60]
+[59] [60]
 File: figure/lattice.png Graphic file (type bmp)
 <figure/lattice.png>
 [61] [62] [63] [64]) [65]
@@ -2871,12 +2870,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37561 strings out of 492970
- 761345 string characters out of 6137298
- 1294027 words of memory out of 5000000
- 40868 multiletter control sequences out of 15000+600000
+ 37562 strings out of 492970
+ 761359 string characters out of 6137298
+ 1294071 words of memory out of 5000000
+ 40869 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (195 pages, 2912536 bytes).
+Output written on thesis.xdv (195 pages, 2913604 bytes).

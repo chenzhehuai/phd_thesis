@@ -66,6 +66,7 @@ O(T\times (\left|{S}\right|+\left|{E}\right|))
 \end{equation}
 这样我们可以通过利用动态规划(Dynamic Programming, DP)的方法计算出拥有最大概率状态序列，然后以此推理搜索出词序列，这一算法被称为Viterbi算法~\cite{viterbi1967error}。另$\phi_i(t)$表示在时刻$t$且输出了部分从$\mathbf{o}_1$至$\mathbf{o}_t$声学特征后停留在状态$i$的最大概率。它可以利用递归来计算：
 \begin{equation}
+\label{eq:decode-dp}
     \phi_i(t)=\max_j\{\phi_j(t-1)a_{j,i}\}b_i(\mathbf{o}_t)
 \end{equation}
 这里$a_{i,j}$是状态转移概率，$b_i(\mathbf{o}_t)$是状态输出概率。最终：
@@ -344,7 +345,7 @@ WFST最开始由AT\&T实验室Mohri和Riley等人在1997年引
 字典实际上是发音规则的表示。最简单的方法是列出开始状态和结束状态之间每个单词的发音。同时，由于在与语言模型合成时连接了单词和单词，因此无法达到终止状态，并且需要将闭合边从终止状态连接到开始状态以形成闭环。针对字典的同发音问题，Mohri在文献~\cite{mohri2002weighted}中提出对于不同词的同发音发音
 序列加入一组辅助符号，这样对于同发词语，其环路的输入符号序列就不再相同，可以确保字典的可确定化。
 
-\item 上下文相关声学模在WFST中被表示为C，在公式（\ref{eq:decode-sp}）中表示为$P(\mathbf{c}|\mathbf{l})$。
+\item 上下文相关声学模型在WFST中被表示为C，在公式（\ref{eq:decode-sp}）中表示为$P(\mathbf{c}|\mathbf{l})$。
 一个上下文相关triphone模型一般表示为a-b+c，其中b是中心音素，
 a和c为其前后上下文音素~\cite{seide2011conversational}。用WFST表示triphone模型实际上是在把三音素和单个音素之间进行对应，其输出就和发音字典的输入做相互对应，由此可以进行进一步合成。
 
@@ -467,10 +468,11 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
 \State    $\bullet$ \textrm{每一帧层面的维特比束剪枝搜索(ViterbiBeamSearch)}
 \For{curTok in Queue} \Comment \textcolor[rgb]{0,0.5,0}{每一个上一帧的Token}
 \For{arc in curTok.arcs}  \Comment \textcolor[rgb]{0,0.5,0}{每个Token的出边}
+\State    $\bullet$ \textrm{令牌分数计算} \Comment \textcolor[rgb]{0,0.5,0}{公式(\ref{eq:decode-dp})中的$\phi_j(t-1)a_{j,i}b_i(\mathbf{o}_t)$}
 \State amScore=amScores[t][arc.inId];
 \State nextScore=curTok.score+amScore-arc.weight;
 \State nextState=arc.nextState;
-\State    $\bullet$ \textrm{令牌合并处理}
+\State    $\bullet$ \textrm{令牌合并处理} \Comment \textcolor[rgb]{0,0.5,0}{公式(\ref{eq:decode-dp})中的$\max_j$}
 \If {nextState $\not\in$ stateMap}  \Comment \textcolor[rgb]{0,0.5,0}{如果该WFST State无Token}
 \State newTok=Token(nextScore, curTok);
 \State stateMap[nextState]=newTok;

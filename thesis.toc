@@ -119,7 +119,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.2.5}令牌传递算法}{59}{subsubsection.3.3.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.3.2.6}剪枝}{60}{subsubsection.3.3.2.6}
+\contentsline {subsubsection}{\numberline {3.3.2.6}剪枝}{59}{subsubsection.3.3.2.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.3.2.7}路径管理和词图}{61}{subsubsection.3.3.2.7}
 \defcounter {refsection}{0}\relax 
