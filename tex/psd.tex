@@ -2,11 +2,9 @@
 \chapter{基于标签同步解码的搜索空间优化}
 \label{chap:lsd}
 
-本论文基于端到端建模，系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，从而加速解码。
+本论文基于混淆统一(blank)建模，系统地提出了标签同步算法，其通过一系列方法使得搜索解码过程从逐帧同步变为标签同步，从而加速解码。
 
 为了对语音识别中的时序特征进行建模，人们提出了序列模型。根据其建模过程，序列模型包含GSM和DSM，在第\ref{Sec:seq-tr-review}章节进行了介绍。
-通常来说，出于以下原因，GSM和DSM被分解为帧层面的训练准则：1）为了更加高效地发挥帧层面分类器的建模效果，如混合高斯模型（Gaussian mixture model, GMM~\cite{woodland1994large}）和深度神经网络（deep neural network, DNN ~\cite{hinton2012deep}）；2）为了减轻模型的稀疏性，以及通过将简单模型分解为多个组分来增强模型的泛化能力，例如ASR中将模型分解为声学模型、字典和语言模型等；3）未经序列分解的模型在推理搜索前需要得到整个序列信息进而进行后续处理，这将给解码过程造成严重的运行延时。本文提出的序列标注方法即是基于帧层面分解的模型~\cite{forney1973viterbi,mohri2002weighted}。
-
 在推理搜索阶段，为了找到与输入特征最为匹配的标签序列，搜索过程需要将声学模型，语言模型和字典等模型结合起来。该过程是通过在每帧使用基于束剪枝的维特比算法来实现的~\cite{forney1973viterbi}，称为帧同步解码（frame synchronous decoding, FSD）。在该框架中，我们将特征帧的数量和语句长度的比值定义为特征速率，将标签输出数量与语句长度的比值定义为标注速率，将解码的帧数与语句长度的比值定义为解码速率。那么，在帧同步解码中，这三个速率均相等。
 
 虽然已经被广泛使用，但帧同步解码仍存在一些缺点：1）这是一个等间隔搜索算法，在处理可变长序列时较为低效。2）由于序列被分解为帧来作为特征序列，模型的粒度变小，导致搜索空间很大。比如ASR中词语历史，音素序列，以及HMM状态之间的关联性通常以加权有限状态机（weighted finite-state transducer, WFST）进行表示（通常称为HCLG~\cite{mohri2002weighted} 搜索空间）。由于由多个庞大知识源共同组成，因此组成该搜索空间的状态机最终达到百亿条边。3）在每帧进行贪心束剪枝通常很难兼顾搜索效率和搜索误差。
@@ -125,7 +123,7 @@ DSM的标签同步解码算法如算法~\ref{code:lsd-dsm-alg}所示。S和E是�
 \end{algorithm}
 
 
-\section{基于无词图鉴别性训练的模型的标签同步解码}
+\section{基于无词图鉴别性训练模型的标签同步解码}
 \label{chap:lsd-lfmmi}
 
 \subsection{标签同步解码}
@@ -228,8 +226,10 @@ P(\mathbf{x}|l)
 其中$H(\cdot)$是输出分布 $p_\theta (\pi|\mathbf{x})$的熵，$\beta$是正比例因子。与文献\cite{pereyra2017regularizing}不同的是，基于熵剪枝算法的训练目的是最小化模型的原有训练准则以及输出分布的熵。而通常情况下，基于熵剪枝算法是基于一个已经训练好的模型对参数进行微调。在使用新的准则训练之后，LSD框架可在少量性能损失的情况下得以加速。在接下来的实验部分，本文将详细比较这四种剪枝方法。
 
 
+\section{标签同步解码的进一步分析}
+\label{chap:lsd-lsd-more}
 
-\section{逐帧同步解码与标签同步解码的对比}
+\subsection{逐帧同步解码与标签同步解码的对比}
 \label{chap:lsd-lsd-cmp}
 
 本文提出将特征层面的搜索过程改变为标签层面，即搜索空间是由不同历史的标签组成的，使得解码速率等于标注速率，从而小于特征速率。具体来说，所提出的LSD的解码复杂度如下:
@@ -247,6 +247,31 @@ P(\mathbf{x}|l)
 \item 可调整的搜索间隔。 在FSD框架下，WFST网络是以等间隔遍历的。即使带有跳帧的深度神经网络在解码\cite{vanhoucke2013multiframe}时是以更长的间隔遍历语言搜索空间，但其间隔仍然是相等的。 而在LSD中，搜索间隔可通过灵活的自我调整（在不造成性能下降的前提下）来去除blank帧带来的语言搜索空间搜索冗余，这给解码带来了很大的效率提升。另一方面，由于LSD方法与跳帧方法工作在不同层面，因此它们可以互相结合取得进一步的加速，这些我们将在实验章节中具体验证。
 \end{itemize}
 
+\subsection{标签同步的词图处理}
+\label{chap:lsd-lsd-lattice}
+
+前文中我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。
+除此之外，这一算法同时还能产生高质量的音素词图，称为标签同步音素词图（LSD音素词图）。
+
+LSD音素词图可以很好地保存音素级的声学候选信息，同时得益于前文的加速算法，又非常紧致。
+%
+以CTC 模型为例，其模型尝试对多对一函数$\mathcal{B}$进行建模，使得最终结果能得到非常突出的音素推理搜索结果。
+LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分布中生成得到的，之后可以将剩余帧的一定阈值以内的音素后验概率收集起来组成时间上不连续的词语串。这样的方式避免了一些搜索错误和混淆的音素边界问题，使得最终得到的词图更紧致。
+%
+图\ref{fig:ctc-lat-exp}是一个用WFST格式表示的LSD音素词图的例子。
+WFST可以如图这样构建成“串（sausage）”状。这里每两个音素输出帧之间，使用以音素标签为输出，以负声学分数为权重的WFST边，来互相连接起来。WFST边的输入使用epsilon，这样就可以对LSD音素词图进行进一步的 WFST优化处理。
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/ctc_lat.png}
+    \bicaption[fig:ctc-lat-exp]{LSD CTC Lattice的例子}{LSD CTC Lattice的例子}{Fig}{The example of LSD CTC Lattice.}
+\end{figure}
+
+我们可以将LSD音素词图视为一种特殊形式的词图，因此与逐帧的音素后验概率相比，它非常紧致，节省了大量存储空间。
+同时LSD音素词图自然地由逐帧的音素后验概率得到，类似于一种基于Blank建模而产生的特殊高效的特征提取，因此与普通词图相比，其包含更多的可能候选路径，信息损失非常小。
+
+我们将在第\ref{sec:exp-lsd-lat-quality}章节通过实验验证其质量。基于LSD音素词图，下一章节将进一步探讨标签同步解码算法的一些扩展应用。
 
 \section{实验结果}
 \label{chap:lsd-exp}
@@ -259,7 +284,7 @@ P(\mathbf{x}|l)
 
 本文的模块化训练策略的基线系统是一个无模块化训练的端到端系统，也即直接的声学到词语CTC模型，类似于~\cite{audhkhasi2017direct}, 它使用与音素CTC相同的架构，除了在输出层上使用了 30K 大小的词表作为推理搜索单元。它使用了音素CTC进行初始化。
 
-本文实验过程中，使用词错误率（word error rate, WER）来评估不同解码框架下的模型性能,使用搜索过程中的实时率（real time factor (RTF) of the search process, SRTF）和每帧中的活动令牌的平均数量（active tokens, \#AT）来评价搜索速度。在降低帧率的声学模型中，\#AT使用降帧率之前的帧数进行计算；SRTF指解码时间与音频时间的百分比。值得注意的是，这里的解码时间不包括神经网络传播的时间\cite{you2009parallel,hauswald2015sirius}。本文所提出的框架主要加速搜索过程而非神经网络传播，因此不针对不同声学模型的计算速度进行比较，同时这里采用SRTF而不是RTF来评价搜索速度。由于在维特比搜索的搜索迭代过程-即令牌传递算法~\cite{hori2013speech}中，搜索迭代速度与有效令牌的数量相关，因此搜索速度评价指标AT与SRTF总是正相关。为了更加清晰地对比结果，我们还提供了上述指标的相对变化率（$\Delta$）作为参考。
+本文实验过程中，使用词错误率（word error rate, WER）来评估不同解码框架下的模型性能, 使用搜索过程中的实时率（real time factor (RTF) of the search process）和每帧中的活动令牌的平均数量（active tokens, \#AT）来评价搜索速度，它们都在第\ref{chap:intro-lvcsr-criterion}章节进行了介绍。在降低帧率的声学模型中，\#AT使用降帧率之前的帧数进行计算；RTF指解码时间与音频时间的百分比。值得注意的是，这里用于计算RTF的解码时间不包括神经网络传播的时间\cite{you2009parallel,hauswald2015sirius}。本文所提出的框架主要加速搜索过程而非神经网络传播，因此不针对不同声学模型的计算速度进行比较，同时这里采用的RTF只包括搜索解码的时间。由于在维特比搜索的搜索迭代过程-即令牌传递算法~\cite{hori2013speech}中，搜索迭代速度与有效令牌的数量相关，因此搜索速度评价指标AT与RTF总是正相关。为了更加清晰地对比结果，我们还提供了上述指标的相对变化率（$\Delta$）作为参考。
 
 \subsection{DSM实验}
 \label{exp:dsm}
@@ -277,7 +302,7 @@ P(\mathbf{x}|l)
 \multicolumn{4}{c}{搜索加速} 
 \\
 &\multicolumn{2}{c|}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}\\
-&WER&$\Delta$(\%)&SRTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
+&WER&$\Delta$(\%)&RTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
 \midrule
 % https://spetechcular.com/trac/aid201501/wiki/20161011lfmmi-research#modifyHMM
 \multirow{1}{0.15\columnwidth}{swb} &  18.7 &+0.5&0.075&-71&2221&-77  \\
@@ -288,7 +313,7 @@ P(\mathbf{x}|l)
   }
 \end{table}
 
-swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD框架相比，LSD框架实现了相对70\%以上的SRTF下降（也就是3.4倍的解码加速）。解码加速主要来自于解码过程中减少了搜索迭代次数，解码过程中的活动令牌的数量也体现了这一结果。同时在callhm子集的实验中也能观察到一致的加速效果。
+swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD框架相比，LSD框架实现了相对70\%以上的RTF下降（也就是3.4倍的解码加速）。解码加速主要来自于解码过程中减少了搜索迭代次数，解码过程中的活动令牌的数量也体现了这一结果。同时在callhm子集的实验中也能观察到一致的加速效果。
 
 （2）速度鲁棒性：上面的实验解码过程中都使用一个中等大小的语言模型（3阶，3.1 M语言模型）,为了测试LSD框架相对于FSD加速效果的鲁棒性（也即对复杂的语言搜索空间下的可扩展性），如图2所示，这里将解码语言模型从2阶变大到4阶，大小从0.2 M变大到4.7 M，使用每帧中的平均活动令牌数（\#AT）来评价解码速度。从图 ~\ref{fig:ctc-dnn-lm-scaleup} 中可以看出，随着语言模型的增大，LSD的\#AT值几乎没有变化，而与此同时，FSD的 \#AT值则明显加速增长。此外，FSD的\#AT值总是远远超过LSD的\#AT值。也就是说，LSD实现的加速对LM搜索空间的增加是鲁棒的，GSM的实验也得出了类似的结论，因此LSD适合应用于更复杂的语言模型。
  
@@ -316,7 +341,7 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 \multicolumn{3}{c}{搜索加速} 
 \\
 &\multicolumn{2}{c|}{FSD$\mapsto$FS+LSD}&\multicolumn{3}{c}{FSD$\mapsto$FS$\mapsto$FS+LSD}\\
-&WER&$\Delta$(\%)&SRTF&$\Delta_{FS}$&$\Delta_{+LSD} $ ($\sum$)\\
+&WER&$\Delta$(\%)&RTF&$\Delta_{FS}$&$\Delta_{+LSD} $ ($\sum$)\\
 \midrule
 % https://spetechcular.com/trac/aid201501/wiki/20161011lfmmi-research#modifyHMM
 \multirow{1}{0.15\columnwidth}{swb} &  18.7 &-1.6&0.075&-48&-57 (-78)  \\
@@ -361,7 +386,7 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
       \multicolumn{4}{c}{速度} 
       \\
       &&\multicolumn{2}{c|}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}\\
-      &&WER&$\Delta$(\%)&SRTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
+      &&WER&$\Delta$(\%)&RTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
       \midrule
       \multirow{6}{0.1\columnwidth}{TDNN} & CE  & 17.8&+1.0&0.16&-38&3705&-41 \\
       & LF-MMI &15.6 &+1.0&0.13&-43 &  3386&-45\\
@@ -410,7 +435,7 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
       \multicolumn{4}{c}{速度} 
       \\
       &&\multicolumn{2}{c|}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}\\
-      &&WER&$\Delta$(\%)&SRTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
+      &&WER&$\Delta$(\%)&RTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
 %      \hline \hline
       %\multirow{2}{0.13\columnwidth}{CE} & $\times$ & & & \\
 %      \cline{2-5}
@@ -446,7 +471,7 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
       \multicolumn{4}{c}{速度} 
       \\
       &&\multicolumn{2}{c|}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}&\multicolumn{2}{c}{FSD$\mapsto$LSD}\\
-      &&WER&$\Delta$(\%)&SRTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
+      &&WER&$\Delta$(\%)&RTF&$\Delta$(\%)&\#AT&$\Delta$(\%)\\
 %      \hline \hline
       %\multirow{2}{0.13\columnwidth}{CE} & $\times$ & & & \\
 %      \cline{2-5}
@@ -470,6 +495,45 @@ swb测试子集中，在词错误率相对损失不到0.5\%的情况下，与FSD
 
 表\ref{tab:exp-blk-topo-gsm}对比了前文提出的不同HMM拓扑结构。在FSD框架下，所有拓扑结构都有相似的解码结果和相同的搜索速度。对比前两行可以看出，与基线PB拓扑结构相比，在LSD框架下， BP可以获得更大的搜索加速。我们认为这个更优的搜索加速源于标签延迟现象，类似于文献\cite{amodei2015deep}中观察到的现象，这使得模型能更可靠地推断标签输出状态并减少混淆。因此，这能带来更尖锐的输出分布。从表中还可以看出，BPB拓扑结构可以进一步改善搜素速度；一些解码路径的例子也表明这种拓扑结构可以使每个上下文相关的隐马尔科夫模型输出更多的blank状态。最后，与前面表中CTC的结果相比，GSM中LSD框架能减少49\%的搜索时间。
 
+
+\subsection{音素级词图质量分析}
+\label{sec:exp-lsd-lat-quality}
+
+第\ref{chap:lsd-lsd-lattice}章节中我们提出了LSD音素词图，下面我们将以上述的CTC实验系统为例，对其质量进行验证。
+%
+%Then, the compactness and precision of phone lattices from different frameworks were compared.
+{\em 全局最优音素错误率} (OPER) 被用来对音素词图的质量进行评估。它使用词图中最优的一条路径计算得到的错误率来作为全局错误率\cite{hoffmeister2006frame}。 {\em 词图密度} (Arcs/Sec) 则被用来衡量词图的紧致程度\cite{woodland1994large}。
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/OPER-latden.png}
+    \bicaption[fig:OPER-latden]{OPER v.s. 词图密度在 FSD 和 LSD 中的比较}{OPER v.s. 词图密度在 FSD 和 LSD 中的比较}{Fig}{OPER v.s. lattice density in FSD and LSD}
+\end{figure}
+
+
+图~\ref{fig:OPER-latden}表示了 OPER 和词图密度在不同解码配置结果中的对比，这包括由FSD和LSD生成的音素词图。
+%Phone lattice generated from LSD is called LSD CTC lattice as in Section~\ref{sec:psd-ctc-lat} . Phone lattice generated from FSD is as the traditional method \cite{povey2012generating}.
+在相似OPER情况下，对同一个CTC模型，LSD词图的大小比FSD词图小超过10倍。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
+总结起来，在相同大小下，LSD CTC包含更多的音素声学信息。由于接下来的重点是比较FSD和LSD，因此我们仅罗列该部分结果。
+
+
+%CTC model encodes the many-to-one function of $\mathcal{B}$ and results in peaky phonemic inference results.
+%However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).
+
+基于音素级词图，我们可以进一步生成词级词图。 图~\ref{fig:OWER-latden} 表示了词级词图质量在FSD和LSD中的对比。
+我们使用OWER进行比较。在图中纵轴，我们画出了 $1-\frac{OWER}{WER}$ 的值作为OWER相对下降值，以体现词图对最终质量改善的上限。从图中可以看出，在相同词图密度情况下，LSD系统总是得到更好的OWER。
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/OWER-latden.png}
+    \bicaption[fig:OWER-latden]{词图密度 v.s. 相对 OWER下降比例}{词图密度 v.s. 相对 OWER下降比例}{Fig}{Lattice density v.s. rel. OWER reduction}
+\end{figure}
+
+基于上述质量更好的音素级词图和词级词图，在下一章节中，我们将具体介绍LSD音素词图的各种扩展应用。
 
 \section{本章小结}
 \label{chap:lsd-sum}

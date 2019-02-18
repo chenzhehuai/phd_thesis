@@ -1,5 +1,5 @@
 
-\chapter{基于GPU并行计算的解码速度优化}
+\chapter{基于GPU的并行维特比搜索}
 \label{chap:gpu}
 
 本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理搜索。该框架可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
@@ -312,7 +312,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 %  \item metrics: WER, oracle lattice WER (hard to do in SWBD), rescored WER, NCE result and 
 
 我们对1-best 结果和词图质量都进行了比较。为了公平起见，我们保持两种解码器得出相同的词图密度 ({\em{lat.den.}}, 其使用arcs/frame进行度量)~\cite{woodland19951994}。
-在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}。
+在语音识别任务中，我们使用词错误率(WER), 词图重估错误率(lattice rescored WER) ({\em{+rescored}}), 词图最佳错误率 (lattice oracle WER, OWER)~\cite{hoffmeister2006frame}，它们都在第\ref{chap:intro-lvcsr-criterion}章节进行了介绍。
 第\ref{sec:intro-cm}章节中的{\em 归一化交叉熵 } (NCE) \cite{zhc00-chen-icassp2017}被 用来作为词图所得到的词级别置信度质量的评估，在大词汇连续语音识别中。越大的NCE表示模型性能越好。
 这里我们训练了决策树以将这些词图后验概率转换为我们最终需要的置信度~\cite{chen2017confidence,chen2017unified}.
 实时率 (real-time factor, RTF) 用于度量解码器速度和相应针对CPU基线系统的加速比 ($\Delta$) 。由于本文专注在WFST解码的加速上，因此我们所报道的RTF排除了声学模型的推理搜索所占用的时间。下文中我们会对总体的RTF稍作讨论。由于本文主要考虑快速的离线转录系统，因此时延并未加入比较。所有的实验都是在  {\em{E5-2686 v4 @ 2.30GHz}} 的CPU上进行，其包含 1 socket (8 threads)。 % (see amazon cluster)

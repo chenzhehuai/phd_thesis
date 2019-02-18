@@ -2,7 +2,7 @@
 \chapter{标签同步解码的扩展应用}
 \label{chap:lsd-apply}
 
-在上一章中，我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。这一算法同时还能产生高质量的音素词图，称为CTC音素词图，我们将在第\ref{sec:exp-lsd-lat-quality}章节通过实验验证其质量。基于CTC音素词图，本章节我们将进一步探讨标签同步解码算法的一些扩展应用。这包括关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
+在上一章中，我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。这一算法同时还能产生高质量的音素词图，称为LSD音素词图。基于LSD音素词图，本章节我们将进一步探讨标签同步解码算法的一些扩展应用。这包括关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
 
 在关键词检测中，我们基于前面章节介绍的LSD算法提出了一种高效的后处理算法，以解决音素混淆建模的问题。
 在基于CTC的关键词检测中，虽然CTC是一个序列级准则，但是并没有对非关键词部分进行建模。因此该准则改善了关键词之间的鉴别性，但是没有改善关键词和非关键词之间的鉴别性。
@@ -59,10 +59,10 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 \subsection{后处理}
 \label{Sec:post-process-ctc}
 
-我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于CTC词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
+我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于LSD音素词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
 
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
-图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于CTC词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
+图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于LSD音素词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
 
 \begin{figure}[!htp]
   \centering
@@ -90,7 +90,7 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 本章节在非固定关键词的关键词检测和固定关键词的唤醒词识别任务上都进行了验证，采用与第\ref{chap:kws}章节相同的数据集，实验配置，和评价指标。我们也绘出了receiver operating characteristic (ROC) 曲线，以总结实验结果。
 CTC模型的配置详见 \cite{7736093}。我们使用单向 每层384节点的两层LSTM 进行实验，其带有 128 个节点的映射层。
 CTC MED后处理方法, 表示为 {\em{MED}}, 并使用\cite{7736093}中提出的固定阈值方法。
-我们在第\ref{sec:exp-lsd-lat-quality}章节针对CTC音素词图质量进行更细致的分析。
+我们在第\ref{sec:exp-lsd-lat-quality}章节针对LSD音素词图质量进行了细致的分析。
 
 \subsubsection{非固定关键词的关键词检测}
 
@@ -308,7 +308,7 @@ CTC\cite{graves2006connectionist} 近期被提出来并作为目前主流的新�
 
 我们在第\ref{sec:intro-cm}章节总结目前主流的置信度技术。
 然而，由于引入了$\tt blank$, 置信度在CTC框架下的计算亟待研究，特别是最主流的针对传统基于音素似然度归一化或者基于词图后验概率的混淆网络等方法。如本文的实验部分所示，如果只是将 $\tt blank$ 标签当做一个特殊的音素并使用传统的CM方法，将会引入较大的性能下降。
-在前文中我们提出了标签同步解码（LSD）的推理搜索框架。它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 CTC音素词图。我们将会在本章节的实验部分验证了CTC 音素词图的质量。在这项工作中，两种置信度生成算法在标签同步解码算法的基础上被提出。
+在前文中我们提出了标签同步解码（LSD）的推理搜索框架。它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 LSD音素词图。我们将会在本章节的实验部分验证了CTC 音素词图的质量。在这项工作中，两种置信度生成算法在标签同步解码算法的基础上被提出。
 更细致的研究显示这种基于CTC的音素词图是得到更好性能的关键所在。
 在英文Switchboard 上的大词汇连续语音识别任务显示这里提出的LSD CTC 词图置信度算法可以显著改善原先传统的基于逐帧解码算法的CTC置信度或者 HMM模型的置信度。
 
@@ -317,8 +317,8 @@ CTC\cite{graves2006connectionist} 近期被提出来并作为目前主流的新�
 \label{sec:psd-ac-conf}
 
 %as local confidence
-在前文中，我们已讨论了标签同步解码算法，它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 CTC音素词图。
-下面我们将集中讨论基于这些 CTC音素词图如何得到较好的置信度。
+在前文中，我们已讨论了标签同步解码算法，它的主要作用是针对CTC模型进行高效的解码搜索。该算法提出了一些方式来自动地将 $\tt blank$ 帧进行忽略，由此不仅得到了搜索上的加速，还得到了一种非常紧致高效的 LSD音素词图。
+下面我们将集中讨论基于这些 LSD音素词图如何得到较好的置信度。
 
 这里CTC音素后验概率可以依据词语进行区分，属于同一个词的后验概率可以用于一起对一个特定词在词图中出现的后验概率进行建模。
 在LSD框架中，词级别的 CM $\mathcal{C}(w)$ 可以被定义为对数域的后验概率，针对其相应的最优路径。
@@ -369,16 +369,10 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 \subsubsection{基于混淆网络和CTC标签同步解码词图的置信度}
 \label{sec:psd-cn-conf}
 
-类似于 \cite{evermann2000large}中的做法，这里生成第\ref{sec:intro-cm}章节介绍的混淆网络（CN）主要有两步: a) 从音素级别的标签同步CTC音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中提出的 pivot clustering 算法使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于CTC词图非常紧致，因此 CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
+类似于 \cite{evermann2000large}中的做法，这里生成第\ref{sec:intro-cm}章节介绍的混淆网络（CN）主要有两步: a) 从音素级别的标签同步LSD音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中提出的 pivot clustering 算法使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于LSD音素词图非常紧致，因此 CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
 
 
 
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/ctc_lat.png}
-    \bicaption[fig:ctc-lat-exp]{LSD CTC Lattice的例子}{LSD CTC Lattice的例子}{Fig}{The example of LSD CTC Lattice.}
-\end{figure}
 
 
 图~\ref{fig:lat-exp} 中是一个真实的例子 (句子为 "OH YEAH") 表示了LSD CTC 产生的CN的高效性，以及与HMM-DNN产生的词图之间的比较。
@@ -526,48 +520,11 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
  附属归一化搜索空间 $\tt AX2 $是由一个三元音素级语言模型而得到的，它包含了{\em 145K} 组词历史。 $\tt AX3 $ 是由词级别搜索网络 $L$ 与一个由所有发音自环组成的网络$G$合成得到的,  $L \circ G$. $\tt filler$ 方法没有被包括在评估中，因为它理论上和 $\tt AX1$相同。
 
 
-本章研究了LSD生成的混淆网络的质量比FSD好的原因。我们首先比较了音素词图质量，而后讨论了词级词图和混淆网络的生成方案。
+\subsubsection{混淆网络生成质量}
 
+本章研究了相比于FSD方法，LSD生成的混淆网络的质量。
 
-\subsubsection{音素级词图质量分析}
-\label{sec:exp-lsd-lat-quality}
-
-如前面章节所讨论，CTC 模型尝试对多对一函数$\mathcal{B}$进行建模，使得最终结果能得到非常突出的音素推理搜索结果。
-LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分布中生成得到的，之后可以将剩余帧的一定阈值以内的音素后验概率收集起来组成时间上不连续的词语串。这样的方式避免了一些搜索错误和混淆的音素边界问题，使得最终得到的词图更紧致。
-
-%Then, the compactness and precision of phone lattices from different frameworks were compared.
-{\em 全局最优音素错误率} (OPER) 被用来对音素词图的质量进行评估。它使用词图中最优的一条路径计算得到的错误率来作为全局错误率\cite{hoffmeister2006frame}。 {\em 词图密度} (Arcs/Sec) 则被用来衡量词图的紧致程度\cite{woodland1994large}。
-
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/OPER-latden.png}
-    \bicaption[fig:OPER-latden]{OPER v.s. 词图密度在 FSD 和 LSD 中的比较}{OPER v.s. 词图密度在 FSD 和 LSD 中的比较}{Fig}{OPER v.s. lattice density in FSD and LSD}
-\end{figure}
-
-
-图~\ref{fig:OPER-latden}表示了 OPER 和词图密度在不同解码配置结果中的对比，这包括由FSD和LSD生成的音素词图。
-%Phone lattice generated from LSD is called LSD CTC lattice as in Section~\ref{sec:psd-ctc-lat} . Phone lattice generated from FSD is as the traditional method \cite{povey2012generating}.
-在相似OPER情况下，对同一个CTC模型，LSD词图的大小比FSD词图小超过10倍。而LSD词图比HMM-DNN缩小的数量更大。产生这样现象的原因包括两方面：CTC更突出的后验概率特性而得到的紧致词图；LSD避免了词图生成过程的大量 $\tt blank$ 帧，而FSD则需要进行一些近似 \cite{ljolje1999efficient} 或进行词图裁剪\cite{povey2012generating}, 这将导致更大的搜索误差。
-总结起来，在相同大小下，LSD CTC包含更多的音素声学信息。由于接下来的重点是比较FSD和LSD，因此我们仅罗列该部分结果。
-
-
-%CTC model encodes the many-to-one function of $\mathcal{B}$ and results in peaky phonemic inference results.
-%However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).
-
-为了构建混淆网络，需要先生成词级词图。 图~\ref{fig:OWER-latden} 表示了词级词图质量在FSD和LSD中的对比。
-我们使用OWER进行比较。在图中纵轴，我们画出了 $1-\frac{OWER}{WER}$ 的值作为OWER相对下降值，以体现词图对最终质量改善的上限。从图中可以看出，在相同词图密度情况下，LSD系统总是得到更好的OWER。
-
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/OWER-latden.png}
-    \bicaption[fig:OWER-latden]{词图密度 v.s. 相对 OWER下降比例}{词图密度 v.s. 相对 OWER下降比例}{Fig}{Lattice density v.s. rel. OWER reduction}
-\end{figure}
-
-一旦词级词图被构建好，通过混淆网络的生成中的基于pivot的词聚类方法，相似时间边界的词边将会被合并在一起。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近pivot边界距离（NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。
+一旦第\ref{chap:lsd-lsd-lattice}章节的词级词图被构建好，通过混淆网络的生成中的基于pivot的词聚类方法，相似时间边界的词边将会被合并在一起。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近pivot边界距离（NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。
 
 
 \begin{figure}[!htp]
@@ -677,7 +634,7 @@ LSD音素词图是从丢弃了一定数量的 $\tt blank$ 帧的推理搜索分�
 %results/fst-sp.ctc.sw1_fsh.o3g.kn_sp0_blk2_f_1ps_nno_cn_np.nbest-10.1.car.0.0.5.eval2000.feat.fst_ctc_feat_v4/final.rst
 
 该结果显示，虽然这种置信度在 CD-state-HMM 框架下效果较好 (与文献 \cite{evermann2000large}\cite{wessel2001confidence}一致), 但却不能够被直接应用到 CI-phone-CTC 模型上。这也是由于 {$\tt blank$} 的分配问题。
-相反，基于CN的置信度可以被直接应用到LSD CTC音素词图框架并取得显著的性能改善。而且NCE还显著好于 CD-state-HMM 系统。我们相信这是因为CTC词图包含了更多的竞争信息，使得归一化项建模得更好，如图~\ref{fig:latden-cndepth}所示。
+相反，基于CN的置信度可以被直接应用到LSD LSD音素词图框架并取得显著的性能改善。而且NCE还显著好于 CD-state-HMM 系统。我们相信这是因为LSD音素词图包含了更多的竞争信息，使得归一化项建模得更好，如图~\ref{fig:latden-cndepth}所示。
 
 %CTC model encodes the many-to-one function of $\mathcal{B}$ and results in peaky phonemic inference results.
 %However, in FSD designed for HMM framework, phonemic output lasts for several frames because of  HMM modeling and state transition.  During generating word lattice, many-to-one function still needs to be done by merging same labels with similar time boundary but in a heuristic method (e.g. word lattice pruning).

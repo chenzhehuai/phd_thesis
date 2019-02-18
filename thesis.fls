@@ -1,412 +1,421 @@
-PWD D:/__WORKSPACE__/SJTU/Speech_Lab/LM语言模型相关/博士研究组/结题/thesis/paper_oldstyle
-INPUT c:/texlive/2018/texmf-var/web2c/xetex/xelatex.fmt
+PWD D:\__WORKSPACE__\SJTU\Speech_Lab\LM璇█妯″瀷鐩稿叧\鍗氬＋鐮旂┒缁刓缁撻\thesis\paper_oldstyle
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\miktex\data\le\xetex\xelatex.fmt
 INPUT thesis.tex
 OUTPUT thesis.log
 INPUT sjtuthesis.cls
 INPUT sjtuthesis.cls
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexbook.cls
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexbook.cls
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
-INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
-INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
-INPUT c:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexhook.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexhook.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexpatch.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctexpatch.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/fix-cm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/fix-cm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ms/everysel.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ms/everysel.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctexopts.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/book.cls
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/book.cls
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/bk12.clo
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/bk12.clo
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/tuenc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/tuenc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/tuenc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/fontspec/fontspec.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJKfntef.sty
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJKfntef.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/ulem/ulem.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/ulem/ulem.sty
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/cjk/texinput/CJKfntef.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/cjk/texinput/CJKfntef.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/cjk/texinput/CJKfntef.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/zhnumber/zhnumber.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/zhnumber/zhnumber.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-book.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-book.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctex-cs4size.clo
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/ctex-cs4size.clo
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctex.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ctex/config/ctex.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/lastpage/lastpage.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/lastpage/lastpage.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/metalogo/metalogo.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/metalogo/metalogo.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-def/xetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-def/xetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/doc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/doc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/threeparttable/threeparttable.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/threeparttable/threeparttable.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/dcolumn.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/dcolumn.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/mathtools/mathtools.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/mathtools/mathtools.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/mathtools/mhsetup.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/mathtools/mhsetup.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amscls/amsthm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/was/upgreek.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/was/upgreek.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ccaption/ccaption.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/ccaption/ccaption.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/url/url.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/url/url.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-dm.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-dm.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-unicode.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-unicode.def
-INPUT c:/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-compat.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-compat.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex-caspervector/caspervector.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex-caspervector/caspervector.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex-caspervector/biblatex-caspervector-utf8.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex-caspervector/biblatex-caspervector-utf8.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/wasysym/wasysym.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/wasysym/wasysym.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/puenc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/puenc.def
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/hxetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/hxetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/stringenc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/stringenc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/footmisc/footmisc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/footmisc/footmisc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/eso-pic/eso-pic.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/eso-pic/eso-pic.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/pdfpages/ppxetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/pdfpages/ppxetex.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithms/algorithm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithms/algorithm.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/float/float.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/float/float.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexbook.cls
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexbook.cls
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\UnicodeData.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\UnicodeData.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\CaseFolding.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\CaseFolding.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\SpecialCasing.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\SpecialCasing.txt
+INPUT nul:.tex
+INPUT nul:.tex
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\l3xdvipdfmx.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\l3xdvipdfmx.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\engine\ctex-engine-xetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexhook.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexhook.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexpatch.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctexpatch.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fix-cm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fix-cm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everysel.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everysel.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctexopts.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctexopts.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\book.cls
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\book.cls
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\bk12.clo
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\bk12.clo
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\engine\ctex-engine-xetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\engine\ctex-engine-xetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec-xetex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec-xetex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\tuenc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\tuenc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\tuenc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJKfntef.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJKfntef.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ulem\ulem.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ulem\ulem.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\latex-fonts\lasy6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\environ\environ.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\environ\environ.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cjk\CJKfntef.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cjk\CJKfntef.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cjk\CJKfntef.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\zhnumber\zhnumber.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\zhnumber\zhnumber.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\zhnumber\zhnumber-utf8.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\zhnumber\zhnumber-utf8.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\zhnumber\zhnumber-utf8.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\scheme\ctex-scheme-chinese-book.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\scheme\ctex-scheme-chinese-book.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctex-name-utf8.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctex-name-utf8.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctex-cs4size.clo
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\ctex-cs4size.clo
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctex.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ctex\config\ctex.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xetexconfig\geometry.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xetexconfig\geometry.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\metalogo\metalogo.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\metalogo\metalogo.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\xetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\xetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\doc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\doc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\dcolumn.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\dcolumn.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\bm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\bm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\was\upgreek.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\was\upgreek.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ccaption\ccaption.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ccaption\ccaption.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-dm.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-dm.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-unicode.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-unicode.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\unicode-data\UnicodeData.txt
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-compat.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-compat.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\caspervector.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\caspervector.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric-comp.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric-comp.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\standard.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\standard.bbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\blx-caspervector-base.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\blx-caspervector-base.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\cbx\numeric.cbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\cbx\numeric.cbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\blx-caspervector-utf8.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-caspervector\blx-caspervector-utf8.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\zapfding\pzdr.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hxetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hxetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\stringenc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\stringenc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\longtable.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\longtable.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\ppxetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\ppxetex.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithmicx\algorithmicx.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithmicx\algorithmicx.sty
 INPUT sjtuthesis.cfg
 INPUT sjtuthesis.cfg
 INPUT thesisfonts_external.sty
 INPUT thesisfonts_external.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/epsfig.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/epsfig.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-INPUT c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
-INPUT c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.def
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\epsfig.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\epsfig.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK-listings.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xecjk\xeCJK-listings.sty
 INPUT thesis.aux
 INPUT thesis.aux
-INPUT tex/id.aux
-INPUT tex/id.aux
-INPUT tex/abstract.aux
-INPUT tex/abstract.aux
-INPUT tex/symbol.aux
-INPUT tex/symbol.aux
-INPUT tex/intro0.aux
-INPUT tex/intro0.aux
-INPUT tex/intro.aux
-INPUT tex/intro.aux
-INPUT tex/intro2.aux
-INPUT tex/intro2.aux
-INPUT tex/kws.aux
-INPUT tex/kws.aux
-INPUT tex/gpuwfst.aux
-INPUT tex/gpuwfst.aux
-INPUT tex/psd.aux
-INPUT tex/psd.aux
-INPUT tex/unified.aux
-INPUT tex/unified.aux
-INPUT tex/summary.aux
-INPUT tex/summary.aux
-INPUT tex/pub.aux
-INPUT tex/pub.aux
-INPUT tex/patents.aux
-INPUT tex/patents.aux
-INPUT tex/ack.aux
-INPUT tex/ack.aux
+INPUT tex\id.aux
+INPUT tex\id.aux
+INPUT tex\abstract.aux
+INPUT tex\abstract.aux
+INPUT tex\symbol.aux
+INPUT tex\symbol.aux
+INPUT tex\intro0.aux
+INPUT tex\intro0.aux
+INPUT tex\intro.aux
+INPUT tex\intro.aux
+INPUT tex\intro2.aux
+INPUT tex\intro2.aux
+INPUT tex\kws.aux
+INPUT tex\kws.aux
+INPUT tex\gpuwfst.aux
+INPUT tex\gpuwfst.aux
+INPUT tex\psd.aux
+INPUT tex\psd.aux
+INPUT tex\unified.aux
+INPUT tex\unified.aux
+INPUT tex\summary.aux
+INPUT tex\summary.aux
+INPUT tex\pub.aux
+INPUT tex\pub.aux
+INPUT tex\patents.aux
+INPUT tex\patents.aux
+INPUT tex\ack.aux
+INPUT tex\ack.aux
 OUTPUT thesis.aux
 OUTPUT thesis.bcf
 INPUT thesis.bbl
 INPUT thesis.bbl
 INPUT thesis.bbl
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-INPUT c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
 INPUT thesis.out
 INPUT thesis.out
 INPUT thesis.out
 INPUT thesis.out
-INPUT ./thesis.out
+INPUT .\thesis.out
 OUTPUT thesis.out
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/oberdiek/pdflscape.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics/lscape.sty
-OUTPUT tex/id.aux
-INPUT tex/id.tex
-INPUT tex/id.tex
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
-INPUT c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm7.tfm
-INPUT c:/texlive/2018/texmf-dist/tex/latex/wasysym/uwasy.fd
-INPUT c:/texlive/2018/texmf-dist/tex/latex/wasysym/uwasy.fd
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy6.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lscape.sty
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lscape.sty
+OUTPUT tex\id.aux
+INPUT tex\id.tex
+INPUT tex\id.tex
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmib10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmib10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmmib7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy6.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
 OUTPUT thesis.xdv
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/original.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-INPUT pdf/authorization.pdf
-OUTPUT tex/abstract.aux
-INPUT tex/abstract.tex
-INPUT tex/abstract.tex
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\original.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+INPUT pdf\authorization.pdf
+OUTPUT tex\abstract.aux
+INPUT tex\abstract.tex
+INPUT tex\abstract.tex
 INPUT thesis.toc
 INPUT thesis.toc
 OUTPUT thesis.toc
@@ -416,158 +425,158 @@ OUTPUT thesis.lof
 INPUT thesis.lot
 INPUT thesis.lot
 OUTPUT thesis.lot
-OUTPUT tex/symbol.aux
-INPUT tex/symbol.tex
-INPUT tex/symbol.tex
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasyb10.tfm
-OUTPUT tex/intro0.aux
-INPUT tex/intro0.tex
-INPUT tex/intro0.tex
-INPUT figure/WER.png
-INPUT figure/asr.png
-OUTPUT tex/intro.aux
-INPUT tex/intro.tex
-INPUT tex/intro.tex
-INPUT figure/state.png
-INPUT figure/hmm.pdf
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy9.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy5.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT figure/dnn.png
-INPUT figure/activation.png
-INPUT figure/cnn.png
-INPUT figure/RBM.png
-INPUT figure/dnn_hmm.png
-INPUT figure/hmm-topo.png
-INPUT figure/e2e-idea.png
-OUTPUT tex/intro2.aux
-INPUT tex/intro2.tex
-INPUT tex/intro2.tex
-INPUT figure/ug.png
-INPUT figure/bg.png
-INPUT figure/xwrdbg.png
-INPUT figure/tg.png
-INPUT figure/dec_arch.png
-INPUT figure/lattice.png
-OUTPUT tex/kws.aux
-INPUT tex/kws.tex
-INPUT tex/kws.tex
-INPUT figure/filler-graph.png
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/wasy/wasy7.tfm
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT figure/modules.pdf
-INPUT figure/sys-framework.png
-INPUT figure/joint-tr.pdf
-INPUT figure/tr-curve.pdf
-INPUT figure/pit-example.pdf
-OUTPUT tex/gpuwfst.aux
-INPUT tex/gpuwfst.tex
-INPUT tex/gpuwfst.tex
-INPUT figure/gpu_framework.pdf
-INPUT figure/load-balance.pdf
-INPUT figure/gpu_analysis.pdf
-INPUT figure/gpu_profile.pdf
-OUTPUT tex/psd.aux
-INPUT tex/psd.tex
-INPUT tex/psd.tex
-INPUT figure/peaky_distribution.png
-INPUT figure/speed-robust.pdf
-INPUT figure/prune-wer-at-dsm.pdf
-INPUT figure/prune-wer-at-gsm.pdf
-OUTPUT tex/unified.aux
-INPUT tex/unified.tex
-INPUT tex/unified.tex
-INPUT figure/kws-framework.png
-INPUT figure/roc.pdf
-INPUT figure/ctc_lat.png
-INPUT figure/lat-exp.jpg
-INPUT figure/graph_example.png
-INPUT figure/OPER-latden.png
-INPUT figure/OWER-latden.png
-INPUT figure/bound-stable.png
-INPUT figure/latden-cndepth.png
-INPUT figure/psd_mod_framework.pdf
-OUTPUT tex/summary.aux
-INPUT tex/summary.tex
-INPUT tex/summary.tex
-OUTPUT tex/pub.aux
-INPUT tex/pub.tex
-INPUT tex/pub.tex
-OUTPUT tex/patents.aux
-INPUT tex/patents.tex
-INPUT tex/patents.tex
-OUTPUT tex/ack.aux
-INPUT tex/ack.tex
-INPUT tex/ack.tex
+OUTPUT tex\symbol.aux
+INPUT tex\symbol.tex
+INPUT tex\symbol.tex
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurb10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurb10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurb7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasyb10.tfm
+OUTPUT tex\intro0.aux
+INPUT tex\intro0.tex
+INPUT tex\intro0.tex
+INPUT figure\WER.png
+INPUT figure\asr.png
+OUTPUT tex\intro.aux
+INPUT tex\intro.tex
+INPUT tex\intro.tex
+INPUT figure\state.png
+INPUT figure\hmm.pdf
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi9.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy9.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex9.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx9.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmib10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmmib5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy9.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy5.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr9.tfm
+INPUT figure\dnn.png
+INPUT figure\activation.png
+INPUT figure\cnn.png
+INPUT figure\RBM.png
+INPUT figure\dnn_hmm.png
+INPUT figure\hmm-topo.png
+INPUT figure\e2e-idea.png
+OUTPUT tex\intro2.aux
+INPUT tex\intro2.tex
+INPUT tex\intro2.tex
+INPUT figure\ug.png
+INPUT figure\bg.png
+INPUT figure\xwrdbg.png
+INPUT figure\tg.png
+INPUT figure\dec_arch.png
+INPUT figure\lattice.png
+OUTPUT tex\kws.aux
+INPUT tex\kws.tex
+INPUT tex\kws.tex
+INPUT figure\filler-graph.png
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmib10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmmib7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbsy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\lenovo\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\euler\eurm7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy10.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy7.tfm
+INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT figure\modules.pdf
+INPUT figure\sys-framework.png
+INPUT figure\joint-tr.pdf
+INPUT figure\tr-curve.pdf
+INPUT figure\pit-example.pdf
+OUTPUT tex\gpuwfst.aux
+INPUT tex\gpuwfst.tex
+INPUT tex\gpuwfst.tex
+INPUT figure\gpu_framework.pdf
+INPUT figure\load-balance.pdf
+INPUT figure\gpu_analysis.pdf
+INPUT figure\gpu_profile.pdf
+OUTPUT tex\psd.aux
+INPUT tex\psd.tex
+INPUT tex\psd.tex
+INPUT figure\peaky_distribution.png
+INPUT figure\ctc_lat.png
+INPUT figure\speed-robust.pdf
+INPUT figure\prune-wer-at-dsm.pdf
+INPUT figure\prune-wer-at-gsm.pdf
+INPUT figure\OPER-latden.png
+INPUT figure\OWER-latden.png
+OUTPUT tex\unified.aux
+INPUT tex\unified.tex
+INPUT tex\unified.tex
+INPUT figure\kws-framework.png
+INPUT figure\roc.pdf
+INPUT figure\lat-exp.jpg
+INPUT figure\graph_example.png
+INPUT figure\bound-stable.png
+INPUT figure\latden-cndepth.png
+INPUT figure\psd_mod_framework.pdf
+OUTPUT tex\summary.aux
+INPUT tex\summary.tex
+INPUT tex\summary.tex
+OUTPUT tex\pub.aux
+INPUT tex\pub.tex
+INPUT tex\pub.tex
+OUTPUT tex\patents.aux
+INPUT tex\patents.tex
+INPUT tex\patents.tex
+OUTPUT tex\ack.aux
+INPUT tex\ack.tex
+INPUT tex\ack.tex
 INPUT thesis.aux
-INPUT tex/id.aux
-INPUT tex/id.aux
-INPUT tex/abstract.aux
-INPUT tex/abstract.aux
-INPUT tex/symbol.aux
-INPUT tex/symbol.aux
-INPUT tex/intro0.aux
-INPUT tex/intro0.aux
-INPUT tex/intro.aux
-INPUT tex/intro.aux
-INPUT tex/intro2.aux
-INPUT tex/intro2.aux
-INPUT tex/kws.aux
-INPUT tex/kws.aux
-INPUT tex/gpuwfst.aux
-INPUT tex/gpuwfst.aux
-INPUT tex/psd.aux
-INPUT tex/psd.aux
-INPUT tex/unified.aux
-INPUT tex/unified.aux
-INPUT tex/summary.aux
-INPUT tex/summary.aux
-INPUT tex/pub.aux
-INPUT tex/pub.aux
-INPUT tex/patents.aux
-INPUT tex/patents.aux
-INPUT tex/ack.aux
-INPUT tex/ack.aux
-INPUT ./thesis.out
+INPUT tex\id.aux
+INPUT tex\id.aux
+INPUT tex\abstract.aux
+INPUT tex\abstract.aux
+INPUT tex\symbol.aux
+INPUT tex\symbol.aux
+INPUT tex\intro0.aux
+INPUT tex\intro0.aux
+INPUT tex\intro.aux
+INPUT tex\intro.aux
+INPUT tex\intro2.aux
+INPUT tex\intro2.aux
+INPUT tex\kws.aux
+INPUT tex\kws.aux
+INPUT tex\gpuwfst.aux
+INPUT tex\gpuwfst.aux
+INPUT tex\psd.aux
+INPUT tex\psd.aux
+INPUT tex\unified.aux
+INPUT tex\unified.aux
+INPUT tex\summary.aux
+INPUT tex\summary.aux
+INPUT tex\pub.aux
+INPUT tex\pub.aux
+INPUT tex\patents.aux
+INPUT tex\patents.aux
+INPUT tex\ack.aux
+INPUT tex\ack.aux
+INPUT .\thesis.out
 INPUT thesis.run.xml
 OUTPUT thesis.run.xml
