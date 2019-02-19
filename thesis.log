@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  19 FEB 2019 09:41
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  19 FEB 2019 11:53
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -2122,7 +2122,7 @@ File: figure/modules.pdf Graphic file (type pdf)
 File: figure/sys-framework.png Graphic file (type bmp)
 <figure/sys-framework.png>
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 535--537
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 537--539
  [][] 
  []
 
@@ -2173,9 +2173,6 @@ Underfull \vbox (badness 1231) has occurred while \output is active []
 [99]
 File: figure/peaky_distribution.png Graphic file (type bmp)
 <figure/peaky_distribution.png>
-
-Underfull \vbox (badness 1755) has occurred while \output is active []
-
 [100] [101] [102] [103]
 Underfull \vbox (badness 1038) has occurred while \output is active []
 
@@ -2186,12 +2183,12 @@ File: figure/ctc_lat.png Graphic file (type bmp)
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 321--321
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 325--325
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 321--321
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 325--325
 []|[]| 
  []
 
@@ -2199,71 +2196,71 @@ Overfull \hbox (22.75665pt too wide) in paragraph at lines 321--321
 File: figure/speed-robust.pdf Graphic file (type pdf)
 <use figure/speed-robust.pdf>
 [108]
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 359--359
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 363--363
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 359--359
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 363--363
 []|[]| 
  []
 
 File: figure/prune-wer-at-dsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-dsm.pdf>
 [109] [110]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 File: figure/prune-wer-at-gsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-gsm.pdf>
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 465--465
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 469--469
 []|[]| 
  []
 
 [111] [112]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 501--501
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 505--505
 []|[]| 
  []
 
@@ -2422,7 +2419,7 @@ tex/unified.aux) (tex/summary.aux) (tex/pub.aux) (tex/patents.aux) (tex/ack.aux
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 08ABCA344CA5BC4BF2689B95760FE85C.
+(rerunfilecheck)             Checksum: 0DEAEBCDE0419D21670E709A6A804EAD.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2433,12 +2430,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 38617 strings out of 427748
- 769152 string characters out of 3150981
- 1312560 words of memory out of 3000000
- 42004 multiletter control sequences out of 15000+200000
+ 38618 strings out of 427748
+ 769179 string characters out of 3150981
+ 1312612 words of memory out of 3000000
+ 42005 multiletter control sequences out of 15000+200000
  554418 words of font info for 166 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  58i,21n,80p,1073b,4840s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.xdv (193 pages, 2915476 bytes).
+Output written on thesis.xdv (193 pages, 2919548 bytes).

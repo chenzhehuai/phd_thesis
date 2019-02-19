@@ -155,15 +155,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.1}排列不变性训练及其在鸡尾酒会问题中应用}{77}{subsection.4.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}基于迁移学习的排列不变性训练}{77}{subsection.4.2.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1.1}排列不变性训练}{77}{subsubsection.4.2.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}基于序列鉴别性训练的排列不变性训练}{79}{subsection.4.2.3}% 
+\contentsline {subsubsection}{\numberline {4.2.1.2}基于迁移学习的模块化训练}{77}{subsubsection.4.2.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.4}实验结果}{82}{subsection.4.2.4}% 
+\contentsline {subsection}{\numberline {4.2.2}基于序列鉴别性训练的排列不变性训练}{79}{subsection.4.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.4.1}实验配置}{82}{subsubsection.4.2.4.1}% 
+\contentsline {subsection}{\numberline {4.2.3}实验结果}{82}{subsection.4.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.2.4.2}实验结果和比较}{83}{subsubsection.4.2.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.3.1}实验配置}{82}{subsubsection.4.2.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.3.2}实验结果和比较}{83}{subsubsection.4.2.3.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}本章小结}{85}{section.4.3}% 
 \defcounter {refsection}{0}\relax 
