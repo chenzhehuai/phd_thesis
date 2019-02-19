@@ -16,9 +16,27 @@
 
 最终在实验部分，该章节系统取得大幅度语音识别解码速度改善。
 
+
+\section{基于blank的混淆区段统一建模}
+\label{chap:lsd-blank}
+
+%blank广泛性和figure
+$\tt blank$最早在CTC建模中被提出，见于公式（\ref{equ:ctc-model}）中的函数$\mathcal{B}$。$\tt blank$引入空白模型的概念，用以对非标签输出的声学状态进行建模。
+它实际上吸收了输出序列（比如音素序列）的相邻两个输出单元（比如两个音素）之间的混淆部分。这种结构在CTC和LF-MMI中均有出现，如图\ref{fig:hmm-topo}(b-c)所示。
+
+为了了解这种建模方式所取得的实际效果，我们以CTC为例，观察图~\ref{fig:peaky-dist}中的CTC模型输出分布$P(l|\mathbf{x})$。我们可以发现，传统HMM模型的输出分布非常平滑。CTC相比于HMM模型，能够给出更突出的概率分布。具体来说在大多数帧上CTC模型输出较大的$\tt blank$的概率，只在少数帧上输出较大的非$\tt blank$的音素概率。这一现象符合端到端建模的初衷，即建模只关心最终的音素输出，而不关心每一帧的状态级强制对齐结果。而解码过程中，由于$\tt blank$输出并不会影响后续的词典和语言模型概率，因此解码搜索算法也只关心非$\tt blank$的音素输出概率，即图中的尖峰部分。综上所述，实际上基于blank的混淆区段统一建模使得模型在非混淆的标签输出部分具有尖峰特性。下文中我们将基于此特性，提出相应的搜索解码加速算法。
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/peaky_distribution.png}
+    \bicaption[fig:peaky-dist]{HMM，CTC的模型输出分布示例}{HMM，CTC的模型输出分布示例。纵轴表示模型输出概率，横轴表示时间。灰色分布表示CTC模型的$\tt blank$概率输出}{Fig}{The inference distributions of HMM and CTC models.}
+\end{figure}
+
+
 \section{基于连接时序分类模型的标签同步解码}
 \label{chap:lsd-ctc}
-
 
 
 该部分中，本文提出将搜索过程从特征层面改为标签层面，称为标签同步解码（Label Synchronous Decoding， LSD）。本部分将对DSM中的LSD进行公式推导，具体实现方案及一些解码加速的经验方案也将进行讨论。
@@ -38,16 +56,6 @@
         P(\mathbf{w})
         \mathop{\max}\limits_{\mathbf{l}_\mathbf{w}} \frac{ \prod_{l\in\mathbf{l}_\mathbf{w}} P(l|\mathbf{x}) }{P(\mathbf{l}_\mathbf{w})}\right\}
      \end{equation}
-
-观察图~\ref{fig:peaky-dist}中的CTC模型输出分布$P(l|\mathbf{x})$，我们可以发现，传统HMM模型的输出分布非常平滑。CTC相比于HMM模型，能够给出更突出的概率分布。具体来说在大多数帧上CTC模型输出较大的$\tt blank$的概率，只在少数帧上输出较大的非$\tt blank$的音素概率。这一现象符合端到端建模的初衷，即建模只关心最终的音素输出，而不关心每一帧的状态级强制对齐结果。而解码过程中，由于$\tt blank$输出并不会影响后续的词典和语言模型概率，因此解码搜索算法也只关心非$\tt blank$的音素输出概率，即图中的尖峰部分。
-
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/peaky_distribution.png}
-    \bicaption[fig:peaky-dist]{HMM，CTC的模型输出分布示例}{HMM，CTC的模型输出分布示例。纵轴表示模型输出概率，横轴表示时间。灰色分布表示CTC模型的$\tt blank$概率输出}{Fig}{The inference distributions of HMM and CTC models.}
-\end{figure}
 
 在音素级的$P(l|\mathbf{x})$的计算过程中，本文提出在帧级神经网络的输出上进行一步后处理，以便滤除$\tt blank$输出，仅保留非$\tt blank$的音素输出概率来进行公式(\ref{eq:ctc-dec-lsd})的解码搜索。本文定义公共$\tt blank$帧的集合如下:
   \begin{equation} \label{eq:com-blk-idx}

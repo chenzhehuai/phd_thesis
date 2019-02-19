@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  18 FEB 2019 21:55
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  19 FEB 2019 09:41
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -2038,6 +2038,14 @@ Underfull \vbox (badness 1360) has occurred while \output is active []
 [32] [33]
 File: figure/hmm-topo.png Graphic file (type bmp)
 <figure/hmm-topo.png>
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 603.
+
+
+LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 603.
+
 [34] [35] [36] [37]
 File: figure/e2e-idea.png Graphic file (type bmp)
 <figure/e2e-idea.png>
@@ -2092,14 +2100,6 @@ File: figure/lattice.png Graphic file (type bmp)
 ] [68] [69] [70]
 File: figure/filler-graph.png Graphic file (type bmp)
 <figure/filler-graph.png>
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 199.
-
-
-LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 199.
-
 [71] [72] [73]
 Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
@@ -2173,22 +2173,25 @@ Underfull \vbox (badness 1231) has occurred while \output is active []
 [99]
 File: figure/peaky_distribution.png Graphic file (type bmp)
 <figure/peaky_distribution.png>
-[100]
-Underfull \vbox (badness 3713) has occurred while \output is active []
 
-[101] [102] [103] [104]
+Underfull \vbox (badness 1755) has occurred while \output is active []
+
+[100] [101] [102] [103]
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+[104] [105]
 File: figure/ctc_lat.png Graphic file (type bmp)
 <figure/ctc_lat.png>
-[105] [106]
+[106]
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 313--313
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 321--321
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 313--313
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 321--321
 []|[]| 
  []
 
@@ -2196,71 +2199,71 @@ Overfull \hbox (22.75665pt too wide) in paragraph at lines 313--313
 File: figure/speed-robust.pdf Graphic file (type pdf)
 <use figure/speed-robust.pdf>
 [108]
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 351--351
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 359--359
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 351--351
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 359--359
 []|[]| 
  []
 
 File: figure/prune-wer-at-dsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-dsm.pdf>
 [109] [110]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 407--407
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 407--407
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 407--407
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 415--415
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 File: figure/prune-wer-at-gsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-gsm.pdf>
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 457--457
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 457--457
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 457--457
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 465--465
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 457--457
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 465--465
 []|[]| 
  []
 
 [111] [112]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 493--493
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 493--493
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 493--493
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 501--501
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 493--493
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 501--501
 []|[]| 
  []
 
@@ -2269,10 +2272,7 @@ File: figure/OPER-latden.png Graphic file (type bmp)
 [113]
 File: figure/OWER-latden.png Graphic file (type bmp)
 <figure/OWER-latden.png>
-
-Underfull \vbox (badness 1253) has occurred while \output is active []
-
-[114]) [115]
+) [114] [115]
 \openout2 = `tex/unified.aux'.
 
 (tex/unified.tex [116
@@ -2422,7 +2422,7 @@ tex/unified.aux) (tex/summary.aux) (tex/pub.aux) (tex/patents.aux) (tex/ack.aux
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 93C5D2A520598181B8726BAD65379254.
+(rerunfilecheck)             Checksum: 08ABCA344CA5BC4BF2689B95760FE85C.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2433,12 +2433,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 38616 strings out of 427748
- 769136 string characters out of 3150981
- 1311515 words of memory out of 3000000
- 42003 multiletter control sequences out of 15000+200000
+ 38617 strings out of 427748
+ 769152 string characters out of 3150981
+ 1312560 words of memory out of 3000000
+ 42004 multiletter control sequences out of 15000+200000
  554418 words of font info for 166 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  58i,21n,80p,1073b,4840s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.xdv (193 pages, 2908904 bytes).
+Output written on thesis.xdv (193 pages, 2915476 bytes).

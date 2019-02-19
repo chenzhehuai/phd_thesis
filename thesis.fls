@@ -469,20 +469,6 @@ INPUT figure\cnn.png
 INPUT figure\RBM.png
 INPUT figure\dnn_hmm.png
 INPUT figure\hmm-topo.png
-INPUT figure\e2e-idea.png
-OUTPUT tex\intro2.aux
-INPUT tex\intro2.tex
-INPUT tex\intro2.tex
-INPUT figure\ug.png
-INPUT figure\bg.png
-INPUT figure\xwrdbg.png
-INPUT figure\tg.png
-INPUT figure\dec_arch.png
-INPUT figure\lattice.png
-OUTPUT tex\kws.aux
-INPUT tex\kws.tex
-INPUT tex\kws.tex
-INPUT figure\filler-graph.png
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
@@ -504,6 +490,20 @@ INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfont
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy10.tfm
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\wasy\wasy7.tfm
 INPUT C:\Users\lenovo\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT figure\e2e-idea.png
+OUTPUT tex\intro2.aux
+INPUT tex\intro2.tex
+INPUT tex\intro2.tex
+INPUT figure\ug.png
+INPUT figure\bg.png
+INPUT figure\xwrdbg.png
+INPUT figure\tg.png
+INPUT figure\dec_arch.png
+INPUT figure\lattice.png
+OUTPUT tex\kws.aux
+INPUT tex\kws.tex
+INPUT tex\kws.tex
+INPUT figure\filler-graph.png
 INPUT figure\modules.pdf
 INPUT figure\sys-framework.png
 INPUT figure\joint-tr.pdf

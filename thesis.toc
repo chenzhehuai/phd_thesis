@@ -193,33 +193,35 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {第六章\hspace {.3em}}基于标签同步解码的搜索空间优化}{99}{chapter.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}基于连接时序分类模型的标签同步解码}{100}{section.6.1}% 
+\contentsline {section}{\numberline {6.1}基于blank的混淆区段统一建模}{100}{section.6.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}标签同步解码}{100}{subsection.6.1.1}% 
+\contentsline {section}{\numberline {6.2}基于连接时序分类模型的标签同步解码}{101}{section.6.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.2}标签同步解码算法实现}{101}{subsection.6.1.2}% 
+\contentsline {subsection}{\numberline {6.2.1}标签同步解码}{101}{subsection.6.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}基于无词图鉴别性训练模型的标签同步解码}{102}{section.6.2}% 
+\contentsline {subsection}{\numberline {6.2.2}标签同步解码算法实现}{102}{subsection.6.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.1}标签同步解码}{102}{subsection.6.2.1}% 
+\contentsline {section}{\numberline {6.3}基于无词图鉴别性训练模型的标签同步解码}{102}{section.6.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.2}标签同步解码算法实现}{103}{subsection.6.2.2}% 
+\contentsline {subsection}{\numberline {6.3.1}标签同步解码}{102}{subsection.6.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}标签同步解码的进一步分析}{104}{section.6.3}% 
+\contentsline {subsection}{\numberline {6.3.2}标签同步解码算法实现}{103}{subsection.6.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}逐帧同步解码与标签同步解码的对比}{104}{subsection.6.3.1}% 
+\contentsline {section}{\numberline {6.4}标签同步解码的进一步分析}{105}{section.6.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.2}标签同步的词图处理}{105}{subsection.6.3.2}% 
+\contentsline {subsection}{\numberline {6.4.1}逐帧同步解码与标签同步解码的对比}{105}{subsection.6.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}实验结果}{106}{section.6.4}% 
+\contentsline {subsection}{\numberline {6.4.2}标签同步的词图处理}{105}{subsection.6.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.1}DSM实验}{107}{subsection.6.4.1}% 
+\contentsline {section}{\numberline {6.5}实验结果}{106}{section.6.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.2}GSM实验}{110}{subsection.6.4.2}% 
+\contentsline {subsection}{\numberline {6.5.1}DSM实验}{107}{subsection.6.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.3}音素级词图质量分析}{113}{subsection.6.4.3}% 
+\contentsline {subsection}{\numberline {6.5.2}GSM实验}{110}{subsection.6.5.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}本章小结}{115}{section.6.5}% 
+\contentsline {subsection}{\numberline {6.5.3}音素级词图质量分析}{113}{subsection.6.5.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.6}本章小结}{114}{section.6.6}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {第七章\hspace {.3em}}标签同步解码的扩展应用}{117}{chapter.7}% 
 \defcounter {refsection}{0}\relax 

@@ -600,7 +600,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
   \centering
     \captionstyle{\centering}
     \includegraphics[width=\textwidth]{figure/hmm-topo.png}
-    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，本文将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
+    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指blank HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示blank建模，但并不完全相同，如（b）CTC中的<b>是使用公共的blank建模；但（c）中的q2，每个输出标签有独立的blank建模，第\ref{chap:lsd-blank}章节将详细介绍$\tt blank$建模，本文还将详细比较不同blank的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
 \end{figure}
 
 
