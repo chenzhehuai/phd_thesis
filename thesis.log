@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  19 FEB 2019 11:53
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.2.15)  26 FEB 2019 21:46
 entering extended mode
 **./thesis.tex
 (thesis.tex
@@ -1928,28 +1928,34 @@ guage=DFLT;"
 
 
 
-] [2]) [3
+] [2]
+Underfull \vbox (badness 3158) has occurred while \output is active []
 
-] [4
+[3
+
+]
+Underfull \vbox (badness 7522) has occurred while \output is active []
+
+[4]) [5] [6
 
 
-] (thesis.toc [5] [6] [7])
+] (thesis.toc [7] [8] [9])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
-[8] (thesis.lof [9
+[10] (thesis.lof [11
 
 ])
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
-[10] (thesis.lot)
+[12] (thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
-[11
+[13
 
-] [12]
+] [14]
 \openout2 = `tex/symbol.aux'.
 
 (tex/symbol.tex
@@ -1961,10 +1967,10 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 19.
 
-[13
+[15
 
 
-]) [14]
+]) [16]
 \openout2 = `tex/intro0.aux'.
 
 (tex/intro0.tex
@@ -2430,12 +2436,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 38618 strings out of 427748
- 769179 string characters out of 3150981
- 1312612 words of memory out of 3000000
- 42005 multiletter control sequences out of 15000+200000
+ 38641 strings out of 427748
+ 770979 string characters out of 3150981
+ 1313131 words of memory out of 3000000
+ 42028 multiletter control sequences out of 15000+200000
  554418 words of font info for 166 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  58i,21n,80p,1073b,4840s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.xdv (193 pages, 2919548 bytes).
+Output written on thesis.xdv (195 pages, 2999072 bytes).
