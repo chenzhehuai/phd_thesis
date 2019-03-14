@@ -33,15 +33,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.2.2}隐马尔科夫模型 (HMM)}{15}{subsubsection.2.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.3}混合高斯模型 (GMM)}{17}{subsubsection.2.1.2.3}
+\contentsline {subsubsection}{\numberline {2.1.2.3}高斯混合模型 (GMM)}{17}{subsubsection.2.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.2.4}序列鉴别性训练}{17}{subsubsection.2.1.2.4}
+\contentsline {subsubsection}{\numberline {2.1.2.4}序列鉴别性训练}{18}{subsubsection.2.1.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.3}语言模型}{19}{subsection.2.1.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.4}解码及搜索}{20}{subsection.2.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}深度学习在语音识别中的应用}{20}{section.2.2}
+\contentsline {section}{\numberline {2.2}深度学习在语音识别中的应用}{21}{section.2.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.1}深度学习与神经网络}{21}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
