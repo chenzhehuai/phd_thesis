@@ -1,8 +1,10 @@
 
-\chapter{自动语音识别及深度序列模型}
+\chapter{自动语音识别及序列建模}
 \label{chap:intro}
 
-自动语音识别技术（Automatic Speech Recognition）是一种将人的语音转换为文本的技术。
+自动语音识别技术（Automatic Speech Recognition）是一种将人的语音转换为文本的技术，
+序列建模则是该技术不同于传统模式分类技术的核心。
+%
 本章中我们会最先介绍自动语音识别的框架，并概述每个子模块的基本设计。
 近年来，深度学习模型被引入到语音识别的声学和语言建模当中替代传统分类器（NN-HMM），显著改善了模式分类问题的精度，从而改善了语音识别的准确度~\cite{CD-DNN-HMM-dahl2012,DNN4ASR-hinton2012}。 另一方面，语音识别本质上是一个序列标注问题。NN-HMM模型的序列关联性依赖于隐马尔科夫模型进行建模，而隐马尔科夫模型的状态转移建模能力有限。除此之外，NN-HMM模型对深度学习模型和隐马尔科夫模型进行分别训练，缺少了整体优化也将影响最终的模式分类性能。因此我们着重介绍了深度学习背景下的序列建模研究。
 在最后一部分，得益于分类能力有所提升，深度学习模型时序建模能力被用于搭建端到端语音识别系统。其得益于更好的序列分类能力和更简单推理搜索框架，已经成为当前研究的热点。
@@ -106,7 +108,7 @@
 基于上述参数，图\ref{fig:hmm}中隐马尔科夫模型的似然度定义为给定一个语音信号的特征向量序列和一个隐马尔科夫模型，计算该模型生成给定的语音信号的特征向量序列概率，即计算$p(\mathbf{O}|\mathbf{w},\mathcal{M})$，其中$\mathbf{O}$为观测到的语音信号的特征向量序列，$\mathbf{w}$为对应文本标注，$\mathcal{M}=\{\pi, \mathbf{A}, \mathbf{B}\}$是所有模型参数。由于状态序列$\mathbf{s}$是隐藏的，因而需要枚举所有可能的状态序列并求其期望，即：
 \begin{eqnarray}
 \label{eq:hmm-basic}
-p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf{w},\mathcal{M}) \\
+p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{\mathbf{s}}p(\mathbf{O},\mathbf{s}|\mathbf{w},\mathcal{M}) \\
 &=& \sum_{\mathbf{s}} P(\mathbf{s}|\mathbf{w},\mathcal{M})p(\mathbf{O}|\mathbf{s},\mathcal{M}) \\
 &=& \sum_{\mathbf{s}} a_{s_0, s_1}\prod_{t=1}^T a_{s_{t-1}, s_t}b_{s_t}(\mathbf{o}_t)
 \end{eqnarray}
@@ -244,7 +246,7 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 在定义了各种鉴别性训练准则后， 如何根据这些准则对模型参数进行优化就
 成为了另一个重要的问题。 一个好的模型参数优化方法必须能够有效的优化上述准则、并可以高效率的实现， 还要拥有良好的收敛性能。 遗憾的是， 到目前为止， 对区分性
 训练准则而言还没有一种算法能够保证其收敛性。 这样的局面与最大似然准则下的情形不同。 因此， 研究者通常致力于寻找一些在经验上有比较良好优化能力、 又能较快收敛的算法， 以便对鉴别性训练准则进行模型参数优化。常用的参数优化方法主要分为两大类， 一类是基于梯度下降(Gradient Descent, GD)的方法， 二类
-是基于扩展Baum-Welch(EB)方法。在后文将讨论的深度学习框架下，基于梯度下降的算法被广泛使用，将在第~\ref{sec:intro-sgd}章进行详细介绍。
+是基于Extended Baum-Welsh (EBM)方法。在后文将讨论的深度学习框架下，基于梯度下降的算法被广泛使用，将在第~\ref{sec:intro-sgd}章进行详细介绍。
 
 \subsection{语言模型}
 \label{sec:lm}
@@ -285,8 +287,8 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 \section{深度学习在语音识别中的应用}
 \label{chap:intro2-dl-asr}
 
-近年来，深度学习模型被引入到语音识别声学和语言建模中以取代传统的分类器，显着提高了模式分类问题的准确性。
-在这一框架中，HMM被用于描述语音信号的信号动态变化，而DNN则用于估计语音信号的特征向量的输出概率，通常是用来估计给定观测语音信号的特征后，该特征由HMM中某个状态释放后验概率。下面的章节我们将具体介绍深度学习模型与训练方法，以及深度学习在语音识别中的具体应用方法。
+近年来，深度学习模型被引入到语音识别声学和语言建模中以取代传统的分类器，显著提高了模式分类问题的准确性。
+在这一框架中，HMM被用于描述语音信号的信号动态变化，而深度学习模型则用于估计语音信号的特征向量的输出概率，通常是用来估计给定观测语音信号的特征后，该特征由HMM中某个状态释放后验概率。下面的章节我们将具体介绍深度学习模型与训练方法，以及深度学习在语音识别中的具体应用方法。
 
 \subsection{深度学习与神经网络}
 \label{chap:intro2-dl}
@@ -294,7 +296,7 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 目前语音识别领域最常使用的神经网络结构包括三种：前馈网络、卷积神经网络以及循环神经网络，本章将对这三种网络结构进行逐一介绍。在语音识别领域，深度前馈网通常简称为深度神经网络。在本文中，深度神经网络默认表示为深度前馈网络。
 
 \subsubsection{深度神经网络}
-神经网络~\cite{rumelhart1986learning}也被称为多层感知器，它是一种最基本神经网络结构，也是目前使用最广泛结构。深度神经网络（Deep Neural Network, DNN）是一个含有很多（超过两个）隐层的多层感知器。图~\ref{fig:dnn}绘制了一个总共五层深度神经网络，包括一个输入层、三个隐层以及一个输出层。
+神经网络~\cite{rumelhart1986learning}也被称为多层感知器，它是一种最基本神经网络结构，也是目前使用最广泛结构。深度神经网络（Deep Neural Network, DNN）是一种前馈网络。图~\ref{fig:dnn}绘制了一个总共五层深度神经网络，包括一个输入层、三个隐层以及一个输出层。
 \begin{figure}[!htp]
   \centering
     \captionstyle{\centering}
@@ -303,17 +305,17 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 \end{figure}
 这里我们将DNN的输入层设为层0，将输出层设为层L。神经网络运算可以被定义为：
 \begin{equation}
-    \mathbf{y}^l=f(\mathbf{x}^l)=f(\mathbf{w}^l\mathbf{y}^{l-1}+\mathbf{b}^l), 0 < l < L
+    \mathbf{y}^l=f(\mathbf{x}^l)=f(\mathbf{W}^l\mathbf{y}^{l-1}+\mathbf{b}^l), 0 < l < L
 \end{equation}
-这里$\mathbf{x}^l, \mathbf{y}^l, \mathbf{w}^l, \mathbf{b}^l$分别是第$l$个隐层的输入向量、输出向量、权重矩阵和偏置向量。$\mathbf{y}^0=\mathbf{o}$是网络输入特征向量。$f$是一种对输入向量进行元素级计算的激活函数。常用激活函数有：
+这里$\mathbf{x}^l, \mathbf{y}^l, \mathbf{W}^l, \mathbf{b}^l$分别是第$l$个隐层的输入向量、输出向量、权重矩阵和偏置向量。$\mathbf{y}^0=\mathbf{o}$是网络输入特征向量。$f$是一种对输入向量进行元素级计算的激活函数。常用激活函数有：
 \begin{itemize}
     \item sigmoid函数
     \begin{equation}
-        \sigma(x)=\frac{1}{1+e^{-x}}
+        f(x)=\sigma(x)=\frac{1}{1+e^{-x}}
     \end{equation}
     \item 双曲正切函数
     \begin{equation}
-        \text{tanh} (x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}
+        f(x)=\text{tanh} (x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}
     \end{equation}
     双曲正切函数是sigmoid函数的调整版本，它们具有相同建模能力。区别是sigmoid函数的值域是(0,1)，这有助于得到更稀疏表示。而tanh的值域是(-1,1)是对称，更容易训练。
     \item 整流线性单元(ReLU)
@@ -332,14 +334,14 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
 
 深度神经网络输出层选定通常根据任务而变化，如果是回归任务，通常使用一个线性层：
 \begin{equation}
-    \mathbf{y}^L=\mathbf{x}^L=\mathbf{w}^L\mathbf{y}^{L-1}+\mathbf{b}^L
+    \mathbf{y}^L=\mathbf{x}^L=(\mathbf{W}^L)^{\top}\mathbf{y}^{L-1}+\mathbf{b}^L
 \end{equation}
 如果是多分类的任务，通常会使用输出层每个神经元代表一类，其中第$i$个神经元的值即代表了当前特征属于类别$i$概率，因此它必须满足多项式分布，即$y^L_i \ge 0$且$\sum_{i=1}^C y_i^L=1$，这里$C$为总类别数。为了满足这一限制，我们通常会使用softmax函数进行归一化：
 \begin{eqnarray}
     y_i^L&=&P_{\text{dnn}}(i|\mathbf{o})=\text{softmax}_i(\mathbf{x}^L) \\
     &=& \frac{e^{x_i^L}}{\sum_{j=1}^C e^{x_j^L}}
 \end{eqnarray}
-给定了特征向量的输入后，DNN输出由模型参数$\mathcal{M}=\{ \mathbf{w}^l, \mathbf{b}^l, 0 < l \le L\}$确定，通过使用前面提到的公式计算输出向量以及最后输出，这一过程也被称为前向计算。
+给定了特征向量的输入后，DNN输出由模型参数$\mathcal{M}=\{ \mathbf{W}^l, \mathbf{b}^l, 0 < l \le L\}$确定，通过使用前面提到的公式计算输出向量以及最后输出，这一过程也被称为前向计算。
 
 \subsubsection{卷积神经网络}
 传统的深度卷积神经网络(convolutional neural network, CNN)~\cite{lecun1998gradient}通常由若干卷积层和池化层组成，最后接上一些全连接层。和深度神经网络相比，它主要区别在于卷积层和池化层。本章将具体介绍卷积层和池化层。
@@ -368,26 +370,26 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
     \mathbf{y}^{l}_{i} = \sigma ( \sum_{j=1}^{N} ( \mathbf{w}^{l}_{i,j} \otimes \mathbf{y}^{l-1}_{j} ) \oplus b^{l}_{i} )
 \end{equation}
 
-这里$\mathbf{y}^{l}_i, \mathbf{y}^{l-1}_j$分别是第$l$个卷积层的第$j$个输入特征图谱和第$i$个输出特征图谱。$\mathbf{w}^l_{i,j}$是这两个特征图谱间滤波器。$b^l_i$是一个应用于整张特征图谱偏置值，$\otimes$为卷积操作，$\oplus$表示特征图谱中每个元素都加上相同的值$b^l_i$。$\sigma$是激活函数，通常使用sigmoid或者ReLU。$N$是输入特征图谱个数。由于各个感受野之间的参数是共享的，因而CNN中参数个数相对DNN是很少的。
+这里$\mathbf{y}^{l}_i, \mathbf{y}^{l-1}_j$分别是第$l$个卷积层的第$j$个输入特征图谱和第$i$个输出特征图谱。$\mathbf{W}^l_{i,j}$是这两个特征图谱间滤波器。$b^l_i$是一个应用于整张特征图谱偏置值，$\otimes$为卷积操作，$\oplus$表示特征图谱中每个元素都加上相同的值$b^l_i$。$\sigma$是激活函数，通常使用sigmoid或者ReLU。$N$是输入特征图谱个数。由于各个感受野之间的参数是共享的，因而CNN中参数个数相对DNN是很少的。
 
 池化层通常扮演降采样功能，它输入若干特征图谱并输出降低了分辨率后特征图谱。本文使用了最大值池化方法，一个$1 \times 2$的最大值池化效果如图~\ref{fig:cnn}中的右边部分所示。
 
 \subsubsection{循环神经网络}
-循环神经网络(recurrent neural network, RNN)是深度神经网络一个变种，在建模时序数据中特别有效。与深度神经网络不同点在于它包含有一条回环，在循环神经网络中，隐层在时刻$t$输出不仅仅作为下一层的输入，同时也会在时刻$t+1$输回给自身。因此它相当于存在内部状态，内部状态将过去历史信息进行了编码。最简单的循环神经网络可以被描述为：
+循环神经网络(recurrent neural network, RNN)是深度神经网络一个变种，在建模时序数据中特别有效。与前馈网络不同点在于它包含有一条回环，在循环神经网络中，隐层在时刻$t$输出不仅仅作为下一层的输入，同时也会在时刻$t+1$输回给自身。因此它相当于存在内部状态，内部状态将过去历史信息进行了编码。最简单的循环神经网络可以被描述为：
 \begin{equation}
-    \mathbf{y}^l_t = \sigma(\mathbf{w}^l_y \mathbf{y}^{l-1}_t + \mathbf{w}^l_h \mathbf{y}^l_{t-1} + \mathbf{b}^l)
+    \mathbf{y}^l_t = \sigma(\mathbf{W}^l_y \mathbf{y}^{l-1}_t + \mathbf{W}^l_h \mathbf{y}^l_{t-1} + \mathbf{b}^l)
 \end{equation}
-这里$\mathbf{y}^l_t$是网络第$l$层第$t$帧的隐层输出，$\mathbf{w}^l_y, \mathbf{w}^l_h$分别是用于对上层输出和对历史输出权重矩阵。
+这里$\mathbf{y}^l_t$是网络第$l$层第$t$帧的隐层输出，$\mathbf{W}^l_y, \mathbf{W}^l_h$分别是用于对上层输出和对历史输出权重矩阵。
 
 通过这一设计，神经网络可以使用所有的过去帧的信息，上下文信息在声学模型建模中扮演了很重要的作用。在~\cite{graves2013hybrid,graves2013speech,sak2014long,sak2014sequence}中，作者使用了深度循环神经网络来建模声学模型。双向循环神经网络也被用于语音识别，它不仅能捕捉过去历史信息，也能捕捉未来的整个输入序列信息。
 
 在早期的工作中，RNN层仅仅使用了一个线性变换接上一个元素级激活函数，这种结构没法保留长时信息，因为通用的激活函数会对动态范围进行压缩，因此在$n$帧之前历史信息在到达当前帧时已经被压缩了$n$次，很难对当前决策产生影响。在使用沿时误差反向传播算法中，这一问题也被称为梯度消失问题~\cite{bengio1994learning}，即误差无法沿着时间维传播太多帧。为了解决这一问题，在~\cite{hochreiter1997long}中，长短时记忆循环神经网络(long short-term memory, LSTM)被提出用来取代传统的RNN结构。它通过引入记忆单元和门操作来避免梯度消失问题，一个典型的LSTM可由如下公式描述：
 \begin{eqnarray}
     \label{eq:lstm}
-    \mathbf{i}^l_t &=& \sigma( \mathbf{w}^l_{yi} \mathbf{y}^{l-1}_t + \mathbf{w}^l_{hi} \mathbf{y}^l_{t-1} + \mathbf{w}_{ci} \mathbf{c}^l_{t-1} + \mathbf{b}^l_i) \\
-    \mathbf{f}^l_t &=& \sigma( \mathbf{w}^l_{yf} \mathbf{y}^{l-1}_t + \mathbf{w}^l_{hf} \mathbf{y}^l_{t-1} + \mathbf{w}_{cf} \mathbf{c}^l_{t-1} + \mathbf{b}^l_f) \\
+    \mathbf{i}^l_t &=& \sigma( \mathbf{W}^l_{yi} \mathbf{y}^{l-1}_t + \mathbf{W}^l_{hi} \mathbf{y}^l_{t-1} + \mathbf{w}_{ci} \mathbf{c}^l_{t-1} + \mathbf{b}^l_i) \\
+    \mathbf{f}^l_t &=& \sigma( \mathbf{W}^l_{yf} \mathbf{y}^{l-1}_t + \mathbf{W}^l_{hf} \mathbf{y}^l_{t-1} + \mathbf{w}_{cf} \mathbf{c}^l_{t-1} + \mathbf{b}^l_f) \\
     \mathbf{c}^l_t &=& \mathbf{f}^l_t \odot \mathbf{c}^l_{t-1} + \mathbf{i}^l_t \odot \text{tanh}(\mathbf{w}_{yc} \mathbf{y}^{l-1}_t + \mathbf{w}_{hc} \mathbf{c}^l_{t-1} + \mathbf{b}^l_c) \\
-    \mathbf{o}^l_t &=& \sigma( \mathbf{w}^l_{yo} \mathbf{y}^{l-1}_t + \mathbf{w}^l_{ho} \mathbf{y}^l_{t-1} + \mathbf{w}_{co} \mathbf{c}^l_{t-1} + \mathbf{b}^l_o) \\
+    \mathbf{o}^l_t &=& \sigma( \mathbf{W}^l_{yo} \mathbf{y}^{l-1}_t + \mathbf{W}^l_{ho} \mathbf{y}^l_{t-1} + \mathbf{w}_{co} \mathbf{c}^l_{t-1} + \mathbf{b}^l_o) \\
     \mathbf{y}^l_t &=& \mathbf{o}^l_t \odot \text{tanh}(\mathbf{c}^l_t)
 \end{eqnarray}
 和循环神经网络一样，它需要从第一帧开始迭代进行前向传播，这里$\sigma$是非线性sigmoid函数，$\mathbf{i}^l_t, \mathbf{f}^l_t, \mathbf{o}^l_t, \mathbf{c}^l_t, \mathbf{y}^l_t$分别是第$t$帧的输入门、遗忘门、输出门、记忆单元和隐层输出。$\odot$表示元素级乘法。$\mathbf{w}_*, \mathbf{b}_*$分别是权重矩阵和偏置，其中$\mathbf{w}_{ci}, \mathbf{w}_{cf}, \mathbf{w}_{co}$是对角矩阵。与最初的LSTM结构不同之处在于，在这一结构中我们增加了窥孔连接(peephole connection)。即：将记忆单元的状态同时输入给各个门操作。
@@ -436,9 +438,9 @@ p(\mathbf{O}|\mathbf{w},\mathcal{M}) &=& \sum_{s}p(\mathbf{O},\mathbf{s}|\mathbf
     \mathbf{e}^L \triangleq [ \frac{\partial \mathcal{F}_{\tt MSE}(\mathcal{M}))}{\partial x^L_1}, \dots, \frac{\partial \mathcal{F}_{\tt MSE}(\mathcal{M}))}{\partial x^L_N} ]^{\top}
 \end{equation}
 $N$是最后一层输出维度。
-也可以将对$\mathbf{w}^L$梯度写为矩阵形式:
+也可以将对$\mathbf{W}^L$梯度写为矩阵形式:
 \begin{equation}
-   \nabla_{\mathbf{w}^L} \mathcal{F}_{\tt MSE}(\mathcal{M})) = \mathbf{e}^L {\mathbf{y}^{L-1}}^{\top} = (\mathbf{x}^L - \bar{\mathbf{y}}) {\mathbf{y}^{L-1}}^{\top}
+   \nabla_{\mathbf{W}^L} \mathcal{F}_{\tt MSE}(\mathcal{M})) = \mathbf{e}^L {\mathbf{y}^{L-1}}^{\top} = (\mathbf{x}^L - \bar{\mathbf{y}}) {\mathbf{y}^{L-1}}^{\top}
 \end{equation}
 当使用分类任务时，CE准则通常和softmax输出层一起使用，同样先计算出误差信号：
 \begin{eqnarray}
@@ -447,9 +449,9 @@ $N$是最后一层输出维度。
     &=& \frac{e^{x^L_j}}{\sum_{i=1}^C e^{x^L_i}} - \bar{y}_j \\
     &=& y^L_j-\bar{y}_j
 \end{eqnarray}
-接着可以求出对$\mathbf{w}^L$的梯度:
+接着可以求出对$\mathbf{W}^L$的梯度:
 \begin{equation}
-    \nabla_{\mathbf{w}^L} \mathcal{F}_{\tt CE}(\mathcal{M})) = (\mathbf{y}^L - \bar{\mathbf{y}}) {\mathbf{y}^{L-1}}^{\top}
+    \nabla_{\mathbf{W}^L} \mathcal{F}_{\tt CE}(\mathcal{M})) = (\mathbf{y}^L - \bar{\mathbf{y}}) {\mathbf{y}^{L-1}}^{\top}
 \end{equation}
 值得注意一点是，虽然CE准则和MSE准则梯度公式看上去有相同的形式，但实际上它们是不同的，因为在做回归时$\mathbf{y}^L=\mathbf{x}^L$，而在做分类时$\mathbf{y}^L=\text{softmax}(\mathbf{x}^L)$。
 
@@ -468,7 +470,7 @@ $N$是最后一层输出维度。
 这里$N^{l+1}$是第$l+1$层隐层节点数，写出矩阵形式即:
 \begin{equation}
     \label{eq:error_prop}
-    \mathbf{e}^l = ( {\mathbf{w}^{l+1}}^{\top} \mathbf{e}^{l+1} ) \odot \sigma'(\mathbf{x}^l)
+    \mathbf{e}^l = ( {\mathbf{w}^{l+1}} \mathbf{e}^{l+1} ) \odot \sigma'(\mathbf{x}^l)
 \end{equation}
 这里$\odot$为元素级相乘，$\sigma'(x^l_j)$为激活函数的元素级导数，对于sigmoid函数，它等于:
 \begin{equation}
@@ -478,7 +480,7 @@ $N$是最后一层输出维度。
 
 因此对权重矩阵梯度矩阵形式为：
 \begin{equation}
-    \nabla_{\mathbf{w}^l} \mathcal{F}(\mathcal{M}) = \mathbf{e}^l {\mathbf{y}^{l-1}}^{\top}
+    \nabla_{\mathbf{W}^l} \mathcal{F}(\mathcal{M}) = \mathbf{e}^l {\mathbf{y}^{l-1}}^{\top}
 \end{equation}
 从公式\ref{eq:error_prop}中可以观察到，误差信号需要自顶层向下进行反向传播，因此该方法被称为误差反向传播算法。
 
@@ -494,9 +496,9 @@ SGD通常比批量训练快很多，特别是在大词汇连续语音识别中�
 
 惯性系数~\cite{polyak1964some}是优化中一种加速收敛的方法，它主要思想是使用过往梯度的一个累积量和当前梯度的插值作为最终更新使用的梯度，即：
 \begin{eqnarray}
-    \Delta\mathbf{w}^l_p = \rho \Delta \mathbf{w}^l_{p-1} + (1-\rho) \frac{1}{M} \sum_{m=1}^M \nabla_{\mathbf{w}^l_p} \mathcal{F}(\mathcal{M}, \mathbf{o}_m, \bar{\mathbf{y}}_m)
+    \Delta\mathbf{W}^l_p = \rho \Delta \mathbf{W}^l_{p-1} + (1-\rho) \frac{1}{M} \sum_{m=1}^M \nabla_{\mathbf{W}^l_p} \mathcal{F}(\mathcal{M}, \mathbf{o}_m, \bar{\mathbf{y}}_m)
 \end{eqnarray}
-这里，$\nabla_{\mathbf{w}^l_p} \mathcal{F}(\mathcal{M}, \mathbf{o}_m, \bar{\mathbf{y}}_m)$是使用样本$\mathbf{o}_m, \bar{\mathbf{y}}_m$计算出的梯度。$\Delta\mathbf{w}^l_p$是第$p$轮迭代累积的梯度。$\rho$即为惯性系数。使用惯性系数会令参数更新变得更加平滑，同时减少梯度估计时方差，因此可以加速训练。
+这里，$\nabla_{\mathbf{W}^l_p} \mathcal{F}(\mathcal{M}, \mathbf{o}_m, \bar{\mathbf{y}}_m)$是使用样本$\mathbf{o}_m, \bar{\mathbf{y}}_m$计算出的梯度。$\Delta\mathbf{W}^l_p$是第$p$轮迭代累积的梯度。$\rho$即为惯性系数。使用惯性系数会令参数更新变得更加平滑，同时减少梯度估计时方差，因此可以加速训练。
 
 \subsubsection{参数初始化与预训练}
 通常有很多启发式的方法来初始化DNN模型，它们的主要思想都是希望初始化后的激活范围处于sigmoid函数的线性段。即激活值为0.5左右。如果权重过大将导致激活值趋近于0或者1，这样计算出梯度就会非常小。随机初始化的另外一个作用是打破深度神经网络的对称性。在~\cite{lecun1998efficient}中，Lecun建议从一个均值为0，方差为$\frac{1}{\sqrt{N^l}}$的高斯分布中采样。由于在语音识别中隐层节点的个数通常从1000至2000不等，所以一般选取[-0.05, 0.05]的均匀分布作为权重矩阵的初始化，而偏置初始化为0。
@@ -563,7 +565,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 \section{基于深度学习的序列建模}
 \label{Sec:seq-tr-review}
 
-由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同建模方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (DSM) ，比如 CTC。Encoder-decoder 模型也是一类鉴别式序列模型，我们将在第\ref{chap:intro2-e2e}章节讨论。 
+由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同建模方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (Generative Sequence Model, GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (Discriminative Sequence Model, DSM) ，比如 CTC。Encoder-decoder 模型也是一类鉴别式序列模型，我们将在第\ref{chap:intro2-e2e}章节讨论。 
 %序列鉴别性训练 for GSM is discussed in Section~\ref{Sec:sgm-sdt-intro} and DSM based 序列鉴别性训练 is discussed in Section~\ref{Sec:sdm-sdt-intro}.
  %while 序列鉴别性训练 in  CTC framework is considered in Section~\ref{Sec:kws-ctc}.
 
@@ -604,12 +606,12 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
   \centering
     \captionstyle{\centering}
     \includegraphics[width=\textwidth]{figure/hmm-topo.png}
-    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指$\tt blank$  HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示$\tt blank$ 建模，但并不完全相同，如（b）CTC中的<b>是使用公共的$\tt blank$ 建模；但（c）中的q2，每个输出标签有独立的$\tt blank$ 建模，第\ref{chap:lsd-blank}章节将详细介绍$\tt blank$建模，本文还将详细比较不同$\tt blank$ 的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中q0、q3，（d）中q0、q3，（e）中q0、q4，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
+    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指$\tt blank$  HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示$\tt blank$ 建模，但并不完全相同，如（b）CTC中的<b>是使用公共的$\tt blank$ 建模；但（c）中的$q_2$，每个输出标签有独立的$\tt blank$ 建模，第\ref{chap:lsd-blank}章节将详细介绍$\tt blank$建模，本文还将详细比较不同$\tt blank$ 的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中$q_0$、$q_3$，（d）中$q_0$、$q_3$，（e）中$q_0$、$q_4$，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
 \end{figure}
 
 
 {\em 鉴别式序列模型}(Discriminative Sequence Model, DSM) 由 $P(\mathbf{w}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模序列 $\mathbf{w}$的后验概率。当使用了序列鉴别性模型之后，序列鉴别性准则的优化形式就非常直接了。 
-连接时序分类模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出序列之间的混淆部分。我们将在第\ref{chap:intro2-e2e-ctc}章节详细介绍CTC的定义方式。
+连接时序分类模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出序列之间的混淆部分。我们将在第\ref{Sec:sdm-sdt-intro}章节详细介绍CTC的定义方式。
 
 
 %In summary, sequence models are used to model the temporal characteristics of the acoustic feature sequences. 
@@ -650,7 +652,7 @@ p(\mathbf{O}|\mathbf{L})&=&\!\!\!\!\!\!\sum_{\mathbf{q}\in\mathcal{A}(\mathbf{L}
 %\end{split}
 \end{eqnarray}
 公式中 $\mathbf{L}$ 表示标签序列，比如LVCSR中的tri-phone。
-$\mathbf{q}$ 表示HMM状态序列，  $q_t$ 表示在帧 $t$上的HMM状态序列。 $P(q_t|q_{t-1})$ 表示 HMM 状态转移概率， $P(q_t)$表示状态的先验概率。
+$\mathbf{q}$ 表示HMM状态序列，  $q_t$ 表示在帧 $t$上的HMM状态。 $P(q_t|q_{t-1})$ 表示 HMM 状态转移概率， $P(q_t)$表示状态的先验概率。
 $\mathcal{A}$表示由标签序列 $\mathbf{L}$到它的相应HMM状态序列 $\mathbf{q}$之间的映射,
 \begin{equation}
 \label{equ:a-func_2}
@@ -694,32 +696,8 @@ p(\mathbf{O}_u)=\sum_\mathbf{w} p(\mathbf{O}_u,\mathbf{w})= \sum_\mathbf{w} P(\m
 %traditional GMM-HMM based systems achieve significantly better performance when trained using sequence discriminative criteria like WB-MVE~\cite{sukkar1996utterance},  discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, MCE~\cite{sandness2000keyword} and performance-related discriminative training~\cite{keshet2009discriminative}.
 
 
-\subsection{基于CTC的序列鉴别性训练}
-\label{Sec:sdm-sdt-intro}
-%discriminate KW or discriminate KW \& filler, but filler is imperfect
 
-{\em{鉴别式序列模型}} 是直接对序列后验概率进行估计的一类模型，如公式 (\ref{equ:ctc-model})所示，符合语音识别任务对序列后验概率$p(\mathbf{L}|\mathbf{O})$建模的需求。
-连接时序分类模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}，其目标函数为，
-\begin{equation}
-\label{equ:ctc-formu}
-\begin{split}
-P(\mathbf{w}_u|\mathbf{O}_u)
-= \sum_{\mathbf{L}\in\mathcal{L}(\mathbf{w}_u)} P(\mathbf{L}|\mathbf{O}_u)P(\mathbf{w}_u|\mathbf{L})
-\end{split}
-\end{equation}
-公式中 $\mathbf{L}$ 是CTC模型的标签序列，比如半词或者音素序列等， $\mathcal{L}$定义了从词序列 $\mathbf{w}$ 到它的标签序列 $\mathbf{L}$ 的映射。
-语音识别中，CTC通常被用来建模半词或者音素序列等。
-在~\cite{fernandez2007application}中, CTC被应用到KWS中，
-其输出也可以被定义为所有可能的关键词序列 $\mathbf{w}$的后验概率。
-在语音识别中，$P(\mathbf{w}_u|\mathbf{L})$ 由语言模型和词典给出。
-在声学KWS中，没有引入语言模型，$P(\mathbf{w}_u|\mathbf{L})$ 是一个确定性的由词典到关键词序列的映射。
-$P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，并分解到每一帧，如公式 (\ref{equ:ctc-model})所示。
-注意到一个额外的$\tt blank$ 单元被引入到逐帧的公式 (\ref{equ:ctc-model})中以建模语音信号的混淆区段。
-%
-序列鉴别性准则定义为所有可能的CTC标签序列的概率求和，作为最终的优化方向。
-
-
-\subsection{无词图鉴别性训练}
+\subsection{无词图序列鉴别性训练}
 \label{chap:intro2-e2e-lfmmi}
 
 第\ref{Sec:seq-tr-review}章节所讨论的传统序列鉴别性训练系统是一种比较经典的序列建模方法，但存在几方面缺陷：
@@ -764,32 +742,30 @@ $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$由HMM模型公�
 %    \bicaption[fig:e2e]{}{传统系统与端到端系统比较}{Fig}{Comparison of Various End-to-end Models}
 %\end{figure}
 
-\section{语言识别中的端到端模型}
-\label{chap:intro2-e2e}
+\subsection{基于CTC的序列建模}
+\label{Sec:sdm-sdt-intro}
+%discriminate KW or discriminate KW \& filler, but filler is imperfect
 
-第\ref{chap:intro2-dl-asr}章节介绍的传统DNN-HMM模型核心在于将整体语音识别系统依据人类语言的先验知识进行模块化（modularization），而后分部分建模，再使用第\ref{Sec:seq-tr-review}章节中的序列鉴别性训练技术进行联合调优。这样的系统普遍存在两部分潜在缺点：
-\begin{itemize}
-    \item 模块化限制了序列建模能力。模块化依据人类语言学知识来进行建模步骤的划分，但往往这些先验知识并不一定反应真实的自然语言现象。而模块化通常假设各模块之间是条件独立的（比如语言模型只建模词语之间的概率，而与声学特征无关），那么错误的条件独立假设将会限制最终系统的性能。这些条件独立假设通常出现在人类语言的不同粒度上（比如音素、字词），因此上述性能的限制就具体体现在序列建模能力上。
-    \item 模块化使得系统构建步骤复杂。如第\ref{chap:intro-asr}章节所述，传统系统搭建步骤复杂，还需要大量人类数据科学家进行模型超参数调优。语音识别的广泛推广，使得对大量语言和大量工作场景的支持成为了迫切的需求，这就对系统搭建难度和速度提出了新的要求。同时语言学研究尚未深入涉及人类的大量语言，而DNN-HMM这类模块化系统较难在语言学知识缺失（比如音素集合缺失）的情况下被搭建。
-\end{itemize}
+{\em{鉴别式序列模型}} 是直接对序列后验概率进行估计的一类模型，如公式 (\ref{equ:ctc-model})所示，符合语音识别任务对序列后验概率$p(\mathbf{L}|\mathbf{O})$建模的需求。
+连接时序分类模型 (CTC) 是一个典型的例子~\cite{graves2006connectionist,huang2018ctc}，其目标函数为，
+\begin{equation}
+\label{equ:ctc-formu}
+\begin{split}
+P(\mathbf{w}_u|\mathbf{O}_u)
+= \sum_{\mathbf{L}\in\mathcal{L}(\mathbf{w}_u)} P(\mathbf{L}|\mathbf{O}_u)P(\mathbf{w}_u|\mathbf{L})
+\end{split}
+\end{equation}
+公式中 $\mathbf{L}$ 是CTC模型的标签序列，比如半词或者音素序列等， $\mathcal{L}$定义了从词序列 $\mathbf{w}$ 到它的标签序列 $\mathbf{L}$ 的映射。
+语音识别中，CTC通常被用来建模半词或者音素序列等。
+在~\cite{fernandez2007application}中, CTC被应用到KWS中，
+其输出也可以被定义为所有可能的关键词序列 $\mathbf{w}$的后验概率。
+在语音识别中，$P(\mathbf{w}_u|\mathbf{L})$ 由语言模型和词典给出。
+在声学KWS中，没有引入语言模型，$P(\mathbf{w}_u|\mathbf{L})$ 是一个确定性的由词典到关键词序列的映射。
+$P(\mathbf{L}|\mathbf{O}_u)$ 可以进一步映射到CTC模型的标签序列，并分解到每一帧，如公式 (\ref{equ:ctc-model})所示。
+注意到一个额外的$\tt blank$ 单元被引入到逐帧的公式 (\ref{equ:ctc-model})中以建模语音信号的混淆区段。
 
-得益于标注数据的增多和算力改善，深度学习模型取得了更强的分类能力。由此人们开始考虑直接使用深度序列模型对序列进行直接建模，以取得更好序列建模能力。我们称这种“直接建模”的发展趋势为“端到端”。如图~\ref{fig:e2e-idea}所示，原来传统系统中的tri-phone HMM状态建模可以直接被深度模型所取代，由此直接对音素序列进行建模。
-值得注意的是，根据上一章节中的分类，这类模型绝大部分为{\em 鉴别式序列模型}， 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模输出序列 $\mathbf{L}$的后验概率。 这里的$\mathbf{L}$不仅可以是上面提到的音素，也可以是字（grapheme or character），字母（letter），音节（syllable），或词语（word）。
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[clip=true, width=0.8\textwidth]{figure/e2e-idea.png}
-    \bicaption[fig:e2e-idea]{}{端到端系统举例}{Fig}{Motivation and Example of End-to-end Modeling}
-\end{figure}
-
-%图~\ref{fig:e2e}给出了一，
-下文中将逐一讨论各种端到端序列建模模型。
-
-\subsection{连接时序分类模型}
-\label{chap:intro2-e2e-ctc}
-
-对于DNN-HMM混合模型而言，我们通常选取帧层面的交叉熵函数作为代价函数对DNN模型进行更新，这个过程中预先需要由GMM模型提供训练语料的帧层面的对齐。连接时序分类模型（Connectionist Temporal Classification, CTC）提出自动学习输入帧特征序列与其对应标签序列之间的对齐关系。
+对于传统DNN-HMM混合模型而言，我们通常选取帧层面的交叉熵函数作为代价函数对DNN模型进行更新，这个过程中预先需要由GMM模型提供训练语料的帧层面的对齐。连接时序分类模型（Connectionist Temporal Classification, CTC）提出自动学习输入帧特征序列与其对应标签序列之间的对齐关系。
+其准则定义为所有可能的CTC标签序列的概率求和，作为最终的优化方向。
 
 我们可以预先定义训练集的标签序列包含K个不同标签，这其中还包含意味着无发射标签的空符号标签$\tt blank$建模单元。我们定义输入帧特征序列以及相对应的标签序列。这样我们就可以通过在给定输入序列的条件下最大化标签序列的对数似然比，对预测模型进行更新。
 
@@ -812,10 +788,10 @@ P(\mathbf{L}|\mathbf{O})=\sum_{\mathbf{q}\in\mathcal{B}(\mathbf{L})}P(\mathbf{q}
 \end{equation}
 $\mathcal{B}$ 决定了标签序列 $\mathbf{L}$ 和它相应由建模单元所组成的模型状态序列$\mathbf{q}$。 这一映射做法是在每个组成 $\mathbf{L}$ 的$l$的标签中，插入一个可选并且可重复的 $ \tt blank$ 标签。 $P(q_t|\mathbf{O})$是由深度学习模型直接根据给定的特征序列$\mathbf{O}$来估计得出的， 比如使用LSTM~\cite{hochreiter1997long}。 
 
-\subsection{基于注意力机制的序列到序列建模}
+\subsection{基于序列到序列模型的序列建模}
 \label{chap:intro2-e2e-s2s}
 
-另一类端到端模型称为序列到序列模型。下文讨论将以基于注意力机制的序列到序列模型（encoder-decoder模型）~\cite{chan2016end}为主进行介绍，该类模型也是当前主要研究热点。
+另一类鉴别式序列模型称为序列到序列模型。下文讨论将以基于注意力机制的序列到序列模型（encoder-decoder模型）~\cite{chan2016end}为主进行介绍，该类模型也是当前主要研究热点。
 该模型预测了在直接给定特征序列$\mathbf{O}$下的标签序列和之前已经预测出的标签历史序列$\mathbf{L}_{1:i-1}$后验概率。
 \begin{equation}
 \label{equ:enc-dec}
@@ -844,7 +820,32 @@ P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})=\text{AttentionDecoder}(\mathbf{H}, s_{i-
 %
 %Beam search is always applied to constrain the search space.
 这种建模方式的优势包括：基于深度学习的历史建模，更强的序列建模能力，以及更好的系统联合训练。除此之外，得益于该模型融合了语音识别的所有知识源，由此模型训练和推理搜索的系统设计都将非常简洁。
-但是由于该模型中的声学模型和语言模型进行了紧密的联合训练，这种端到端系统并不容易被自适应到新的领域或者上下文环境中。与之相反，传统系统则可以通过直接修改语言模型而进行领域自适应~\cite{mcgraw2016personalized}。这是该模型的一个重要劣势，也是目前的研究热点之一~\cite{zhc00-chen-icassp19}。 
+但是由于该模型中的声学模型和语言模型进行了紧密的联合训练，这种系统并不容易被自适应到新的领域或者上下文环境中。与之相反，传统系统则可以通过直接修改语言模型而进行领域自适应~\cite{mcgraw2016personalized}。这是该模型的一个重要劣势，也是目前的研究热点之一~\cite{zhc00-chen-icassp19}。 
+
+
+\section{语言识别中的端到端模型}
+\label{chap:intro2-e2e}
+
+第\ref{chap:intro2-dl-asr}章节介绍的传统DNN-HMM模型核心在于将整体语音识别系统依据人类语言的先验知识进行模块化（modularization），而后分部分建模，再使用第\ref{Sec:seq-tr-review}章节中的序列鉴别性训练技术进行联合调优。这样的系统普遍存在两部分潜在缺点：
+\begin{itemize}
+    \item 模块化限制了序列建模能力。模块化依据人类语言学知识来进行建模步骤的划分，但往往这些先验知识并不一定反应真实的自然语言现象。而模块化通常假设各模块之间是条件独立的（比如语言模型只建模词语之间的概率，而与声学特征无关），那么错误的条件独立假设将会限制最终系统的性能。这些条件独立假设通常出现在人类语言的不同粒度上（比如音素、字词），因此上述性能的限制就具体体现在序列建模能力上。
+    \item 模块化使得系统构建步骤复杂。如第\ref{chap:intro-asr}章节所述，传统系统搭建步骤复杂，还需要大量人类数据科学家进行模型超参数调优。语音识别的广泛推广，使得对大量语言和大量工作场景的支持成为了迫切的需求，这就对系统搭建难度和速度提出了新的要求。同时语言学研究尚未深入涉及人类的大量语言，而DNN-HMM这类模块化系统较难在语言学知识缺失（比如音素集合缺失）的情况下被搭建。
+\end{itemize}
+
+得益于标注数据的增多和算力改善，深度学习模型取得了更强的分类能力。由此人们开始考虑直接使用深度序列模型对序列进行直接建模，以取得更好序列建模能力。我们称这种“直接建模”的发展趋势为“端到端”。如图~\ref{fig:e2e-idea}所示，原来传统系统中的音素声学建模可以直接被深度模型所取代，由此直接对词语或单字进行建模。
+% TODO: mod fig
+值得注意的是，根据上一章节中的分类，这类模型绝大部分为{\em 鉴别式序列模型}， 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$直接建模输出序列 $\mathbf{L}$的后验概率。
+这类鉴别式序列模型包括CTC，序列到序列模型等。
+这里的$\mathbf{L}$可以是词语（word）或单字（grapheme or character），字母（letter）。
+在有些研究中使用byte-pair encoding （BPE），因为其映射到词语的方式比较直接，也可以认为是一种端到端的建模系统；后文中我们将以由声学特征直接建模词语序列的方式为主进行讨论。
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[clip=true, width=0.8\textwidth]{figure/e2e-idea.png}
+    \bicaption[fig:e2e-idea]{}{端到端系统举例}{Fig}{Motivation and Example of End-to-end Modeling}
+\end{figure}
+
 
 
 \section{本章小结}

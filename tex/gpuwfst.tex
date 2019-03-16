@@ -2,35 +2,24 @@
 \chapter{基于GPU的并行维特比搜索}
 \label{chap:gpu}
 
-本章节中我们将着重介绍我们针对Kaldi开源工具包的一个扩展，以便使它能够支持图形处理芯片（GPU）上的WFST解码推理搜索。该框架可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
-
-
-近来深度学习语音识别的发展唤起了大量语音识别转录的需求。在这一系统中，计算量较大的部分主要包括：声学模型推理和语言模型WFST解码。本章节主要针对后者。
-%in WFST framework, pruning , lookahead ... in e2e framework...
-除了第\ref{chap:intro2}章节的总结，基于GPU的并行计算是一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
-
-如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，
-语音识别解码网络中多数WFST边之间并不直接相关，具有并行处理的可能性。
-但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。比如依据第\ref{chap:intro2-wfst}章节的讨论， 商用语言模型的WFST大小将达到百GB以上，已经大幅超出了GPU的显存大小。
-ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。
-
-
-
-这项工作作为Kaldi工具包的一个扩展~\cite{povey2011kaldi}，实现了基于GPU并行计算的WFST解码。
+近来深度学习语音识别的发展唤起了大量语音识别转录的需求，因此速度是语音识别系统的另一大关键，其包含：分类器推理计算和搜索解码算法两部分，我们在第\ref{chap:intro2}章节进行了总结。
+由于前者易于抽象化为矩阵的并行计算从而得到显著加速，因此一般不构成主要瓶颈。
+%除了第\ref{chap:intro2}章节的总结，基于GPU的并行计算是一种潜在的针对语音识别计算的加速方式。针对声学模型推理，由于大部分计算量集中在矩阵形式的运算，因此它易于通过将类似于训练过程中\cite{vesely2010parallel}的序列批处理~\cite{dixon2009harnessing} 引入推理搜索阶段，以加速运算。
 %
-这是一个通用的离线解码器~\footnote{近期的研究显示，使用CPU比较容易得到一个实时的解码器来针对在线解码应用
- ~\cite{peddinti2018low,zhc00-chen-tasl2017} 。因此我们的目标集中在如何解码海量的离线语音，降低其计算损耗。},
- 该解码器对语言模型和声学模型没有特别的限制，并且可以工作在各种架构的GPU上。
+针对后者，本论文从解码搜索并行化和降低算法复杂度两个层面进行搜索解码算法加速。
+在公式(\ref{equ:dec-cmp-dec})中，本章节和下一章节将分别尝试降低$\mathbb{C}_{frame}$和$O(T)$。
+
+我们提出图形处理芯片（GPU）上~\footnote{本文所涉及的是一个通用并行算法，因此理论上也能在其他并行计算设备，如FPGA上实施。}的并行的WFST解码搜索算法。%我们针对Kaldi开源工具包的解码器进行扩展，可以显著加速现有推理搜索算法，特别是在基于深度序列学习的一系列模型上进行了验证。
+%在这一系统中，计算量较大的部分主要包括：声学模型推理和语言模型WFST解码。本章节主要针对后者。
+%in WFST framework, pruning , lookahead ... in e2e framework...
 %
 
 我们将维特比算法中的令牌合并操作实现为一个GPU并行计算中的原子操作，以便减少维特比束剪枝算法中的同步开销；我们提出了动态负载均衡的方式以更高效地进行并行计算，提高其多线程之间的利用率。
 为了支持第二遍重打分和更丰富的后处理，我们的设计基于WFST解码和词图生成的架构~\cite{povey2012generating}。我们重新设计了基于GPU并行计算的精确的词图生成和剪枝算法，以便充分利用GPU的性能特点。
-%
+
 我们对这项工作进行了开源~\footnote{\url{https://github.com/chenzhehuai/kaldi/tree/gpu-decoder}},
 它将会与大多数Kaldi脚本相兼容。
-
-
-
+%
 在Switchboard 上实验表明，我们所提出的方法在取得完全一致的最优路径 (1-best) 和词图质量情况下，可以得到3-15倍的加速，并在绝大部分GPU架构上进行了验证。除此之外，如果再进行多句子的并行处理，最终的加速比将达到46倍。
 
 
@@ -51,12 +40,26 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 \section{维特比算法并行化框架}
 \label{chap:gpu-viterbi}
 
+
+如第~\ref{chap:intro2-dec-todo}章节中对于解码搜索的研究机遇的讨论，
+语音识别解码网络中多数WFST边之间并不直接相关，具有并行处理的可能性。
+但是，基于GPU并行计算的WFST解码并不容易实现。尽管一些研究在小型语言模型上取得了一定成功~\cite{you2009parallel}，但这些系统仍然受制于两部分缺陷：i) 由于GPU显存有限，这些方法并不能有效利用较大的商用语言模型。比如依据第\ref{chap:intro2-wfst}章节的讨论， 商用语言模型的WFST大小将达到百GB以上，已经大幅超出了GPU的显存大小。
+ii) 这些方法并不通用，常常受制于特定的声学或语言模型，并且没有词图生成功能。
+
+
+这项工作作为Kaldi工具包的一个扩展~\cite{povey2011kaldi}，实现了基于GPU并行计算的WFST解码。
+%
+这是一个通用的离线解码器~\footnote{近期的研究显示，使用CPU比较容易得到一个实时的解码器来针对在线解码应用
+ ~\cite{peddinti2018low,zhc00-chen-tasl2017} 。因此我们的目标集中在如何解码海量的离线语音，降低其计算损耗。},
+ 该解码器对语言模型和声学模型没有特别的限制，并且可以工作在各种架构的GPU上。
+%
+
 我们所提出的系统工作在二遍解码框架下~\cite{woodland19951994}，以便能够支持更大的语言模型，并支持词图上丰富的后处理。
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/gpu_framework.pdf}
+    \includegraphics[width=0.9\textwidth]{figure/gpu_framework.pdf}
     \bicaption[fig:gpu-framework]{ 并行维特比束剪枝算法以及精确词图处理系统的框架}{ 并行维特比束剪枝算法以及精确词图处理系统的框架}{Fig}{The framework of the parallel Viterbi beam search algorithm with exact lattice processing.}
 \end{figure}
 
@@ -70,7 +73,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 \begin{equation}
 \label{equ:dec-cmp-serial}
  \begin{split}
-\mathbb{C}_{serial} = O(T\cdot I \cdot K)
+\mathbb{C}_{serial} = O(T I  K)
  \end{split}
 \end{equation}
 
@@ -79,11 +82,11 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 \begin{equation}
 \label{equ:dec-cmp-parallel}
  \begin{split}
-\mathbb{C}_{parallel} = O(T\cdot \frac{I}{P_2} \cdot \frac{K}{P_1})\cdot \mathbb{C}_{extra}
+\mathbb{C}_{parallel} = O(T \frac{I}{P_2}  \frac{K}{P_1}) \mathbb{C}_{extra}
  \end{split}
 \end{equation}
 
-因此并行算法理论上的最大加速比为 $(P_1 \cdot P_2)$。下面的章节将具体展开一些针对并行处理所需要的特殊设计，以提升并行效率（提高 $(P_1 \cdot P_2)$），降低同步损耗（减少$\mathbb{C}_{extra}$）。其中负载均衡算法处理了线程并行之间的任务分配，它们具体体现在如何分配WFST状态和边。
+因此并行算法理论上的最大加速比为 $(P_1  P_2)$。这里的$(P_1  P_2)$ 理论上可以达到的数值与硬件设备相关，比如对GPU，虽然每个线程的速度比CPU硬件慢，但却拥有成千上万的线程。下面的章节将具体展开一些针对并行处理所需要的特殊设计，以提升并行效率（提高 $(P_1  P_2)$），降低同步损耗（减少$\mathbb{C}_{extra}$）。其中负载均衡算法处理了线程并行之间的任务分配，它们具体体现在如何分配WFST状态和边。
 %position of 4 topics below in the system and acts like an overall procedure/algorithm
 
 \section{并行的令牌传递算法}
@@ -199,13 +202,6 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 \end{algorithm}
 
 
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=1.1\textwidth]{figure/load-balance.pdf}
-    \bicaption[fig:load-balance]{一个针对动态负载均衡的例子}{一个针对动态负载均衡的例子。这里的虚线框表示一个
-      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其它线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}{Fig}{An example of dynamic load balancing.}
-\end{figure}
 
 
 \section{并行的词图处理算法}
@@ -216,7 +212,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 WFST精确词图~\cite{povey2012generating} 是指在词图上保存了准确的分数和状态级对齐关系，这些信息对于语言模型重打分，丰富的语音识别后处理等都有重要作用。~\footnote{除了本文中研究的置信度应用~\cite{mangu1999finding} ，它同样可以用于加速最小贝叶斯风险解码~\cite{goel2000minimum},
 系统融合~\cite{fiscus1997post}, 鉴别性训练~\cite{povey2005discriminative}, 等等。 }。 %We examine lattice rescoring and confidence measure in this paper.
 但是在GPU中实现词图处理算法并不简单。
-\cite{kim2014accelerating} 提出在GPU中解码，而后在CPU中生成词图，这不仅引入新的同步损耗，使解码器速度下降，而且引入了大量的device-to-host (D2H) 内存拷贝问题。
+\cite{kim2014accelerating} 提出在GPU中解码，而后在CPU中生成词图，这不仅引入新的同步损耗，使解码器速度下降，而且引入了大量的device-to-host (D2H) 内存拷贝~\footnote{即从GPU内存向CPU内存进行拷贝}问题。
 %(much slower, sec 2.2, fig 2).
 我们通过重新设计了一个并行版本的词图处理算法\cite{povey2012generating}更彻底地解决了这个问题。
 
@@ -228,6 +224,13 @@ WFST精确词图~\cite{povey2012generating} 是指在词图上保存了准确的
 为了减少原子操作所带来的损耗，我们提前分配好 $K$个向量，并随机选取一个向量执行 {\em{push\_back}} 操作。经过令牌传递之后，这些来自$K$ 个向量的边被收集起来。对于词图节点，我们可以使用类似的方案~\footnote{在我们早前的实验中，在 $K=32$时，这一优化可以10倍加速词图边处理的速度。这项加速针对词图节点并不明显。}。
 
 
+\begin{figure}[htb]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/load-balance.pdf}
+    \bicaption[fig:load-balance]{一个针对动态负载均衡的例子}{一个针对动态负载均衡的例子。这里的虚线框表示一个
+      CUDA cooperative group ，不同的组分表示为不同的颜色。每一个组由线程0进行控制。当某个组分处理完了从一个状态出发的所有边，线程0将会向调度中心索要下一个令牌，并通知组分里的其它线程。而调度中心使用原子操作来保证每个令牌只分配给一个组分。组0和组1完全工作在并行方式中。}{Fig}{An example of dynamic load balancing.}
+\end{figure}
 
 \subsection{词图剪枝}
 
@@ -355,7 +358,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 %We mainly focus on time of the search process  (explain why), give general RTF in text/footnote with single stream (with multi-stream, the speed could be even faster). Notice that RTF from kaldi log should be divided by 3.
 在1-best和词图解码中，我们分别取得了15倍和9.7倍的加速。这里的大部分加速来自于平行处理WFST的节点和边的过程。
 %
-当我们使用GPU的并行技术MPS时，我们可以得到46倍的序列并行加速比。MPS是一种减小GPU context切换损耗的技术~\cite{cuda9}。
+当我们使用GPU的并行技术Multi-Process Service (MPS)时，我们可以得到46倍的序列并行加速比。MPS是一种减小GPU context切换损耗的技术~\cite{cuda9}。
 作为对比，我们在CPU上使用了类似的序列并行技术，但仅取得了1.8倍的加速比。
 %
 
@@ -431,10 +434,10 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/gpu_analysis.pdf}
+    \includegraphics[width=0.8\textwidth]{figure/gpu_analysis.pdf}
     \bicaption[fig:exp-ana]{语言模型大小，帧率，GPU架构的比较}{语言模型大小，帧率，GPU架构的比较}{Fig}{The comparison between different LM sizes, AM frame rates, GPU architectures.}
 \end{figure}
 
@@ -448,10 +451,10 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
   GPU在显著快于CPU版本的同时，每部分分布比较均衡，显示出系统并没有显著的瓶颈。GPU解码器的令牌传递和词图处理都得到了显著加速。同时 ``other'' 部分包含了GPU的内核启动时间和同步等待时间。对于这些部分的优化也是未来研究的一个有意义话题。
 
 
-\begin{figure}[!htp]
+\begin{figure}[ht]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/gpu_profile.pdf}
+    \includegraphics[width=0.9\textwidth]{figure/gpu_profile.pdf}
     \bicaption[fig:exp-profile]{针对解码器的时间占比分析}{针对解码器的时间占比分析}{Fig}{The computational profiling analysis of the proposed decoder.}
 \end{figure}
 

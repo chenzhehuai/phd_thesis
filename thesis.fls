@@ -499,6 +499,7 @@ INPUT figure/modules.pdf
 INPUT figure/sys-framework.png
 INPUT figure/joint-tr.pdf
 INPUT figure/tr-curve.pdf
+INPUT figure/ass_error.png
 INPUT figure/pit-example.pdf
 OUTPUT tex/gpuwfst.aux
 INPUT tex/gpuwfst.tex

@@ -3130,44 +3130,6 @@
       \field{pages}{533\bibrangedash 537}
       \range{pages}{5}
     \endentry
-    \entry{fernandez2007application}{incollection}{}
-      \name{author}{3}{}{%
-        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
-           family={Fern{á}ndez},
-           familyi={F\bibinitperiod},
-           given={Santiago},
-           giveni={S\bibinitperiod}}}%
-        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
-           family={Graves},
-           familyi={G\bibinitperiod},
-           given={Alex},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
-           family={Schmidhuber},
-           familyi={S\bibinitperiod},
-           given={J{ü}rgen},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{fullhash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{bibnamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authorbibnamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authornamehash}{8bdefb8cf0c480789b96fb5239428828}
-      \strng{authorfullhash}{8bdefb8cf0c480789b96fb5239428828}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Artificial Neural Networks--ICANN 2007}
-      \field{title}{{An application of recurrent neural networks to discriminative keyword spotting}}
-      \field{userf}{en}
-      \field{year}{2007}
-      \field{pages}{220\bibrangedash 229}
-      \range{pages}{10}
-    \endentry
     \entry{povey2016purely}{article}{}
       \name{author}{8}{}{%
         {{hash=e37bd3eba929f71a8a0351899f3870d5}{%
@@ -3325,6 +3287,44 @@
       \field{year}{2018}
       \field{pages}{12\bibrangedash 16}
       \range{pages}{5}
+    \endentry
+    \entry{fernandez2007application}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=06cb9b7c6d106c9bbaebbb926890730b}{%
+           family={Fern{á}ndez},
+           familyi={F\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dfca94b0427da7f9088af596e23b46c0}{%
+           family={Graves},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1bcbd82d7c2dc8000e44f70ed775668f}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={J{ü}rgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{fullhash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{bibnamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authorbibnamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authornamehash}{8bdefb8cf0c480789b96fb5239428828}
+      \strng{authorfullhash}{8bdefb8cf0c480789b96fb5239428828}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Artificial Neural Networks--ICANN 2007}
+      \field{title}{{An application of recurrent neural networks to discriminative keyword spotting}}
+      \field{userf}{en}
+      \field{year}{2007}
+      \field{pages}{220\bibrangedash 229}
+      \range{pages}{10}
     \endentry
     \entry{mcgraw2016personalized}{inproceedings}{}
       \true{moreauthor}

@@ -2,7 +2,8 @@
 \chapter{标签同步解码的扩展应用}
 \label{chap:lsd-apply}
 
-在上一章中，我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。这一算法同时还能产生高质量的音素词图，称为LSD音素词图。基于LSD音素词图，本章节我们将进一步探讨标签同步解码算法的一些扩展应用。这包括关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
+在上一章中，我们导出了标签同步算法，使得搜索解码复杂度得到了显著下降。这一算法同时还能产生高质量的音素词图，称为LSD音素词图。
+借助LSD的解码速度和LSD 音素词图的紧凑性，本章节我们将进一步探讨标签同步解码算法的一些扩展应用，包括关键词检测，多识别任务统一置信度框架，以及端到端语音识别。
 
 在关键词检测中，我们基于前面章节介绍的LSD算法提出了一种高效的后处理算法，以解决音素混淆建模的问题。
 在基于CTC的关键词检测中，虽然CTC是一个序列级准则，但是并没有对非关键词部分进行建模。因此该准则改善了关键词之间的鉴别性，但是没有改善关键词和非关键词之间的鉴别性。
@@ -59,10 +60,56 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 \subsection{后处理}
 \label{Sec:post-process-ctc}
 
-我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于LSD音素词图和MED算法~\cite{7736093}l来针对音素引入混淆建模。 
+我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于LSD音素词图和MED算法~\cite{7736093}来针对音素引入混淆建模。 
 
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
-图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于LSD音素词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。现实中，每个音素在CTC的建模中性能可能各不相同，因此需要进一步采用音素的先验来设计每个音素的阈值，这部分可以通过预先统计得到~\cite{zhuang-is2016}。
+图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于LSD音素词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。
+
+
+假设$T=\{t_{1}, t_{2},\cdots,t_{n}\}$是一个长度为$n$的目标关键词的音素序列，其中$t_{i}$表示$T$的第$i$个音素。与此类似，$H=\{n_{ij_{1}},n_{(i+1)j_{2}},\cdots,n_{(i+m-1)j_{m}}\}$ 表示假设音素序列，其中$n_{ij}$表示Lattice中第$i$ 列的第$j$个音素结点。为了方便表示，$H$也可表示为$H=\{h_{1},h_{2},\cdots,h_{m}\}$，即$h_{k}=n_{(i+k-1)j_{k}}$。
+
+对于一句测试语句，令$L_{H}$表示包含所有可能音素序列的CTC音素Lattice。那么，目标关键词$T$存在于Lattice $L_{H}$中的概率为
+\begin{equation}
+P(T|L_{H}) \propto P(L_{H}|T)P(T) \thickapprox P(H_{max}|T)P(T)
+\end{equation}
+其中$H_{max}$表示我们要找到的最相似的音素序列，在Lattice中给定$T$时它应该具有最大的概率。由于$T$是给定的，关键词$T$是否存在于测试语句中取决于$P(H_{max}|T)$ 的值。接下来，我们寻找$H_{max}$
+\begin{equation}
+\label{equ:hlatt}
+\begin{split}
+H_{max} &= \mathop{\argmax}_{H}{P(H|T)}=\mathop{\argmax}_{H}{\frac{P(T|H)P(H)}{P(T)}} \\ &= \mathop{\argmax}_{H}{P(T|H)P(H)}
+\end{split}
+\end{equation}
+其中$P(H)$是$H$的观察概率，在unigram假设下，它可以通过连乘$H$中每一个音素结点的后验概率得到，即
+\begin{equation}
+\label{equ:ph}
+P(H) = \mathop{\prod}_{i=1}^{m}{P(h_{i}|H_{1:i-1})} \thickapprox \mathop{\prod}_{i=1}^{m}{P(h_{i})}
+\end{equation}
+$P(T|H)$可以非严格地通过在计算$H$与$T$的最小编辑距离时连乘其每一个编辑操作的发生概率得到，即
+\begin{equation}
+\label{equ:pth}
+P(T|H) \triangleq \mathop{\prod}_{i=1}^{MED(T,H)}{P(op_{i}|R=T,E=H)}
+\end{equation}
+\begin{equation}
+P(op_{i}|R=T,E=H) = \begin{cases}
+  P(insert(e_{i})) & \text{if } op_{i} \in I \\
+  P(delete(r_{i})) & \text{if } op_{i} \in D \\
+  P(r_{i}|e_{i}) & \text{if } op_{i} \in S
+\end{cases}
+\end{equation}
+其中$MED(T,H)$表示$T$与$H$通过插入、删除、替换操作相互转换为对方的最小编辑距离。$P(op_{i}|R=T,E=H)$表示给定标注序列$R$为$T$并且假设序列$E$为$H$时，$E$与$R$ 之间第$i$个编辑操作$op_{i}$的概率。因为最小编辑距离算法是确定的，并且$E$和$R$已经给定，所以每个编辑操作是已知的。根据操作$op_{i}$的类型，存在三种概率：插入概率$P(insert(e_{i}))$,、删除概率$P(delete(r_{i}))$和替换概率$P(r_{i}|e_{i})$。 $I$、 $D$ 和 $S$ 分别表示插入、删除、替换操作的集合。$e_{i}$和$r_{i}$ 是操作$op_{i}$中涉及到的音素（插入和删除操作涉及一个音素，而替换操作涉及两个音素）并且它们分别属于假设$E$和标注$R$。这三种概率可以由先验知识估计得到。在本文中，它们直接由音素级别的混淆矩阵（confusion matrix）估计得出。混淆矩阵的计算是通过比较ASR识别结果与对应标注的对齐序列得到。
+\begin{equation}
+P(R_{i}|E_{i}) = \frac{P(E_{i}|R_{i})P(R_{i})}{R(E_{i})}=\frac{s(E_{i},R_{i})}{r(R_{i})}\frac{r(R_{i})}{\mathop{\sum}_{x}r(x)}\frac{\mathop{\sum}_{x}e(x)}{e(E_{i})}
+\end{equation}
+\begin{equation}
+P(insert(E_{i})) = \frac{i(E_{i})}{\mathop{\sum}_{x}i(x)}
+\end{equation}
+\begin{equation}
+P(delete(R_{i})) = \frac{d(R_{i})}{\mathop{\sum}_{x}d(x)}
+\end{equation}
+给定对齐序列，$s(x,y)$是ASR识别结果中音素$x$与标注序列中音素$y$之间的替换操作数量，类似地，$r(y)$ 表示标注中音素$y$的总数，$e(x)$表示ASR识别结果中音素$x$的总数，$i(x)$表示音素$x$的插入数量，$d(y)$表示音素$y$的删除数量。
+
+无需枚举Lattice中所有可能的假设$H$，通过动态规划方法，公式~\ref{equ:hlatt}可以有效地在$O(Nnd)$的时间复杂度内完成计算，其中$N$表示Lattice中结点的总数量，$d$是Lattice的深度。
+
 
 \begin{figure}[!htp]
   \centering
@@ -144,7 +191,7 @@ Keyword Length & wb & EER \tabularnewline
     \end{tabular}
   }
 \end{table}
-如表~\ref{tab:post-discri-ctc} 所示，在  CTC中，后验概率平滑方法会得到比 kw-filler显著差的结果。但是由于它的速度优势，该方法可以作为实际的前处理，滤除一些容易判断的样本，以减少语料库检索同的计算量。
+如表~\ref{tab:post-discri-ctc} 所示，在  CTC中，后验概率平滑方法会得到比关键词-$\tt filler$ (kw-filler) 显著差的结果。但是由于它的速度优势，该方法可以作为实际的前处理，滤除一些容易判断的样本，以减少语料库检索同的计算量。
 在 CTC中我们比较了所提出的 MED 算法。
 它显示了明显比kw-filler更差一些的性能，但效率较高。该方法将会在后续章节中进一步检验。
 kw-filler系统在未来的工作中可以使用前述的标签同步解码算法进行进一步速度优化。
@@ -186,10 +233,10 @@ kw-filler系统在未来的工作中可以使用前述的标签同步解码算�
 \end{table}
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/roc.pdf}
+    \includegraphics[width=0.8\textwidth]{figure/roc.pdf}
     \bicaption[fig:roc]{非固定关键词的关键词检测的ROC 曲线比较}{非固定关键词的关键词检测的ROC 曲线比较}{Fig}{The ROC curve comparison of unrestricted KWS. }
 \end{figure}
 
@@ -268,7 +315,7 @@ kw-filler系统在未来的工作中可以使用前述的标签同步解码算�
     %More elaborated $\tt filler$~\cite{el1997accurate}, e.g., CD $\tt filler$, is proposed to improve the recognition but brings about further computational burden without significant improvement.
     在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其它任务中结论不尽相同。
 
-    最近在鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受次启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
+    鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受此启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
     
     针对这样做在低功耗设备上带来的挑战，我们采用前面章节讨论的基于CTC的标签同步解码\cite{Chen+2016} 来进行处理，由此带来了很大的效率改善。
     本章节我们提出了一个统一并且高效的置信度框架，并且将其应用于目前主流的上述三种 ASR应用。
@@ -283,7 +330,7 @@ kw-filler系统在未来的工作中可以使用前述的标签同步解码算�
   \subsubsection{关键词检测}
     \label{Sec:kws-task}
 
-      关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要研究在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，或将Filler加入声学建模中。
+      关键词检测任务目标是准确和快速地检测语音中是否包含所关心的词或短语。所以，关键词检测的搜索空间是所有的关键词序列~\footnote{基于大词汇连续语音识别的关键词检测目前并不包含在讨论中，因为这类方法主要研究在于如何提高声学模型性能以及关键词索引技术。同时计算量过大也不适合端侧设备。}。 误接收表示错误地将某些语音段识别为关键词，而这并不是希望得到的。一系列研究~\cite{young1994detecting,chen2014small}尝试解决这样的问题，包括使用一定阈值进行后处理估计，或将$\tt filler$加入声学建模中。
 
   \subsubsection{基于上下文的语音识别}
   \label{Sec:task-task}
@@ -379,10 +426,10 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 由HMM和CTC得到的推理搜索结果在图~\ref{fig:lat-exp}(a)中进行显示，其得到的音素词图，词级词图，分别在HMM和CTC系统中展示于图~\ref{fig:lat-exp}(b$\sim$e)中。我们可以观察到，CTC基于LSD得到的音素词图和词级词图比相应的HMM词图更加紧致，这是源于$\mathcal{B}$函数的建模结果。另一方面，HMM的词图需要额外的启发式方法来进行多对一的映射，以便去除词图冗余性。这里的做法是进行词图裁剪 \cite{siniscalchi2013bottom}, 而它不如 $\mathcal{B}$ 函数的效果那么强。
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/lat-exp.jpg}
+    \includegraphics[width=0.8\textwidth]{figure/lat-exp.jpg}
     \bicaption[fig:lat-exp]{FSD HMM 和 LSD CTC所产生的词图比较}{FSD HMM 和 LSD CTC所产生的词图比较}{Fig}{The comparison of FSD HMM and LSD CTC generated lattices.}
 \end{figure}
 
@@ -407,11 +454,11 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
   对于ASR输出的后验概率可以在MAP框架中作为一个句子级别的置信度。
   \begin{equation}\label{eq:cm-post}
         CM=P(\mathbf{w}|\mathbf{x}) =
-         \frac{P(\mathbf{x}|\mathbf{w})\cdot P(\mathbf{w})}{P(\mathbf{x})}
+         \frac{P(\mathbf{x}|\mathbf{w}) P(\mathbf{w})}{P(\mathbf{x})}
   \end{equation}
  公式中 $P(\mathbf{w})$表示语言模型概率 $P(\mathbf{x}|\mathbf{w})$  是声学模型的部分。 $P(\mathbf{x})$ 是观察概率 $\mathbf{x}$ ， 由下式建模，
    \begin{equation}\label{eq:cm-obser}
-        P(\mathbf{x})=\sum_H P(\mathbf{x},H)= \sum_H P(H) \cdot  P(\mathbf{x}|H)
+        P(\mathbf{x})=\sum_H P(\mathbf{x},H)= \sum_H P(H)   P(\mathbf{x}|H)
   \end{equation}
  这里$H$ 表示所有可能的识别结果的路径。 $H$ 根据不同的ASR应用而有所不同。因此 $H$ 的建模通常都是性能的瓶颈。
 
@@ -427,11 +474,11 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
  在基于词图的方法中，$P(\mathbf{x})$ 是从解码网络的一个子区域，词图中进行计算的。在基于 $\tt filler$ 的方法中， $P(\mathbf{x})$ 是由自环的音素组成的。在我们所提出的方法中 $P(\mathbf{x})$ 由下述的搜索空间得到
  \begin{equation}\label{eq:cm-obser2}
- P(\mathbf{x})\approx \max_H P(H) \cdot  P(\mathbf{x}|H)
+ P(\mathbf{x})\approx \max_H P(H)    P(\mathbf{x}|H)
  \end{equation}
  这里，我们尝试了三种不同的附属归一化搜索空间。
  \begin{itemize}
-     \item 自环音素搜索空间 ($\tt AX1$). 类似于传统的关键词-filler置信度\cite{young1994detecting},  一个由所有的音素组成的网络可以用来建模归一化项的边缘概率值。
+     \item 自环音素搜索空间 ($\tt AX1$). 类似于传统的关键词-$\tt filler$置信度\cite{young1994detecting},  一个由所有的音素组成的网络可以用来建模归一化项的边缘概率值。
      %Traditional filler based CM directly models observation probability without  lattice.
 
      \item 无词典搜索空间 ($\tt AX2 $). 受到近期无词图鉴别性训练方式的启发~\cite{povey2016purely},  附属归一化搜索空间可以由一个音素级语言模型而得到，用于近似搜索空间。
@@ -443,17 +490,17 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
  \begin{equation}\label{eq:cm-post3}
         CM=P(w|\mathbf{x}) =
-         \frac{P(\mathbf{x}|w)\cdot P(w)}{P(\mathbf{x}^{w})}
+         \frac{P(\mathbf{x}|w)  P(w)}{P(\mathbf{x}^{w})}
   \end{equation}
  \begin{equation}\label{eq:cm-obser3}
- P(\mathbf{x}^{w})\approx \max_{H^{w}} P(H^{w}) \cdot  P(\mathbf{x}^{w}|H^{w})
+ P(\mathbf{x}^{w})\approx \max_{H^{w}} P(H^{w})    P(\mathbf{x}^{w}|H^{w})
  \end{equation}
  
  附属归一化搜索空间的解码结果是对观察概率的一个很好估计。由于声学模型的单元通常是音素，这样的置信度框架在大多数语音识别应用中都是合适的。与传统词图方法相比较，这里提出的方法相比其它的ASR搜索空间更加稳定鲁棒，我们将在实验中证实这一点。除此之外，这套方法不需要再额外引入一系列非关键词的模型建模单元，比如基于 $\tt filler$ 或者语句验证这类估计框架。
  所以， 置信度归一化建模可以是相对原始搜索空间和声学模型而独立的部分。
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
     \includegraphics[width=0.7\textwidth]{figure/graph_example.png}
@@ -524,13 +571,13 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 
 本章研究了相比于FSD方法，LSD生成的混淆网络的质量。
 
-一旦第\ref{chap:lsd-lsd-lattice}章节的词级词图被构建好，通过混淆网络的生成中的基于pivot的词聚类方法，相似时间边界的词边将会被合并在一起。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近pivot边界距离（NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。
+一旦第\ref{chap:lsd-lsd-lattice}章节的词级词图被构建好，通过混淆网络的生成中的基于中轴 (pivot) 的词聚类方法，相似时间边界的词边将会被合并在一起。因此，词级词图的时间边界的准确度对最终的混淆网络影响很大。为了分析词图的时间边界质量，我们提出最近中轴边界距离（Nearest Pivot Boundary Distance, NPBD），它定义为 $|b_{\tt arc}-b_{\tt cluster}|+|e_{\tt arc}-e_{\tt cluster}|$, 其中 $b_*$ 和 $e_*$ 为词的开始和结束时间边界， $\tt arc$ 是被对齐到最佳重叠 pivot 词 $\tt cluster$上的相应边。NPBD表示的是基于中轴的词聚类方法中，各个词语到达相应中轴的平均距离。
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/bound-stable.png}
+    \includegraphics[width=0.95\textwidth]{figure/bound-stable.png}
     \bicaption[fig:bound-stable]{LSD和FSD的词边界稳定性}{LSD和FSD的词边界稳定性}{Fig}{The word boundary stability of LSD and FSD.}
 \end{figure}
 
@@ -540,10 +587,10 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 最后我们讨论了从词图到混淆网络的转换。图~\ref{fig:latden-cndepth} 显示了词图密度与混淆网络的深度之间的关系 \cite{hakkani2006beyond}。结果显示，即使在相似词图密度下，LSD的混淆网络往往包含更高的混淆网络深度，因此将得到更好的归一化项建模以及置信度建模方案。 
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/latden-cndepth.png}
+    \includegraphics[width=0.95\textwidth]{figure/latden-cndepth.png}
     \bicaption[fig:latden-cndepth]{词图密度 v.s. 混淆网络深度}{词图密度 v.s. 混淆网络深度}{Fig}{Lattice density v.s. the depth of confusion network.}
 \end{figure}
 
@@ -807,10 +854,10 @@ ii) 在训练的后期，将不同模型融合为音频到词语模型，使用�
 之前针对端到端语音识别的研究工作集中在将所有的模型单元融合在一起并进行联合训练和端到端解码。在这项工作中，我们提出了一种模块化的训练策略，以便优化外在知识源分别训练各个子模块的潜力。同时，我们在训练结束后仍然保留端到端解码的优点。图~\ref{fig:psd_mod_framework}显示了这一框架。
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/psd_mod_framework.pdf}
+    \includegraphics[width=0.95\textwidth]{figure/psd_mod_framework.pdf}
     \bicaption[fig:psd_mod_framework]{模块化训练策略的框架}{模块化训练策略的框架。实线框表示模型参数固定不变的部分。虚线部分和点划线部分分别表示模型参数使用声学或者文本数据进行训练。}{Fig}{The framework of modular training strategy.}
 \end{figure}
 
@@ -818,7 +865,7 @@ ii) 在训练的后期，将不同模型融合为音频到词语模型，使用�
 这一端到端词序列识别系统被模块化如下：
 \begin{equation}
 \label{equ:framework-1}
-P(\mathbf{w}|\mathbf{x})\approx\max_{\mathbf{p}} \left[\ P(\mathbf{w}|\mathbf{p}) \cdot P(\mathbf{p}|\mathbf{x})\ \right]
+P(\mathbf{w}|\mathbf{x})\approx\max_{\mathbf{p}} \left[\ P(\mathbf{w}|\mathbf{p})   P(\mathbf{p}|\mathbf{x})\ \right]
 \end{equation}
 公式中 $\mathbf{w}$, $\mathbf{p}$ 和 $\mathbf{x}$ 为词序列，音素序列和音频特征序列。
 CTC准则被用于训练一个使用声学数据的声学到音素模型 (A2P)  。同时， 我们使用文本数据和CTC或S2S准则训练一个音素到词语模型。
@@ -826,7 +873,7 @@ CTC准则被用于训练一个使用声学数据的声学到音素模型 (A2P)  
 最终各模块将被融合到一起，成为声学到词语模型 (A2W) ，在联合训练过程中我们使用了音素同步解码算法 (PSD)~\cite{zhc00-chen-tasl2017}。
 \begin{equation}
 \label{equ:framework-2}
-P(\mathbf{w}|\mathbf{x})\approx \max_{\mathbf{p}}\left[\ P(\mathbf{w}|\mathbf{p}) \cdot PSD(\ P(\mathbf{p}|\mathbf{x})\ )\ \right]
+P(\mathbf{w}|\mathbf{x})\approx \max_{\mathbf{p}}\left[\ P(\mathbf{w}|\mathbf{p})   PSD(\ P(\mathbf{p}|\mathbf{x})\ )\ \right]
 \end{equation}
 在解码阶段，经过联合训练后的模型将进行端到端推理搜索，因此其复杂度与普通端到端模型相同~\cite{audhkhasi2017direct}。
 %As discussed in~\cite{audhkhasi2017direct}, the end-to-end system simplifies the decoding pipeline.  The proposed method still keeps this advantage. 
@@ -871,7 +918,7 @@ iii) P2W 通过序列级准则进行训练，比如CTC和S2S，这样就能够�
 \subsection{实验结果}
 \label{exp:psd_mod}
 
-表\ref{tab:exp-module}针对各个模块的验证集（CV）上的性能进行了比较。加粗的系统将在后续中进行使用。
+表\ref{tab:exp-module}针对前文讨论的各个模块的验证集（CV）上的性能进行了比较。加粗的系统将在后续中进行使用。
 
 \begin{table}[thbp!]
   \caption{\label{tab:exp-module} {\it  各个模块的性能比较 }}
@@ -909,6 +956,9 @@ S2S一致地优于CTC，这是由于CTC中的CIA被去除，使建模能力得�
 
 
 在第二部分中，我们比较了联合训练之后的结果，显示在表~\ref{tab:exp-joint}中。
+
+模块化训练策略的基线系统是一个无模块化训练的端到端系统，也即直接的声学到词语CTC模型，类似于~\cite{audhkhasi2017direct}, 它使用与音素CTC相同的架构，除了在输出层上使用了 30K 大小的词表作为推理搜索单元。它使用了音素CTC进行初始化。
+
 %Table~\ref{tab:exp-joint} shows the results.
 %proposed method versus the hybrid system and several end-to-end systems. 
 %Notably, all systems utilize the Switchboard corpus without external sources.

@@ -3,13 +3,16 @@
 \chapter{非传统识别任务的序列建模}
 \label{chap:seqtrain}
 
-语音识别是一种序列预测问题，在语音识别中一个独有并且有趣的自然现象是声学序列和语言学序列的长度可变性。
-序列模型正是被提出用来解决两个序列之间的关联性。在这些序列模型中，除了需要研究如何将各种基于深度学习的模型方法应用到逐帧分类当中，使用序列级的鉴别性训练准则来强化模型的序列分类能力，也被证明是取得业界最好的大词汇连续语音识别系统的关键。
 
+为了提高识别系统的精度，本章节将探讨序列建模的准则和方案。
+语音识别是一种序列预测问题，%在语音识别中一个独有并且有趣的自然现象是声学序列和语言学序列的长度可变性。
+但无论是深度学习模型，还是传统分类器，都是基于序列的输入，然后进行逐帧的输出预测。
+%
+序列模型正是被提出用来解决对整个输出序列的统一建模。
+在这些序列模型中，除了需要研究如何将各种基于深度学习的模型方法应用到逐帧分类当中，使用序列级的鉴别性训练准则来强化模型的序列分类能力，也被证明是取得业界最好的大词汇连续语音识别系统的关键。
 
 序列建模方法通常只在训练LVCSR模型时进行使用，但针对其它非传统识别任务的序列建模研究并不充分，这包括：关键词检测任务和多说话人重叠语音信号识别任务等。这类任务仍然是序列预测问题，但是却没有合适的训练准则和相应的设计，来充分优化分类器的序列建模能力。因此这些领域近几年的进展主要仍然来自于深度学习本身所带来的更好的逐帧分类能力。
 
-本章节将针对上面所说的两类任务探讨序列建模的方案，使之更加通用。
 我们提出了针对固定或者非固定关键词的关键词检测系统的序列鉴别性训练框架。实验表明我们提出的方法取得了一致并且显著的改善。这些测试包括固定关键词或非固定关键词的关键词检测任务，比较的基线是逐帧的深度学习声学KWS模型方法。
 %
 另一方面，在多说话人重叠语音信号识别任务中，本章节通过联合优化，迁移学习，序列鉴别性训练等方式，改善了原来语音分离、信号增强和语音识别的联合训练系统。
@@ -30,18 +33,18 @@ KWS可以被用于声学数据挖掘~\cite{zhou2005data}, 低资源的音频检�
 在声学关键词检测中，模型通常是进行逐帧分类的。目前研究趋势包括两方面：应用一个较强的逐帧分类器，比如深度学习模型，使最终系统带来性能提升~\cite{chen2014small,sainath2015convolutional}。 其次，语音识别本身是一个序列分类问题，传统的GMM-HMM系统在使用序列级准则，序列鉴别性训练时，往往能带来显著性能提升，比如discriminatively trained sub-word verification function~\cite{sukkar1996vocabulary}, minimum classification error (MCE)~\cite{sandness2000keyword} 和 performance-related discriminative training~\cite{keshet2009discriminative}。
 在上述的鉴别性训练中，对识别可能路径的建模，即完整的搜索空间的建模是成功的关键。但是，在 KWS中，由关键词所定义的领域内搜索空间要显著小于领域外的搜索空间。因此领域外的搜索空间通常还需要特定的建模单元进行建模。
 对领域外的搜素空间建模并不容易直接得到的问题限制了序列鉴别性训练在关键词检测中的广泛应用。
-特别是在非固定关键词的关键词检测, 所以可能的竞争可能路径通常无法被穷举，同时这种可能路径的产生过程在使用LVCSR框架进行的时候~\cite{povey2005discriminative}非常耗时。 
+特别是在非固定关键词的关键词检测, 所有可能的竞争候选路径通常无法被穷举，同时这种可能路径的产生过程在使用LVCSR框架进行的时候~\cite{povey2005discriminative}非常耗时。 
 %combination of both hasn't been carefully 
 
 %Neural networks (NNs) for speech recognition are typically trained to classify individual frames based on a cross-entropy criterion (section 2.1).
-在这篇文章中，我们为深度学习的 声学非固定关键词的关键词检测设计了相应的序列鉴别性训练方法。
+在本论文中，我们为深度学习的 声学非固定关键词的关键词检测设计了相应的序列鉴别性训练方法。
 %针对如何对序列概率进行定义，可分为序列条件似然度和序列后验概率，这包括两种序列模型： {\em 生成式序列模型} (GSM)，比如HMM, 和 {\em 鉴别式序列模型} (DSM)，比如 CTC。对于GSM，序列鉴别性训练需要在序列上使用贝叶斯公式来通过序列条件似然度得到后验概率；而DSM则可以直接使用序列后验概率。
 %
 对这两种框架，竞争可能路径的建模都是核心难题。
 本论文提出采用无词图鉴别性训练框架来解决这一问题：隐性使用音素或半词单元的语言模型来建模。
 %proposed KWS 
 %Both frameworks are improved in the paper. 
-在HMM中，受到近期一些研究中使用特点音素语言模型来对LVCSR的搜索空间进行建模的启发~\cite{povey2016purely,chen2006advances},  我们提出使用这种音素语言模型来对关键词的完整搜索空间进行建模。
+在HMM中，受到近期一些研究中使用专门的音素语言模型来对LVCSR的搜索空间进行建模的启发~\cite{povey2016purely,chen2006advances},  我们提出使用这种音素语言模型来对关键词的完整搜索空间进行建模。
 为了加强关键词的鉴别能力，在关键词出现时候它们的梯度可以被增强。除此之外，许多神经网络结构和鉴别性训练准则也进行了详细比较。
 
 %本章节的主要贡献包括：
@@ -90,10 +93,10 @@ $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$ 由公式~(\ref{
 
 %model unit, hmm topo, state binding
 为了更好地将 $\tt{LF\text{-}MMI}$ 应用到关键词检测当中，我们进行了如下改进：
-i) 我们使用音素而不是tri-phone作为建模单元。
+i) 我们使用单音素而不是三音素作为建模单元。
 % to improve model inference efficiency. 
 首先是在测试阶段，效率将会得到改善；其次是这样会使得后文将讨论的 $\tt filler$ 构建显著简化。
-ii) HMM的拓扑结构，在第\ref{Sec:sgm-and-sdm}章节介绍的基础上，如图~\ref{fig:hmm-topo}(c-e)所示进行了修改。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个CD音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
+ii) HMM的拓扑结构，在第\ref{Sec:sgm-and-sdm}章节介绍的基础上，如图~\ref{fig:hmm-topo}(c-e)所示进行了修改。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个上下文相关(Context Dependant, CD)音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
 在实验部分我们将详细比较这些拓扑结构。
 
 %similarlly b-mmi
@@ -195,7 +198,7 @@ $\tt filler$解码方法用于建模前面我们所讨论的领域外的搜索�
 \begin{figure}[!htp]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/filler-graph.png}
+    \includegraphics[width=0.8\textwidth]{figure/filler-graph.png}
     \bicaption[fig:filler-graph]{}{基于 $\tt filler$ 解码的搜索空间结构图}{Fig}{$\tt filler$ based decoding search space}
 \end{figure}
 
@@ -207,7 +210,7 @@ $\tt filler$解码方法用于建模前面我们所讨论的领域外的搜索�
 \label{chap:kws-exp}
 
 
-本部分的关键词检测实验将分别在非固定关键词的关键词检测 (英文语料库检索 任务), 和固定关键词的唤醒词识别（中文唤醒词识别 任务）上进行。所有实验都使用声学KWS。
+本部分的关键词检测实验将分别在非固定关键词的关键词检测 (英文语料库检索 任务), 和固定关键词的唤醒词识别（中文唤醒词识别 任务）上进行。所有实验都使用声学关键词检测技术。
 
 %\subsection{非固定关键词的关键词检测 task}
 %\label{Sec:}
@@ -218,13 +221,13 @@ Wall Street Journal (WSJ0)数据集的一个说话人独立的5k词表数据集 
 
 由于WSJ0数据集比较小，同时关键词出现次数较少，因此我们在建模中使用音素作为建模单元，以提高泛化能力，而词作为建模单元将在下章中进行。
 输出的音素由CMU 发音词典得到。24维对数filter-bank系数及其第一和第二阶导数组成了10ms固定帧率的特征序列。
-HMM模型的配置与 \cite{povey2016purely}中相似，但使用了更好的参数如表~\ref{tab:model-discri} 和表 \ref{tab:perf-all}所示。 我们估计了三元的音素语言模型用于LF-MMI的训练。
+HMM模型的配置与 \cite{povey2016purely}中相似，但使用了更好的参数如表~\ref{tab:model-discri} 和表 \ref{tab:perf-all}所示。 我们估计了三音素语言模型用于LF-MMI的训练。
 %zhc00@qingdao:/aifs/users/zhc00/works/lfmmi/wsj/sjtu$ fstinfo exp/chain/tdnn_sjtu_mono_2n_mhmm1c.NSN.0.1.32.12_nd/phone_lm.fst
 我们使用$\alpha=2.5$ 和 $\beta=2.5$ 作为 NU-LF-bMMI的参数。
 %The LSTM network was initiated using cross-entropy criterion and then trained using CTC criterion.
 %For performance comparison, conventional {\em keyword-filler} DNN-HMM was also trained as baselines. DNN has an 11-frame context window with 5 extended frames on the left and right. %Both HMM systems have 1689 clustered triphone states. 
 所有声学模型都使用 Kaldi进行训练~\cite{povey2011kaldi}.
- {\em 等错误率} (EER) 用来度量上面两种测试下的错误率，该指标反映了无唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
+ {\em 等错误率} (Equal Error Rate, EER) 用来度量上面两种测试下的错误率，该指标反映了无唤醒和未唤醒错误的均值。越低的EER表示越好的模型性能。
 在基于$\tt filler$ 的解码中, 表示为 {\em{kw-filler}}, 而EER是由扫描修改filler权重而得到的。
 后验概率平滑，表示为 {\em{smooth}}。
 \begin{equation}
@@ -283,7 +286,7 @@ HMM模型的配置与 \cite{povey2016purely}中相似，但使用了更好的参
   }
 \end{table}
 
-我们首先对深度学习模型的架构进行了研究。第一二行比较了双向 LSTM (BLSTM) 和 时延神经网络(TDNN)在同等参数下的性能。 BLSTM 包含两层前后向各80个节点的LSTM网络。映射层包含30个节点。 CD TDNN 包含7层100个节点， CI TDNN 包含7层150个节点。结果显示了相似的EER性能。我们相信这是由于： i) 在KWS中，作为模型推理搜索所需要的上下文并不需要很长，TDNN已经足够来针对这样的应用。 ii) 由于KWS模型的参数较少，因此限制了BLSTM模型的性能。在接下来的实验中，我们只讨论TDNN，原因是同等性能情况下它的速度更快~\footnote{我们暂未比较LSTM。近期的一些研究发现TDNN和LSTM可以被结合并取得更好的性能~\cite{tdnnlstm}}。
+我们首先对深度学习模型的架构进行了研究。第一二行比较了双向 LSTM (Bi-directional LSTM, BLSTM) 和 时延神经网络(Time Delay Neural Network, TDNN)在同等参数下的性能。 BLSTM 包含两层前后向各80个节点的LSTM网络。映射层包含30个节点。 CD TDNN 包含7层100个节点， CI TDNN 包含7层150个节点。结果显示了相似的EER性能。我们相信这是由于： i) 在KWS中，作为模型推理搜索所需要的上下文并不需要很长，TDNN已经足够来针对这样的应用。 ii) 由于KWS模型的参数较少，因此限制了BLSTM模型的性能。在接下来的实验中，我们只讨论TDNN，原因是同等性能情况下它的速度更快~\footnote{我们暂未比较LSTM。近期的一些研究发现TDNN和LSTM可以被结合并取得更好的性能~\cite{tdnnlstm}}。
 其次， 模型的建模单元在第二和三行中进行了比较。 tri-phone状态模型, 表示为上下文相关系统 (CD), 与单音素状态模型,表示为上下文无关系统 (CI)进行了比较。
 CD模型基于三状态的从左到右的triphone 模型，包括 1536个绑定状态 (senones). 
 %zhc00@qingdao:/aifs/users/zhc00/works/lfmmi/wsj/sjtu$ nnet3-info exp/nnet3/nnet_tdnn_a_tiny_smbr/final.mdl
@@ -400,11 +403,11 @@ NU-LF-bMMI 带来额外的性能提升，而另一方面传统的固定关键词
 第三行对比第二行显示了所提出的最好的基于HMM的序列鉴别性训练方法与传统鉴别性训练方法的比较。
 %Result shows two folds of superiority
 这里显示出 17\% 相对改善 ($\alpha = 0.05$, $p = 0.06$, 在显著性检验测试中) 相比传统鉴别性训练和 28\% 相对改善 ($\alpha = 0.05$, $p = 10^{-5}$)  相比交叉熵训练系统。
-这来源于更好的在所提出方法中的建模效果:
+这来源于更好的在所提出的一系列方法中的建模效果:
 \begin{itemize}
- \item 如前文所述，修改后的HMM结构和更低的帧率都能带来性能的改善。
- \item KWS模型的LVCSR词图并不包含较好的竞争路径。这些词图来自声学模型与语言模型的共同解码，而KWS的声学模型性能较弱，并不是针对ASR识别进行设计的。因此这些质量更差的词图限制了鉴别性训练所带来的提升。
- \item 传统鉴别性训练在生成词图时候使用的词级别语言模型在KWS的测试阶段并不存在。而LF-MMI中使用的词级别语言模型则是对于测试阶段使用的由词典构成的关键词序列的一个很好的近似。
+ \item 修改后的HMM结构和更低的帧率都能带来性能的改善。
+ \item 传统鉴别性训练在KWS中应用时，将受限于词图质量。这些词图来自声学模型与语言模型的共同解码，而KWS的声学模型性能较弱，并不是针对ASR识别进行设计的。我们提出采用无词图鉴别性训练框架以解决该问题。
+ \item 传统鉴别性训练在生成词图时候使用的词级别语言模型在KWS的测试阶段并不存在。而LF-MMI中使用的词级别语言模型则是对于测试阶段使用的由词典构成的关键词序列的一个更好的近似。
 \end{itemize}
 除此之外，与CE基线相比，LF-bMMI 系统取得了一倍的加速，原因在于模型推理搜索和解码搜索都得到了加速。对于前者，主要是由于帧率减少。而后者主要是由于所使用的CI单元比传统CD单元少，使得搜索空间变少，这也包括对filler模型的相应简化。
 
@@ -478,7 +481,7 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
 该系统性能在EER和FAF中都有所下降，原因是音素级系统具有更多建模单元。而这些建模单元都被等同地进行训练。与之相反，词级系统则可以对特定关键词具有更强的建模能力。
 \cite{chen2014small}中显示了类似结论，这说明后验概率平滑方法的CE模型系统是一个较强的基线系统。
 
-在第三行中，我们所提出的LF-bMMI系统显著改善了CE系统，取得了一致更优的EER和FAF。但是，所得到的系统仍然差于基线系统。为了解决针对关键词区段识别性能差的问题，我们使用了NU-LF-bMMI 方法，在第四行中。结果显示NU-LF-bMMI 系统得到了相对第一行基线中显著更好的结果。我们认为这包括两方面原因：第一，非一致地训练关键词相关的音素序列，理论上等同于对关键词的每个词单元专门进行训练，所以其建模能力类似； 第二，由于音素系统通过所提出的NU-LF-bMMI增强了关键词之间与关键词和非关键词之间的鉴别能力，因此它能够取得更优的性能。关于效率，虽然该系统的模型推理搜索速度较快，但由于引入kw-filler的搜索部分，因此导致两倍的速度减慢。使用标签同步解码算法对系统进行加速是未来一个值得研究的问题。
+在第三行中，我们所提出的LF-bMMI系统显著改善了CE系统，取得了一致更优的EER和FAF。但是，所得到的系统仍然差于基线系统。为了解决针对关键词区段识别性能差的问题，我们使用了NU-LF-bMMI 方法，在第四行中。结果显示NU-LF-bMMI 系统得到了相对第一行基线中显著更好的结果。我们认为这包括两方面原因：第一，非一致地训练关键词相关的音素序列，理论上等同于对关键词的每个词单元专门进行训练，所以其建模能力类似； 第二，由于音素系统通过所提出的NU-LF-bMMI增强了关键词之间与关键词和非关键词之间的鉴别能力，因此它能够取得更优的性能。关于效率，虽然该系统的模型推理搜索速度较快，但由于引入kw-filler的搜索部分，因此导致两倍的速度减慢。使用后文将介绍的标签同步解码算法对系统进行加速是未来一个值得研究的问题。
 
 %MED uses
 
@@ -490,12 +493,13 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
 \subsection{排列不变性训练及其在鸡尾酒会问题中应用}
 \label{chap:intro2-pit-pit}
 
-鸡尾酒会问题~\cite{cherry1953some,bregman1994auditory}是指多说话人重叠语音信号的识别问题，该问题在会议转录系统，自动音视频字幕生成等任务中非常重要，因为语音信号的重叠是常见的一种信号现象。同时该问题也是语音识别中最困难的问题之一~\cite{wang2006computational,cooke2010monaural,du2014speech,weng2015deep}。在鸡尾酒会问题中，最困难的是无监督鸡尾酒会问题。这种情况下，多人同时说话，而只有一个麦克风系统进行收音，同时系统不提前具有说话人信息，需要泛化到没有见过说话人情况。
+鸡尾酒会问题~\cite{cherry1953some,bregman1994auditory}是指多说话人重叠语音信号的识别问题，该问题在会议转录系统，自动音视频字幕生成等任务中非常重要，因为语音信号的重叠是常见的一种信号现象。同时该问题也是语音识别中最困难的问题之一~\cite{wang2006computational,cooke2010monaural,du2014speech,weng2015deep}。在鸡尾酒会问题中，最困难的是无监督的鸡尾酒会问题。这种情况下，多人同时说话，而只有一个麦克风系统进行收音，同时系统不提前具有说话人信息，需要泛化到没有见过说话人情况。
 
 \subsubsection{排列不变性训练}
 \label{chap:intro2-pit-pit-intro}
 
-排列不变性训练是解决该问题的一种有效框架~\cite{yu2017recognizing}。该框架首先通过选取最小的当前排列下的推理搜索误差来决定当前最优排列，而后依据该排列来使用其相应的误差对模型进行反向误差传递的梯度更新。
+排列不变性训练是解决该问题的一种有效框架~\cite{yu2017recognizing}。排列问题产生于模型预测出多个输出序列，需要与多个标注序列计算模型误差，因此涉及到多个预测序列与多个标注序列之间的排列组合问题。而另一方面，如果模型所预测的排列组合不正确，将使得多个输出上都产生明显的识别错误，称为分配错误。
+该框架首先通过选取最小的当前排列下的推理搜索误差来决定当前最优排列，而后依据该排列来使用其相应的误差对模型进行反向误差传递的梯度更新。
 在鸡尾酒会的语音识别问题中，原先的信号分离误差被替换为针对语音识别结果的交叉熵误差。
 \begin{equation}
 \label{equ:ce-pit}
@@ -506,9 +510,9 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
 \end{equation}
 公式中 $\mathbf{S}$ 表示所有针对标注和推理搜索序列的可能排列组合。
 %inference representations
-${l}_{utn}^{(s')}$ 为在排列 $s'$ ，第$t$ 帧，第 $u$ 个句子上的第 $n$个推理搜索结果。 ${l}_{utn}^{(r)}$ 是相应的从干净语音信号进行对齐算法得到的标注序列~\cite{woodland1994large}.
+${l}_{utn}^{(s')}$ 表示为在排列 $s'$ ，第$t$ 帧，第 $u$ 个句子上的第 $n$个输出上的推理搜索结果。 ${l}_{utn}^{(r)}$ 是相应的从干净语音信号进行对齐算法得到的标注序列~\cite{woodland1994large}.
 %review of PIT-ASR formulation
-PIT-ASR 准则~\cite{yu2017recognizing} 优雅地将语音信号的分离，说话人跟踪，语音识别都融合在一个系统里，如图~\ref{fig:modules}(a)所示。
+排列不变性训练-语音识别准则（PIT-ASR 准则）~\cite{yu2017recognizing} 优雅地将语音信号的分离，说话人跟踪，语音识别都融合在一个系统里，如图~\ref{fig:modules}(a)所示。
 
 \subsubsection{基于迁移学习的模块化训练}
 \label{chap:intro2-pit-ts}
@@ -534,7 +538,7 @@ PIT-ASR 准则~\cite{yu2017recognizing} 优雅地将语音信号的分离，说�
 \begin{figure}[!htp]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=1.1\textwidth]{figure/sys-framework.png}
+    \includegraphics[width=\textwidth]{figure/sys-framework.png}
     \bicaption[fig:sys-fr]{逐步联合训练模型系统框架}{迁移学习模型系统训练框架。
     \cite{yu2017recognizing}中提出的结构由虚线框部分表示，其用于推理搜索出每个说话人的语音信号的信息。该结构被模块化（三个实线框）并作逐一增量预训练。针对自身的迁移学习和多输出序列鉴别性训练在模块初始化后神经网络上进行。}{Fig}{The progressive joint training model framework.}
 \end{figure}
@@ -560,16 +564,16 @@ KLD(P({l}_{utn}^{(c)}|\mathbf{O}_{un}^{(r)}),P({l}_{utn}^{(s')}|\mathbf{O}_{u}^{
 \begin{figure}[!htp]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/joint-tr.pdf}
+    \includegraphics[width=0.8\textwidth]{figure/joint-tr.pdf}
     \bicaption[fig:joint-tr]{基于迁移学习逐步联合训练方法}{基于迁移学习逐步联合训练方法。点划线框表示可以学习的参数，点线框表示可以学习并且是共享的模型参数。}{Fig}{The self-transfer learning based model framework.}
 \end{figure}
 
 
 
-\begin{figure}[!htp]
+\begin{figure}[htb]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/tr-curve.pdf}
+    \includegraphics[width=0.6\textwidth]{figure/tr-curve.pdf}
     \bicaption[fig:tr-curve]{原始联合训练和所提出的方法在验证集上学习曲线比较}{原始联合训练和所提出的方法在验证集上学习曲线比较。在图中，联合训练，逐步联合训练，基于迁移学习逐步联合训练被分别表示为Joint Model,  Pro. Joint Model 和 Pro. Joint Model + Transf. 图中每个epoch包含24小时训练数据。}{Fig}{The learning curve comparison of naive joint training and the proposed methods. }
 \end{figure}
 
@@ -595,8 +599,17 @@ P(\mathbf{L}_u|\mathbf{O}_u)=\frac {p(\mathbf{O}_u|\mathbf{L}_u)P(\mathbf{L}_u)}
 $p(\mathbf{O}_u|\mathbf{L}_u)$ 是相应声学模型概率。
  $p(\mathbf{O}_u)$ 是针对特征序列 $\mathbf{O}_u$观察概率进行建模的边缘概率，它等于所有可能的识别序列的概率求和。
 
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=0.3\textwidth]{figure/ass_error.png}
+    \bicaption[fig:ass_err]{词语分配错误示例}{词语分配错误示例。第一种为分配错误(Assignment error)，第二种为交换错误（Cross talk error）。}{Fig}{The Example of Assignment Errors in Overlapped Speech Recognition.}
+\end{figure}
+
+
 通常来说，语言模型搜索空间是通过训练集语料来估计得到。之后在该搜索空间上计算相应的序列准则。 
-由于之前训练搜索空间的语料未出现词语交换问题，因此搜索空间也不包含这些建模。在这样的搜索空间上训练将导致对搜索空间估计不准确，而最终的推测序列中将会增加较多词语交换错误。我们提出了一系列方法以解决该问题，这里的想法是将词语交换错误添加到搜索空间中，由此减轻问题。
+由于之前训练搜索空间的语料未出现词语交换问题，因此搜索空间也不包含这些建模。在这样的搜索空间上训练将导致对搜索空间估计不准确，而最终的推测序列中将会增加较多词语交换错误，如图~\ref{fig:ass_err}所示。我们提出了如下方法以解决该问题，这里的想法是将词语交换错误添加到搜索空间中，由此减轻问题。
 \begin{equation}
 \label{equ:lf-dc-mmi}
 \begin{split}
@@ -608,7 +621,7 @@ $p(\mathbf{O}_u|\mathbf{L}_u)$ 是相应声学模型概率。
  ]
 \end{split}
 \end{equation}
-在公式~\ref{equ:lf-dc-mmi}中, 除当前优化的输出序列之外其它输出序列表示为 $\mathbf{L}_{\hat{u}}$。公式中添加了一项插值系数 $\lambda$。该部分额外式子最后被加入到分母优化当中。通过这样的方法，在优化目标序列的同时，也同时抑制了跨信道的词语交换错误。
+在公式~\ref{equ:lf-dc-mmi}中, 除当前优化的输出序列之外其它输出序列表示为 $\mathbf{L}_{\hat{u}}$。公式中添加了一项插值系数 $\lambda$。该部分额外式子最后被加入到分母优化当中。通过这样的方法，在优化目标序列$\mathbf{L}$的同时，也同时抑制了$\mathbf{L}_{\hat{u}}$，即跨信道的词语交换错误。
 
 
 \subsection{实验结果} %多说话人重叠语音信号
@@ -696,7 +709,7 @@ PIT-ASR 模型~\cite{yu2017recognizing}在第一行中, 表示为 PIT-CE, 被作
 \end{figure}
 
 
-另一方面，在相似参数量情况下但使用其它的深度学习模型，即 {1 LACE + 5$\cdot$4 BLSTM}, 这样的系统可以带来一致性的性能改善，显示在第六到第九行中。我们相信这些额外的改善来自对于问题模块化的合理假设，由此对深度学习模型进行了合理的使用。这些相似比较分析可以参见文献~\cite{chen2018progressive}。
+另一方面，在相似参数量情况下但使用其它的深度学习模型，即 {1 LACE + 5$\cdot$4 BLSTM}, 这样的系统可以带来一致性的性能改善，显示在第六到第九行中。上述LACE是指Layerwise context expansion with attention结构，在\cite{LACE-yu2016}中提出。我们相信这些额外的改善来自对于问题模块化的合理假设，由此对深度学习模型进行了合理的使用。这些相似比较分析可以参见文献~\cite{chen2018progressive}。
 
 %table:
 %joint (baseline)

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  14 MAR 2019 16:05
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  16 MAR 2019 21:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2343,13 +2343,10 @@ File: pdf/authorization.pdf Graphic file (type pdf)
 
 
 
-] [2]
-Underfull \vbox (badness 3158) has occurred while \output is active []
-
-[3
+] [2] [3
 
 ]
-Underfull \vbox (badness 7522) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [4]) [5] [6
 
@@ -2429,7 +2426,7 @@ Underfull \vbox (badness 1622) has occurred while \output is active []
 File: figure/hmm.pdf Graphic file (type pdf)
 <use figure/hmm.pdf>
 [15]
-Overfull \hbox (1.67802pt too wide) in paragraph at lines 96--98
+Overfull \hbox (1.67802pt too wide) in paragraph at lines 98--100
 []\TU/AdobeSongStd-Light(0)/m/n/12.045 这 样 我 们 可 以 利 用 一 个 状 态 序 列 来 描 述 语 音 信 
 号 的 特 征 的 输 出 过 程 $[] \OT1/cmr/m/n/12.045 = [\OML/cmm/m/it/12.045 s[]; :::; s[]
 \OT1/cmr/m/n/12.045 ][]$\TU/AdobeSongStd-Light(0)/m/n/12.045 。|
@@ -2460,19 +2457,16 @@ File: figure/hmm-topo.png Graphic file (type bmp)
 <figure/hmm-topo.png>
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 607.
+(Font)              size <10.95> substituted on input line 609.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 607.
+(Font)              size <10.95> substituted on input line 609.
 
-[34] [35] [36] [37]
+[34] [35] [36] [37] [38] [39]
 File: figure/e2e-idea.png Graphic file (type bmp)
 <figure/e2e-idea.png>
-[38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[39]) [40] [41]
+) [40] [41]
 \openout2 = `tex/intro2.aux'.
 
 (./tex/intro2.tex [42
@@ -2502,7 +2496,7 @@ File: figure/dec_arch.png Graphic file (type bmp)
 <figure/dec_arch.png>
 [54] [55] [56] [57] [58]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 459.
+put line 458.
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 [59] [60]
@@ -2521,17 +2515,17 @@ File: figure/lattice.png Graphic file (type bmp)
 File: figure/filler-graph.png Graphic file (type bmp)
 <figure/filler-graph.png>
 [71] [72] [73]
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 394--394
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 394--394
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 391--391
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 394--394
 []|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
  []
 
@@ -2541,16 +2535,17 @@ File: figure/modules.pdf Graphic file (type pdf)
 [77] [78]
 File: figure/sys-framework.png Graphic file (type bmp)
 <figure/sys-framework.png>
-
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 537--539
- [][] 
- []
-
 File: figure/joint-tr.pdf Graphic file (type pdf)
 <use figure/joint-tr.pdf>
 File: figure/tr-curve.pdf Graphic file (type pdf)
 <use figure/tr-curve.pdf>
-[79] [80] [81] [82]
+[79]
+File: figure/ass_error.png Graphic file (type bmp)
+<figure/ass_error.png>
+
+Underfull \vbox (badness 6792) has occurred while \output is active []
+
+[80] [81] [82]
 File: figure/pit-example.pdf Graphic file (type pdf)
 <use figure/pit-example.pdf>
 [83] [84]) [85]
@@ -2562,23 +2557,22 @@ File: figure/pit-example.pdf Graphic file (type pdf)
 
 ]
 第五章
+[87]
 File: figure/gpu_framework.pdf Graphic file (type pdf)
 <use figure/gpu_framework.pdf>
-[87] [88] [89]
+[88] [89] [90]
 File: figure/load-balance.pdf Graphic file (type pdf)
 <use figure/load-balance.pdf>
+[91]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 205--207
- [][] 
- []
-
-[90] [91] [92] [93] [94] [95]
+[92] [93] [94]
 File: figure/gpu_analysis.pdf Graphic file (type pdf)
 <use figure/gpu_analysis.pdf>
-[96]
+[95]
 File: figure/gpu_profile.pdf Graphic file (type pdf)
 <use figure/gpu_profile.pdf>
-) [97]
+) [96] [97]
 \openout2 = `tex/psd.aux'.
 
 (./tex/psd.tex [98
@@ -2588,27 +2582,27 @@ File: figure/gpu_profile.pdf Graphic file (type pdf)
 ]
 第六章
 
-Underfull \vbox (badness 1231) has occurred while \output is active []
+Underfull \vbox (badness 2126) has occurred while \output is active []
 
 [99]
 File: figure/peaky_distribution.png Graphic file (type bmp)
 <figure/peaky_distribution.png>
-[100] [101] [102] [103]
-Underfull \vbox (badness 1038) has occurred while \output is active []
 
-[104] [105]
+Underfull \vbox (badness 1867) has occurred while \output is active []
+
+[100] [101] [102] [103] [104] [105]
 File: figure/ctc_lat.png Graphic file (type bmp)
 <figure/ctc_lat.png>
 [106]
 Missing character: There is no  in font [fonts/texgyretermes-regular.otf]/OT:s
 cript=latn;language=DFLT;mapping=tex-text;!
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 325--325
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 317--317
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 325--325
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 317--317
 []|[]| 
  []
 
@@ -2616,71 +2610,71 @@ Overfull \hbox (22.75665pt too wide) in paragraph at lines 325--325
 File: figure/speed-robust.pdf Graphic file (type pdf)
 <use figure/speed-robust.pdf>
 [108]
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 363--363
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 355--355
 []|[]| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 363--363
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 355--355
 []|[]| 
  []
 
 File: figure/prune-wer-at-dsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-dsm.pdf>
 [109] [110]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 411--411
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 411--411
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 419--419
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 411--411
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 File: figure/prune-wer-at-gsm.pdf Graphic file (type pdf)
 <use figure/prune-wer-at-gsm.pdf>
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 461--461
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 461--461
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 469--469
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 461--461
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 469--469
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 461--461
 []|[]| 
  []
 
 [111] [112]
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 497--497
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 497--497
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (0.5702pt too wide) in paragraph at lines 505--505
+Overfull \hbox (0.5702pt too wide) in paragraph at lines 497--497
 []|$\OT1/cmr/m/n/12.045 ^^A$\TU/texgyretermes(0)/m/n/12.045 (%)| 
  []
 
 
-Overfull \hbox (22.75665pt too wide) in paragraph at lines 505--505
+Overfull \hbox (22.75665pt too wide) in paragraph at lines 497--497
 []|[]| 
  []
 
@@ -2698,99 +2692,95 @@ File: figure/OWER-latden.png Graphic file (type bmp)
 
 ]
 第七章
-[117]
+[117] [118] [119]
 File: figure/kws-framework.png Graphic file (type bmp)
 <figure/kws-framework.png>
-[118]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[119]
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+[120] [121]
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 232--232
 []|\TU/texgyretermes(0)/m/n/12.045 0.6M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 232--232
 []|\TU/texgyretermes(0)/m/n/12.045 0.5M|  
  []
 
 
-Overfull \hbox (3.00067pt too wide) in paragraph at lines 185--185
+Overfull \hbox (3.00067pt too wide) in paragraph at lines 232--232
 []|\TU/texgyretermes(0)/m/n/12.045 0.8M|  
  []
 
 File: figure/roc.pdf Graphic file (type pdf)
 <use figure/roc.pdf>
-[120] [121] [122] [123] [124] [125]
+[122] [123] [124] [125] [126]
 File: figure/lat-exp.jpg Graphic file (type bmp)
 <figure/lat-exp.jpg>
-[126] [127]
+[127] [128]
 File: figure/graph_example.png Graphic file (type bmp)
 <figure/graph_example.png>
-[128] [129] [130]
+[129] [130]
 File: figure/bound-stable.png Graphic file (type bmp)
 <figure/bound-stable.png>
 File: figure/latden-cndepth.png Graphic file (type bmp)
 <figure/latden-cndepth.png>
-[131] [132] [133] [134]
+[131]
+Underfull \vbox (badness 1953) has occurred while \output is active []
+
+[132] [133] [134] [135]
 File: figure/psd_mod_framework.pdf Graphic file (type pdf)
 <use figure/psd_mod_framework.pdf>
-
-Underfull \vbox (badness 5316) has occurred while \output is active []
-
-[135] [136] [137]
-Underfull \hbox (badness 10000) in paragraph at lines 894--894
+[136] [137]
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
 []|\TU/texgyretermes(0)/m/n/12.045 PER/WER
  []
 
-[138] [139]) [140]
+[138] [139]) [140] [141]
 \openout2 = `tex/summary.aux'.
 
-(./tex/summary.tex
+(./tex/summary.tex [142
+
+
+
+]
 第八章
 
 Underfull \vbox (badness 7558) has occurred while \output is active []
 
-[141
-
-
-
-] [142] [143]) [144]
+[143] [144] [145]) [146]
 Underfull \hbox (badness 1005) in paragraph at lines 117--117
 []\TU/texgyretermes(0)/m/n/12.045 Saduoki Furui. “\TU/texgyretermes(0)/m/it/12.
 045 Unsupervised speaker adaptation based on hierarchical spectral
  []
 
-[145
+[147
 
 
 
-] [146] [147] [148] [149] [150] [151] [152] [153] [154]
+] [148] [149] [150] [151] [152] [153] [154] [155] [156]
 Overfull \hbox (42.24709pt too wide) in paragraph at lines 117--117
 \TU/texgyretermes(0)/m/it/12.045 Word Models for English Conversational Speech 
 Recognition\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1703.07754\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[155]
+[157]
 Overfull \hbox (1.1576pt too wide) in paragraph at lines 117--117
 \TU/texgyretermes(0)/m/it/12.045 English and Mandarin Text Entry on Mobile Devi
 ces\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 arXiv pr
 eprint arXiv:1608.07323\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[156] [157] [158] [159] [160]
+[158] [159] [160] [161] [162]
 Overfull \hbox (52.74632pt too wide) in paragraph at lines 117--117
 \TU/texgyretermes(0)/m/it/12.045 recognition using deep RNN models and WFST-bas
 ed decoding\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1507.08240\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
-[161] [162] [163]
+[163] [164] [165]
 \openout2 = `tex/pub.aux'.
 
-(./tex/pub.tex [164
+(./tex/pub.tex [166
 
 
 ]
@@ -2798,7 +2788,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-[165]
+[167]
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
@@ -2809,21 +2799,21 @@ Underfull \hbox (badness 1661) in paragraph at lines 23--24
 nference of International Speech
  []
 
-[166]) [167]
+[168]) [169]
 \openout2 = `tex/patents.aux'.
 
-(./tex/patents.tex [168
+(./tex/patents.tex [170
 
 
 
-]) [169]
+]) [171]
 \openout2 = `tex/ack.aux'.
 
-(./tex/ack.tex [170
+(./tex/ack.tex [172
 
 
 
-]) [171] 
+]) [173] 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
@@ -2834,7 +2824,7 @@ ex/patents.aux) (./tex/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 131.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D87FABE6A3D7B3D86CF578A0C3A0F1D4.
+(rerunfilecheck)             Checksum: 89458D889446162804446C4ACD21F968.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2845,12 +2835,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37581 strings out of 492970
- 762650 string characters out of 6137298
- 1293127 words of memory out of 5000000
- 40888 multiletter control sequences out of 15000+600000
+ 37602 strings out of 492970
+ 763883 string characters out of 6137298
+ 1291469 words of memory out of 5000000
+ 40908 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (195 pages, 2999864 bytes).
+Output written on thesis.xdv (197 pages, 3036384 bytes).
