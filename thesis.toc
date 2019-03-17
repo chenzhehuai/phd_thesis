@@ -237,7 +237,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.1.3.2}固定关键词的唤醒词识别}{123}{subsubsection.7.1.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}多识别任务统一置信度框架}{123}{section.7.2}
+\contentsline {section}{\numberline {7.2}多识别任务统一置信度框架}{124}{section.7.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2.1}置信度与搜索空间}{124}{subsection.7.2.1}
 \defcounter {refsection}{0}\relax 
@@ -257,17 +257,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.2.3.1}统一的置信度框架}{127}{subsubsection.7.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.3.2}附属归一化搜索空间}{128}{subsubsection.7.2.3.2}
+\contentsline {subsubsection}{\numberline {7.2.3.2}附属归一化搜索空间}{129}{subsubsection.7.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.3.3}基于CTC的标签同步解码}{129}{subsubsection.7.2.3.3}
+\contentsline {subsubsection}{\numberline {7.2.3.3}基于CTC的标签同步解码}{130}{subsubsection.7.2.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2.4}实验结果}{130}{subsection.7.2.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.2.4.1}混淆网络生成质量}{131}{subsubsection.7.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.4.2}置信度评估}{132}{subsubsection.7.2.4.2}
+\contentsline {subsubsection}{\numberline {7.2.4.2}置信度评估}{133}{subsubsection.7.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.4.3}统一解码框架}{133}{subsubsection.7.2.4.3}
+\contentsline {subsubsection}{\numberline {7.2.4.3}统一解码框架}{134}{subsubsection.7.2.4.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.3}基于标签同步解码的声学特征到词的端到端语音识别}{135}{section.7.3}
 \defcounter {refsection}{0}\relax 
@@ -281,7 +281,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.3.5}实验结果}{138}{subsection.7.3.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}本章小结}{140}{section.7.4}
+\contentsline {section}{\numberline {7.4}本章小结}{141}{section.7.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {第八章\hspace {.3em}}全文总结}{143}{chapter.8}
 \defcounter {refsection}{0}\relax 

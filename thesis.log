@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  16 MAR 2019 21:10
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  17 MAR 2019 09:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2712,19 +2712,26 @@ Overfull \hbox (3.00067pt too wide) in paragraph at lines 232--232
 
 File: figure/roc.pdf Graphic file (type pdf)
 <use figure/roc.pdf>
-[122] [123] [124] [125] [126]
+[122]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[123] [124] [125] [126]
 File: figure/lat-exp.jpg Graphic file (type bmp)
 <figure/lat-exp.jpg>
-[127] [128]
+[127]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[128]
 File: figure/graph_example.png Graphic file (type bmp)
 <figure/graph_example.png>
 [129] [130]
 File: figure/bound-stable.png Graphic file (type bmp)
 <figure/bound-stable.png>
+[131]
 File: figure/latden-cndepth.png Graphic file (type bmp)
 <figure/latden-cndepth.png>
-[131]
-Underfull \vbox (badness 1953) has occurred while \output is active []
+
+Underfull \vbox (badness 3977) has occurred while \output is active []
 
 [132] [133] [134] [135]
 File: figure/psd_mod_framework.pdf Graphic file (type pdf)
@@ -2734,7 +2741,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 941--941
 []|\TU/texgyretermes(0)/m/n/12.045 PER/WER
  []
 
-[138] [139]) [140] [141]
+[138] [139] [140]) [141]
 \openout2 = `tex/summary.aux'.
 
 (./tex/summary.tex [142
@@ -2843,4 +2850,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (197 pages, 3036384 bytes).
+Output written on thesis.xdv (197 pages, 3036508 bytes).

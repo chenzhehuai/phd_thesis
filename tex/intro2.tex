@@ -212,7 +212,7 @@ P(w|{\bf o}_{ut})= y_{ut}(w)
 \begin{equation}
 \label{equ:dec-cmp-space}
  \begin{split}
-\mathbb{C}_{space} = O(P N  W_{\tt ug}^2)+O(W_{\tt ng})
+\mathbb{C}_{space} = O(P\ N\  W_{\tt ug}^2)+O(W_{\tt ng})
  \end{split}
 \end{equation}
 
@@ -221,7 +221,7 @@ P(w|{\bf o}_{ut})= y_{ut}(w)
 \begin{equation}
 \label{equ:dec-cmp-dec}
  \begin{split}
-\mathbb{C} = O(T) \mathbb{C}_{frame} = O(T) O(I)  \mathbb{C}_{space}
+\mathbb{C} = O(T)\ \mathbb{C}_{frame} = O(T\cdot I)\  \mathbb{C}_{space}
  \end{split}
 \end{equation}
 
@@ -442,7 +442,7 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
   \begin{equation}
 \label{equ:complex-fsd}
 \begin{split}
-\mathbb{C}_{FSD} =  O(T)  \mathbb{C}_{frame}
+\mathbb{C}_{FSD} =  O(T)\  \mathbb{C}_{frame}
 \end{split}
 \end{equation}
 其中T是语句中帧的数量，I和$\mathbb{C}_{frame}$分别表示搜索空间内每个状态的平均入度和每一帧搜索解码的总复杂度，定义参见公式\ref{equ:dec-cmp-dec}。
@@ -518,7 +518,7 @@ $v(t,j)>v_{\max}(t) f$
 \begin{equation}
 \label{equ:dec-cmp-space2}
  \begin{split}
-\mathbb{C}_{frame} = O(K  I )
+\mathbb{C}_{frame} = O(K\cdot I )
  \end{split}
 \end{equation}
 
