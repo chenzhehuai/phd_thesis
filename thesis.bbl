@@ -146,7 +146,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Spoken Language Processing {(ICSLP)}}
+      \field{booktitle}{International Conference on Spoken Language Processing {(ICSLP)}}
       \field{title}{A compact model for speaker-adaptive training}
       \field{userf}{en}
       \field{volume}{2}
@@ -242,7 +242,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Spoken Language Processing {(ICSLP)}}
+      \field{booktitle}{International Conference on Spoken Language Processing {(ICSLP)}}
       \field{title}{Cluster adaptive training for speech recognition.}
       \field{userf}{en}
       \field{volume}{1998}
@@ -301,7 +301,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
+      \field{booktitle}{IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
       \field{title}{Adaptive training for robust {ASR}}
       \field{userf}{en}
       \field{year}{2001}
@@ -329,7 +329,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Multiple-cluster adaptive training schemes}
       \field{userf}{en}
       \field{volume}{1}
@@ -425,7 +425,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Spoken Language Processing {(ICSLP)}}
+      \field{booktitle}{International Conference on Spoken Language Processing {(ICSLP)}}
       \field{title}{Eigenvoices for speaker adaptation.}
       \field{userf}{en}
       \field{volume}{98}
@@ -459,7 +459,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Speaker normalization using efficient frequency warping procedures}
       \field{userf}{en}
       \field{volume}{1}
@@ -530,7 +530,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. European Conference on Speech Communication and Technology {(EUROSPEECH)}}
+      \field{booktitle}{European Conference on Speech Communication and Technology {(EUROSPEECH)}}
       \field{title}{A comparative study of speaker adaptation techniques}
       \field{userf}{en}
       \field{year}{1995}
@@ -561,7 +561,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Experiments in speaker normalisation and adaptation for large vocabulary speech recognition}
       \field{userf}{en}
       \field{volume}{2}
@@ -605,7 +605,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Maximum mutual information estimation of hidden Markov model parameters for speech recognition}
       \field{userf}{en}
       \field{volume}{86}
@@ -686,7 +686,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Minimum error rate training based on {N}-best string models}
       \field{userf}{en}
       \field{volume}{2}
@@ -815,7 +815,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Improved discriminative training techniques for large vocabulary continuous speech recognition}
       \field{userf}{en}
       \field{volume}{1}
@@ -881,7 +881,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Neural Information Processing Systems {(NIPS)}}
+      \field{booktitle}{Neural Information Processing Systems {(NIPS)}}
       \field{title}{A continuous speech recognition system embedding {MLP} into {HMM}.}
       \field{userf}{en}
       \field{volume}{2}
@@ -925,7 +925,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{{CDNN}: a context dependent neural network for continuous speech recognition}
       \field{userf}{en}
       \field{volume}{2}
@@ -1189,7 +1189,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{A time delay neural network architecture for efficient modeling of long temporal contexts}
       \field{userf}{en}
       \field{year}{2015}
@@ -1261,7 +1261,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Machine Learning {(ICML)}}
+      \field{booktitle}{International Conference on Machine Learning {(ICML)}}
       \field{title}{Deep Speech 2: End-to-End Speech Recognition in {English} and {Mandarin}}
       \field{userf}{en}
       \field{year}{2016}
@@ -1314,7 +1314,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Deep convolutional neural networks with layer-wise context expansion and attention.}
       \field{userf}{en}
       \field{year}{2016}
@@ -1377,7 +1377,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{The microsoft 2016 conversational speech recognition system}
       \field{userf}{en}
       \field{year}{2017}
@@ -1602,7 +1602,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Recurrent neural network based language model.}
       \field{userf}{en}
       \field{volume}{2}
@@ -1714,9 +1714,10 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2018}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Knowledge Distillation for Sequence Model.}
       \field{userf}{en}
+      \field{year}{2018}
     \endentry
     \entry{hermansky1990perceptual}{article}{}
       \name{author}{1}{}{%
@@ -1815,7 +1816,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
+      \field{booktitle}{IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
       \field{title}{Feature engineering in context-dependent deep neural networks for conversational speech transcription}
       \field{userf}{en}
       \field{year}{2011}
@@ -2063,7 +2064,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Large vocabulary continuous speech recognition using HTK}
       \field{userf}{en}
       \field{volume}{2}
@@ -2097,7 +2098,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. European Conference on Speech Communication and Technology {(EUROSPEECH)}}
+      \field{booktitle}{European Conference on Speech Communication and Technology {(EUROSPEECH)}}
       \field{title}{The use of state tying in continuous speech recognition}
       \field{userf}{en}
       \field{volume}{3}
@@ -2368,7 +2369,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
+      \field{booktitle}{IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
       \field{title}{Hybrid speech recognition with deep bidirectional LSTM}
       \field{userf}{en}
       \field{year}{2013}
@@ -2406,7 +2407,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Speech recognition with deep recurrent neural networks}
       \field{userf}{en}
       \field{year}{2013}
@@ -2494,7 +2495,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Sequence discriminative distributed training of long short-term memory recurrent neural networks}
       \field{userf}{en}
       \field{year}{2014}
@@ -2602,7 +2603,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Neural Information Processing Systems {(NIPS)}}
+      \field{booktitle}{Neural Information Processing Systems {(NIPS)}}
       \field{title}{Roles of pre-training and fine-tuning in context-dependent {DBN-HMM}s for real-world speech recognition}
       \field{userf}{en}
       \field{year}{2010}
@@ -2768,7 +2769,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Neural Information Processing Systems {(NIPS)}}
+      \field{booktitle}{Neural Information Processing Systems {(NIPS)}}
       \field{title}{Links between {Markov} models and multilayer perceptrons}
       \field{userf}{en}
       \field{year}{1989}
@@ -2801,7 +2802,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Continuous speech recognition using multilayer perceptrons with hidden Markov models}
       \field{userf}{en}
       \field{year}{1990}
@@ -2891,7 +2892,7 @@
       \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Conversational speech transcription using context-dependent deep neural networks.}
       \field{userf}{en}
       \field{year}{2011}
@@ -3032,7 +3033,7 @@
       \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1991. ICASSP-91., 1991 International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{A dynamical system approach to continuous speech recognition}
       \field{userf}{en}
       \field{year}{1991}
@@ -3123,7 +3124,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2015}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Pronunciation and silence probability modeling for ASR.}
       \field{userf}{en}
       \field{year}{2015}
@@ -3183,7 +3184,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Purely sequence-trained neural networks for ASR based on lattice-free MMI}
       \field{userf}{en}
       \field{year}{2016}
@@ -3281,7 +3282,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Interspeech}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{End-to-end speech recognition using lattice-free MMI}
       \field{userf}{en}
       \field{year}{2018}
@@ -3394,7 +3395,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2016 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Personalized speech recognition on mobile devices}
       \field{userf}{en}
       \field{year}{2016}
@@ -3576,7 +3577,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{The {N}-best algorithms: an efficient and exact procedure for finding the N most likely sentence hypotheses}
       \field{userf}{en}
       \field{year}{1990}
@@ -3773,7 +3774,7 @@
       \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Small-footprint keyword spotting using deep neural networks}
       \field{userf}{en}
       \field{year}{2014}
@@ -4102,7 +4103,7 @@
       \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 2000. ICASSP'00. Proceedings. 2000 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Using SIMD instructions for fast likelihood calculation in LVCSR}
       \field{userf}{en}
       \field{volume}{3}
@@ -4143,7 +4144,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Tenth Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of the International Speech Communication Association}
       \field{title}{A fully data parallel WFST-based large vocabulary continuous speech recognition on a graphics processing unit}
       \field{userf}{en}
       \field{year}{2009}
@@ -4189,7 +4190,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing {(ICASSP)}}
       \field{title}{Singular value decomposition based low-footprint speaker adaptation and personalization for deep neural network}
       \field{userf}{en}
       \field{year}{2014}
@@ -4264,7 +4265,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Lower Frame Rate Neural Network Acoustic Models}
       \field{userf}{en}
       \field{year}{2016}
@@ -4304,15 +4305,12 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2016}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Phone Synchronous Decoding with CTC Lattice}
       \field{userf}{en}
       \field{year}{2016}
       \field{pages}{1923\bibrangedash 1927}
       \range{pages}{5}
-      \verb{doi}
-      \verb 10.21437/Interspeech.2016-831
-      \endverb
     \endentry
     \entry{zhc00-chen-tasl2017}{article}{}
       \name{author}{4}{}{%
@@ -4437,7 +4435,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{ICASSP}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{On Modular Training of Neural Acoustics-to-word Model for LVCSR}
       \field{userf}{en}
       \field{year}{2018}
@@ -4473,7 +4471,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1990. ICASSP-90., 1990 International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{On semi-continuous hidden Markov modeling}
       \field{userf}{en}
       \field{year}{1990}
@@ -4591,7 +4589,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of International Conference on Acoustics, Speech and Signal Processing (CASSP}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Fast LM look-ahead for large vocabulary continuous speech recognition using perfect hashing}
       \field{userf}{en}
       \field{year}{2002}
@@ -4626,7 +4624,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Ninth Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of the International Speech Communication Association}
       \field{title}{Fast N-Gram language model look-ahead for decoders with static pronunciation prefix trees}
       \field{userf}{en}
       \field{year}{2008}
@@ -4684,7 +4682,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Ninth European Conference on Speech Communication and Technology}
+      \field{booktitle}{European Conference on Speech Communication and Technology}
       \field{title}{New pruning criteria for efficient decoding}
       \field{userf}{en}
       \field{year}{2005}
@@ -4750,7 +4748,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Search space pruning based on anticipated path recombination in lvcsr}
       \field{userf}{en}
       \field{year}{2012}
@@ -4823,7 +4821,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2012 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Generating exact lattices in the WFST framework}
       \field{userf}{en}
       \field{year}{2012}
@@ -4931,7 +4929,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{INTERSPEECH}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{A new DNN-based high quality pronunciation evaluation for computer-aided language learning (CALL).}
       \field{userf}{en}
       \field{year}{2013}
@@ -4999,7 +4997,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{INTERSPEECH}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Acoustic and word lattice based algorithms for confidence scores.}
       \field{userf}{en}
       \field{year}{2002}
@@ -5091,7 +5089,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1994. ICASSP-94., 1994 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Detecting misrecognitions and out-of-vocabulary words}
       \field{userf}{en}
       \field{volume}{2}
@@ -5170,7 +5168,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 2000. ICASSP'00. Proceedings. 2000 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Large vocabulary decoding and confidence estimation using word posterior probabilities}
       \field{userf}{en}
       \field{volume}{3}
@@ -5209,7 +5207,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2006 IEEE International Conference on Acoustics Speech and Signal Processing Proceedings}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Maximum entropy based normalization of word posteriors for phonetic and lvcsr lattice search}
       \field{userf}{en}
       \field{volume}{1}
@@ -5248,7 +5246,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2017 IEEE International Conference on Acoustics, Speech and Signal Processing}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Confidence Measures for CTC-based Phone Synchronous Decoding}
       \field{userf}{en}
       \field{year}{2017}
@@ -5546,7 +5544,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Convolutional neural networks for small-footprint keyword spotting}
       \field{userf}{en}
       \field{year}{2015}
@@ -5611,7 +5609,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2000}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Keyword-based discriminative training of acoustic models.}
       \field{userf}{en}
       \field{year}{2000}
@@ -5704,7 +5702,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing, 2008. ICASSP 2008. IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Boosted MMI for model and feature-space discriminative training}
       \field{userf}{en}
       \field{year}{2008}
@@ -5734,7 +5732,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2006}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Hypothesis spaces for minimum Bayes risk training in large vocabulary speech recognition.}
       \field{userf}{en}
       \field{volume}{6}
@@ -5765,7 +5763,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Non-Uniform Boosted MCE Training of Deep Neural Networks for Keyword Spotting}
       \field{userf}{en}
       \field{year}{2016}
@@ -5914,7 +5912,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
+      \field{booktitle}{IEEE Workshop on Automatic Speech Recognition and Understanding {(ASRU)}}
       \field{title}{The kaldi speech recognition toolkit}
       \field{userf}{en}
       \field{year}{2011}
@@ -5989,7 +5987,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Sequence-discriminative training of deep neural networks.}
       \field{userf}{en}
       \field{year}{2013}
@@ -6417,7 +6415,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1992. ICASSP-92., 1992 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{SWITCHBOARD: Telephone speech corpus for research and development}
       \field{userf}{en}
       \field{volume}{1}
@@ -6587,7 +6585,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2011 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{H-and C-level WFST-based large vocabulary continuous speech recognition on graphics processing units}
       \field{userf}{en}
       \field{year}{2011}
@@ -6640,7 +6638,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2016 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Parallelizing WFST speech decoders}
       \field{userf}{en}
       \field{year}{2016}
@@ -6701,7 +6699,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Sixth European Conference on Speech Communication and Technology}
+      \field{booktitle}{European Conference on Speech Communication and Technology}
       \field{title}{Finding consensus among words: Lattice-based word error minimization}
       \field{userf}{en}
       \field{year}{1999}
@@ -6760,7 +6758,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Accelerating large vocabulary continuous speech recognition on heterogeneous cpu-gpu platforms}
       \field{userf}{en}
       \field{year}{2014}
@@ -6795,7 +6793,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Sixth European Conference on Speech Communication and Technology}
+      \field{booktitle}{European Conference on Speech Communication and Technology}
       \field{title}{Efficient general lattice generation and rescoring}
       \field{userf}{en}
       \field{year}{1999}
@@ -6836,7 +6834,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{INTERSPEECH}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Frame based system combination and a comparison with weighted ROVER and CNC.}
       \field{userf}{en}
       \field{year}{2006}
@@ -6872,7 +6870,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech and Signal Processing (ICASSP), 2017 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Confidence measures for CTC-based phone synchronous decoding}
       \field{userf}{en}
       \field{year}{2017}
@@ -7025,7 +7023,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Spoken Language, 1996. ICSLP 96. Proceedings., Fourth International Conference on}
+      \field{booktitle}{ICSLP}
       \field{title}{An adaptive-beam pruning technique for continuous speech recognition}
       \field{userf}{en}
       \field{volume}{4}
@@ -7399,7 +7397,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2016 IEEE International Conference on Acoustics, Speech and Signal Processing}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{Simplifying long short-term memory acoustic models for fast training and decoding}
       \field{userf}{en}
       \field{year}{2016}
@@ -7424,7 +7422,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Sixteenth Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of the International Speech Communication Association}
       \field{title}{Improvements to the Pruning Behavior of DNN Acoustic Models}
       \field{userf}{en}
       \field{year}{2015}
@@ -7462,7 +7460,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Interspeech 2016}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Unrestricted Vocabulary Keyword Spotting Using LSTM-CTC}
       \field{userf}{en}
       \field{year}{2016}
@@ -7624,7 +7622,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1995. ICASSP-95., 1995 International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{A training procedure for verifying string hypotheses in continuous speech recognition}
       \field{userf}{en}
       \field{volume}{1}
@@ -7665,21 +7663,12 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Interspeech 2016}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Phone Synchronous Decoding with CTC Lattice}
       \field{userf}{en}
       \field{year}{2016}
       \field{pages}{1923\bibrangedash 1927}
       \range{pages}{5}
-      \verb{doi}
-      \verb 10.21437/Interspeech.2016-831
-      \endverb
-      \verb{urlraw}
-      \verb http://dx.doi.org/10.21437/Interspeech.2016-831
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.21437/Interspeech.2016-831
-      \endverb
     \endentry
     \entry{ward1996class}{inproceedings}{}
       \name{author}{2}{}{%
@@ -7707,7 +7696,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Acoustics, Speech, and Signal Processing, 1996. ICASSP-96. Conference Proceedings., 1996 IEEE International Conference on}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{A class based language model for speech recognition}
       \field{userf}{en}
       \field{volume}{1}
@@ -8027,7 +8016,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Proc. Interspeech 2017}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{Recurrent Neural Aligner: An Encoder-Decoder Neural Network Model for Sequence to Sequence Mapping}
       \field{userf}{en}
       \field{year}{2017}
@@ -8077,7 +8066,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Proc. Interspeech 2017}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
       \field{title}{A Comparison of Sequence-to-Sequence Models for Speech Recognition}
       \field{userf}{en}
       \field{year}{2017}

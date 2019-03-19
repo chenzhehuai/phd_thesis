@@ -8,69 +8,69 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {3--1}{\ignorespaces {\it 知名开源解码器 } }}{54}{table.3.1}
+\contentsline {table}{\numberline {3--1}{\ignorespaces {\it 知名开源解码器 } }}{52}{table.3.1}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--1}{\ignorespaces {\it 基于HMM的序列鉴别性训练的模型框架}}}{73}{table.4.1}
+\contentsline {table}{\numberline {4--1}{\ignorespaces {\it 基于HMM的序列鉴别性训练的模型框架}}}{71}{table.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--2}{\ignorespaces {\it 基于HMM的鉴别性训练的准则比较}}}{73}{table.4.2}
+\contentsline {table}{\numberline {4--2}{\ignorespaces {\it 基于HMM的鉴别性训练的准则比较}}}{72}{table.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--3}{\ignorespaces {\it 序列鉴别性训练系统的后处理}}}{74}{table.4.3}
+\contentsline {table}{\numberline {4--3}{\ignorespaces {\it 序列鉴别性训练系统的后处理}}}{73}{table.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--4}{\ignorespaces {\it 非固定关键词的关键词检测中的性能和速度比较}}}{74}{table.4.4}
+\contentsline {table}{\numberline {4--4}{\ignorespaces {\it 非固定关键词的关键词检测中的性能和速度比较}}}{73}{table.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--5}{\ignorespaces {\it 固定关键词的KWS系统的性能和速度比较}}}{76}{table.4.5}
+\contentsline {table}{\numberline {4--5}{\ignorespaces {\it 固定关键词的KWS系统的性能和速度比较}}}{74}{table.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--6}{\ignorespaces {\it 50 小时数据集上的性能改善总结}}}{83}{table.4.6}
+\contentsline {table}{\numberline {4--6}{\ignorespaces {\it 50 小时数据集上的性能改善总结}}}{81}{table.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {4--7}{\ignorespaces {\it 150小时数据集上的性能比较}}}{84}{table.4.7}
-\defcounter {refsection}{0}\relax 
-\addvspace {10.0pt}
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5--1}{\ignorespaces {\it 1-best 和词图性能比较 (beam=14). } }}{94}{table.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {5--2}{\ignorespaces {\it 所提出系统的速度比较 (beam=14). }}}{95}{table.5.2}
+\contentsline {table}{\numberline {4--7}{\ignorespaces {\it 150小时数据集上的性能比较}}}{83}{table.4.7}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--1}{\ignorespaces {\it LSD versus FSD in CTC}}}{108}{table.6.1}
+\contentsline {table}{\numberline {5--1}{\ignorespaces {\it 1-best 和词图性能比较 (beam=14). } }}{92}{table.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--2}{\ignorespaces {\it LSD与跳帧方法的对比}}}{109}{table.6.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--3}{\ignorespaces {\it LSD与FSD在不同的LF-MMI模型上的性能和速度比较}}}{111}{table.6.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--4}{\ignorespaces {\it 生成式序列模型中的blank粒度}}}{112}{table.6.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {6--5}{\ignorespaces {\it 生成式序列模型中的blank拓扑结构}}}{113}{table.6.5}
+\contentsline {table}{\numberline {5--2}{\ignorespaces {\it 所提出系统的速度比较 (beam=14). }}}{93}{table.5.2}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--1}{\ignorespaces {\it 音素CTC在是否包含 $\tt wb$ 时的模型性能}}}{121}{table.7.1}
+\contentsline {table}{\numberline {6--1}{\ignorespaces {\it LSD versus FSD in CTC}}}{106}{table.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--2}{\ignorespaces {\it CTC关键词检测系统的后处理}}}{121}{table.7.2}
+\contentsline {table}{\numberline {6--2}{\ignorespaces {\it LSD与跳帧方法的对比}}}{107}{table.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--3}{\ignorespaces {\it 非固定关键词的关键词检测中的性能和速度比较}}}{122}{table.7.3}
+\contentsline {table}{\numberline {6--3}{\ignorespaces {\it LSD与FSD在不同的LF-MMI模型上的性能和速度比较}}}{109}{table.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--4}{\ignorespaces {\it 固定关键词的CTC的KWS系统的性能和速度比较}}}{123}{table.7.4}
+\contentsline {table}{\numberline {6--4}{\ignorespaces {\it 生成式序列模型中的blank粒度}}}{110}{table.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--5}{\ignorespaces {\it WER 比较}}}{131}{table.7.5}
+\contentsline {table}{\numberline {6--5}{\ignorespaces {\it 生成式序列模型中的blank拓扑结构}}}{111}{table.6.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--6}{\ignorespaces {\it 针对音素声学置信度的比较}}}{133}{table.7.6}
+\addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{133}{table.7.7}
+\contentsline {table}{\numberline {7--1}{\ignorespaces {\it 音素CTC在是否包含 $\tt wb$ 时的模型性能}}}{119}{table.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--8}{\ignorespaces {\it KWS 任务}}}{134}{table.7.8}
+\contentsline {table}{\numberline {7--2}{\ignorespaces {\it CTC关键词检测系统的后处理}}}{120}{table.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--9}{\ignorespaces {\it 基于上下文的语音识别}}}{135}{table.7.9}
+\contentsline {table}{\numberline {7--3}{\ignorespaces {\it 非固定关键词的关键词检测中的性能和速度比较}}}{120}{table.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--10}{\ignorespaces {\it LVCSR 任务}}}{135}{table.7.10}
+\contentsline {table}{\numberline {7--4}{\ignorespaces {\it 固定关键词的CTC的KWS系统的性能和速度比较}}}{121}{table.7.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--11}{\ignorespaces {\it 各个模块的性能比较 }}}{139}{table.7.11}
+\contentsline {table}{\numberline {7--5}{\ignorespaces {\it WER 比较}}}{129}{table.7.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--12}{\ignorespaces {\it 针对是否包含模块化训练的性能比较 }}}{140}{table.7.12}
+\contentsline {table}{\numberline {7--6}{\ignorespaces {\it 针对音素声学置信度的比较}}}{131}{table.7.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{140}{table.7.13}
+\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{131}{table.7.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--8}{\ignorespaces {\it KWS 任务}}}{132}{table.7.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--9}{\ignorespaces {\it 基于上下文的语音识别}}}{133}{table.7.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--10}{\ignorespaces {\it LVCSR 任务}}}{133}{table.7.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--11}{\ignorespaces {\it 各个模块的性能比较 }}}{137}{table.7.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--12}{\ignorespaces {\it 针对是否包含模块化训练的性能比较 }}}{138}{table.7.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{138}{table.7.13}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 

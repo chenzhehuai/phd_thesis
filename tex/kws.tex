@@ -1,6 +1,6 @@
 
 
-\chapter{非传统识别任务的序列建模}
+\chapter{非传统识别任务的序列鉴别性训练}
 \label{chap:seqtrain}
 
 
@@ -99,6 +99,15 @@ i) 我们使用单音素而不是三音素作为建模单元。
 ii) HMM的拓扑结构，在第\ref{Sec:sgm-and-sdm}章节介绍的基础上，如图~\ref{fig:hmm-topo}(c-e)所示进行了修改。具体来讲，在图\ref{fig:hmm-topo}（c）中，每个上下文相关(Context Dependant, CD)音素都有独立的blank状态，称为CD音素blank (CD phone blank)。为减少模型单元的数量并进一步加快算法速度，将中心音素相同的blank状态绑定在一起，称为音素级blank (phone blank)；最后如果绑定所有的blank状态则称作全局blank (global blank)。此外，鉴于标签延迟带来的性能改进\cite{amodei2015deep}，图\ref{fig:hmm-topo}（d）中提出HMM-PB模型的延迟标签变种，即HMM-BP。也就是说，模型在确定性标签输出之前输出混淆输出blank。另外，作为对CTC的完整模拟，图\ref{fig:hmm-topo}（e）中提出了HMM-BPB，允许在标签输出前后都存在blank。我们的初步实验结果表明，这两种类型的blank展现出了不同的功能。因此没有将它们绑定在一起。而输出标签单元后面的所有blank则都被绑定在了一起，以减少所需的模型单元数量。
 在实验部分我们将详细比较这些拓扑结构。
 
+
+
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[width=\textwidth]{figure/hmm-topo.png}
+    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指$\tt blank$  HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示$\tt blank$ 建模，但并不完全相同，如（b）CTC中的<b>是使用公共的$\tt blank$ 建模；但（c）中的$q_2$，每个输出标签有独立的$\tt blank$ 建模，第\ref{chap:lsd-blank}章节将详细介绍$\tt blank$建模，本文还将详细比较不同$\tt blank$ 的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中$q_0$、$q_3$，（d）中$q_0$、$q_3$，（e）中$q_0$、$q_4$，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
+\end{figure}
+
 %similarlly b-mmi
 为了对模型的鉴别性做进一步改善，一系列其它的序列鉴别性训练准则也在KWS的框架下进行了研究。 
 首先，我们对序列中出现错误的部分进行了增强~\cite{povey2008boosted}，称为增强的$\tt{ LF\text{-}MMI}$, $\tt{ LF\text{-}bMMI}$。
@@ -139,7 +148,7 @@ Bayes risk ($\tt{LF\text{-}sMBR}$) 也在本章节中进行了研究。
 \begin{split}
 \frac{\partial \mathcal{F}_{\tt{NU\text{-}LF\text{-}MMI}}}{\partial\log p({\bf o}_{ut}|s)}
 %=- \sum_{u} \log \frac {p(\mathbf{O}_u|\mathbf{S}_u)^{\kappa}P(\mathbf{W}_u)}{\sum_{\mathbf{W}} p(\mathbf{O}_u|\mathbf{S})^{\kappa}P(\mathbf{W})}  
-=\frac{\partial \mathcal{F}_{\tt{LF\text{-}MMI}}}{\partial\log p({\bf o}_{ut}|s)}\cdot  \ell(t,u)
+=\frac{\partial \mathcal{F}_{\tt{LF\text{-}MMI}}}{\partial\log p({\bf o}_{ut}|s)}\   \ell(t,u)
 \end{split}
 \end{equation}
 公式中 $s$ 表示建模单元, $p({\bf o}_{ut}|s)$ 是神经网络在状态$s$ 时间 $t$ 句子 $u$上的输出。
@@ -485,7 +494,7 @@ NU-LF-bMMI采用$\alpha=10.0$ 和 $\beta=10.0$。
 
 %MED uses
 
-\section{鲁棒语音识别中的深度序列建模}
+\section{多说话人重叠语音识别的序列建模}
 \label{chap:intro2-pit}
 
 近年来随着深度学习发展，将语音信号的增强和语音识别进行联合训练成为一种新的趋势。这样做的好处包括：更好地利用序列信息进行训练；对模型前后模块进行联合调优以解决模型失配问题。在多说话人重叠语音信号识别任务中，本章节通过联合优化，迁移学习，序列鉴别性训练等方式，改善了原来语音分离、信号增强和语音识别的联合训练系统。
@@ -616,7 +625,7 @@ $p(\mathbf{O}_u|\mathbf{L}_u)$ 是相应声学模型概率。
 \mathcal{J}_{\tt{LF\text{-}DC\text{-}MMI}}
 %=- \sum_{u} \log \frac {p(\mathbf{O}_u|\mathbf{S}_u)^{\kappa}P(\mathbf{L}_u)}{\sum_{\mathbf{L}} p(\mathbf{O}_u|\mathbf{S})^{\kappa}P(\mathbf{L})}  
 =\sum_{u} \log  [ \frac {\sum_{\mathbf{L}_u} p(\mathbf{O}_u|\mathbf{L}_u)^{\kappa}P(\mathbf{L}_u)}{(\ \sum_{\mathbf{L}} p(\mathbf{O}_u|\mathbf{L})^{\kappa}P(\mathbf{L})\ )^{1-\lambda} } 
-\cdot \\ 
+\  \\ 
 \frac{1} {(\ {\sum_{\mathbf{L}_{\hat{u}}}} p(\mathbf{O}_u|{\mathbf{L}_{\hat{u}}})^{\kappa}P({\mathbf{L}_{\hat{u}}})\ )^\lambda}
  ]
 \end{split}
@@ -709,7 +718,7 @@ PIT-ASR 模型~\cite{yu2017recognizing}在第一行中, 表示为 PIT-CE, 被作
 \end{figure}
 
 
-另一方面，在相似参数量情况下但使用其它的深度学习模型，即 {1 LACE + 5$\cdot$4 BLSTM}, 这样的系统可以带来一致性的性能改善，显示在第六到第九行中。上述LACE是指Layerwise context expansion with attention结构，在\cite{LACE-yu2016}中提出。我们相信这些额外的改善来自对于问题模块化的合理假设，由此对深度学习模型进行了合理的使用。这些相似比较分析可以参见文献~\cite{chen2018progressive}。
+另一方面，在相似参数量情况下但使用其它的深度学习模型，即 {1 LACE + 5$\cdot$4 BLSTM}, 这样的系统可以带来一致性的性能改善，显示在第六到第九行中。上述LACE是指Layerwise context expansion with attention结构，在\cite{LACE-yu2016}中提出。这种模型通过增加窗长和增加深度模型的学习能力，使得模型对局部特征的建模能力得到提升。我们相信这些额外的改善来自对于问题模块化的合理假设，由此对深度学习模型进行了合理的使用。这些相似比较分析可以参见文献~\cite{chen2018progressive}。
 
 %table:
 %joint (baseline)

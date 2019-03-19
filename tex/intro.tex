@@ -1,5 +1,5 @@
 
-\chapter{自动语音识别及序列建模}
+\chapter{自动语音识别及序列建模综述}
 \label{chap:intro}
 
 自动语音识别技术（Automatic Speech Recognition）是一种将人的语音转换为文本的技术，
@@ -510,7 +510,7 @@ SGD通常比批量训练快很多，特别是在大词汇连续语音识别中�
 \begin{figure}[!htp]
   \centering
     \captionstyle{\centering}
-    \includegraphics[width=.5\textwidth]{figure/RBM.png}
+    \includegraphics[width=.4\textwidth]{figure/RBM.png}
     \bicaption[fig:rbm]{}{受限玻尔兹曼机}{Fig}{Restricted Boltzmann machine}
 \end{figure}
 
@@ -565,7 +565,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 \section{基于深度学习的序列建模}
 \label{Sec:seq-tr-review}
 
-由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同建模方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (Generative Sequence Model, GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (Discriminative Sequence Model, DSM) ，比如 CTC。Encoder-decoder 模型也是一类鉴别式序列模型，我们将在第\ref{chap:intro2-e2e}章节讨论。 
+由于语音识别本身是一个序列预测问题，所以序列级的准则往往能够带来性能的提升。依据序列的不同建模方式，目前有两种不同的序列鉴别性训练方法，一种针对  生成式序列模型 (Generative Sequence Model, GSM) 比如上文介绍的HMM以及其相应的深度学习系统；另一种则针对 鉴别式序列模型 (Discriminative Sequence Model, DSM) ，比如 CTC，Encoder-decoder模型等。 
 %序列鉴别性训练 for GSM is discussed in Section~\ref{Sec:sgm-sdt-intro} and DSM based 序列鉴别性训练 is discussed in Section~\ref{Sec:sdm-sdt-intro}.
  %while 序列鉴别性训练 in  CTC framework is considered in Section~\ref{Sec:kws-ctc}.
 
@@ -591,27 +591,24 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 通常来说，出于以下原因，序列模型被分解为帧层面的训练准则：1）为了更加高效地发挥帧层面分类器的建模效果，如高斯混合模型（Gaussian mixture model, GMM~\cite{woodland1994large}）和深度神经网络（deep neural network, DNN ~\cite{hinton2012deep}）；2）为了减轻模型的稀疏性，以及通过将简单模型分解为多个组分来增强模型的泛化能力，例如ASR中将模型分解为声学模型、字典和语言模型等；3）未经序列分解的模型在推理搜索前需要得到整个序列信息进而进行后续处理，这将给解码过程造成严重的运行延时。本文提出的序列标注方法即是基于帧层面分解的模型~\cite{forney1973viterbi,mohri2002weighted}。
 因此
 大部分序列模型都包含一个用来对时序特性建模的部分, 比如GMM~\cite{woodland1994large} 和深度学习模型~\cite{hinton2012deep}用来对局部的声学特征进行建模，再加上一个对序列长度和转移进行建模的部分，比如HMM。近期提出的鉴别式序列模型, encoder-decoder~\cite{chan2016end}则尝试直接对序列建模而不是进行序列到逐帧的拆分。但在大部分语音识别研究中，性能和延迟在上述模型中都有一定限制。因此不参与本章节讨论。
-本章节所有的序列鉴别性训练方法均基于逐帧的分解方式。概率模型通常可以分为生成式和鉴别式两种类型，由此序列模型的区别在于对条件似然度或者后验概率进行建模。值得注意的是在序列上或者在帧上，都可以使用生成式或者鉴别式进行分别建模，二者工作在不同层面上。
+本章节所有的序列鉴别性训练方法均基于逐帧的分解方式。
+
+概率模型通常可以分为生成式和鉴别式两种类型，由此序列模型的区别在于对条件似然度或者后验概率进行建模。
+但无论哪一种模型，最终都是为了对完整序列进行建模，即给定特征序列，建模输出序列的概率。
+值得注意的是在序列上或者在帧上，都可以使用生成式或者鉴别式进行分别建模，二者工作在不同层面上。
 比如目前通常使用的混合 NN-HMM 模型就是采用生成式序列模型和鉴别式帧分类器。
 在本章节中，我们主要关注序列模型。下文我们将比较模型结构和优化准则，在生成式和鉴别式序列模型中的异同。
 
 
 {\em 生成式序列模型}(Generative Sequence Model, GSM)通常被定义为条件似然度$p(\mathbf{O}|\mathbf{w})$, 公式中 ${\mathbf O}$ 表示特征输入序列， $\mathbf w$ 表示标签输出序列。隐马尔科夫模型 (HMM) 是这类生成式序列模型的一个经典例子~\footnote{另一类 GSM 例子是Kalman 滤波器~\cite{digalakis1991dynamical,abbeel2005discriminative}.}。
 %
-当一个序列级鉴别性训练准则，即序列后验概率，被优化时，我们一般采用贝叶斯公式分解来使得生成式模型可以使用鉴别性准则进行优化。
+当一个序列级鉴别性训练准则，即序列后验概率，被优化时，我们一般采用贝叶斯公式分解来使得生成式模型可以使用鉴别性准则进行优化，我们将在随后的一章节展开讨论。
 
-
-
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[width=\textwidth]{figure/hmm-topo.png}
-    \bicaption[fig:hmm-topo]{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图}{HMM，CTC和本文提出的方法中隐藏状态拓扑结构示意图。 在后面三种拓扑结构中，B指$\tt blank$  HMM状态，P指标签输出HMM状态。每个圆圈代表一个由神经网络建模发射概率的HMM状态。 其中，点划线圆圈表示输出标签建模，如（b）CTC中的l，都各自分配一个特定的模型单元。虚线圆圈表示$\tt blank$ 建模，但并不完全相同，如（b）CTC中的<b>是使用公共的$\tt blank$ 建模；但（c）中的$q_2$，每个输出标签有独立的$\tt blank$ 建模，第\ref{chap:lsd-blank}章节将详细介绍$\tt blank$建模，本文还将详细比较不同$\tt blank$ 的粒度和拓扑结构所带来的区别。其它实线小圆圈，如（c）中$q_0$、$q_3$，（d）中$q_0$、$q_3$，（e）中$q_0$、$q_4$，代表非发射状态。自循环状态转移表示该状态接受当前状态的重复输出。本文将对这些拓扑结构进行详细比较。}{Fig}{The hidden state topologies of HMM, CTC, and the proposed method.}
-\end{figure}
 
 
 {\em 鉴别式序列模型}(Discriminative Sequence Model, DSM) 由 $P(\mathbf{w}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$建模序列 $\mathbf{w}$的后验概率。当使用了序列鉴别性模型之后，序列鉴别性准则的优化形式就非常直接了。 
 连接时序分类模型 (CTC)~\cite{graves2006connectionist} 是其中一种鉴别式序列模型. 它引入了 $\tt blank$标签来建模输出序列之间的混淆部分。我们将在第\ref{Sec:sdm-sdt-intro}章节详细介绍CTC的定义方式。
+另一类鉴别式序列模型称为基于注意力机制的序列到序列模型（encoder-decoder模型），将在第\ref{chap:intro2-e2e-s2s}章节讨论。
 
 
 %In summary, sequence models are used to model the temporal characteristics of the acoustic feature sequences. 
@@ -729,7 +726,7 @@ $p(\mathbf{O}_u|\mathbf{L})$ 和 $p(\mathbf{O}_u|\mathbf{L}_u)$由HMM模型公�
 \begin{itemize}
 \item 在分母式子中所使用的标注序列 $\mathbf{L}_u$ 存在多种候选路径，这些候选路径来自于标注软对齐中对标签在一定窗宽内左右帧移。这里将所有可能的对齐路径都存储在分子词图中。
 \item 模拟搜索空间的分母语言模型 $P(\mathbf{L})$, $P(\mathbf{L}_u)$使用的是一个在训练标注文本中训练得到的音素语言模型。以这个模型来替代词图的使用。
-\item 一个专用HMM拓扑结构被专门提出，它包含有两个HMM状态。其中状态${\bf q}_2$ 用于模拟CTC中的$\tt blank$ 建模单元，同时其它状态来模拟输出标签单元。这里不同之处在于每个 tri-phone都维护一个它专有的$\tt blank$建模。LF-MMI的隐状态可以表示为图~\ref{fig:hmm-topo}(c)。
+\item 一个专用HMM拓扑结构被专门提出，它包含有两个HMM状态。其中状态${\bf q}_2$ 用于模拟CTC中的$\tt blank$ 建模单元，同时其它状态来模拟输出标签单元。这里不同之处在于每个 tri-phone都维护一个它专有的$\tt blank$建模。%LF-MMI的隐状态可以表示为图~\ref{fig:hmm-topo}(c)。
 \item 输出帧率被降低了3倍。
 \end{itemize}
 
@@ -822,6 +819,7 @@ P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})=\text{AttentionDecoder}(\mathbf{H}, s_{i-
 这种建模方式的优势包括：基于深度学习的历史建模，更强的序列建模能力，以及更好的系统联合训练。除此之外，得益于该模型融合了语音识别的所有知识源，由此模型训练和推理搜索的系统设计都将非常简洁。
 但是由于该模型中的声学模型和语言模型进行了紧密的联合训练，这种系统并不容易被自适应到新的领域或者上下文环境中。与之相反，传统系统则可以通过直接修改语言模型而进行领域自适应~\cite{mcgraw2016personalized}。这是该模型的一个重要劣势，也是目前的研究热点之一~\cite{zhc00-chen-icassp19}。 
 
+本论文主要关注可以进行帧级别分解的GSM及DSM模型，对于不进行显示帧分解的模型，只做部分涉及（第\ref{chap:lsd-e2e}章节）。
 
 \section{语言识别中的端到端模型}
 \label{chap:intro2-e2e}
@@ -832,19 +830,22 @@ P(l_{i}|\mathbf{O},\mathbf{L}_{1:i-1})=\text{AttentionDecoder}(\mathbf{H}, s_{i-
     \item 模块化使得系统构建步骤复杂。如第\ref{chap:intro-asr}章节所述，传统系统搭建步骤复杂，还需要大量人类数据科学家进行模型超参数调优。语音识别的广泛推广，使得对大量语言和大量工作场景的支持成为了迫切的需求，这就对系统搭建难度和速度提出了新的要求。同时语言学研究尚未深入涉及人类的大量语言，而DNN-HMM这类模块化系统较难在语言学知识缺失（比如音素集合缺失）的情况下被搭建。
 \end{itemize}
 
+\begin{figure}[!htp]
+  \centering
+    \captionstyle{\centering}
+    \includegraphics[clip=true, width=0.7\textwidth]{figure/e2e-idea.png}
+    \bicaption[fig:e2e-idea]{}{端到端系统举例}{Fig}{Motivation and Example of End-to-end Modeling}
+\end{figure}
+
+
 得益于标注数据的增多和算力改善，深度学习模型取得了更强的分类能力。由此人们开始考虑直接使用深度序列模型对序列进行直接建模，以取得更好序列建模能力。我们称这种“直接建模”的发展趋势为“端到端”。如图~\ref{fig:e2e-idea}所示，原来传统系统中的音素声学建模可以直接被深度模型所取代，由此直接对词语或单字进行建模。
 % TODO: mod fig
 值得注意的是，根据上一章节中的分类，这类模型绝大部分为{\em 鉴别式序列模型}， 由 $P(\mathbf{L}|\mathbf{O})$进行定义，表示给定特征序列$\mathbf{O}$直接建模输出序列 $\mathbf{L}$的后验概率。
 这类鉴别式序列模型包括CTC，序列到序列模型等。
-这里的$\mathbf{L}$可以是词语（word）或单字（grapheme or character），字母（letter）。
-在有些研究中使用byte-pair encoding （BPE），因为其映射到词语的方式比较直接，也可以认为是一种端到端的建模系统；后文中我们将以由声学特征直接建模词语序列的方式为主进行讨论。
 
-\begin{figure}[!htp]
-  \centering
-    \captionstyle{\centering}
-    \includegraphics[clip=true, width=0.8\textwidth]{figure/e2e-idea.png}
-    \bicaption[fig:e2e-idea]{}{端到端系统举例}{Fig}{Motivation and Example of End-to-end Modeling}
-\end{figure}
+在上述模型中，所建模的输出序列$\mathbf{L}$（模型输出粒度）可以是词语（word）或单字（grapheme or character），字母（letter）。
+在有些研究中使用byte-pair encoding （BPE），因为其映射到词语的方式比较直接，也可以认为是一种端到端的建模系统；后文中我们将以由声学特征直接建模词语序列（Acoustic-to-word, A2W）的方式为主进行讨论。
+
 
 
 

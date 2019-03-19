@@ -1,8 +1,13 @@
 
-\chapter{语音识别中的解码搜索问题}
+\chapter{语音识别中的解码搜索问题综述}
 \label{chap:intro2}
 
-解码搜索是语音识别与传统模式分类技术的另一大不同点。解码搜索决定了系统实际可达的精度和速度。
+
+如前文所述，语音识别系统的核心是识别精度和速度。前一章节中的序列建模是实现模型精度的核心，而本章将讨论的解码搜索是提升速度的核心，解码搜索也是语音识别与传统模式分类技术的另一大不同点。
+
+在测试阶段，
+语音识别系统需要结合多个知识源进行推理，主要包括由经典的高斯混合模型或深度学习模型所建模的声学模型，以及由序列模型，词典和语言模型组成的搜索空间。针对语音识别的速度，前者主要是模型推理的计算问题，而后者则是搜索空间内的动态规划的搜索问题，故称为解码搜索。解码搜索决定了系统实际可达的精度和速度。
+
 本章中，我们首先介绍基本的维特比解码搜索算法，而后引入其在语音识别中的应用。我们对语音识别中的解码搜索问题及其当前解决方案进行了详细介绍。这些不同的技术流派包括同步和非同步之分，以及动态和静态之分。我们对近十年主流的加权有限状态机(Weighted Finite-State Transducer, WFST)技术进行了重点介绍。基于上面的介绍，我们总结了当前解码器研究中的待解决问题，以及上一章中深度序列学习模型所带来的研究机遇。后续本论文的一系列工作将基于本章针对解码器的分析，讨论和总结。
 
 
@@ -54,7 +59,7 @@ O(T\times (\left|{S}\right|+\left|{E}\right|))
 在语音信号的识别的推理搜索阶段，解码器功能是对声学模型计算出的声学特征概率和语言模型计算出的语言概率进行组合来得到最大概率的词序列。
 
 在语音识别中，声音信号作为观察到的事件序列，而文本字符串，被看作是隐含的产生声音信号的给定原因，因此可对声音信号应用维特比解码搜索算法寻找最有可能的文本字符串序列，称为语音识别的推理搜索阶段。
-如公式\ref{eq:asr}所示，解码的过程是在给定声学模型和语言模型之后寻找拥有最大概率路径。
+如公式(\ref{eq:asr})所示，解码的过程是在给定声学模型和语言模型之后寻找拥有最大概率路径。
 
 \begin{eqnarray}
 \mathbf{w}^* &=& \arg \max_{\mathbf{w} \in \mathcal{H}}p(\mathbf{O}|\mathbf{w})P(\mathbf{w}) \\
@@ -216,12 +221,12 @@ P(w|{\bf o}_{ut})= y_{ut}(w)
  \end{split}
 \end{equation}
 
-另一方面，在传统解码算法中使用第~\ref{chap:intro2-viterbi}章介绍的维特比搜索，其需要在每一帧进行一次完整的搜索空间搜索过程，并由于是动态规划算法，只需要保留上一帧搜索空间内各点的最优结果。因此如果定义搜索空间内每个状态的平均入度为$I$，结果前文分析和公式(\ref{equ:viterbi-cmp})，则最终的复杂度如下，
+另一方面，在传统解码算法中使用第~\ref{chap:intro2-viterbi}章介绍的维特比搜索，其需要在每一帧进行一次完整的搜索空间搜索过程，并由于是动态规划算法，只需要保留上一帧搜索空间内各点的最优结果。因此如果定义搜索空间内每个状态的平均入度为$I$，结合前文分析和公式(\ref{equ:viterbi-cmp})，则最终的复杂度如下，
 
 \begin{equation}
 \label{equ:dec-cmp-dec}
  \begin{split}
-\mathbb{C} = O(T)\ \mathbb{C}_{frame} = O(T\cdot I)\  \mathbb{C}_{space}
+\mathbb{C}  = O(T\cdot I)\  \mathbb{C}_{space}
  \end{split}
 \end{equation}
 
@@ -244,7 +249,7 @@ P(w|{\bf o}_{ut})= y_{ut}(w)
 \label{chap:intro-lvcsr-decmethod-graph}
 
 根据前面章节讨论，完整的语音信号识别系统由自下而上的五层映射关系组成：语音信号$\mathbf{O}$到HMM状态的观察$\mathbf{s}$，HMM状态到依赖于上下文的音素$\mathbf{c}$，依赖于上下文的音素到单一音素$\mathbf{l}$，音素到单词$\mathbf{w}$，单词到句子。
-具体来说公式~\ref{eq:decode}可以进一步展开如下：
+具体来说公式(\ref{eq:decode})可以进一步展开如下：
 \begin{equation}
  \begin{split}
 \label{eq:decode-sp}
@@ -421,8 +426,8 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
         \cong \mathop{\max}\limits_{\pi\in\mathcal{B}(\mathbf{l})}
            {\prod_{t=1}^{T}{y^{t}_{\pi_{t}}}}
         \end{equation}
-其中， $\mathcal{B}$的定义见公式\ref{equ:ctc-b}。
-因此，公式\ref{eq:ctc-dec}可进一步被推导为如下的帧同步维特比束搜索（Frame Synchronous Viterbi Beam Search, 简称为Frame Synchronous Decoding, FSD）。这里，整体优化搜索空间-WFST，在每一帧都需要被遍历。
+其中， $\mathcal{B}$的定义见公式(\ref{equ:ctc-b})。
+因此，公式(\ref{eq:ctc-dec})可进一步被推导为如下的帧同步维特比束搜索（Frame Synchronous Viterbi Beam Search, 简称为Frame Synchronous Decoding, FSD）。这里，整体优化搜索空间-WFST，在每一帧都需要被遍历。
 
               
     \begin{equation} \label{eq:viterbi-app}
@@ -438,14 +443,14 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
     \end{equation}
 
   
-在FSD框架中，将特征帧的数量除以语句的长度定义为特征速率，标签输出数量除以语句的长度定义为标签速率，而WFST解码的帧数除以语句的长度定义为解码速率。该框架中，三个速率均相等。也就是说， $\prod_{t=1}^{T} y^{t}_{\pi_{t}}$  与帧t有关，而最大迭代次数则与序列可能的对齐方式和词汇量的大小有关。 因此，解码复杂度$\mathbb{C}_{FSD}$ 可表示为：
+在FSD框架中，将特征帧的数量除以语句的长度定义为特征速率，标签输出数量除以语句的长度定义为标签速率，而WFST解码的帧数除以语句的长度定义为解码速率。该框架中，三个速率均相等。也就是说， $\prod_{t=1}^{T} y^{t}_{\pi_{t}}$  与帧t有关，而最大迭代次数则与序列可能的对齐方式和词汇量的大小有关。 因此，根据前述公式(\ref{equ:dec-cmp-dec})，解码复杂度可以表示为$\mathbb{C}_{FSD}$ ：
   \begin{equation}
 \label{equ:complex-fsd}
 \begin{split}
 \mathbb{C}_{FSD} =  O(T)\  \mathbb{C}_{frame}
 \end{split}
 \end{equation}
-其中T是语句中帧的数量，I和$\mathbb{C}_{frame}$分别表示搜索空间内每个状态的平均入度和每一帧搜索解码的总复杂度，定义参见公式\ref{equ:dec-cmp-dec}。
+其中T是语句中帧的数量，I和$\mathbb{C}_{frame}$分别表示搜索空间内每个状态的平均入度和每一帧搜索解码的总复杂度，定义参见公式(\ref{equ:dec-cmp-dec})。
 
 \subsubsection{令牌传递算法}
 
@@ -494,7 +499,9 @@ MPH）表实现语言模型的存储与查取~\cite{li2007fast,cardenal2002fast}
 
 \subsubsection{剪枝}
 
-观察公式（\ref{equ:dec-cmp-dec}），在LVCSR中，搜索空间太大而无法对整个解码网络执行完全搜索。剪枝用于消除解码过程中的低分数路径，从而减少计算量并确保不降低识别性能。根据解码器设计，剪枝可以应用于搜索的各个阶段（例如，开始或结束），或者可以应用于各种级别（例如，单词级别，音素级别，状态级别，令牌级别），但是可以归纳为三个基本类别：
+观察公式（\ref{equ:dec-cmp-dec}），在LVCSR中，搜索空间太大而无法对整个解码网络执行完全搜索。剪枝用于消除解码过程中的低分数路径，从而减少计算量并确保不降低识别性能。换句话说，剪枝技术可以用于降低公式（\ref{equ:dec-cmp-dec}）中的$\mathbb{C}_{space}$一项。
+
+根据解码器设计，剪枝可以应用于搜索的各个阶段（例如，开始或结束），或者可以应用于各种级别（例如，单词级别，音素级别，状态级别，令牌级别），但是可以归纳为三个基本类别：
 
 \begin{itemize}
 \item 束剪枝（Beam pruning） ：束剪枝保留与最优路径分数较近的次优路径。
@@ -619,7 +626,7 @@ N-Best 结果和词图。同时，它也负责对剪枝过程中所剪掉的较�
 \subsection{发展机遇和亟待解决问题}
 \label{chap:intro2-dec-todo}
 
-总体而言，搜索解码问题的复杂度如公式(\ref{equ:complex-fsd})所示；在上述基于WFST，帧同步搜索，令牌传递的推理搜索方法中，实际复杂度展开为$O(T K  I)$，结合语音识别近几年的发展机遇，下面我们将讨论一些可能的优化方向，这其中大部分在本文得到了实现。
+总体而言，搜索解码问题的复杂度如公式(\ref{equ:complex-fsd})所示；在上述基于WFST，帧同步搜索，令牌传递的推理搜索方法中，实际复杂度展开为$O(T\ K\ I)$，结合语音识别近几年的发展机遇，下面我们将讨论一些可能的优化方向，这其中大部分在本文得到了实现。
 
 \begin{enumerate}
 \item 基于GPU并行计算提高解码搜索速度（减少上述$(K  I)$对应部分的计算时间）。
