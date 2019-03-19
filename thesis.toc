@@ -69,7 +69,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}基于HMM的传统序列鉴别性训练}{34}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.3}无词图序列鉴别性训练}{35}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}无词图序列鉴别性训练}{36}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.4}基于CTC的序列建模}{37}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  19 MAR 2019 08:22
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  19 MAR 2019 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2455,7 +2455,7 @@ Underfull \vbox (badness 2035) has occurred while \output is active []
 [30] [31] [32] [33] [34] [35] [36] [37] [38]
 File: figure/e2e-idea.png Graphic file (type bmp)
 <figure/e2e-idea.png>
-) [39] [40]
+[39]) [40]
 \openout2 = `tex/intro2.aux'.
 
 (./tex/intro2.tex
@@ -2748,7 +2748,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 947--947
 ]
 第八章
 
-Underfull \vbox (badness 7558) has occurred while \output is active []
+Underfull \vbox (badness 2020) has occurred while \output is active []
 
 [141] [142] [143]) [144]
 Underfull \hbox (badness 1005) in paragraph at lines 117--117
@@ -2853,12 +2853,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37603 strings out of 492970
- 763902 string characters out of 6137298
+ 37604 strings out of 492970
+ 763935 string characters out of 6137298
  1292104 words of memory out of 5000000
- 40909 multiletter control sequences out of 15000+600000
+ 40910 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (195 pages, 3061504 bytes).
+Output written on thesis.xdv (195 pages, 3065504 bytes).
