@@ -58,7 +58,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--6}{\ignorespaces {\it 针对音素声学置信度的比较}}}{131}{table.7.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{131}{table.7.7}
+\contentsline {table}{\numberline {7--7}{\ignorespaces {\it 基于混淆网络的置信度比较}}}{132}{table.7.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--8}{\ignorespaces {\it KWS 任务}}}{132}{table.7.8}
 \defcounter {refsection}{0}\relax 
@@ -70,9 +70,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {table}{\numberline {7--12}{\ignorespaces {\it 针对是否包含模块化训练的性能比较 }}}{138}{table.7.12}
 \defcounter {refsection}{0}\relax 
-\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{138}{table.7.13}
-\defcounter {refsection}{0}\relax 
-\addvspace {10.0pt}
+\contentsline {table}{\numberline {7--13}{\ignorespaces {\it 是否包含PSD情况下的模型性能和训练速度 }}}{139}{table.7.13}
 \defcounter {refsection}{0}\relax 
 \addvspace {10.0pt}
 \defcounter {refsection}{0}\relax 

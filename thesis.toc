@@ -235,13 +235,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2.3}实验结果}{118}{subsection.7.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.3.1}非固定关键词的关键词检测}{118}{subsubsection.7.2.3.1}
+\contentsline {subsubsection}{\numberline {7.2.3.1}非固定关键词的关键词检测}{119}{subsubsection.7.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.2.3.2}固定关键词的唤醒词识别}{120}{subsubsection.7.2.3.2}
+\contentsline {subsubsection}{\numberline {7.2.3.2}固定关键词的唤醒词识别}{121}{subsubsection.7.2.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.3}多识别任务统一置信度框架}{122}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.1}置信度与搜索空间}{122}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.1}置信度与搜索空间}{123}{subsection.7.3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.1.1}关键词检测}{123}{subsubsection.7.3.1.1}
 \defcounter {refsection}{0}\relax 
@@ -249,13 +249,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.1.3}大词汇连续语音识别}{123}{subsubsection.7.3.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.2}基于标签同步解码的置信度框架}{123}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.2}基于标签同步解码的置信度框架}{124}{subsection.7.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.2.1}标签同步的音素声学置信度}{124}{subsubsection.7.3.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.2.2}基于混淆网络和CTC标签同步解码词图的置信度}{125}{subsubsection.7.3.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.3}基于附属归一化搜索空间的置信度方法}{125}{subsection.7.3.3}
+\contentsline {subsection}{\numberline {7.3.3}基于附属归一化搜索空间的置信度方法}{126}{subsection.7.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.3.1}统一的置信度框架}{126}{subsubsection.7.3.3.1}
 \defcounter {refsection}{0}\relax 
@@ -263,25 +263,25 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.3.3}基于CTC的标签同步解码}{128}{subsubsection.7.3.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.3.4}实验结果}{128}{subsection.7.3.4}
+\contentsline {subsection}{\numberline {7.3.4}实验结果}{129}{subsection.7.3.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.4.1}混淆网络生成质量}{129}{subsubsection.7.3.4.1}
+\contentsline {subsubsection}{\numberline {7.3.4.1}混淆网络生成质量}{130}{subsubsection.7.3.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.3.4.2}置信度评估}{131}{subsubsection.7.3.4.2}
+\contentsline {subsubsection}{\numberline {7.3.4.2}置信度评估}{130}{subsubsection.7.3.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {7.3.4.3}统一解码框架}{132}{subsubsection.7.3.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}基于标签同步解码的声学特征到词的端到端语音识别}{133}{section.7.4}
+\contentsline {section}{\numberline {7.4}基于标签同步解码的声学特征到词的端到端语音识别}{134}{section.7.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.1}训练和解码框架}{134}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.1}训练和解码框架}{135}{subsection.7.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.2}模块化}{135}{subsection.7.4.2}
+\contentsline {subsection}{\numberline {7.4.2}模块化}{136}{subsection.7.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.4.3}标签同步解码}{136}{subsection.7.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.4}联合训练}{136}{subsection.7.4.4}
+\contentsline {subsection}{\numberline {7.4.4}联合训练}{137}{subsection.7.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.4.5}实验结果}{136}{subsection.7.4.5}
+\contentsline {subsection}{\numberline {7.4.5}实验结果}{137}{subsection.7.4.5}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.5}本章小结}{139}{section.7.5}
 \defcounter {refsection}{0}\relax 
@@ -301,6 +301,4 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{攻读学位期间发表的学术论文}{165}{appendix*.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{攻读学位期间申请的专利}{169}{appendix*.9}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{171}{appendix*.10}
+\contentsline {chapter}{攻读学位期间申请的专利}{167}{appendix*.9}

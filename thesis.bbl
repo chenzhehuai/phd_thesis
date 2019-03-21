@@ -6915,6 +6915,49 @@
       \field{pages}{123\bibrangedash 133}
       \range{pages}{11}
     \endentry
+    \entry{chen2019lsd}{article}{}
+      \name{author}{5}{}{%
+        {{hash=1c4d374c630e3002e6c077be470a838e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhehuai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=79007a7d6e9981b386f5f385cc0a34c2}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Wenlu},
+           giveni={W\bibinitperiod}}}%
+        {{hash=f982d7260fd9e30ecc0a8cef6ed9455a}{%
+           family={You},
+           familyi={Y\bibinitperiod},
+           given={Yongbin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8945f0f8c84f5bfcb4ba5f31e3b49586}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Yanmin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5a13dcc79cf0ffe67e50260860f709a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2767f42591701509ff2ecdb3cc63f18}
+      \strng{fullhash}{fa9ea5fd9fd8225147af8011327b1211}
+      \strng{bibnamehash}{b2767f42591701509ff2ecdb3cc63f18}
+      \strng{authorbibnamehash}{b2767f42591701509ff2ecdb3cc63f18}
+      \strng{authornamehash}{b2767f42591701509ff2ecdb3cc63f18}
+      \strng{authorfullhash}{fa9ea5fd9fd8225147af8011327b1211}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chinese Journal of Computers}
+      \field{title}{Label Synchronous Decoding for Speech Recognition}
+      \field{userf}{en}
+      \field{year}{2019}
+    \endentry
     \entry{hori2007efficient}{article}{}
       \name{author}{4}{}{%
         {{hash=3d7f41dab838c920fb9511319762ddf6}{%

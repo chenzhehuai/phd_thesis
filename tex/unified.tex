@@ -69,28 +69,28 @@ $\mathcal{D}$ 是标签的映射函数。 $\mathcal{D}$ 针对词级或者音素
 我们进一步基于最小编辑距离（MED）提出了一个针对CTC推理搜索分布的后处理方法，以便引入音素的混淆性先验知识，增强模型性能。这项工作受到\cite{chaudhari2007improvements}启发, 这里基于LSD音素词图和MED算法~\cite{7736093}来针对音素引入混淆建模。 
 
 %which generates a sub-word lattice on the basis of the output probability distribution of CTC and then performs search.  
-图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于LSD音素词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换。每一种操作的概率由MED算法决定。
+图~\ref{fig:med-framework} 给出了在音素CTC中使用MED算法的框架。在一句音频中，关键词出现于LSD音素词图的概率是用三种编辑距离的概率相乘得到的，它们包括插入，删除，替换操作。每一种操作的概率由MED算法决定。
 
 
-假设$T=\{t_{1}, t_{2},\cdots,t_{n}\}$是一个长度为$n$的目标关键词的音素序列，其中$t_{i}$表示$T$的第$i$个音素。与此类似，$H=\{n_{ij_{1}},n_{(i+1)j_{2}},\cdots,n_{(i+m-1)j_{m}}\}$ 表示假设音素序列，其中$n_{ij}$表示Lattice中第$i$ 列的第$j$个音素结点。为了方便表示，$H$也可表示为$H=\{h_{1},h_{2},\cdots,h_{m}\}$，即$h_{k}=n_{(i+k-1)j_{k}}$。
+我们假设$T=\{t_{1}, t_{2},\cdots,t_{n}\}$是一个为$n$长度的目标关键词的音素序列，其中$t_{i}$表示$T$序列的第$i$个音素。与此相类似，$H=\{n_{ij_{1}},n_{(i+1)j_{2}},\cdots,n_{(i+m-1)j_{m}}\}$ 表示的是候选音素序列，其中$n_{ij}$表示音素词图中第$i$ 列的第$j$个音素结点。为了表示方便，$H$也可表示为$H=\{h_{1},h_{2},\cdots,h_{m}\}$，即$h_{k}=n_{(i+k-1)j_{k}}$。
 
-对于一句测试语句，令$L_{H}$表示包含所有可能音素序列的CTC音素Lattice。那么，目标关键词$T$存在于Lattice $L_{H}$中的概率为
+对于某个测试语句，令$L_{H}$表示所有包含可能音素序列的LSD音素词图。那么，目标关键词$T$存在于音素词图 $L_{H}$中的概率表示为
 \begin{equation}
 P(T|L_{H}) \propto P(L_{H}|T)P(T) \thickapprox P(H_{max}|T)P(T)
 \end{equation}
-其中$H_{max}$表示我们要找到的最相似的音素序列，在Lattice中给定$T$时它应该具有最大的概率。由于$T$是给定的，关键词$T$是否存在于测试语句中取决于$P(H_{max}|T)$ 的值。接下来，我们寻找$H_{max}$
+其中$H_{max}$表示为我们希望找到的最相似的音素序列，在词图中给定$T$时它应该会具有最大的概率值。由于$T$是给定的，关键词$T$是否会存在于测试语句中主要取决于$P(H_{max}|T)$ 的值。接下来，我们尝试寻找$H_{max}$
 \begin{equation}
 \label{equ:hlatt}
 \begin{split}
 H_{max} &= \mathop{\argmax}_{H}{P(H|T)}=\mathop{\argmax}_{H}{\frac{P(T|H)P(H)}{P(T)}} \\ &= \mathop{\argmax}_{H}{P(T|H)P(H)}
 \end{split}
 \end{equation}
-其中$P(H)$是$H$的观察概率，在unigram假设下，它可以通过连乘$H$中每一个音素结点的后验概率得到，即
+其中$P(H)$是$H$的观察概率值，在单阶历史(unigram)假设下，它通过连乘$H$中每一个音素结点的后验概率可以得到，即
 \begin{equation}
 \label{equ:ph}
 P(H) = \mathop{\prod}_{i=1}^{m}{P(h_{i}|H_{1:i-1})} \thickapprox \mathop{\prod}_{i=1}^{m}{P(h_{i})}
 \end{equation}
-$P(T|H)$可以非严格地通过在计算$H$与$T$的最小编辑距离时连乘其每一个编辑操作的发生概率得到，即
+$P(T|H)$可以不严格地通过在计算$H$与$T$的最小编辑距离操作时，连乘它的每一个编辑操作的实际概率值而得到，即
 \begin{equation}
 \label{equ:pth}
 P(T|H) \triangleq \mathop{\prod}_{i=1}^{MED(T,H)}{P(op_{i}|R=T,E=H)}
@@ -102,7 +102,7 @@ P(op_{i}|R=T,E=H) = \begin{cases}
   P(r_{i}|e_{i}) & \text{if } op_{i} \in S
 \end{cases}
 \end{equation}
-其中$MED(T,H)$表示$T$与$H$通过插入、删除、替换操作相互转换为对方的最小编辑距离。$P(op_{i}|R=T,E=H)$表示给定标注序列$R$为$T$并且假设序列$E$为$H$时，$E$与$R$ 之间第$i$个编辑操作$op_{i}$的概率。因为最小编辑距离算法是确定的，并且$E$和$R$已经给定，所以每个编辑操作是已知的。根据操作$op_{i}$的类型，存在三种概率：插入概率$P(insert(e_{i}))$,、删除概率$P(delete(r_{i}))$和替换概率$P(r_{i}|e_{i})$。 $I$、 $D$ 和 $S$ 分别表示插入、删除、替换操作的集合。$e_{i}$和$r_{i}$ 是操作$op_{i}$中涉及到的音素（插入和删除操作涉及一个音素，而替换操作涉及两个音素）并且它们分别属于假设$E$和标注$R$。这三种概率可以由先验知识估计得到。在本文中，它们直接由音素级别的混淆矩阵（confusion matrix）估计得出。混淆矩阵的计算是通过比较ASR识别结果与对应标注的对齐序列得到。
+其中$MED(T,H)$表示$T$与$H$通过插入、删除、替换等操作相互转换得到对方的最小编辑距离。$P(op_{i}|R=T,E=H)$表示给定了标注序列$R$为$T$，并且定义序列$E$为$H$时，$E$与$R$ 之间的第$i$个编辑操作产生$op_{i}$的概率。因为最小编辑距离算法是可以确定的，并且$E$和$R$已经给定了，所以每个编辑操作的效果是已知的。根据操作$op_{i}$的类型分布，存在三种操作概率：插入概率值$P(insert(e_{i}))$,、删除概率值$P(delete(r_{i}))$和替换概率值$P(r_{i}|e_{i})$。 $I$、 $D$ 和 $S$ 分别表示插入、删除、替换操作的组合。$e_{i}$和$r_{i}$ 是操作$op_{i}$中可以涉及到的音素（插入和删除操作将涉及到一个音素，而替换操作将涉及到两个音素）并且它们分别属于假设$E$和标注$R$。这三种概率值可以由先验知识估计得到。在本文中，它们直接由音素级别的混淆矩阵（confusion matrix）来建模得出。混淆矩阵的建模过程是通过去比较ASR识别结果与对应标注的对齐序列通过动态规划得到。
 \begin{equation}
 P(R_{i}|E_{i}) = \frac{P(E_{i}|R_{i})P(R_{i})}{R(E_{i})}=\frac{s(E_{i},R_{i})}{r(R_{i})}\frac{r(R_{i})}{\mathop{\sum}_{x}r(x)}\frac{\mathop{\sum}_{x}e(x)}{e(E_{i})}
 \end{equation}
@@ -112,9 +112,9 @@ P(insert(E_{i})) = \frac{i(E_{i})}{\mathop{\sum}_{x}i(x)}
 \begin{equation}
 P(delete(R_{i})) = \frac{d(R_{i})}{\mathop{\sum}_{x}d(x)}
 \end{equation}
-给定对齐序列，$s(x,y)$是ASR识别结果中音素$x$与标注序列中音素$y$之间的替换操作数量，类似地，$r(y)$ 表示标注中音素$y$的总数，$e(x)$表示ASR识别结果中音素$x$的总数，$i(x)$表示音素$x$的插入数量，$d(y)$表示音素$y$的删除数量。
+给定序列对齐，$s(x,y)$是语音识别结果中的音素$x$与标注序列中的音素$y$之间的操作替换数量，类似地，$r(y)$ 表示标注中所包含的音素$y$的总数，$e(x)$表示语音识别结果中音素$x$的总数，$i(x)$表示音素$x$的插入操作数量，$d(y)$表示音素$y$的删除操作数量。
 
-无需枚举Lattice中所有可能的假设$H$，通过动态规划方法，公式~\ref{equ:hlatt}可以有效地在$O(Nnd)$的时间复杂度内完成计算，其中$N$表示Lattice中结点的总数量，$d$是Lattice的深度。
+无需枚举词图中所有可能的候选序列$H$，只要通过动态规划方法，公式~\ref{equ:hlatt}可以有效地在$O(Nnd)$的时间复杂度内完成计算过程，其中$N$表示词图中结点的总数量，$d$是词图的深度。
 
 
 \begin{figure}[!htp]

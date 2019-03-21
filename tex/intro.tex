@@ -17,7 +17,7 @@
 
 \subsection{特征提取}
 \label{sec:feat_extra}
-语音信号原始形态是一种连续的波形语音，为了能进行 更有效的识别，通常我们会先将连续的波形转换为一个离散的实数序列向量$\mathbf{O}=\left[ \mathbf{o}_1, ..., \mathbf{o}_T \right]^\top$。每个向量是压缩语音变化的表示。这些矢量也称为特征矢量或观察特征矢量。语音信号是准静态信号，因此我们首先需要将其切割成多个重叠的离散段，通常是以10毫秒的间隔向后滑动25毫秒长的窗口。通过此方法提取的段称为帧。汉明窗口或汉宁窗口通常用于平滑，以减少边界效应，然后使用快速傅立叶变换将其从时域特征变换到频域特征。在得到频域上的复数特征后，通过利用不同的后处理方法可以得到不同特征：典型的有感知线性预测系数(Perceptual Linear Prediction, PLP)~\cite{hermansky1990perceptual}和梅尔倒谱系数(Mel-Frequency Cepstral Coefficients, MFCC)~\cite{davis1980comparison}。近来，由于深度神经网络拥有更强大的建模能力，研究者发现保留梅尔滤波器输出中维度之间的相关性的滤波器组特征(Filter Bank Feature, FBANK)~\cite{seide2011feature}更适合于深度神经网络利用，接下来将对这三种特征进行详细介绍：
+语音信号原始形态是一种连续的波形语音，为了能进行 更有效的识别，通常我们会先将连续的波形转换为一个离散的实数序列向量$\mathbf{O}=\left[ \mathbf{o}_1, ..., \mathbf{o}_T \right]^\top$。每个向量是压缩语音变化的表示。这些矢量也称为特征矢量或观察特征矢量。语音信号是准静态信号，因此我们首先需要将其切割成多个重叠的离散段，通常是以10 ms的间隔向后滑动25 ms长的窗口。通过此方法提取的段称为帧。汉明窗口或汉宁窗口通常用于平滑，以减少边界效应，然后使用快速傅立叶变换将其从时域特征变换到频域特征。在得到频域上的复数特征后，通过利用不同的后处理方法可以得到不同特征：典型的有感知线性预测系数(Perceptual Linear Prediction, PLP)~\cite{hermansky1990perceptual}和梅尔倒谱系数(Mel-Frequency Cepstral Coefficients, MFCC)~\cite{davis1980comparison}。近来，由于深度神经网络拥有更强大的建模能力，研究者发现保留梅尔滤波器输出中维度之间的相关性的滤波器组特征(Filter Bank Feature, FBANK)~\cite{seide2011feature}更适合于深度神经网络利用，接下来将对这三种特征进行详细介绍：
 \begin{itemize}
     \item 滤波器组特征 \\
     1. 在获得频谱的复杂特征之后，通常丢弃相位信息，并且仅留下复杂特征的幅度部分。然后通过梅尔频率缩放公式调整频率轴。最后，我们可以得到一个缩放的幅度频域特征：

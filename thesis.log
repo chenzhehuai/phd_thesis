@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  20 MAR 2019 10:20
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  21 MAR 2019 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2045,7 +2045,7 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 
 Package biblatex Warning: Conflicting options.
 (biblatex)                'date=iso' requires 'seconds=true'.
-(biblatex)                Setting 'seconds=true' on input line 53.
+(biblatex)                Setting 'seconds=true' on input line 54.
 
 (c:/texlive/2018/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
@@ -2053,32 +2053,32 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 \l__xeCJK_listings_flag_int=\count482
 ) (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/i
 ntro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/kws.aux) (./tex/gpuwfst.
-aux) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub.aux) (.
-/tex/patents.aux) (./tex/ack.aux))
+aux) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub2.aux) (
+./tex/patents.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 53.
+LaTeX Info: Redefining \selectfont on input line 54.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -2086,63 +2086,63 @@ LaTeX Info: Redefining \selectfont on input line 53.
 .................................................
 \symlegacymaths=\mathgroup12
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 53.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 53.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 53.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 53.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 53.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 53.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 53.
-LaTeX Font Info:    Redeclaring math accent \check on input line 53.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 53.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 53.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 53.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 53.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 54.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 54.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 54.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 54.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 54.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 54.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 54.
+LaTeX Font Info:    Redeclaring math accent \check on input line 54.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 54.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 54.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 54.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 54.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 53.
+(Font)              `operators' in the math version `normal' on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/texgyretermes(0)/m/n on input line 5
-3.
+4.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 53.
+(Font)              `operators' in the math version `bold' on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/texgyretermes(0)/m/n on input line 
-53.
+54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/texgyretermes(0)/m/n --> TU/texgyretermes(0)/m/n on 
-input line 53.
+input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/texgyretermes(0)/m/it on input line
- 53.
+ 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/texgyretermes(0)/bx/n on input line
- 53.
+ 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 53.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 53.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/texgyretermes(0)/m/n --> TU/texgyretermes(0)/bx/n on
- input line 53.
+ input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/texgyretermes(0)/bx/it on input li
-ne 53.
+ne 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 53.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 53.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 54.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -2181,7 +2181,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 53.
+(lastpage)             ! on input line 54.
 Package biblatex Info: Input encoding 'UTF-8' specified.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             Backend will reencode on the fly.
@@ -2190,11 +2190,11 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 53.
-Package biblatex Info: Reference segment=0 on input line 53.
+Package biblatex Info: Reference section=0 on input line 54.
+Package biblatex Info: Reference segment=0 on input line 54.
 \c@lstlisting=\count483
 \AtBeginShipoutBox=\box94
-Package hyperref Info: Link coloring ON on input line 53.
+Package hyperref Info: Link coloring ON on input line 54.
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -2202,9 +2202,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count484
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write5
 \openout5 = `thesis.out'.
@@ -2260,19 +2260,19 @@ Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 99.
 . <->"[fonts/AdobeFangsongStd-Regular.otf]/OT:script=hani;language=DFLT;"
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
-LaTeX Font Info:    Try loading font information for U+msa on input line 58.
+LaTeX Font Info:    Try loading font information for U+msa on input line 59.
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 58.
+LaTeX Font Info:    Try loading font information for U+msb on input line 59.
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 58.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 59.
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 58.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 59.
 (c:/texlive/2018/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 ) [1
@@ -2287,39 +2287,13 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 
 ] [4
 
-]
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf, page 1>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf, page 1>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf, page 1>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf, page 1>
-File: pdf/original.pdf Graphic file (type pdf)
-<use pdf/original.pdf, page 1>
-[5] [6
+] [5
 
-]
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf, page 1>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf, page 1>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf, page 1>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf, page 1>
-File: pdf/authorization.pdf Graphic file (type pdf)
-<use pdf/authorization.pdf, page 1>
-[7] [8
+] [6
+
+] [7
+
+] [8
 
 ]
 \openout2 = `tex/abstract.aux'.
@@ -2712,33 +2686,44 @@ Overfull \hbox (3.00067pt too wide) in paragraph at lines 238--238
 
 File: figure/roc.pdf Graphic file (type pdf)
 <use figure/roc.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [120] [121]
-Underfull \vbox (badness 3724) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [122] [123] [124]
 File: figure/lat-exp.jpg Graphic file (type bmp)
 <figure/lat-exp.jpg>
-[125] [126]
+[125]
+Underfull \vbox (badness 4072) has occurred while \output is active []
+
+[126] [127]
 File: figure/graph_example.png Graphic file (type bmp)
 <figure/graph_example.png>
-[127] [128]
+
+Underfull \vbox (badness 1436) has occurred while \output is active []
+
+[128] [129]
 File: figure/bound-stable.png Graphic file (type bmp)
 <figure/bound-stable.png>
-[129]
 File: figure/latden-cndepth.png Graphic file (type bmp)
 <figure/latden-cndepth.png>
+[130] [131] [132]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 3977) has occurred while \output is active []
+[133]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[130] [131] [132] [133]
+[134]
 File: figure/psd_mod_framework.pdf Graphic file (type pdf)
 <use figure/psd_mod_framework.pdf>
-[134] [135]
+[135] [136]
 Underfull \hbox (badness 10000) in paragraph at lines 947--947
 []|\TU/texgyretermes(0)/m/n/12.045 PER/WER
  []
 
-[136] [137] [138]) [139]
+[137] [138]) [139]
 \openout2 = `tex/summary.aux'.
 
 (./tex/summary.tex [140
@@ -2751,7 +2736,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 947--947
 Underfull \vbox (badness 2020) has occurred while \output is active []
 
 [141] [142] [143]) [144]
-Underfull \hbox (badness 1005) in paragraph at lines 117--117
+Underfull \hbox (badness 1005) in paragraph at lines 118--118
 []\TU/texgyretermes(0)/m/n/12.045 Saduoki Furui. “\TU/texgyretermes(0)/m/it/12.
 045 Unsupervised speaker adaptation based on hierarchical spectral
  []
@@ -2761,44 +2746,56 @@ Underfull \hbox (badness 1005) in paragraph at lines 117--117
 
 
 ] [146] [147] [148] [149] [150] [151] [152] [153]
-Underfull \hbox (badness 1005) in paragraph at lines 117--117
+Underfull \hbox (badness 1005) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 Models\TU/texgyretermes(0)/m/n/12.045 ”. \TU/t
 exgyretermes(0)/m/it/12.045 Annual Conference of International Speech Communica
 tion Association
  []
 
 [154]
-Overfull \hbox (42.24709pt too wide) in paragraph at lines 117--117
+Overfull \hbox (42.24709pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 Word Models for English Conversational Speech 
 Recognition\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1703.07754\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
 [155]
-Overfull \hbox (1.1576pt too wide) in paragraph at lines 117--117
+Overfull \hbox (1.1576pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 English and Mandarin Text Entry on Mobile Devi
 ces\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 arXiv pr
 eprint arXiv:1608.07323\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
 [156]
-Overfull \hbox (0.91684pt too wide) in paragraph at lines 117--117
+Overfull \hbox (0.91684pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 Phone Synchronous Decoding\TU/texgyretermes(0)
 /m/n/12.045 ”. In: \TU/texgyretermes(0)/m/it/12.045 IEEE International Conferen
 ce on Acoustics, Speech
  []
 
 [157] [158] [159] [160]
-Overfull \hbox (52.74632pt too wide) in paragraph at lines 117--117
+Overfull \hbox (52.74632pt too wide) in paragraph at lines 118--118
 \TU/texgyretermes(0)/m/it/12.045 recognition using deep RNN models and WFST-bas
 ed decoding\TU/texgyretermes(0)/m/n/12.045 ”. \TU/texgyretermes(0)/m/it/12.045 
 arXiv preprint arXiv:1507.08240\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
 [161] [162] [163] [164]
-\openout2 = `tex/pub.aux'.
+\openout2 = `tex/pub2.aux'.
 
-(./tex/pub.tex
+(./tex/pub2.tex
+Underfull \hbox (badness 1014) in paragraph at lines 8--9
+[]\TU/AdobeSongStd-Light(0)/bx/n/12.045 第 一 作 者\TU/texgyretermes(0)/m/n/12.045 
+, Progressive Joint Modeling in Unsupervised Single-channel Overlapped
+ []
+
+
+Underfull \hbox (badness 4254) in paragraph at lines 8--9
+\TU/texgyretermes(0)/m/n/12.045 Speech Recognition. IEEE/ACM Transactions on Au
+dio, Speech, and Language
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
@@ -2812,37 +2809,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--23
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 23--24
-\TU/texgyretermes(0)/m/n/12.045 Distillation for Sequence Model, 19th Annual Co
-nference of International Speech
+Underfull \hbox (badness 1360) in paragraph at lines 24--25
+[]\TU/AdobeSongStd-Light(0)/m/n/12.045 第 三 作 者\TU/texgyretermes(0)/m/n/12.045 ,
+ Multi-view LSTM Language Model with Word-synchronized Auxiliary
  []
 
-[166]) [167]
+
+Underfull \hbox (badness 1092) in paragraph at lines 26--27
+[]\TU/AdobeSongStd-Light(0)/m/n/12.045 第 二 作 者\TU/texgyretermes(0)/m/n/12.045 ,
+ An Investigation of Context Clustering for Statistical Speech Synthesis
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 26--27
+\TU/texgyretermes(0)/m/n/12.045 with Deep Neural Network. 16th Annual Conferenc
+e of the International Speech
+ []
+
+) [166]
 \openout2 = `tex/patents.aux'.
 
-(./tex/patents.tex [168
+(./tex/patents.tex) [167
 
 
 
-]) [169]
-\openout2 = `tex/ack.aux'.
-
-(./tex/ack.tex [170
-
-
-
-]) [171] 
+] 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
 (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/int
 ro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/kws.aux) (./tex/gpuwfst.au
-x) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub.aux) (./t
-ex/patents.aux) (./tex/ack.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 131.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
+x) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub2.aux) (./
+tex/patents.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 133.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DD01747AEA85E939B5351BD91E7BB38D.
+(rerunfilecheck)             Checksum: A3ADE8DECD4185D29F2412DFB1531A4D.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2853,12 +2855,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37604 strings out of 492970
- 763935 string characters out of 6137298
- 1292102 words of memory out of 5000000
- 40910 multiletter control sequences out of 15000+600000
+ 37556 strings out of 492970
+ 761812 string characters out of 6137298
+ 1289880 words of memory out of 5000000
+ 40881 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (195 pages, 3065436 bytes).
+Output written on thesis.xdv (191 pages, 3046768 bytes).
