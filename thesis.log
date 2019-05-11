@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  21 MAR 2019 14:58
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.9.10)  5 MAY 2019 17:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2053,8 +2053,8 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 \l__xeCJK_listings_flag_int=\count482
 ) (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/i
 ntro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/kws.aux) (./tex/gpuwfst.
-aux) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub2.aux) (
-./tex/patents.aux))
+aux) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub.aux) (.
+/tex/patents.aux) (./tex/ack.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
@@ -2287,13 +2287,39 @@ File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 
 ] [4
 
-] [5
+]
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf, page 1>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf, page 1>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf, page 1>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf, page 1>
+File: pdf/original.pdf Graphic file (type pdf)
+<use pdf/original.pdf, page 1>
+[5] [6
 
-] [6
-
-] [7
-
-] [8
+]
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf, page 1>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf, page 1>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf, page 1>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf, page 1>
+File: pdf/authorization.pdf Graphic file (type pdf)
+<use pdf/authorization.pdf, page 1>
+[7] [8
 
 ]
 \openout2 = `tex/abstract.aux'.
@@ -2781,21 +2807,9 @@ arXiv preprint arXiv:1507.08240\TU/texgyretermes(0)/m/n/12.045 ,
  []
 
 [161] [162] [163] [164]
-\openout2 = `tex/pub2.aux'.
+\openout2 = `tex/pub.aux'.
 
-(./tex/pub2.tex
-Underfull \hbox (badness 1014) in paragraph at lines 8--9
-[]\TU/AdobeSongStd-Light(0)/bx/n/12.045 第 一 作 者\TU/texgyretermes(0)/m/n/12.045 
-, Progressive Joint Modeling in Unsupervised Single-channel Overlapped
- []
-
-
-Underfull \hbox (badness 4254) in paragraph at lines 8--9
-\TU/texgyretermes(0)/m/n/12.045 Speech Recognition. IEEE/ACM Transactions on Au
-dio, Speech, and Language
- []
-
-
+(./tex/pub.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
@@ -2809,42 +2823,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--23
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 24--25
-[]\TU/AdobeSongStd-Light(0)/m/n/12.045 第 三 作 者\TU/texgyretermes(0)/m/n/12.045 ,
- Multi-view LSTM Language Model with Word-synchronized Auxiliary
+Underfull \hbox (badness 1661) in paragraph at lines 23--24
+\TU/texgyretermes(0)/m/n/12.045 Distillation for Sequence Model, 19th Annual Co
+nference of International Speech
  []
 
-
-Underfull \hbox (badness 1092) in paragraph at lines 26--27
-[]\TU/AdobeSongStd-Light(0)/m/n/12.045 第 二 作 者\TU/texgyretermes(0)/m/n/12.045 ,
- An Investigation of Context Clustering for Statistical Speech Synthesis
- []
-
-
-Underfull \hbox (badness 2158) in paragraph at lines 26--27
-\TU/texgyretermes(0)/m/n/12.045 with Deep Neural Network. 16th Annual Conferenc
-e of the International Speech
- []
-
-) [166]
+[166]) [167]
 \openout2 = `tex/patents.aux'.
 
-(./tex/patents.tex) [167
+(./tex/patents.tex [168
 
 
 
-] 
+]) [169]
+\openout2 = `tex/ack.aux'.
+
+(./tex/ack.tex [170
+
+
+
+]) [171] 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
 (./thesis.aux (./tex/id.aux) (./tex/abstract.aux) (./tex/symbol.aux) (./tex/int
 ro0.aux) (./tex/intro.aux) (./tex/intro2.aux) (./tex/kws.aux) (./tex/gpuwfst.au
-x) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub2.aux) (./
-tex/patents.aux))
+x) (./tex/psd.aux) (./tex/unified.aux) (./tex/summary.aux) (./tex/pub.aux) (./t
+ex/patents.aux) (./tex/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 133.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A3ADE8DECD4185D29F2412DFB1531A4D.
+(rerunfilecheck)             Checksum: DD01747AEA85E939B5351BD91E7BB38D.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -2855,12 +2864,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 37556 strings out of 492970
- 761812 string characters out of 6137298
- 1289880 words of memory out of 5000000
- 40881 multiletter control sequences out of 15000+600000
+ 37607 strings out of 492970
+ 764073 string characters out of 6137298
+ 1293288 words of memory out of 5000000
+ 40913 multiletter control sequences out of 15000+600000
  552352 words of font info for 164 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,21n,80p,10440b,4670s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.xdv (191 pages, 3046768 bytes).
+Output written on thesis.xdv (195 pages, 3068612 bytes).

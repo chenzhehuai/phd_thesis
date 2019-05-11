@@ -604,7 +604,7 @@ CD-DNN-HMM训练可以使用维特比算法来进行，CD-DNN-HMM包含了三个
 生成式模型的传统优化方法是最大似然度（Maximum Likelihood）。根据语音识别的模式分类目标，我们可以有如下的序列级贝叶斯公式推导：
 \begin{equation}
 \begin{split}
-P(\mathbf{w}|\mathbf{O})=\frac {p(\mathbf{O}|\mathbf{w},\theta)P(\mathbf{w})}{p(\mathbf{O})}  
+P(\mathbf{w}|\mathbf{O})=\frac {p(\mathbf{O}|\mathbf{w},\theta)P(\mathbf{w})}{p(\mathbf{O}|\theta)}  
 %y_{ut}(s^{(r)}_{ut})
 \end{split}
 \end{equation}

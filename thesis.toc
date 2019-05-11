@@ -301,4 +301,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{攻读学位期间发表的学术论文}{165}{appendix*.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{攻读学位期间申请的专利}{167}{appendix*.9}
+\contentsline {chapter}{攻读学位期间申请的专利}{169}{appendix*.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{171}{appendix*.10}
