@@ -388,6 +388,14 @@ INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 OUTPUT thesis.xdv
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
+INPUT pdf/result.pdf
 INPUT pdf/original.pdf
 INPUT pdf/original.pdf
 INPUT pdf/original.pdf

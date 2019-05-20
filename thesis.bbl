@@ -74,7 +74,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{1}
       \field{title}{The {DRAGON} system--an overview}
       \field{userf}{en}
@@ -185,7 +185,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{5}
       \field{title}{Speaker adaptation using constrained estimation of Gaussian mixtures}
       \field{userf}{en}
@@ -215,7 +215,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{12}
       \field{title}{Unsupervised speaker adaptation based on hierarchical spectral clustering}
       \field{userf}{en}
@@ -363,7 +363,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{2}
       \field{title}{Maximum a posteriori estimation for multivariate Gaussian mixture observations of Markov chains}
       \field{userf}{en}
@@ -754,7 +754,7 @@
       \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{3}
       \field{title}{Minimum classification error rate methods for speech recognition}
       \field{userf}{en}
@@ -1035,7 +1035,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{title}{Context-dependent pre-trained deep neural networks for large-vocabulary speech recognition}
       \field{userf}{en}
       \field{volume}{20}
@@ -1189,7 +1189,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{A time delay neural network architecture for efficient modeling of long temporal contexts}
       \field{userf}{en}
       \field{year}{2015}
@@ -1314,7 +1314,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Deep convolutional neural networks with layer-wise context expansion and attention.}
       \field{userf}{en}
       \field{year}{2016}
@@ -1505,7 +1505,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{3}
       \field{title}{Estimation of probabilities from sparse data for the language model component of a speech recognizer}
       \field{userf}{en}
@@ -1602,7 +1602,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Recurrent neural network based language model.}
       \field{userf}{en}
       \field{volume}{2}
@@ -1714,7 +1714,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Knowledge Distillation for Sequence Model.}
       \field{userf}{en}
       \field{year}{2018}
@@ -1772,7 +1772,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{title}{Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences}
       \field{userf}{en}
       \field{volume}{28}
@@ -1844,7 +1844,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Acoustics, Speech, and Signal Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{1}
       \field{title}{Speaker-independent isolated word recognition using dynamic features of speech spectrum}
       \field{userf}{en}
@@ -2019,7 +2019,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{6}
       \field{title}{Automatic transcription of conversational telephone speech}
       \field{userf}{en}
@@ -2495,7 +2495,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Sequence discriminative distributed training of long short-term memory recurrent neural networks}
       \field{userf}{en}
       \field{year}{2014}
@@ -2892,7 +2892,7 @@
       \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Conversational speech transcription using context-dependent deep neural networks.}
       \field{userf}{en}
       \field{year}{2011}
@@ -3124,7 +3124,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Pronunciation and silence probability modeling for ASR.}
       \field{userf}{en}
       \field{year}{2015}
@@ -3184,7 +3184,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Purely sequence-trained neural networks for ASR based on lattice-free MMI}
       \field{userf}{en}
       \field{year}{2016}
@@ -3240,7 +3240,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{5}
       \field{title}{Advances in speech transcription at IBM under the DARPA EARS program}
       \field{userf}{en}
@@ -3282,7 +3282,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{End-to-end speech recognition using lattice-free MMI}
       \field{userf}{en}
       \field{year}{2018}
@@ -3660,7 +3660,7 @@
       \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE transactions on speech and audio processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{5}
       \field{title}{Data mining for detecting errors in dictation speech recognition}
       \field{userf}{en}
@@ -4144,7 +4144,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{A fully data parallel WFST-based large vocabulary continuous speech recognition on a graphics processing unit}
       \field{userf}{en}
       \field{year}{2009}
@@ -4265,7 +4265,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Lower Frame Rate Neural Network Acoustic Models}
       \field{userf}{en}
       \field{year}{2016}
@@ -4305,7 +4305,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Phone Synchronous Decoding with CTC Lattice}
       \field{userf}{en}
       \field{year}{2016}
@@ -4624,7 +4624,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Fast N-Gram language model look-ahead for decoders with static pronunciation prefix trees}
       \field{userf}{en}
       \field{year}{2008}
@@ -4748,7 +4748,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Search space pruning based on anticipated path recombination in lvcsr}
       \field{userf}{en}
       \field{year}{2012}
@@ -4929,7 +4929,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{A new DNN-based high quality pronunciation evaluation for computer-aided language learning (CALL).}
       \field{userf}{en}
       \field{year}{2013}
@@ -4964,7 +4964,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Twelfth Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Fusing Multiple Confidence Measures for Chinese Spoken Term Detection}
       \field{userf}{en}
       \field{year}{2011}
@@ -4997,7 +4997,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Acoustic and word lattice based algorithms for confidence scores.}
       \field{userf}{en}
       \field{year}{2002}
@@ -5059,7 +5059,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Audio, Speech, and Language Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{8}
       \field{title}{Calibration of confidence measures in speech recognition}
       \field{userf}{en}
@@ -5133,7 +5133,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on speech and audio processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{3}
       \field{title}{Confidence measures for large vocabulary continuous speech recognition}
       \field{userf}{en}
@@ -5544,7 +5544,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Convolutional neural networks for small-footprint keyword spotting}
       \field{userf}{en}
       \field{year}{2015}
@@ -5577,7 +5577,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Transactions on Speech and Audio Processing}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{6}
       \field{title}{Vocabulary independent discriminative utterance verification for nonkeyword rejection in subword based speech recognition}
       \field{userf}{en}
@@ -5609,7 +5609,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Keyword-based discriminative training of acoustic models.}
       \field{userf}{en}
       \field{year}{2000}
@@ -5732,7 +5732,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Hypothesis spaces for minimum Bayes risk training in large vocabulary speech recognition.}
       \field{userf}{en}
       \field{volume}{6}
@@ -5763,7 +5763,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Non-Uniform Boosted MCE Training of Deep Neural Networks for Keyword Spotting}
       \field{userf}{en}
       \field{year}{2016}
@@ -5987,7 +5987,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Sequence-discriminative training of deep neural networks.}
       \field{userf}{en}
       \field{year}{2013}
@@ -6546,7 +6546,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE transactions on computers}
+      \field{journaltitle}{IEEE Transactions on Computers}
       \field{number}{9}
       \field{title}{How to make a multiprocessor computer that correctly executes multiprocess progranm}
       \field{userf}{en}
@@ -6834,7 +6834,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Frame based system combination and a comparison with weighted ROVER and CNC.}
       \field{userf}{en}
       \field{year}{2006}
@@ -6994,7 +6994,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Audio, Speech, and Language Processing, IEEE Transactions on}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{4}
       \field{title}{Efficient WFST-based one-pass decoding with on-the-fly hypothesis rescoring in extremely large vocabulary continuous speech recognition}
       \field{userf}{en}
@@ -7201,7 +7201,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2016 IEEE International Conference on Acoustics, Speech and Signal Processing}
+      \field{booktitle}{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}
       \field{title}{An empirical exploration of CTC acoustic models}
       \field{userf}{en}
       \field{year}{2016}
@@ -7465,7 +7465,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of the International Speech Communication Association}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Improvements to the Pruning Behavior of DNN Acoustic Models}
       \field{userf}{en}
       \field{year}{2015}
@@ -7503,7 +7503,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Unrestricted Vocabulary Keyword Spotting Using LSTM-CTC}
       \field{userf}{en}
       \field{year}{2016}
@@ -7706,7 +7706,7 @@
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{booktitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Phone Synchronous Decoding with CTC Lattice}
       \field{userf}{en}
       \field{year}{2016}
@@ -7929,7 +7929,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Audio, Speech, and Language Processing, IEEE Transactions on}
+      \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}
       \field{number}{4}
       \field{title}{A bottom-up modular search approach to large vocabulary continuous speech recognition}
       \field{userf}{en}
@@ -8059,7 +8059,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{Recurrent Neural Aligner: An Encoder-Decoder Neural Network Model for Sequence to Sequence Mapping}
       \field{userf}{en}
       \field{year}{2017}
@@ -8109,7 +8109,7 @@
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Conference of International Speech Communication Association {(INTERSPEECH)}}
+      \field{journaltitle}{Annual Conference of International Speech Communication Association {(InterSpeech)}}
       \field{title}{A Comparison of Sequence-to-Sequence Models for Speech Recognition}
       \field{userf}{en}
       \field{year}{2017}

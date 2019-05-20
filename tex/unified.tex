@@ -85,7 +85,7 @@ P(T|L_{H}) \propto P(L_{H}|T)P(T) \thickapprox P(H_{max}|T)P(T)
 H_{max} &= \mathop{\argmax}_{H}{P(H|T)}=\mathop{\argmax}_{H}{\frac{P(T|H)P(H)}{P(T)}} \\ &= \mathop{\argmax}_{H}{P(T|H)P(H)}
 \end{split}
 \end{equation}
-其中$P(H)$是$H$的观察概率值，在单阶历史(unigram)假设下，它通过连乘$H$中每一个音素结点的后验概率可以得到，即
+其中$P(H)$是$H$的观察概率值，在单阶历史(Unigram)假设下，它通过连乘$H$中每一个音素结点的后验概率可以得到，即
 \begin{equation}
 \label{equ:ph}
 P(H) = \mathop{\prod}_{i=1}^{m}{P(h_{i}|H_{1:i-1})} \thickapprox \mathop{\prod}_{i=1}^{m}{P(h_{i})}
@@ -140,7 +140,7 @@ P(delete(R_{i})) = \frac{d(R_{i})}{\mathop{\sum}_{x}d(x)}
 
 \subsection{实验结果}
 
-本章节在非固定关键词的关键词检测和固定关键词的唤醒词识别任务上都进行了验证，采用与第\ref{chap:kws}章节相同的数据集，实验配置，和评价指标。我们也绘出了receiver operating characteristic (ROC) 曲线，以总结实验结果。
+本章节在非固定关键词的关键词检测和固定关键词的唤醒词识别任务上都进行了验证，采用与第\ref{chap:kws}章节相同的数据集，实验配置，和评价指标。我们也绘出了Receiver Operating Characteristic (ROC) 曲线，以总结实验结果。
 CTC模型的配置详见 \cite{7736093}。我们使用单向 每层384节点的两层LSTM 进行实验，其带有 128 个节点的映射层。
 CTC MED后处理方法, 表示为 {\em{MED}}, 并使用\cite{7736093}中提出的固定阈值方法。
 我们在第\ref{sec:exp-lsd-lat-quality}章节针对LSD音素词图质量进行了细致的分析。
@@ -316,10 +316,10 @@ kw-filler系统在未来的工作中可以使用前述的标签同步解码算�
 
 要为所有的ASR应用设计一套统一的推理搜索框架，并取得最好的性能和速度，是一项非常有挑战的研究。这里面的关键点在于： i) 如何对最佳识别结果进行规范化，以得到对该最佳结果的置信度估计，也就是置信度中的归一化项的建模
     ii) 如何保证在低功耗设备中的计算量控制在一个较小范围内，比如关键词检测技术就经常被用于个人助理情况，需要对功耗进行优化。
-    {\em Keyword-filler}方法~\cite{young1994detecting} 和 {\em utterance verification}~\cite{rose1995training} 方法都可以视为这方面的尝试。比如，在关键词检测中，一些研究提出使用上下文无关的(CI) 语言学单元，称为 $\tt filler$ 来对所有非关键词部分进行建模，而这种建模往往是不完美的。
+    {\em Keyword-filler}方法~\cite{young1994detecting} 和 {\em Utterance Verification}~\cite{rose1995training} 方法都可以视为这方面的尝试。比如，在关键词检测中，一些研究提出使用上下文无关的(CI) 语言学单元，称为 $\tt filler$ 来对所有非关键词部分进行建模，而这种建模往往是不完美的。
     在基于上下文的语音识别中，这种框架更加受制于较弱的上下文建模能力，而这将影响 $\tt filler$ 的识别效果。
     %More elaborated $\tt filler$~\cite{el1997accurate}, e.g., CD $\tt filler$, is proposed to improve the recognition but brings about further computational burden without significant improvement.
-    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em maximum a posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其它任务中结论不尽相同。
+    在LVCSR中，理论上更好的办法是基于识别结果的后验概率方法的置信度~\cite{wessel2001confidence}, 也就是前文讨论的第二种置信度。 在这种置信度里，ASR被建模为  {\em Maximum a Posterior} (MAP) 过程：给定句子，求取当前识别结果的后验概率，并将其作为置信度。而这里的观察概率（归一化项）使用针对搜索空间的所有可能候选概率求和来得到。由于ASR搜索空间很大，词图建模很耗时。在LVCSR中，这种框架往往取得最好的效果，但在其它任务中结论不尽相同。
 
     鉴别性训练领域，有些研究采用一个特别设计的音素语言模型作为搜索空间来代替词图，该方法显示出了较好的性能~\cite{chen2006advances}\cite{povey2016purely}。受此启发，我们尝试将这样的音素语言模型应用到置信度的归一化项的建模当中，由此我们提出了辅助归一化搜索空间的概念。我们尝试使用这样的搜索空间来建模所有ASR应用领域的置信度。 % and CM can be obtained in an unified framework
     
@@ -349,7 +349,7 @@ kw-filler系统在未来的工作中可以使用前述的标签同步解码算�
 
   在 {\em 大词汇连续语音识别} (LVCSR)~\cite{woodland1994large}中,  搜索空间由N元语言模型进行建模。为了支持语言学后处理~\cite{hakkani2006beyond}, CM被用来提供对语音识别结果的可靠度分析。
   基于识别结果后验概率的CM~\cite{wessel2001confidence}是LVCSR中最通用的置信度方法。
-  在这一框架中，ASR使用 {\em maximum a posterior} (MAP) 决策过程进行建模。给定整个特征序列的ASR输出的后验概率被作为句子的置信度。 对于MAP的归一化项，即观察概率建模，使用的是所有识别结果组成的搜索空间的后验概率求和。由于语音识别的搜索空间很大，通常这一过程由解码得到的词图来进行限制。
+  在这一框架中，ASR使用 {\em Maximum a Posterior} (MAP) 决策过程进行建模。给定整个特征序列的ASR输出的后验概率被作为句子的置信度。 对于MAP的归一化项，即观察概率建模，使用的是所有识别结果组成的搜索空间的后验概率求和。由于语音识别的搜索空间很大，通常这一过程由解码得到的词图来进行限制。
 
 
 \subsection{基于标签同步解码的置信度框架}
@@ -422,7 +422,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 \subsubsection{基于混淆网络和CTC标签同步解码词图的置信度}
 \label{sec:psd-cn-conf}
 
-类似于 \cite{evermann2000large}中的做法，这里生成第\ref{sec:intro-cm}章节介绍的混淆网络（CN）主要有两步: a) 从音素级别的标签同步LSD音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中提出的 pivot clustering 算法使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于LSD音素词图非常紧致，因此 CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
+类似于 \cite{evermann2000large}中的做法，这里生成第\ref{sec:intro-cm}章节介绍的混淆网络（CN）主要有两步: a) 从音素级别的标签同步LSD音素词图（图~\ref{fig:ctc-lat-exp}）中产生词级词图; b) 将词级词图转换为混淆网络，利用其包含的时间边界信息。在 \cite{hakkani2006beyond}中提出的 Pivot Clustering 算法使得混淆网络生成复杂度为 $O(n)$ , $n$ 为词图的边数。在这项工作中，我们将最优路径视为pivot, 由于LSD音素词图非常紧致，因此 CN 产生的过程非常高效。在CN的构建过程中, 我们需要计算词后验概率，而其自然地成为了词级置信度。
 
 
 
@@ -530,7 +530,7 @@ $j$ 是音素序列的索引 (i.e.  \cite{zhc00-chen-tasl2017}中定义的非$\t
 我们的置信度实验主要在300小时Switchboard上进行。而针对多种任务的融合框架则在后面介绍。
 我们训练得到了上下文相关的状态级别HMM (CD-state-HMM) 和上下文无关的音素级别CTC (CI-phone-CTC) 。 训练的配置与解码配置和上文相似  \cite{zhc00-chen-tasl2017}。
 所有的模型都使用大约 2-2.5M 参数，以便进行公平比较。
-在测试中， 我们使用NIST Hub5e00 测试集的switchboard子集 (1831 句子) 。对CTC模型，我们测试FSD和LSD两种方法。
+在测试中， 我们使用NIST Hub5e00 测试集的Switchboard子集 (1831 句子) 。对CTC模型，我们测试FSD和LSD两种方法。
 表~\ref{tab:asr-baseline} 给出了不同模型和解码框架下的基础性能，其与前文保持一致。
 
 
