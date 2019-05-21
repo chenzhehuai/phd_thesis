@@ -6516,15 +6516,6 @@
       \field{userf}{en}
       \field{year}{2009}
     \endentry
-    \entry{cuda9}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{http://docs.nvidia.com/cuda/}}
-      \field{note}{Accessed: 2018-03-17}
-      \field{title}{CUDA Toolkit Documentation}
-      \field{userf}{en}
-    \endentry
     \entry{lamport1979make}{article}{}
       \name{author}{1}{}{%
         {{hash=5d77435450d10a850a5b58577b9a456b}{%
@@ -7925,8 +7916,8 @@
       \strng{authorbibnamehash}{f85e80bfbb4175a587df951e5904581a}
       \strng{authornamehash}{f85e80bfbb4175a587df951e5904581a}
       \strng{authorfullhash}{f85e80bfbb4175a587df951e5904581a}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE/ACM Transactions on Audio, Speech, and Language Processing}

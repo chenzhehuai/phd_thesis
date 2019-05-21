@@ -72,6 +72,7 @@
 \RequirePackage{calc}
 \RequirePackage{algorithm}
 \RequirePackage[noend]{algpseudocode}
+\RequirePackage{url}
 
 %==========
 % Segment 2. Define general-purpose LaTeX commands.

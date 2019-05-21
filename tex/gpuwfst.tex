@@ -153,7 +153,7 @@ ii) 这些方法并不通用，常常受制于特定的声学或语言模型，�
 %\EndProcedure
 \end{algorithmic}
 \end{algorithm}
-\footnotetext{\textit{atomicMin}({\em{*address}}, {\em{val}})~\cite{cuda9}. Computes \textit{min}({\em{*address}}, {\em{val}}), writes the result to {\em{address}}, and returns the original {\em{*address}} .}
+\footnotetext{\textit{atomicMin}({\em{*address}}, {\em{val}}). Computes \textit{min}({\em{*address}}, {\em{val}}), writes the result to {\em{address}}, and returns the original {\em{*address}} .}
 
 %\textit{atomicMin}(address, val). Read the 64-bit {\em{old}} located at the {\em{address}}, computes the \textit{min} of {\em{old}} and {\em{val}}, and stores the result to {\em{address}}~\cite{cuda9}.}
 %\vspace{-1em}
@@ -361,7 +361,7 @@ iii) 我们将额外权重迭代更新实现为一个原子操作，以减小同
 %We mainly focus on time of the search process  (explain why), give general RTF in text/footnote with single stream (with multi-stream, the speed could be even faster). Notice that RTF from kaldi log should be divided by 3.
 在1-best和词图解码中，我们分别取得了15倍和9.7倍的加速。这里的大部分加速来自于平行处理WFST的节点和边的过程。
 %
-当我们使用GPU的并行技术Multi-Process Service (MPS)时，我们可以得到46倍的序列并行加速比。MPS是一种减小GPU context切换损耗的技术~\cite{cuda9}。
+当我们使用GPU的并行技术Multi-Process Service (MPS)时，我们可以得到46倍的序列并行加速比。MPS是一种减小GPU context切换损耗的技术。
 作为对比，我们在CPU上使用了类似的序列并行技术，但仅取得了1.8倍的加速比。
 %
 
